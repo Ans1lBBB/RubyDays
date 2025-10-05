@@ -4,78 +4,227 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>小主日記 - 隱私權聲明</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+TC:wght@400;500;700&family=Noto+Serif+SC:wght@400;500;700&family=Playfair+Display:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&family=Noto+Serif+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #E8B4B8;
-            --secondary: #D8A7B1;
-            --accent: #B8C4D8;
-            --text: #5A5A5A;
-            --light-bg: #FFF9FB;
+            --primary: #FFB6C1;
+            --secondary: #FFC8DD;
+            --accent: #CDB4DB;
+            --text: #6D6875;
+            --light-bg: #FFF0F5;
             --card-bg: #FFFFFF;
+            --shadow: rgba(255, 182, 193, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Noto Serif TC', serif;
             line-height: 1.7;
-            margin: 0;
-            padding: 20px;
-            background: var(--light-bg);
+            background: linear-gradient(135deg, #FFF0F5 0%, #F8F8FF 100%);
             color: var(--text);
-            padding-bottom: 100px;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* 字型設定 */
+        body:lang(zh-TW) {
+            font-family: 'Noto Serif TC', serif;
+        }
+        body:lang(zh) {
+            font-family: 'Noto Serif SC', serif;
+        }
+        body:lang(en) {
+            font-family: 'Playfair Display', serif;
+        }
+        body:lang(ja) {
+            font-family: 'Noto Serif JP', serif;
+        }
+        body:lang(ko) {
+            font-family: 'Noto Serif KR', serif;
+        }
+
+        .floating-element {
+            position: absolute;
+            z-index: 0;
+            opacity: 0.1;
+        }
+
+        .floating-element-1 {
+            top: 10%;
+            left: 5%;
+            font-size: 60px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element-2 {
+            top: 15%;
+            right: 8%;
+            font-size: 45px;
+            animation: float 7s ease-in-out infinite 1s;
+        }
+
+        .floating-element-3 {
+            bottom: 20%;
+            left: 7%;
+            font-size: 50px;
+            animation: float 5s ease-in-out infinite 0.5s;
+        }
+
+        .floating-element-4 {
+            bottom: 15%;
+            right: 5%;
+            font-size: 55px;
+            animation: float 8s ease-in-out infinite 1.5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         .header {
             text-align: center;
-            padding: 30px 0;
+            padding: 40px 0 30px;
             position: relative;
         }
 
-        .logo-text {
-            font-size: 2.5rem;
-            font-weight: bold;
+        .logo-container {
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            max-width: 300px;
+            height: auto;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+        }
+
+        .header-subtitle {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 1.8rem;
             color: #B76E79;
             margin-bottom: 10px;
             letter-spacing: 2px;
         }
 
-        .header-subtitle {
-            font-size: 1.1rem;
+        .header-description {
+            font-size: 1rem;
             color: #8C7B6D;
-            margin-top: -5px;
-            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto 15px;
+            line-height: 1.6;
+            text-align: center;
         }
 
         .effective-date {
-            color: #888;
+            color: #A89B9D;
             font-size: 0.9rem;
             margin-top: 10px;
+            text-align: center;
+        }
+
+        .language-toggle {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 25px 0;
+        }
+
+        .lang-btn {
+            padding: 8px 18px;
+            border: 2px solid var(--primary);
+            border-radius: 25px;
+            background: white;
+            color: var(--primary);
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--shadow);
         }
 
         .policy-container {
-            max-width: 900px;
-            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
         }
 
-        .policy-section {
+        @media (max-width: 768px) {
+            .policy-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .policy-card {
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 20px;
             padding: 30px;
-            margin: 25px 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            transition: all 0.3s;
             position: relative;
             overflow: hidden;
-            border-left: 4px solid var(--primary);
+            border: 1px solid rgba(255, 182, 193, 0.2);
+            text-align: left;
+        }
+
+        .policy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px var(--shadow);
+        }
+
+        .policy-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
         }
 
         h2 {
             color: #B76E79;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin: 0 0 20px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            text-align: center;
+            justify-content: center;
+        }
+
+        h2 i {
+            font-size: 1.6rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 182, 193, 0.15);
+            border-radius: 50%;
         }
 
         p {
@@ -88,227 +237,323 @@
             color: #B76E79;
             font-weight: bold;
             margin: 20px auto;
-            padding: 12px 25px;
-            background: #FFF0F2;
-            border-radius: 8px;
+            padding: 15px 20px;
+            background: #FFF0F5;
+            border-radius: 15px;
             display: block;
             text-align: center;
-            width: fit-content;
-            max-width: 90%;
-            border: 1px solid #F8D7DA;
+            border: 1px solid #FFD1DC;
+            position: relative;
+            max-width: 80%;
         }
 
-        .language-toggle {
-            text-align: center;
-            margin: 20px 0;
+        .highlight::before {
+            content: '✨';
+            margin-right: 8px;
         }
 
-        .language-toggle button {
-            padding: 8px 16px;
-            border: 1px solid var(--primary);
-            border-radius: 20px;
-            background: white;
-            color: var(--primary);
-            font-weight: bold;
-            cursor: pointer;
-            margin: 5px;
-            transition: all 0.3s;
-        }
-
-        .language-toggle button:hover, .language-toggle button.active {
-            background: var(--primary);
-            color: white;
-        }
-
-        .contact-button {
-            display: inline-block;
-            padding: 12px 30px;
-            background: #B76E79;
-            color: white;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-
-        .contact-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(183,110,121,0.3);
-        }
-
-        /* 裝飾元素 */
-        .decoration {
-            position: absolute;
-            opacity: 0.1;
-            z-index: 0;
-        }
-
-        .decoration-1 {
-            top: 20px;
-            right: 20px;
-            font-size: 80px;
-            color: var(--primary);
-        }
-
-        .decoration-2 {
-            bottom: 20px;
-            left: 20px;
-            font-size: 60px;
-            color: var(--accent);
-        }
-
-        /* 頁腳 */
-        .footer {
-            text-align: center;
-            margin-top: 50px;
-            color: #888;
-            font-size: 0.9rem;
-            padding: 20px;
-        }
-
-        /* 響應式調整 */
-        @media (max-width: 768px) {
-            .policy-section {
-                padding: 20px;
-            }
-            
-            .highlight {
-                max-width: 95%;
-                padding: 10px 15px;
-            }
-            
-            h2 {
-                font-size: 1.3rem;
-            }
-        }
-
-        /* 清單樣式 */
         ul {
             padding-left: 20px;
+            margin: 15px 0;
         }
         
         li {
             margin-bottom: 10px;
+            position: relative;
+            padding-left: 10px;
+        }
+        
+        li::before {
+            content: '🌸';
+            margin-right: 8px;
         }
         
         .disclaimer-box {
-            background: #FFF3F5;
-            border: 1px solid #F8D7DA;
-            border-radius: 8px;
-            padding: 15px;
+            background: #FFF8F8;
+            border: 1px solid #FFD1DC;
+            border-radius: 15px;
+            padding: 20px;
             margin: 20px 0;
+            position: relative;
+            text-align: center;
+        }
+        
+        .disclaimer-box::before {
+            content: '💖';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: white;
+            padding: 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .contact-section {
+            grid-column: 1 / -1;
+            text-align: center;
+            background: linear-gradient(135deg, #FFF0F5 0%, #F0F8FF 100%);
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.05"><path d="M30,30 Q50,10 70,30 T90,50 T70,70 T50,90 T30,70 T10,50 T30,30 Z" fill="%23B76E79"/></svg>');
+            background-size: 80px 80px;
+        }
+
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(183, 110, 121, 0.3);
+            margin-top: 15px;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(183, 110, 121, 0.4);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #A89B9D;
+            font-size: 0.9rem;
+            padding: 20px;
+        }
+
+        /* 魔法書籤導航 */
+        .magic-nav {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .magic-tab {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(183, 110, 121, 0.4);
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .magic-tab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(183, 110, 121, 0.6);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 5px 15px rgba(183, 110, 121, 0.4); }
+            50% { box-shadow: 0 5px 20px rgba(183, 110, 121, 0.7); }
+            100% { box-shadow: 0 5px 15px rgba(183, 110, 121, 0.4); }
+        }
+
+        .magic-buttons {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            background: white;
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            display: none;
+            flex-direction: column;
+            gap: 15px;
+            width: 200px;
+            border: 1px solid #FFE4E9;
+        }
+
+        .magic-nav:hover .magic-buttons {
+            display: flex;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .magic-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text);
+            text-decoration: none;
+            padding: 12px 15px;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .magic-link:hover {
+            background: #FFF0F5;
+            transform: translateX(-5px);
+        }
+
+        .magic-link i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="decoration decoration-1">🌸</div>
-        <div class="decoration decoration-2">📜</div>
-        
-        <div class="logo-text">小主日記</div>
-        <div class="header-subtitle" id="header-subtitle">老中醫月經養生手扎</div>
-        <p class="effective-date" id="effective-date">生效日期：2025年10月10日</p>
-    </div>
+    <!-- 漂浮裝飾元素 -->
+    <div class="floating-element floating-element-1">🌸</div>
+    <div class="floating-element floating-element-2">💕</div>
+    <div class="floating-element floating-element-3">📜</div>
+    <div class="floating-element floating-element-4">✨</div>
     
-    <div class="language-toggle">
-        <button onclick="switchLanguage('zh_tw')" class="active">繁體中文</button>
-        <button onclick="switchLanguage('zh')">简体中文</button>
-        <button onclick="switchLanguage('en')">English</button>
-        <button onclick="switchLanguage('ja')">日本語</button>
-        <button onclick="switchLanguage('ko')">한국어</button>
-    </div>
-
-    <div class="policy-container">
-        <!-- 資料保護 -->
-        <div class="policy-section">
-            <h2><i class="fas fa-user-shield"></i> <span id="dataProtection-title">資料保護承諾</span></h2>
-            <p id="dataProtection-text">小主日記致力於保護您的隱私，讓您安心記錄生理週期與養生筆記。</p>
-            
-            <div class="disclaimer-box">
-                <p><strong>重要說明：</strong> <span id="disclaimer-text">本應用程式僅為個人健康記錄工具，不提供醫療診斷或治療建議。所有健康相關決策應諮詢合格醫療專業人員。</span></p>
+    <div class="container">
+        <div class="header">
+            <div class="logo-container">
+                <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_logo.png" alt="小主日記" class="logo">
             </div>
-            
-            <span class="highlight" id="dataProtection-highlight">我們承諾：</span>
-            <ul id="dataProtection-list">
-                <li>不收集個人身份識別資訊</li>
-                <li>所有健康數據僅儲存於您的設備中</li>
-                <li>不會與第三方分享您的個人數據</li>
-            </ul>
+            <div class="header-subtitle" id="header-subtitle">老中醫月經養生手扎</div>
+            <p class="header-description" id="header-description">記錄妳的專屬生理週期，探索中醫養生智慧，陪伴每個特別的日子</p>
+            <p class="effective-date" id="effective-date">生效日期：2025年10月10日</p>
+        </div>
+        
+        <div class="language-toggle">
+            <button class="lang-btn active" onclick="switchLanguage('zh_tw')"><i class="fas fa-language"></i> 繁體中文</button>
+            <button class="lang-btn" onclick="switchLanguage('zh')"><i class="fas fa-language"></i> 简体中文</button>
+            <button class="lang-btn" onclick="switchLanguage('en')"><i class="fas fa-language"></i> English</button>
+            <button class="lang-btn" onclick="switchLanguage('ja')"><i class="fas fa-language"></i> 日本語</button>
+            <button class="lang-btn" onclick="switchLanguage('ko')"><i class="fas fa-language"></i> 한국어</button>
         </div>
 
-        <!-- 數據收集與使用 -->
-        <div class="policy-section">
-            <h2><i class="fas fa-database"></i> <span id="dataCollection-title">數據收集與使用</span></h2>
-            <p id="dataCollection-text">我們僅收集必要的匿名數據以改善應用程式體驗：</p>
-            <ul id="dataCollection-list">
-                <li>應用程式使用統計（功能使用頻率等）</li>
-                <li>技術診斷資訊（應用程式穩定性）</li>
-                <li>用戶反饋與建議</li>
-            </ul>
-            <p id="dataCollection-note">您的生理週期記錄、養生筆記等敏感數據僅儲存於您的設備中，不會上傳至我們的伺服器。</p>
+        <div class="policy-container">
+            <!-- 資料保護 -->
+            <div class="policy-card">
+                <h2><i class="fas fa-user-shield"></i> <span id="dataProtection-title">資料保護承諾</span></h2>
+                <p id="dataProtection-text">小主日記致力於保護妳的隱私，讓妳安心記錄生理週期與養生筆記，就像一位貼心的閨蜜，默默守護著妳的小秘密～</p>
+                
+                <div class="disclaimer-box">
+                    <p><strong id="disclaimer-title">💝 小主請注意：</strong> <span id="disclaimer-text">本應用程式僅為個人健康記錄工具，不提供醫療診斷或治療建議。所有健康相關決策應諮詢合格醫療專業人員唷！</span></p>
+                </div>
+                
+                <span class="highlight" id="dataProtection-highlight">我們對小主的承諾：</span>
+                <ul id="dataProtection-list">
+                    <li>不收集個人身份識別資訊，保護妳的小秘密</li>
+                    <li>所有健康數據僅儲存於妳的設備中，就像日記本一樣私密</li>
+                    <li>不會與第三方分享妳的個人數據，只有妳知道</li>
+                </ul>
+            </div>
+
+            <!-- 數據收集與使用 -->
+            <div class="policy-card">
+                <h2><i class="fas fa-database"></i> <span id="dataCollection-title">數據收集與使用</span></h2>
+                <p id="dataCollection-text">我們僅收集必要的匿名數據，讓小主日記變得更貼心：</p>
+                <ul id="dataCollection-list">
+                    <li>應用程式使用統計（了解小主們最喜歡的功能）</li>
+                    <li>技術診斷資訊（確保應用程式穩定運行）</li>
+                    <li>用戶反饋與建議（聽取小主們的寶貴意見）</li>
+                </ul>
+                <p id="dataCollection-note">✨ 小主請放心，妳的生理週期記錄、養生筆記等敏感數據僅儲存於妳的設備中，就像私密日記一樣，不會上傳至我們的伺服器。</p>
+            </div>
+
+            <!-- 數據安全 -->
+            <div class="policy-card">
+                <h2><i class="fas fa-lock"></i> <span id="security-title">數據安全</span></h2>
+                <p id="security-text">我們採用多層安全措施，像守護珍寶一樣保護妳的資訊：</p>
+                <ul id="security-list">
+                    <li>設備本地加密儲存，就像上了鎖的日記本</li>
+                    <li>安全的數據傳輸（僅限匿名統計數據）</li>
+                    <li>定期安全審查與更新，持續強化保護</li>
+                </ul>
+                <span class="highlight" id="security-highlight">小主的健康數據始終在妳的掌控中</span>
+            </div>
+
+            <!-- 第三方服務 -->
+            <div class="policy-card">
+                <h2><i class="fas fa-external-link-alt"></i> <span id="thirdParty-title">第三方服務</span></h2>
+                <p id="thirdParty-text">為了提供更好的服務，我們可能使用以下第三方小幫手：</p>
+                <ul id="thirdParty-list">
+                    <li>應用程式分析服務（匿名使用數據）</li>
+                    <li>廣告服務（僅限免費版本，支持小主日記持續運營）</li>
+                    <li>雲端備份服務（僅當妳啟用iCloud同步時）</li>
+                </ul>
+                <p id="thirdParty-note">🌸 這些服務僅接收匿名數據，無法識別小主的個人身份，請放心使用～</p>
+            </div>
+
+            <!-- 兒童隱私 -->
+            <div class="policy-card">
+                <h2><i class="fas fa-child"></i> <span id="childrenPrivacy-title">兒童隱私</span></h2>
+                <p id="childrenPrivacy-text">小主日記不針對13歲以下兒童設計，我們不會故意收集13歲以下兒童的個人資訊，保護每個小公主的隱私是我們的責任。</p>
+                <span class="highlight" id="childrenPrivacy-highlight">我們重視所有小主的隱私保護</span>
+            </div>
+
+            <!-- 政策更新 -->
+            <div class="policy-card">
+                <h2><i class="fas fa-sync-alt"></i> <span id="policyUpdates-title">政策更新</span></h2>
+                <p id="policyUpdates-text">為了提供更好的服務，我們可能會不定期更新本隱私權政策。更新時，我們會：</p>
+                <ul id="policyUpdates-list">
+                    <li>更新頁面頂部的生效日期</li>
+                    <li>在應用程式內溫柔提醒小主</li>
+                    <li>詳細說明重要變更內容，讓小主一目了然</li>
+                </ul>
+                <span class="highlight" id="policyUpdates-highlight">請小主定期查閱本政策，保持最新資訊唷～</span>
+            </div>
+
+            <!-- 免責聲明 -->
+            <div class="policy-card">
+                <h2><i class="fas fa-exclamation-triangle"></i> <span id="disclaimerSection-title">免責聲明</span></h2>
+                <p id="disclaimer-content">💕 小主日記僅為個人健康記錄與參考工具，不提供醫療診斷、治療建議或處方。應用程式中的中醫養生內容僅供文化與知識參考，是小主們探索傳統智慧的起點，但不能取代專業醫療建議。如有健康疑慮，請務必諮詢合格醫師，讓專業人士為妳的健康保駕護航～</p>
+            </div>
+
+            <!-- 聯絡資訊 -->
+            <div class="contact-section">
+                <h2><i class="fas fa-envelope"></i> <span id="contact-title">聯絡我們</span></h2>
+                <p id="contact-text">親愛的小主，如有任何關於隱私權政策的疑問，或是對小主日記有任何建議，請隨時與我們聯絡，我們很樂意為妳解答～</p>
+                <a href="mailto:ans1l@icloud.com" class="contact-button" id="contact-button">
+                    <i class="fas fa-paper-plane"></i> 聯絡開發團隊
+                </a>
+            </div>
         </div>
 
-        <!-- 數據安全 -->
-        <div class="policy-section">
-            <h2><i class="fas fa-lock"></i> <span id="security-title">數據安全</span></h2>
-            <p id="security-text">我們採用多層安全措施保護您的資訊：</p>
-            <ul id="security-list">
-                <li>設備本地加密儲存</li>
-                <li>安全的數據傳輸（僅限匿名統計數據）</li>
-                <li>定期安全審查與更新</li>
-            </ul>
-            <span class="highlight" id="security-highlight">您的健康數據始終在您的掌控中</span>
-        </div>
-
-        <!-- 第三方服務 -->
-        <div class="policy-section">
-            <h2><i class="fas fa-external-link-alt"></i> <span id="thirdParty-title">第三方服務</span></h2>
-            <p id="thirdParty-text">我們可能使用以下第三方服務：</p>
-            <ul id="thirdParty-list">
-                <li>應用程式分析服務（匿名使用數據）</li>
-                <li>廣告服務（僅限免費版本）</li>
-                <li>雲端備份服務（僅當您啟用iCloud同步時）</li>
-            </ul>
-            <p id="thirdParty-note">這些服務僅接收匿名數據，無法識別您的個人身份。</p>
-        </div>
-
-        <!-- 兒童隱私 -->
-        <div class="policy-section">
-            <h2><i class="fas fa-child"></i> <span id="childrenPrivacy-title">兒童隱私</span></h2>
-            <p id="childrenPrivacy-text">小主日記不針對13歲以下兒童設計，我們不會故意收集13歲以下兒童的個人資訊。</p>
-            <span class="highlight" id="childrenPrivacy-highlight">我們重視所有用戶的隱私保護</span>
-        </div>
-
-        <!-- 政策更新 -->
-        <div class="policy-section">
-            <h2><i class="fas fa-sync-alt"></i> <span id="policyUpdates-title">政策更新</span></h2>
-            <p id="policyUpdates-text">我們可能會不定期更新本隱私權政策。更新時，我們將：</p>
-            <ul id="policyUpdates-list">
-                <li>更新頁面頂部的生效日期</li>
-                <li>在應用程式內提供通知</li>
-                <li>說明重要變更內容</li>
-            </ul>
-            <span class="highlight" id="policyUpdates-highlight">請定期查閱本政策</span>
-        </div>
-
-        <!-- 免責聲明 -->
-        <div class="policy-section">
-            <h2><i class="fas fa-exclamation-triangle"></i> <span id="disclaimer-title">免責聲明</span></h2>
-            <p id="disclaimer-content">小主日記僅為個人健康記錄與參考工具，不提供醫療診斷、治療建議或處方。應用程式中的中醫養生內容僅供文化與知識參考，不能取代專業醫療建議。如有健康疑慮，請諮詢合格醫師。</p>
-        </div>
-
-        <!-- 聯絡資訊 -->
-        <div class="policy-section" style="text-align: center; background: #FFF8F8;">
-            <h2><i class="fas fa-envelope"></i> <span id="contact-title">聯絡我們</span></h2>
-            <p id="contact-text">如有任何關於隱私權政策的疑問，請隨時與我們聯絡：</p>
-            <p style="margin: 20px 0;">
-                <a href="mailto:ans1l@icloud.com" class="contact-button" id="contact-button">聯絡開發團隊</a>
-            </p>
+        <div class="footer" id="footer">
+            © 2025 小主日記 - 老中醫月經養生手扎. 版權所有。
         </div>
     </div>
 
-    <div class="footer" id="footer">
-        © 2025 小主日記 - 老中醫月經養生手扎. 版權所有。
+    <!-- 魔法書籤導航 -->
+    <div class="magic-nav">
+        <div class="magic-tab">
+            <i class="fas fa-magic"></i>
+        </div>
+        <div class="magic-buttons">
+            <a href="https://ans1lbbb.github.io/RubyDays/index.html" class="magic-link" target="_blank">
+                <i class="fas fa-home"></i> <span id="magic-home-text">返回官網</span>
+            </a>
+            <a href="https://apps.apple.com/app/id6752606069" class="magic-link" target="_blank">
+                <i class="fas fa-download"></i> <span id="magic-download-text">下載App</span>
+            </a>
+        </div>
     </div>
 
     <script>
@@ -316,265 +561,295 @@
             zh_tw: {
                 pageTitle: "小主日記 - 隱私權聲明",
                 headerSubtitle: "老中醫月經養生手扎",
+                headerDescription: "記錄妳的專屬生理週期，探索中醫養生智慧，陪伴每個特別的日子",
                 effectiveDate: "生效日期：2025年10月10日",
                 dataProtection: {
                     title: "資料保護承諾",
-                    text: "小主日記致力於保護您的隱私，讓您安心記錄生理週期與養生筆記。",
-                    highlight: "我們承諾：",
-                    list: ["不收集個人身份識別資訊", "所有健康數據僅儲存於您的設備中", "不會與第三方分享您的個人數據"]
+                    text: "小主日記致力於保護妳的隱私，讓妳安心記錄生理週期與養生筆記，就像一位貼心的閨蜜，默默守護著妳的小秘密～",
+                    highlight: "我們對小主的承諾：",
+                    list: ["不收集個人身份識別資訊，保護妳的小秘密", "所有健康數據僅儲存於妳的設備中，就像日記本一樣私密", "不會與第三方分享妳的個人數據，只有妳知道"]
                 },
                 disclaimer: {
-                    text: "本應用程式僅為個人健康記錄工具，不提供醫療診斷或治療建議。所有健康相關決策應諮詢合格醫療專業人員。"
+                    title: "💝 小主請注意：",
+                    text: "本應用程式僅為個人健康記錄工具，不提供醫療診斷或治療建議。所有健康相關決策應諮詢合格醫療專業人員唷！"
                 },
                 dataCollection: {
                     title: "數據收集與使用",
-                    text: "我們僅收集必要的匿名數據以改善應用程式體驗：",
-                    list: ["應用程式使用統計（功能使用頻率等）", "技術診斷資訊（應用程式穩定性）", "用戶反饋與建議"],
-                    note: "您的生理週期記錄、養生筆記等敏感數據僅儲存於您的設備中，不會上傳至我們的伺服器。"
+                    text: "我們僅收集必要的匿名數據，讓小主日記變得更貼心：",
+                    list: ["應用程式使用統計（了解小主們最喜歡的功能）", "技術診斷資訊（確保應用程式穩定運行）", "用戶反饋與建議（聽取小主們的寶貴意見）"],
+                    note: "✨ 小主請放心，妳的生理週期記錄、養生筆記等敏感數據僅儲存於妳的設備中，就像私密日記一樣，不會上傳至我們的伺服器。"
                 },
                 security: {
                     title: "數據安全",
-                    text: "我們採用多層安全措施保護您的資訊：",
-                    list: ["設備本地加密儲存", "安全的數據傳輸（僅限匿名統計數據）", "定期安全審查與更新"],
-                    highlight: "您的健康數據始終在您的掌控中"
+                    text: "我們採用多層安全措施，像守護珍寶一樣保護妳的資訊：",
+                    list: ["設備本地加密儲存，就像上了鎖的日記本", "安全的數據傳輸（僅限匿名統計數據）", "定期安全審查與更新，持續強化保護"],
+                    highlight: "小主的健康數據始終在妳的掌控中"
                 },
                 thirdParty: {
                     title: "第三方服務",
-                    text: "我們可能使用以下第三方服務：",
-                    list: ["應用程式分析服務（匿名使用數據）", "廣告服務（僅限免費版本）", "雲端備份服務（僅當您啟用iCloud同步時）"],
-                    note: "這些服務僅接收匿名數據，無法識別您的個人身份。"
+                    text: "為了提供更好的服務，我們可能使用以下第三方小幫手：",
+                    list: ["應用程式分析服務（匿名使用數據）", "廣告服務（僅限免費版本，支持小主日記持續運營）", "雲端備份服務（僅當妳啟用iCloud同步時）"],
+                    note: "🌸 這些服務僅接收匿名數據，無法識別小主的個人身份，請放心使用～"
                 },
                 childrenPrivacy: {
                     title: "兒童隱私",
-                    text: "小主日記不針對13歲以下兒童設計，我們不會故意收集13歲以下兒童的個人資訊。",
-                    highlight: "我們重視所有用戶的隱私保護"
+                    text: "小主日記不針對13歲以下兒童設計，我們不會故意收集13歲以下兒童的個人資訊，保護每個小公主的隱私是我們的責任。",
+                    highlight: "我們重視所有小主的隱私保護"
                 },
                 policyUpdates: {
                     title: "政策更新",
-                    text: "我們可能會不定期更新本隱私權政策。更新時，我們將：",
-                    list: ["更新頁面頂部的生效日期", "在應用程式內提供通知", "說明重要變更內容"],
-                    highlight: "請定期查閱本政策"
+                    text: "為了提供更好的服務，我們可能會不定期更新本隱私權政策。更新時，我們會：",
+                    list: ["更新頁面頂部的生效日期", "在應用程式內溫柔提醒小主", "詳細說明重要變更內容，讓小主一目了然"],
+                    highlight: "請小主定期查閱本政策，保持最新資訊唷～"
                 },
                 disclaimerSection: {
                     title: "免責聲明",
-                    content: "小主日記僅為個人健康記錄與參考工具，不提供醫療診斷、治療建議或處方。應用程式中的中醫養生內容僅供文化與知識參考，不能取代專業醫療建議。如有健康疑慮，請諮詢合格醫師。"
+                    content: "💕 小主日記僅為個人健康記錄與參考工具，不提供醫療診斷、治療建議或處方。應用程式中的中醫養生內容僅供文化與知識參考，是小主們探索傳統智慧的起點，但不能取代專業醫療建議。如有健康疑慮，請務必諮詢合格醫師，讓專業人士為妳的健康保駕護航～"
                 },
                 contact: {
                     title: "聯絡我們",
-                    text: "如有任何關於隱私權政策的疑問，請隨時與我們聯絡：",
+                    text: "親愛的小主，如有任何關於隱私權政策的疑問，或是對小主日記有任何建議，請隨時與我們聯絡，我們很樂意為妳解答～",
                     button: "聯絡開發團隊"
+                },
+                magicNav: {
+                    homeText: "返回官網",
+                    downloadText: "下載App"
                 },
                 footer: "© 2025 小主日記 - 老中醫月經養生手扎. 版權所有。"
             },
             zh: {
                 pageTitle: "小主日记 - 隐私权声明",
                 headerSubtitle: "老中医月经养生手扎",
+                headerDescription: "记录妳的专属生理周期，探索中医养生智慧，陪伴每个特别的日子",
                 effectiveDate: "生效日期：2025年10月10日",
                 dataProtection: {
                     title: "资料保护承诺",
-                    text: "小主日记致力于保护您的隐私，让您安心记录生理周期与养生笔记。",
-                    highlight: "我们承诺：",
-                    list: ["不收集个人身份识别信息", "所有健康数据仅储存于您的设备中", "不会与第三方分享您的个人数据"]
+                    text: "小主日记致力于保护妳的隐私，让妳安心记录生理周期与养生笔记，就像一位贴心的闺蜜，默默守护着妳的小秘密～",
+                    highlight: "我们对小主的承诺：",
+                    list: ["不收集个人身份识别信息，保护妳的小秘密", "所有健康数据仅储存于妳的设备中，就像日记本一样私密", "不会与第三方分享妳的个人数据，只有妳知道"]
                 },
                 disclaimer: {
-                    text: "本应用程式仅为个人健康记录工具，不提供医疗诊断或治疗建议。所有健康相关决策应咨询合格医疗专业人员。"
+                    title: "💝 小主请注意：",
+                    text: "本应用程式仅为个人健康记录工具，不提供医疗诊断或治疗建议。所有健康相关决策应咨询合格医疗专业人员唷！"
                 },
                 dataCollection: {
                     title: "数据收集与使用",
-                    text: "我们仅收集必要的匿名数据以改善应用程式体验：",
-                    list: ["应用程式使用统计（功能使用频率等）", "技术诊断信息（应用程式稳定性）", "用户反馈与建议"],
-                    note: "您的生理周期记录、养生笔记等敏感数据仅储存于您的设备中，不会上传至我们的服务器。"
+                    text: "我们仅收集必要的匿名数据，让小主日记变得更贴心：",
+                    list: ["应用程式使用统计（了解小主们最喜欢的功能）", "技术诊断信息（确保应用程式稳定运行）", "用户反馈与建议（听取小主们的宝贵意见）"],
+                    note: "✨ 小主请放心，妳的生理周期记录、养生笔记等敏感数据仅储存于妳的设备中，就像私密日记一样，不会上传至我们的服务器。"
                 },
                 security: {
                     title: "数据安全",
-                    text: "我们采用多层安全措施保护您的信息：",
-                    list: ["设备本地加密储存", "安全的数据传输（仅限匿名统计数据）", "定期安全审查与更新"],
-                    highlight: "您的健康数据始终在您的掌控中"
+                    text: "我们采用多层安全措施，像守护珍宝一样保护妳的信息：",
+                    list: ["设备本地加密储存，就像上了锁的日记本", "安全的数据传输（仅限匿名统计数据）", "定期安全审查与更新，持续强化保护"],
+                    highlight: "小主的健康数据始终在妳的掌控中"
                 },
                 thirdParty: {
                     title: "第三方服务",
-                    text: "我们可能使用以下第三方服务：",
-                    list: ["应用程式分析服务（匿名使用数据）", "广告服务（仅限免费版本）", "云端备份服务（仅当您启用iCloud同步时）"],
-                    note: "这些服务仅接收匿名数据，无法识别您的个人身份。"
+                    text: "为了提供更好的服务，我们可能使用以下第三方小帮手：",
+                    list: ["应用程式分析服务（匿名使用数据）", "广告服务（仅限免费版本，支持小主日记持续运营）", "云端备份服务（仅当妳启用iCloud同步时）"],
+                    note: "🌸 这些服务仅接收匿名数据，无法识别小主的个人身份，请放心使用～"
                 },
                 childrenPrivacy: {
                     title: "儿童隐私",
-                    text: "小主日记不针对13岁以下儿童设计，我们不会故意收集13岁以下儿童的个人信息。",
-                    highlight: "我们重视所有用户的隐私保护"
+                    text: "小主日记不针对13岁以下儿童设计，我们不会故意收集13岁以下儿童的个人信息，保护每个小公主的隐私是我们的责任。",
+                    highlight: "我们重视所有小主的隐私保护"
                 },
                 policyUpdates: {
                     title: "政策更新",
-                    text: "我们可能会不定期更新本隐私权政策。更新时，我们将：",
-                    list: ["更新页面顶部的生效日期", "在应用程式内提供通知", "说明重要变更内容"],
-                    highlight: "请定期查阅本政策"
+                    text: "为了提供更好的服务，我们可能会不定期更新本隐私权政策。更新时，我们会：",
+                    list: ["更新页面顶部的生效日期", "在应用程式内温柔提醒小主", "详细说明重要变更内容，让小主一目了然"],
+                    highlight: "请小主定期查阅本政策，保持最新资讯唷～"
                 },
                 disclaimerSection: {
                     title: "免责声明",
-                    content: "小主日记仅为个人健康记录与参考工具，不提供医疗诊断、治疗建议或处方。应用程式中的中医养生内容仅供文化与知识参考，不能取代专业医疗建议。如有健康疑虑，请咨询合格医师。"
+                    content: "💕 小主日记仅为个人健康记录与参考工具，不提供医疗诊断、治疗建议或处方。应用程式中的中医养生内容仅供文化与知识参考，是小主们探索传统智慧的起点，但不能取代专业医疗建议。如有健康疑虑，请务必咨询合格医师，让专业人士为妳的健康保驾护航～"
                 },
                 contact: {
                     title: "联系我们",
-                    text: "如有任何关于隐私权政策的疑问，请随时与我们联系：",
+                    text: "亲爱的小主，如有任何关于隐私权政策的疑问，或是对小主日记有任何建议，请随时与我们联系，我们很乐意为妳解答～",
                     button: "联系开发团队"
+                },
+                magicNav: {
+                    homeText: "返回官网",
+                    downloadText: "下载App"
                 },
                 footer: "© 2025 小主日记 - 老中医月经养生手扎. 版权所有。"
             },
             en: {
-                pageTitle: "RubyDays - Privacy Policy",
+                pageTitle: "Ruby Days - Privacy Policy",
                 headerSubtitle: "Menstrual TCM Diary",
+                headerDescription: "Record your unique menstrual cycle, explore TCM wellness wisdom, and accompany every special day",
                 effectiveDate: "Effective Date: October 10, 2025",
                 dataProtection: {
                     title: "Data Protection Commitment",
-                    text: "RubyDays is committed to protecting your privacy, allowing you to securely record your menstrual cycle and wellness notes.",
-                    highlight: "We promise:",
-                    list: ["No collection of personally identifiable information", "All health data stored only on your device", "No sharing of your personal data with third parties"]
+                    text: "Ruby Days is committed to protecting your privacy, allowing you to securely record your menstrual cycle and wellness notes, just like a thoughtful best friend quietly guarding your little secrets～",
+                    highlight: "Our promise to you:",
+                    list: ["No collection of personally identifiable information, protecting your little secrets", "All health data stored only on your device, just like a private diary", "No sharing of your personal data with third parties, only you know"]
                 },
                 disclaimer: {
-                    text: "This application is only a personal health recording tool and does not provide medical diagnosis or treatment advice. All health-related decisions should be consulted with qualified medical professionals."
+                    title: "💝 Please Note:",
+                    text: "This application is only a personal health recording tool and does not provide medical diagnosis or treatment advice. All health-related decisions should be consulted with qualified medical professionals!"
                 },
                 dataCollection: {
                     title: "Data Collection and Use",
-                    text: "We only collect necessary anonymous data to improve the app experience:",
-                    list: ["App usage statistics (feature usage frequency, etc.)", "Technical diagnostic information (app stability)", "User feedback and suggestions"],
-                    note: "Your sensitive data such as menstrual cycle records and wellness notes are stored only on your device and are not uploaded to our servers."
+                    text: "We only collect necessary anonymous data to make Ruby Days more thoughtful:",
+                    list: ["App usage statistics (understanding which features users love most)", "Technical diagnostic information (ensuring stable app operation)", "User feedback and suggestions (listening to valuable user opinions)"],
+                    note: "✨ Rest assured, your sensitive data such as menstrual cycle records and wellness notes are stored only on your device, just like a private diary, and are not uploaded to our servers."
                 },
                 security: {
                     title: "Data Security",
-                    text: "We employ multiple layers of security measures to protect your information:",
-                    list: ["Local encrypted storage on device", "Secure data transmission (for anonymous statistics only)", "Regular security reviews and updates"],
+                    text: "We employ multiple layers of security measures, protecting your information like treasured possessions:",
+                    list: ["Local encrypted storage on device, just like a locked diary", "Secure data transmission (for anonymous statistics only)", "Regular security reviews and updates, continuously strengthening protection"],
                     highlight: "Your health data is always under your control"
                 },
                 thirdParty: {
                     title: "Third-Party Services",
-                    text: "We may use the following third-party services:",
-                    list: ["App analytics services (anonymous usage data)", "Advertising services (free version only)", "Cloud backup services (only when you enable iCloud sync)"],
-                    note: "These services only receive anonymous data and cannot identify you personally."
+                    text: "To provide better service, we may use the following third-party helpers:",
+                    list: ["App analytics services (anonymous usage data)", "Advertising services (free version only, supporting Ruby Days' continued operation)", "Cloud backup services (only when you enable iCloud sync)"],
+                    note: "🌸 These services only receive anonymous data and cannot identify you personally, so please use with confidence～"
                 },
                 childrenPrivacy: {
                     title: "Children's Privacy",
-                    text: "RubyDays is not designed for children under 13, and we do not knowingly collect personal information from children under 13.",
+                    text: "Ruby Days is not designed for children under 13, and we do not knowingly collect personal information from children under 13. Protecting every little princess's privacy is our responsibility.",
                     highlight: "We value privacy protection for all users"
                 },
                 policyUpdates: {
                     title: "Policy Updates",
-                    text: "We may update this privacy policy from time to time. When updating, we will:",
-                    list: ["Update the effective date at the top of the page", "Provide notifications within the app", "Explain important changes"],
-                    highlight: "Please check this policy regularly"
+                    text: "To provide better service, we may update this privacy policy from time to time. When updating, we will:",
+                    list: ["Update the effective date at the top of the page", "Gently remind you within the app", "Explain important changes in detail, making everything clear to you"],
+                    highlight: "Please check this policy regularly to stay updated～"
                 },
                 disclaimerSection: {
                     title: "Disclaimer",
-                    content: "RubyDays is only a personal health recording and reference tool, and does not provide medical diagnosis, treatment advice, or prescriptions. The TCM wellness content in the app is for cultural and knowledge reference only and cannot replace professional medical advice. If you have health concerns, please consult a qualified physician."
+                    content: "💕 Ruby Days is only a personal health recording and reference tool, and does not provide medical diagnosis, treatment advice, or prescriptions. The TCM wellness content in the app is for cultural and knowledge reference only, serving as a starting point for exploring traditional wisdom, but cannot replace professional medical advice. If you have health concerns, please be sure to consult a qualified physician, letting professionals safeguard your health～"
                 },
                 contact: {
                     title: "Contact Us",
-                    text: "If you have any questions about the privacy policy, please feel free to contact us:",
+                    text: "Dear user, if you have any questions about the privacy policy, or any suggestions for Ruby Days, please feel free to contact us, we'd be happy to answer your questions～",
                     button: "Contact Development Team"
                 },
-                footer: "© 2025 RubyDays - Menstrual TCM Diary. All rights reserved."
+                magicNav: {
+                    homeText: "Back to Homepage",
+                    downloadText: "Download App"
+                },
+                footer: "© 2025 Ruby Days - Menstrual TCM Diary. All rights reserved."
             },
             ja: {
                 pageTitle: "ルビーデイズ - プライバシーポリシー",
                 headerSubtitle: "月経養生手帳",
+                headerDescription: "あなただけの生理周期を記録し、中医養生の知恵を探求し、特別な日々に寄り添います",
                 effectiveDate: "発効日：2025年10月10日",
                 dataProtection: {
                     title: "データ保護の約束",
-                    text: "ルビーデイズは、あなたの生理周期と健康メモを安全に記録できるよう、プライバシー保護に努めています。",
-                    highlight: "私たちは約束します：",
-                    list: ["個人を特定できる情報は収集しません", "すべての健康データはあなたのデバイスにのみ保存されます", "個人データを第三者と共有しません"]
+                    text: "ルビーデイズは、あなたの生理周期と健康メモを安全に記録できるよう、親友のようにあなたの小さな秘密を静かに守りながら、プライバシー保護に努めています～",
+                    highlight: "あなたへの私たちの約束：",
+                    list: ["個人を特定できる情報は収集せず、あなたの小さな秘密を保護", "すべての健康データはあなたのデバイスにのみ保存、日記のようにプライベート", "個人データを第三者と共有せず、あなただけが知っている"]
                 },
                 disclaimer: {
-                    text: "このアプリケーションは個人の健康記録ツールであり、医療診断や治療アドバイスを提供するものではありません。健康に関する決定はすべて、資格のある医療専門家に相談してください。"
+                    title: "💝 ご注意ください：",
+                    text: "このアプリケーションは個人の健康記録ツールであり、医療診断や治療アドバイスを提供するものではありません。健康に関する決定はすべて、資格のある医療専門家に相談してください！"
                 },
                 dataCollection: {
                     title: "データの収集と使用",
-                    text: "アプリ体験を改善するために必要な匿名データのみを収集します：",
-                    list: ["アプリの使用統計（機能の使用頻度など）", "技術的診断情報（アプリの安定性）", "ユーザーフィードバックと提案"],
-                    note: "生理周期の記録や健康メモなどの機密データは、あなたのデバイスにのみ保存され、当社のサーバーにはアップロードされません。"
+                    text: "ルビーデイズをより思いやりあるものにするために、必要な匿名データのみを収集します：",
+                    list: ["アプリの使用統計（ユーザーが最も好きな機能を理解）", "技術的診断情報（安定したアプリ運用を確保）", "ユーザーフィードバックと提案（貴重なユーザーの意見に耳を傾ける）"],
+                    note: "✨ ご安心ください、生理周期の記録や健康メモなどの機密データは、プライベートな日記のようにあなたのデバイスにのみ保存され、当社のサーバーにはアップロードされません。"
                 },
                 security: {
                     title: "データセキュリティ",
-                    text: "情報を保護するために多層的なセキュリティ対策を採用しています：",
-                    list: ["デバイス上のローカル暗号化ストレージ", "安全なデータ転送（匿名統計のみ）", "定期的なセキュリティレビューと更新"],
+                    text: "宝物を守るようにあなたの情報を保護する多層的なセキュリティ対策を採用しています：",
+                    list: ["デバイス上のローカル暗号化ストレージ、ロックがかかった日記帳のように", "安全なデータ転送（匿名統計のみ）", "定期的なセキュリティレビューと更新、継続的な保護強化"],
                     highlight: "あなたの健康データは常にあなたの管理下にあります"
                 },
                 thirdParty: {
                     title: "第三者サービス",
-                    text: "以下の第三者サービスを使用する場合があります：",
-                    list: ["アプリ分析サービス（匿名使用データ）", "広告サービス（無料版のみ）", "クラウドバックアップサービス（iCloud同期を有効にした場合のみ）"],
-                    note: "これらのサービスは匿名データのみを受信し、個人を特定することはできません。"
+                    text: "より良いサービスを提供するために、以下の第三者ヘルパーを使用する場合があります：",
+                    list: ["アプリ分析サービス（匿名使用データ）", "広告サービス（無料版のみ、ルビーデイズの継続的な運営を支援）", "クラウドバックアップサービス（iCloud同期を有効にした場合のみ）"],
+                    note: "🌸 これらのサービスは匿名データのみを受信し、個人を特定することはできませんので、安心してご利用ください～"
                 },
                 childrenPrivacy: {
                     title: "子供のプライバシー",
-                    text: "ルビーデイズは13歳未満の子供向けに設計されておらず、13歳未満の子供から個人情報を故意に収集することはありません。",
+                    text: "ルビーデイズは13歳未満の子供向けに設計されておらず、13歳未満の子供から個人情報を故意に収集することはありません。すべての小さな王女様のプライバシーを保護することが私たちの責任です。",
                     highlight: "すべてのユーザーのプライバシー保護を重視します"
                 },
                 policyUpdates: {
                     title: "ポリシーの更新",
-                    text: "本プライバシーポリシーは随時更新される場合があります。更新時には以下を行います：",
-                    list: ["ページ上部の発効日を更新", "アプリ内で通知を提供", "重要な変更点を説明"],
-                    highlight: "定期的に本ポリシーをご確認ください"
+                    text: "より良いサービスを提供するために、本プライバシーポリシーは随時更新される場合があります。更新時には以下を行います：",
+                    list: ["ページ上部の発効日を更新", "アプリ内で優しくお知らせ", "重要な変更点を詳細に説明し、すべてを明確に"],
+                    highlight: "最新情報を保つために、定期的に本ポリシーをご確認ください～"
                 },
                 disclaimerSection: {
                     title: "免責事項",
-                    content: "ルビーデイズは個人の健康記録および参照ツールであり、医療診断、治療アドバイス、処方を提供するものではありません。アプリ内の中医養生コンテンツは文化および知識の参考のみを目的としており、専門的な医療アドバイスの代わりにはなりません。健康上の懸念がある場合は、資格のある医師に相談してください。"
+                    content: "💕 ルビーデイズは個人の健康記録および参照ツールであり、医療診断、治療アドバイス、処方を提供するものではありません。アプリ内の中医養生コンテンツは文化および知識の参考のみを目的としており、伝統的知恵を探求する出発点となりますが、専門的な医療アドバイスの代わりにはなりません。健康上の懸念がある場合は、必ず資格のある医師に相談し、専門家にあなたの健康を見守ってもらいましょう～"
                 },
                 contact: {
                     title: "お問い合わせ",
-                    text: "プライバシーポリシーについてご質問がある場合は、お気軽にお問い合わせください：",
+                    text: "親愛なるユーザーの皆様、プライバシーポリシーについてご質問がある場合、またはルビーデイズに関するご提案がございましたら、お気軽にお問い合わせください。喜んでご質問にお答えします～",
                     button: "開発チームに連絡"
+                },
+                magicNav: {
+                    homeText: "ホームページに戻る",
+                    downloadText: "アプリをダウンロード"
                 },
                 footer: "© 2025 ルビーデイズ - 月経養生手帳. 無断複写・転載を禁じます。"
             },
             ko: {
                 pageTitle: "루비 데이즈 - 개인정보 처리방침",
                 headerSubtitle: "월경 건강 관리 일기",
+                headerDescription: "나만의 생리 주기를 기록하고, 중의학 건강 지혜를 탐구하며, 특별한 날을 함께 합니다",
                 effectiveDate: "시행일: 2025년 10월 10일",
                 dataProtection: {
                     title: "데이터 보호 약속",
-                    text: "루비 데이즈는 여러분의 생리 주기와 건강 메모를 안전하게 기록할 수 있도록 개인정보 보호에 힘쓰고 있습니다.",
-                    highlight: "우리는 약속합니다:",
-                    list: ["개인 식별 정보 수집 안 함", "모든 건강 데이터는 기기에만 저장", "개인 데이터를 제3자와 공유하지 않음"]
+                    text: "루비 데이즈는 여러분의 생리 주기와 건강 메모를 안전하게 기록할 수 있도록, 친한 친구처럼 여러분의 작은 비밀을 조용히 지키며 개인정보 보호에 힘쓰고 있습니다～",
+                    highlight: "여러분에 대한 우리의 약속:",
+                    list: ["개인 식별 정보 수집 안 함, 여러분의 작은 비밀 보호", "모든 건강 데이터는 기기에만 저장, 일기장처럼 사적", "개인 데이터를 제3자와 공유하지 않음, 오직 여러분만이 알고 있음"]
                 },
                 disclaimer: {
-                    text: "이 애플리케이션은 개인 건강 기록 도구일 뿐, 의학적 진단이나 치료 조언을 제공하지 않습니다. 모든 건강 관련 결정은 자격을 갖춘 의료 전문가와 상담해야 합니다."
+                    title: "💝 주의 사항:",
+                    text: "이 애플리케이션은 개인 건강 기록 도구일 뿐, 의학적 진단이나 치료 조언을 제공하지 않습니다. 모든 건강 관련 결정은 자격을 갖춘 의료 전문가와 상담해야 합니다!"
                 },
                 dataCollection: {
                     title: "데이터 수집 및 사용",
-                    text: "앱 경험을 개선하기 위해 필요한 익명 데이터만 수집합니다:",
-                    list: ["앱 사용 통계 (기능 사용 빈도 등)", "기술 진단 정보 (앱 안정성)", "사용자 피드백 및 제안"],
-                    note: "생리 주기 기록, 건강 메모 등 민감한 데이터는 기기에만 저장되며 당사 서버로 업로드되지 않습니다."
+                    text: "루비 데이즈를 더 사려 깊게 만들기 위해 필요한 익명 데이터만 수집합니다:",
+                    list: ["앱 사용 통계 (사용자가 가장 좋아하는 기능 이해)", "기술 진단 정보 (안정적인 앱 운영 보장)", "사용자 피드백 및 제안 (소중한 사용자 의견 경청)"],
+                    note: "✨ 안심하세요, 생리 주기 기록, 건강 메모 등 민감한 데이터는 사적 일기장처럼 여러분의 기기에만 저장되며 당사 서버로 업로드되지 않습니다."
                 },
                 security: {
                     title: "데이터 보안",
-                    text: "정보를 보호하기 위해 다중 보안 조치를 사용합니다:",
-                    list: ["기기 내 로컬 암호화 저장", "안전한 데이터 전송 (익명 통계만 해당)", "정기적인 보안 검토 및 업데이트"],
+                    text: "보물을 지키듯 여러분의 정보를 보호하는 다중 보안 조치를 사용합니다:",
+                    list: ["기기 내 로컬 암호화 저장, 자물쇠가 채워진 일기장처럼", "안전한 데이터 전송 (익명 통계만 해당)", "정기적인 보안 검토 및 업데이트, 지속적인 보호 강화"],
                     highlight: "여러분의 건강 데이터는 항상 여러분의 통제 하에 있습니다"
                 },
                 thirdParty: {
                     title: "제3자 서비스",
-                    text: "다음과 같은 제3자 서비스를 사용할 수 있습니다:",
-                    list: ["앱 분석 서비스 (익명 사용 데이터)", "광고 서비스 (무료 버전만 해당)", "클라우드 백업 서비스 (iCloud 동기화 활성화 시만)"],
-                    note: "이러한 서비스는 익명 데이터만 수신하며 개인을 식별할 수 없습니다."
+                    text: "더 나은 서비스를 제공하기 위해 다음 제3자 도우미를 사용할 수 있습니다:",
+                    list: ["앱 분석 서비스 (익명 사용 데이터)", "광고 서비스 (무료 버전만 해당, 루비 데이즈의 지속적 운영 지원)", "클라우드 백업 서비스 (iCloud 동기화 활성화 시만)"],
+                    note: "🌸 이러한 서비스는 익명 데이터만 수신하며 개인을 식별할 수 없으니, 안심하고 사용해 주세요～"
                 },
                 childrenPrivacy: {
                     title: "아동 개인정보 보호",
-                    text: "루비 데이즈는 13세 미만 아동을 대상으로 설계되지 않았으며, 13세 미만 아동으로부터 고의로 개인정보를 수집하지 않습니다.",
+                    text: "루비 데이즈는 13세 미만 아동을 대상으로 설계되지 않았으며, 13세 미만 아동으로부터 고의로 개인정보를 수집하지 않습니다. 모든 작은 공주님의 개인정보를 보호하는 것이 우리의 책임입니다.",
                     highlight: "모든 사용자의 개인정보 보호를 중시합니다"
                 },
                 policyUpdates: {
                     title: "정책 업데이트",
-                    text: "본 개인정보 처리방침은 수시로 업데이트될 수 있습니다. 업데이트 시 다음을 수행합니다:",
-                    list: ["페이지 상단의 시행일 업데이트", "앱 내 알림 제공", "중요 변경 사항 설명"],
-                    highlight: "정기적으로 본 정책을 확인해 주세요"
+                    text: "더 나은 서비스를 제공하기 위해 본 개인정보 처리방침은 수시로 업데이트될 수 있습니다. 업데이트 시 다음을 수행합니다:",
+                    list: ["페이지 상단의 시행일 업데이트", "앱 내에서 부드럽게 알림", "중요 변경 사항을 자세히 설명하여 모든 것을 명확하게"],
+                    highlight: "최신 정보를 유지하려면 정기적으로 본 정책을 확인해 주세요～"
                 },
                 disclaimerSection: {
                     title: "면책 조항",
-                    content: "루비 데이즈는 개인 건강 기록 및 참조 도구일 뿐, 의학적 진단, 치료 조언 또는 처방을 제공하지 않습니다. 앱 내 중의학 건강 콘텐츠는 문화 및 지식 참조용으로만 제공되며 전문 의학적 조언을 대체할 수 없습니다. 건강 관련 우려사항이 있는 경우 자격을 갖춘 의사와 상담하세요."
+                    content: "💕 루비 데이즈는 개인 건강 기록 및 참조 도구일 뿐, 의학적 진단, 치료 조언 또는 처방을 제공하지 않습니다. 앱 내 중의학 건강 콘텐츠는 문화 및 지식 참조용으로만 제공되며, 전통적 지혜를 탐구하는 출발점이지만 전문 의학적 조언을 대체할 수 없습니다. 건강 관련 우려사항이 있는 경우 반드시 자격을 갖춘 의사와 상담하고, 전문가들이 여러분의 건강을 보호하도록 하세요～"
                 },
                 contact: {
                     title: "문의하기",
-                    text: "개인정보 처리방침에 대한 질문이 있으시면 언제든지 문의해 주세요:",
+                    text: "사랑하는 사용자 여러분, 개인정보 처리방침에 대한 질문이 있거나 루비 데이즈에 대한 제안이 있으시면 언제든지 문의해 주세요. 기꺼이 질문에 답변드리겠습니다～",
                     button: "개발팀에 문의"
+                },
+                magicNav: {
+                    homeText: "홈페이지로 돌아가기",
+                    downloadText: "앱 다운로드"
                 },
                 footer: "© 2025 루비 데이즈 - 월경 건강 관리 일기. All rights reserved."
             }
@@ -584,7 +859,7 @@
             const data = translations[lang];
 
             // 更新按鈕活躍狀態
-            document.querySelectorAll('.language-toggle button').forEach(button => {
+            document.querySelectorAll('.lang-btn').forEach(button => {
                 button.classList.remove('active');
             });
             event.target.classList.add('active');
@@ -592,11 +867,17 @@
             // 更新通用元素
             document.title = data.pageTitle;
             document.getElementById("header-subtitle").textContent = data.headerSubtitle;
+            document.getElementById("header-description").textContent = data.headerDescription;
             document.getElementById("effective-date").textContent = data.effectiveDate;
             document.getElementById("footer").textContent = data.footer;
 
             // 更新免責聲明
+            document.getElementById("disclaimer-title").textContent = data.disclaimer.title;
             document.getElementById("disclaimer-text").textContent = data.disclaimer.text;
+
+            // 更新魔法導航按鈕
+            document.getElementById("magic-home-text").textContent = data.magicNav.homeText;
+            document.getElementById("magic-download-text").textContent = data.magicNav.downloadText;
 
             // 定義所有需要更新的區塊
             const sections = [
@@ -645,11 +926,15 @@
             });
 
             // 更新免責聲明區塊
-            document.getElementById("disclaimer-title").textContent = data.disclaimerSection.title;
+            document.getElementById("disclaimerSection-title").textContent = data.disclaimerSection.title;
             document.getElementById("disclaimer-content").textContent = data.disclaimerSection.content;
 
             // 特別處理聯絡按鈕
             document.getElementById("contact-button").textContent = data.contact.button;
+            document.getElementById("contact-text").textContent = data.contact.text;
+
+            // 更新html lang屬性
+            document.documentElement.lang = lang;
         }
 
         // 初始化為繁體中文
