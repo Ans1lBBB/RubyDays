@@ -119,18 +119,26 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 25px 0;
-            position: sticky;
+            padding: 20px 0;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
             z-index: 100;
             box-shadow: 0 2px 20px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
+            padding: 15px 5%;
+        }
+
+        .navbar.scrolled {
+            padding: 10px 5%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
 
         .logo-container img {
-            height: 55px;
+            height: 45px;
             transition: transform 0.3s;
         }
 
@@ -140,7 +148,7 @@
 
         .nav-links {
             display: flex;
-            gap: 35px;
+            gap: 30px;
         }
 
         .nav-link {
@@ -150,6 +158,7 @@
             transition: color 0.3s;
             position: relative;
             padding: 8px 0;
+            font-size: 0.95rem;
         }
 
         .nav-link:hover {
@@ -173,34 +182,31 @@
 
         .language-toggle {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
 
         .lang-btn {
-            padding: 8px 16px;
-            border: 2px solid var(--primary);
-            border-radius: 25px;
+            padding: 6px 12px;
+            border: 1.5px solid var(--primary);
+            border-radius: 20px;
             background: white;
             color: var(--primary);
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
 
         .lang-btn:hover, .lang-btn.active {
             background: var(--primary);
             color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px var(--shadow);
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px var(--shadow);
         }
 
         /* 英雄區域 */
         .hero {
-            padding: 120px 0 100px;
+            padding: 150px 0 100px;
             text-align: center;
             position: relative;
         }
@@ -220,7 +226,7 @@
         }
 
         .app-icon-large:hover {
-            transform: scale(1.05) rotate(5deg);
+            transform: scale(1.05);
         }
 
         .hero-title {
@@ -306,8 +312,14 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+        }
+
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .feature-card {
@@ -431,28 +443,21 @@
         /* 聯絡我們 */
         .contact-section {
             padding: 100px 0;
+            text-align: center;
         }
 
-        .contact-card {
-            background: var(--card-bg);
-            border-radius: 25px;
-            padding: 50px 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255, 182, 193, 0.25);
-            text-align: center;
+        .contact-container {
             max-width: 600px;
             margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            padding: 60px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
         }
 
-        .contact-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px var(--shadow);
-        }
-
-        .contact-card::before {
+        .contact-container::before {
             content: '';
             position: absolute;
             top: 0;
@@ -463,7 +468,7 @@
         }
 
         .contact-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #B76E79;
             margin-bottom: 20px;
         }
@@ -475,7 +480,7 @@
             line-height: 1.7;
         }
 
-        .email-button {
+        .contact-btn {
             display: inline-flex;
             align-items: center;
             gap: 12px;
@@ -488,10 +493,9 @@
             transition: all 0.3s;
             box-shadow: 0 5px 15px rgba(183, 110, 121, 0.3);
             font-size: 1.1rem;
-            margin-top: 20px;
         }
 
-        .email-button:hover {
+        .contact-btn:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(183, 110, 121, 0.4);
         }
@@ -499,17 +503,26 @@
         /* 其他應用 */
         .other-apps-section {
             padding: 100px 0;
+            background: linear-gradient(135deg, #FFF0F5 0%, #F8F8FF 100%);
+            border-radius: 35px;
+            margin: 70px 0;
         }
 
         .apps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 35px;
             margin-top: 50px;
         }
 
+        @media (max-width: 768px) {
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .app-card {
-            background: var(--card-bg);
+            background: white;
             border-radius: 25px;
             padding: 35px 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
@@ -732,7 +745,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .magic-link {
+        .magic-app {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -743,16 +756,36 @@
             transition: all 0.3s;
         }
 
-        .magic-link:hover {
+        .magic-app:hover {
             background: #FFF0F5;
             transform: translateX(-5px);
         }
 
-        .magic-link i {
+        .magic-app-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+
+        .magic-app-info {
+            flex-grow: 1;
+        }
+
+        .magic-app-title {
+            font-weight: bold;
+            font-size: 0.9rem;
+            color: #B76E79;
+        }
+
+        .magic-app-subtitle {
+            font-size: 0.8rem;
+            color: #8C7B6D;
+        }
+
+        .magic-app-download {
             color: var(--primary);
-            font-size: 1.3rem;
-            width: 25px;
-            text-align: center;
+            font-size: 1.2rem;
         }
 
         /* 響應式設計 */
@@ -764,19 +797,23 @@
             .section-title {
                 font-size: 2rem;
             }
+            
+            .navbar {
+                padding: 15px 5%;
+            }
         }
 
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
-                gap: 25px;
-                padding: 20px 0;
+                gap: 15px;
+                padding: 15px 5%;
             }
             
             .nav-links {
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 20px;
+                gap: 15px;
             }
             
             .language-toggle {
@@ -785,7 +822,7 @@
             }
             
             .hero {
-                padding: 100px 0 80px;
+                padding: 130px 0 80px;
             }
             
             .hero-title {
@@ -816,21 +853,13 @@
                 padding: 50px 30px;
             }
             
-            .contact-card {
+            .contact-container {
                 padding: 40px 30px;
             }
             
             .footer-links {
                 flex-direction: column;
                 gap: 15px;
-            }
-            
-            .apps-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
             }
         }
 
@@ -847,8 +876,13 @@
                 padding: 25px 20px;
             }
             
-            .contact-card {
+            .contact-container {
                 padding: 30px 20px;
+            }
+            
+            .magic-nav {
+                bottom: 20px;
+                right: 20px;
             }
         }
     </style>
@@ -862,28 +896,28 @@
     <div class="floating-element floating-element-5">🌙</div>
     <div class="floating-element floating-element-6">🌿</div>
     
-    <div class="container">
-        <!-- 導航欄 -->
-        <nav class="navbar">
-            <div class="logo-container">
-                <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_logo.png" alt="小主日記">
-            </div>
-            <div class="nav-links">
-                <a href="#features" class="nav-link" id="nav-features">功能特色</a>
-                <a href="#tcm" class="nav-link" id="nav-tcm">中醫養生</a>
-                <a href="#other-apps" class="nav-link" id="nav-other-apps">其他應用</a>
-                <a href="#contact" class="nav-link" id="nav-contact">聯絡我們</a>
-                <a href="#download" class="nav-link" id="nav-download">下載應用</a>
-            </div>
-            <div class="language-toggle">
-                <button class="lang-btn active" onclick="switchLanguage('zh_tw')"><i class="fas fa-language"></i> 繁體中文</button>
-                <button class="lang-btn" onclick="switchLanguage('zh')"><i class="fas fa-language"></i> 简体中文</button>
-                <button class="lang-btn" onclick="switchLanguage('en')"><i class="fas fa-language"></i> English</button>
-                <button class="lang-btn" onclick="switchLanguage('ja')"><i class="fas fa-language"></i> 日本語</button>
-                <button class="lang-btn" onclick="switchLanguage('ko')"><i class="fas fa-language"></i> 한국어</button>
-            </div>
-        </nav>
+    <!-- 導航欄 -->
+    <nav class="navbar" id="navbar">
+        <div class="logo-container">
+            <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_logo.png" alt="小主日記">
+        </div>
+        <div class="nav-links">
+            <a href="#features" class="nav-link" id="nav-features">功能特色</a>
+            <a href="#tcm" class="nav-link" id="nav-tcm">中醫養生</a>
+            <a href="#other-apps" class="nav-link" id="nav-other-apps">其他應用</a>
+            <a href="#contact" class="nav-link" id="nav-contact">聯絡我們</a>
+            <a href="#download" class="nav-link" id="nav-download">下載應用</a>
+        </div>
+        <div class="language-toggle">
+            <button class="lang-btn active" onclick="switchLanguage('zh_tw')">繁</button>
+            <button class="lang-btn" onclick="switchLanguage('zh')">简</button>
+            <button class="lang-btn" onclick="switchLanguage('en')">EN</button>
+            <button class="lang-btn" onclick="switchLanguage('ja')">JP</button>
+            <button class="lang-btn" onclick="switchLanguage('ko')">KO</button>
+        </div>
+    </nav>
 
+    <div class="container">
         <!-- 英雄區域 -->
         <section class="hero">
             <div class="hero-content">
@@ -1004,13 +1038,15 @@
         <!-- 聯絡我們 -->
         <section class="contact-section" id="contact">
             <h2 class="section-title" id="contact-title">聯絡我們</h2>
-            <div class="contact-card">
+            <div class="contact-container">
                 <h3 class="contact-title" id="contact-subtitle">親愛的小主，我們在這裡傾聽妳的聲音</h3>
-                <p class="contact-description" id="contact-description">無論是對小主日記的使用體驗、功能想法，還是任何想要分享的點點滴滴，我們都非常重視並期待收到妳的訊息。請點擊下方按鈕，我們會盡快回覆妳～</p>
+                <p class="contact-description" id="contact-description">無論是對小主日記的使用體驗、功能想法，還是任何想要分享的點點滴滴，我們都非常重視並期待收到妳的訊息。</p>
                 
-                <a href="mailto:ans1l@icloud.com" class="email-button">
-                    <i class="fas fa-envelope"></i> <span id="email-btn">傳送電子郵件</span>
-                </a>
+                <div style="margin-top: 40px;">
+                    <a href="mailto:ans1l@icloud.com?subject=小主日記用戶反饋" class="contact-btn">
+                        <i class="fas fa-envelope"></i> <span id="contact-btn-text">發送郵件給我們</span>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -1047,14 +1083,35 @@
             <i class="fas fa-feather"></i>
         </div>
         <div class="magic-buttons">
-            <a href="https://ans1lbbb.github.io/RubyDays/privacy.html" class="magic-link" target="_blank">
-                <i class="fas fa-user-shield"></i> <span id="magic-privacy-text">隱私權聲明</span>
+            <a href="https://apps.apple.com/app/id6752606069" class="magic-app" target="_blank">
+                <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_icon.png" alt="小主日記" class="magic-app-icon">
+                <div class="magic-app-info">
+                    <div class="magic-app-title">小主日記</div>
+                    <div class="magic-app-subtitle">老中醫月經養生手扎</div>
+                </div>
+                <div class="magic-app-download">
+                    <i class="fas fa-download"></i>
+                </div>
             </a>
-            <a href="mailto:ans1l@icloud.com" class="magic-link">
-                <i class="fas fa-envelope"></i> <span id="magic-contact-text">聯絡我們</span>
+            <a href="https://apps.apple.com/app/id6740332215" class="magic-app" target="_blank">
+                <img src="https://raw.githubusercontent.com/Ans1lBBB/ProfitFairy/main/ProfitFairy_icon.png" alt="ProfitFairy" class="magic-app-icon">
+                <div class="magic-app-info">
+                    <div class="magic-app-title">ProfitFairy</div>
+                    <div class="magic-app-subtitle">利潤精算師</div>
+                </div>
+                <div class="magic-app-download">
+                    <i class="fas fa-download"></i>
+                </div>
             </a>
-            <a href="https://apps.apple.com/app/id6752606069" class="magic-link" target="_blank">
-                <i class="fas fa-mobile-alt"></i> <span id="magic-download-text">下載App</span>
+            <a href="https://apps.apple.com/app/id6745821288" class="magic-app" target="_blank">
+                <img src="https://raw.githubusercontent.com/Ans1lBBB/AIOS/main/AIOS_icon.png" alt="AIOS Realm" class="magic-app-icon">
+                <div class="magic-app-info">
+                    <div class="magic-app-title">AIOS Realm</div>
+                    <div class="magic-app-subtitle">神格覺醒</div>
+                </div>
+                <div class="magic-app-download">
+                    <i class="fas fa-download"></i>
+                </div>
             </a>
         </div>
     </div>
@@ -1100,8 +1157,8 @@
                 // 聯絡我們
                 "contact-title": "聯絡我們",
                 "contact-subtitle": "親愛的小主，我們在這裡傾聽妳的聲音",
-                "contact-description": "無論是對小主日記的使用體驗、功能想法，還是任何想要分享的點點滴滴，我們都非常重視並期待收到妳的訊息。請點擊下方按鈕，我們會盡快回覆妳～",
-                "email-btn": "傳送電子郵件",
+                "contact-description": "無論是對小主日記的使用體驗、功能想法，還是任何想要分享的點點滴滴，我們都非常重視並期待收到妳的訊息。",
+                "contact-btn-text": "發送郵件給我們",
                 
                 // 其他應用
                 "other-apps-title": "其他精選應用",
@@ -1121,12 +1178,7 @@
                 
                 // 頁腳
                 "privacy-link": "隱私權政策",
-                "footer-text": "© 2025 小主日記 - 老中醫月經養生手扎. 版權所有。",
-                
-                // 魔法導航
-                "magic-privacy-text": "隱私權聲明",
-                "magic-contact-text": "聯絡我們",
-                "magic-download-text": "下載App"
+                "footer-text": "© 2025 小主日記 - 老中醫月經養生手扎. 版權所有。"
             },
             zh: {
                 "nav-features": "功能特色",
@@ -1162,8 +1214,8 @@
                 
                 "contact-title": "联系我们",
                 "contact-subtitle": "亲爱的小主，我们在这里倾听妳的声音",
-                "contact-description": "无论是对小主日记的使用体验、功能想法，还是任何想要分享的点点滴滴，我们都非常重视并期待收到妳的讯息。请点击下方按钮，我们会尽快回复妳～",
-                "email-btn": "传送电子邮件",
+                "contact-description": "无论是对小主日记的使用体验、功能想法，还是任何想要分享的点点滴滴，我们都非常重视并期待收到妳的讯息。",
+                "contact-btn-text": "发送邮件给我们",
                 
                 "other-apps-title": "其他精选应用",
                 "app1-title": "ProfitFairy",
@@ -1180,11 +1232,7 @@
                 "app-store-btn": "App Store 下载",
                 
                 "privacy-link": "隐私权政策",
-                "footer-text": "© 2025 小主日记 - 老中医月经养生手扎. 版权所有。",
-                
-                "magic-privacy-text": "隐私权声明",
-                "magic-contact-text": "联系我们",
-                "magic-download-text": "下载App"
+                "footer-text": "© 2025 小主日记 - 老中医月经养生手扎. 版权所有。"
             },
             en: {
                 "nav-features": "Features",
@@ -1220,8 +1268,8 @@
                 
                 "contact-title": "Contact Us",
                 "contact-subtitle": "Dear user, we are here to listen to your voice",
-                "contact-description": "Whether it's about your experience with Ruby Days, feature ideas, or anything you'd like to share, we value and look forward to receiving your message. Please click the button below, and we will reply to you as soon as possible～",
-                "email-btn": "Send Email",
+                "contact-description": "Whether it's about your experience with Ruby Days, feature ideas, or anything you'd like to share, we value and look forward to receiving your message.",
+                "contact-btn-text": "Send Email to Us",
                 
                 "other-apps-title": "Other Selected Apps",
                 "app1-title": "ProfitFairy",
@@ -1238,11 +1286,7 @@
                 "app-store-btn": "Download on App Store",
                 
                 "privacy-link": "Privacy Policy",
-                "footer-text": "© 2025 Ruby Days - Menstrual TCM Diary. All rights reserved.",
-                
-                "magic-privacy-text": "Privacy Policy",
-                "magic-contact-text": "Contact Us",
-                "magic-download-text": "Download App"
+                "footer-text": "© 2025 Ruby Days - Menstrual TCM Diary. All rights reserved."
             },
             ja: {
                 "nav-features": "機能特徴",
@@ -1278,8 +1322,8 @@
                 
                 "contact-title": "お問い合わせ",
                 "contact-subtitle": "親愛なるユーザーの皆様、私たちはあなたの声を聴くためにここにいます",
-                "contact-description": "ルビーデイズの使用体験、機能のアイデア、または共有したいことについて、私たちはあなたのメッセージを大切にし、受け取ることを楽しみにしています。以下のボタンをクリックしてください。できるだけ早く返信いたします～",
-                "email-btn": "メールを送信",
+                "contact-description": "ルビーデイズの使用体験、機能のアイデア、または共有したいことについて、私たちはあなたのメッセージを大切にし、受け取ることを楽しみにしています。",
+                "contact-btn-text": "メールを送信",
                 
                 "other-apps-title": "他の精選アプリ",
                 "app1-title": "ProfitFairy",
@@ -1296,11 +1340,7 @@
                 "app-store-btn": "App Storeでダウンロード",
                 
                 "privacy-link": "プライバシーポリシー",
-                "footer-text": "© 2025 ルビーデイズ - 月経養生手帳. 無断複写・転載を禁じます。",
-                
-                "magic-privacy-text": "プライバシーポリシー",
-                "magic-contact-text": "お問い合わせ",
-                "magic-download-text": "アプリをダウンロード"
+                "footer-text": "© 2025 ルビーデイズ - 月経養生手帳. 無断複写・転載を禁じます。"
             },
             ko: {
                 "nav-features": "기능 특징",
@@ -1336,8 +1376,8 @@
                 
                 "contact-title": "문의하기",
                 "contact-subtitle": "사랑하는 사용자 여러분, 우리는 여러분의 목소리를 듣기 위해 여기에 있습니다",
-                "contact-description": "루비 데이즈 사용 경험, 기능 아이디어, 또는 공유하고 싶은 어떤 것에 대해서도 우리는 여러분의 메시지를 소중히 여기며 기다리고 있습니다. 아래 버튼을 클릭해 주시면 최대한 빨리 답변드리겠습니다～",
-                "email-btn": "이메일 보내기",
+                "contact-description": "루비 데이즈 사용 경험, 기능 아이디어, 또는 공유하고 싶은 어떤 것에 대해서도 우리는 여러분의 메시지를 소중히 여기며 기다리고 있습니다.",
+                "contact-btn-text": "이메일 보내기",
                 
                 "other-apps-title": "다른 추천 앱",
                 "app1-title": "ProfitFairy",
@@ -1354,11 +1394,7 @@
                 "app-store-btn": "App Store에서 다운로드",
                 
                 "privacy-link": "개인정보 처리방침",
-                "footer-text": "© 2025 루비 데이즈 - 월경 건강 관리 일기. All rights reserved.",
-                
-                "magic-privacy-text": "개인정보 처리방침",
-                "magic-contact-text": "문의하기",
-                "magic-download-text": "앱 다운로드"
+                "footer-text": "© 2025 루비 데이즈 - 월경 건강 관리 일기. All rights reserved."
             }
         };
 
@@ -1382,6 +1418,16 @@
             // 更新html lang屬性
             document.documentElement.lang = lang;
         }
+
+        // 導航欄滾動效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
 
         // 初始化為繁體中文
         document.addEventListener('DOMContentLoaded', () => {
