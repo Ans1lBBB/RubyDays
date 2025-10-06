@@ -338,87 +338,127 @@
             padding: 20px;
         }
 
-        /* 魔法書籤導航 */
-        .magic-nav {
+        /* 可爱侧边栏 - 重新设计 */
+        .cute-sidebar {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
         }
 
-        .magic-tab {
-            width: 60px;
-            height: 60px;
+        .sidebar-tab {
+            width: 50px;
+            height: 50px;
             background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 50%;
+            border-radius: 50% 0 0 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(183, 110, 121, 0.4);
+            box-shadow: -3px 0 10px rgba(0,0,0,0.1);
             transition: all 0.3s;
-            animation: pulse 2s infinite;
+            margin-bottom: 10px;
         }
 
-        .magic-tab:hover {
+        .sidebar-tab:hover {
             transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(183, 110, 121, 0.6);
         }
 
-        @keyframes pulse {
-            0% { box-shadow: 0 5px 15px rgba(183, 110, 121, 0.4); }
-            50% { box-shadow: 0 5px 20px rgba(183, 110, 121, 0.7); }
-            100% { box-shadow: 0 5px 15px rgba(183, 110, 121, 0.4); }
-        }
-
-        .magic-buttons {
-            position: absolute;
-            bottom: 70px;
-            right: 0;
-            background: white;
-            border-radius: 20px;
-            padding: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            display: none;
-            flex-direction: column;
-            gap: 15px;
+        .sidebar-content {
             width: 200px;
-            border: 1px solid #FFE4E9;
+            background: white;
+            padding: 20px;
+            border-radius: 15px 0 0 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-right: 4px solid var(--primary);
+            display: none;
+            text-align: center;
         }
 
-        .magic-nav:hover .magic-buttons {
+        .sidebar-content.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .sidebar-content h3 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin: 0 0 10px 0;
             display: flex;
-            animation: slideUp 0.3s ease-out;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .sidebar-content p {
+            color: #666;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
         }
 
-        .magic-link {
+        .sidebar-link {
             display: flex;
             align-items: center;
             gap: 12px;
             color: var(--text);
             text-decoration: none;
-            padding: 12px 15px;
+            padding: 10px 12px;
             border-radius: 12px;
             transition: all 0.3s;
+            margin-bottom: 10px;
         }
 
-        .magic-link:hover {
+        .sidebar-link:hover {
             background: #FFF0F5;
-            transform: translateX(-5px);
+            transform: translateX(-3px);
         }
 
-        .magic-link i {
+        .sidebar-link i {
             color: var(--primary);
             font-size: 1.2rem;
             width: 24px;
             text-align: center;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .cute-sidebar {
+                top: auto;
+                bottom: 80px;
+                transform: none;
+            }
+            
+            .sidebar-content {
+                width: 180px;
+            }
+        }
+
+        /* 可爱装饰元素 */
+        .decoration-heart {
+            position: absolute;
+            color: var(--primary);
+            opacity: 0.2;
+            z-index: 0;
+            font-size: 1.5rem;
+        }
+        
+        .decoration-flower {
+            position: absolute;
+            color: var(--accent);
+            opacity: 0.2;
+            z-index: 0;
+            font-size: 1.3rem;
         }
     </style>
 </head>
@@ -428,6 +468,12 @@
     <div class="floating-element floating-element-2">💕</div>
     <div class="floating-element floating-element-3">📜</div>
     <div class="floating-element floating-element-4">✨</div>
+    
+    <!-- 可爱装饰元素 -->
+    <div class="decoration-heart" style="top: 15%; left: 8%;">❤️</div>
+    <div class="decoration-heart" style="top: 25%; right: 10%;">💖</div>
+    <div class="decoration-flower" style="bottom: 25%; left: 12%;">🌼</div>
+    <div class="decoration-flower" style="bottom: 30%; right: 8%;">🌺</div>
     
     <div class="container">
         <div class="header">
@@ -541,17 +587,19 @@
         </div>
     </div>
 
-    <!-- 魔法書籤導航 -->
-    <div class="magic-nav">
-        <div class="magic-tab">
-            <i class="fas fa-magic"></i>
+    <!-- 可爱侧边栏 - 重新设计版 -->
+    <div class="cute-sidebar">
+        <div class="sidebar-tab" onclick="toggleSidebar()">
+            <i class="fas fa-leaf"></i>
         </div>
-        <div class="magic-buttons">
-            <a href="https://ans1lbbb.github.io/RubyDays/index.html" class="magic-link" target="_blank">
-                <i class="fas fa-home"></i> <span id="magic-home-text">返回官網</span>
+        <div class="sidebar-content" id="sidebarContent">
+            <h3><i class="fas fa-seedling"></i> <span id="sidebar-title">小主專區</span></h3>
+            <p id="sidebar-subtitle">快速導航</p>
+            <a href="https://ans1lbbb.github.io/RubyDays/index.html" class="sidebar-link" target="_blank">
+                <i class="fas fa-home"></i> <span id="sidebar-home-text">返回官網</span>
             </a>
-            <a href="https://apps.apple.com/app/id6752606069" class="magic-link" target="_blank">
-                <i class="fas fa-download"></i> <span id="magic-download-text">下載App</span>
+            <a href="https://apps.apple.com/app/id6752606069" class="sidebar-link" target="_blank">
+                <i class="fas fa-download"></i> <span id="sidebar-download-text">下載App</span>
             </a>
         </div>
     </div>
@@ -611,7 +659,9 @@
                     text: "親愛的小主，如有任何關於隱私權政策的疑問，或是對小主日記有任何建議，請隨時與我們聯絡，我們很樂意為妳解答～",
                     button: "聯絡開發團隊"
                 },
-                magicNav: {
+                sidebar: {
+                    title: "小主專區",
+                    subtitle: "快速導航",
                     homeText: "返回官網",
                     downloadText: "下載App"
                 },
@@ -670,7 +720,9 @@
                     text: "亲爱的小主，如有任何关于隐私权政策的疑问，或是对小主日记有任何建议，请随时与我们联系，我们很乐意为妳解答～",
                     button: "联系开发团队"
                 },
-                magicNav: {
+                sidebar: {
+                    title: "小主专区",
+                    subtitle: "快速导航",
                     homeText: "返回官网",
                     downloadText: "下载App"
                 },
@@ -729,7 +781,9 @@
                     text: "Dear user, if you have any questions about the privacy policy, or any suggestions for Ruby Days, please feel free to contact us, we'd be happy to answer your questions～",
                     button: "Contact Development Team"
                 },
-                magicNav: {
+                sidebar: {
+                    title: "Special Zone",
+                    subtitle: "Quick Navigation",
                     homeText: "Back to Homepage",
                     downloadText: "Download App"
                 },
@@ -788,7 +842,9 @@
                     text: "親愛なるユーザーの皆様、プライバシーポリシーについてご質問がある場合、またはルビーデイズに関するご提案がございましたら、お気軽にお問い合わせください。喜んでご質問にお答えします～",
                     button: "開発チームに連絡"
                 },
-                magicNav: {
+                sidebar: {
+                    title: "特別ゾーン",
+                    subtitle: "クイックナビゲーション",
                     homeText: "ホームページに戻る",
                     downloadText: "アプリをダウンロード"
                 },
@@ -847,7 +903,9 @@
                     text: "사랑하는 사용자 여러분, 개인정보 처리방침에 대한 질문이 있거나 루비 데이즈에 대한 제안이 있으시면 언제든지 문의해 주세요. 기꺼이 질문에 답변드리겠습니다～",
                     button: "개발팀에 문의"
                 },
-                magicNav: {
+                sidebar: {
+                    title: "특별 구역",
+                    subtitle: "빠른 탐색",
                     homeText: "홈페이지로 돌아가기",
                     downloadText: "앱 다운로드"
                 },
@@ -875,9 +933,11 @@
             document.getElementById("disclaimer-title").textContent = data.disclaimer.title;
             document.getElementById("disclaimer-text").textContent = data.disclaimer.text;
 
-            // 更新魔法導航按鈕
-            document.getElementById("magic-home-text").textContent = data.magicNav.homeText;
-            document.getElementById("magic-download-text").textContent = data.magicNav.downloadText;
+            // 更新側邊欄
+            document.getElementById("sidebar-title").textContent = data.sidebar.title;
+            document.getElementById("sidebar-subtitle").textContent = data.sidebar.subtitle;
+            document.getElementById("sidebar-home-text").textContent = data.sidebar.homeText;
+            document.getElementById("sidebar-download-text").textContent = data.sidebar.downloadText;
 
             // 定義所有需要更新的區塊
             const sections = [
@@ -936,6 +996,22 @@
             // 更新html lang屬性
             document.documentElement.lang = lang;
         }
+
+        // 側邊欄控制
+        function toggleSidebar() {
+            const sidebarContent = document.getElementById('sidebarContent');
+            sidebarContent.classList.toggle('show');
+        }
+
+        // 點擊側邊欄外部關閉側邊欄
+        document.addEventListener('click', function(event) {
+            const sidebarContent = document.getElementById('sidebarContent');
+            const sidebarTab = document.querySelector('.sidebar-tab');
+            
+            if (!sidebarContent.contains(event.target) && !sidebarTab.contains(event.target)) {
+                sidebarContent.classList.remove('show');
+            }
+        });
 
         // 初始化為繁體中文
         document.addEventListener('DOMContentLoaded', () => {
