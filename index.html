@@ -37,7 +37,7 @@
             padding-bottom: 80px;
         }
 
-        /* 字型設定 */
+        /* 字型設定 - 优化繁体中文显示 */
         body:lang(zh-TW) {
             font-family: 'Noto Serif TC', serif;
         }
@@ -52,6 +52,16 @@
         }
         body:lang(ko) {
             font-family: 'Noto Serif KR', serif;
+        }
+
+        /* 特别优化标题字体 */
+        .hero-title {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.2rem;
+            color: #B76E79;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
         }
 
         .floating-element {
@@ -115,7 +125,7 @@
             z-index: 1;
         }
 
-        /* 頂部導航 */
+        /* 顶部导航 - 重新设计 */
         .top-nav {
             display: flex;
             justify-content: space-between;
@@ -123,11 +133,11 @@
             padding: 15px 0;
             position: sticky;
             top: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
             z-index: 100;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 182, 193, 0.2);
         }
 
         .logo-container img {
@@ -141,16 +151,20 @@
 
         .language-toggle {
             display: flex;
-            gap: 8px;
+            gap: 5px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 25px;
+            padding: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .lang-btn {
             padding: 6px 12px;
-            border: 2px solid var(--primary);
+            border: none;
             border-radius: 20px;
-            background: white;
-            color: var(--primary);
-            font-weight: bold;
+            background: transparent;
+            color: var(--text);
+            font-weight: 500;
             cursor: pointer;
             transition: all 0.3s;
             font-size: 0.8rem;
@@ -163,7 +177,7 @@
             box-shadow: 0 3px 10px var(--shadow);
         }
 
-        /* 底部導航 */
+        /* 底部导航 */
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -211,7 +225,7 @@
             font-weight: 500;
         }
 
-        /* 英雄區域 */
+        /* 英雄区域 */
         .hero {
             padding: 60px 0 40px;
             text-align: center;
@@ -234,15 +248,6 @@
 
         .app-icon:hover {
             transform: scale(1.05);
-        }
-
-        .hero-title {
-            font-family: 'Ma Shan Zheng', cursive;
-            font-size: 2.2rem;
-            color: #B76E79;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
         }
 
         .hero-subtitle {
@@ -377,7 +382,7 @@
             flex-grow: 1;
         }
 
-        /* 中醫養生區 */
+        /* 中医养生区 */
         .tcm-section {
             background: linear-gradient(135deg, #FFF0F5 0%, #F0F8FF 100%);
             border-radius: 25px;
@@ -441,7 +446,7 @@
             font-size: 1.2rem;
         }
 
-        /* 聯絡我們 */
+        /* 联络我们 */
         .contact-section {
             padding: 60px 0;
             text-align: center;
@@ -501,7 +506,7 @@
             box-shadow: 0 8px 20px rgba(183, 110, 121, 0.4);
         }
 
-        /* 其他應用 */
+        /* 其他应用 */
         .other-apps-section {
             padding: 60px 0;
         }
@@ -590,7 +595,7 @@
             transform: translateX(5px);
         }
 
-        /* 下載區域 */
+        /* 下载区域 */
         .download-section {
             text-align: center;
             padding: 60px 0;
@@ -649,7 +654,7 @@
             transform: scale(1.05);
         }
 
-        /* 頁腳 */
+        /* 页脚 */
         .footer {
             text-align: center;
             margin-top: 60px;
@@ -677,64 +682,58 @@
             color: var(--primary);
         }
 
-        /* 魔法書籤導航 */
-        .magic-nav {
+        /* 魔法书签导航 - 完全重新设计 */
+        .magic-bookmark {
             position: fixed;
-            bottom: 80px;
-            right: 20px;
-            z-index: 1000;
+            top: 50%;
+            right: -165px;
+            transform: translateY(-50%);
+            z-index: 999;
+            transition: right 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         }
 
-        .magic-tab {
-            width: 55px;
-            height: 55px;
+        .magic-bookmark:hover {
+            right: 0;
+        }
+
+        .bookmark-tab {
+            position: absolute;
+            left: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 80px;
             background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 50%;
+            border-radius: 8px 0 0 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(183, 110, 121, 0.4);
-            transition: all 0.3s;
-            animation: pulse 2s infinite;
+            box-shadow: -3px 0 10px rgba(0,0,0,0.1);
         }
 
-        .magic-tab:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(183, 110, 121, 0.6);
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 5px 15px rgba(183, 110, 121, 0.4); }
-            50% { box-shadow: 0 5px 20px rgba(183, 110, 121, 0.7); }
-            100% { box-shadow: 0 5px 15px rgba(183, 110, 121, 0.4); }
-        }
-
-        .magic-buttons {
-            position: absolute;
-            bottom: 60px;
-            right: 0;
-            background: white;
-            border-radius: 18px;
-            padding: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            display: none;
-            flex-direction: column;
-            gap: 12px;
+        .bookmark-content {
             width: 180px;
-            border: 1px solid #FFE4E9;
+            background: white;
+            padding: 15px;
+            border-radius: 8px 0 0 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-right: 4px solid var(--primary);
+            text-align: center;
         }
 
-        .magic-nav:hover .magic-buttons {
-            display: flex;
-            animation: slideUp 0.3s ease-out;
+        .bookmark-content h3 {
+            color: var(--primary);
+            font-size: 1rem;
+            margin: 0 0 8px 0;
         }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .bookmark-content p {
+            color: #666;
+            font-size: 0.8rem;
+            margin-bottom: 12px;
         }
 
         .magic-app {
@@ -746,6 +745,7 @@
             padding: 10px 12px;
             border-radius: 12px;
             transition: all 0.3s;
+            margin-bottom: 10px;
         }
 
         .magic-app:hover {
@@ -779,7 +779,7 @@
             gap: 4px;
         }
 
-        /* 響應式設計 */
+        /* 响应式设计 */
         @media (max-width: 1024px) {
             .hero-title {
                 font-size: 2rem;
@@ -854,9 +854,11 @@
                 font-size: 0.7rem;
             }
             
-            .magic-nav {
-                bottom: 70px;
-                right: 15px;
+            .magic-bookmark {
+                right: -150px;
+                top: auto;
+                bottom: 100px;
+                transform: none;
             }
         }
 
@@ -885,7 +887,7 @@
     </style>
 </head>
 <body>
-    <!-- 漂浮裝飾元素 -->
+    <!-- 漂浮装饰元素 -->
     <div class="floating-element floating-element-1">🌸</div>
     <div class="floating-element floating-element-2">💕</div>
     <div class="floating-element floating-element-3">📜</div>
@@ -894,7 +896,7 @@
     <div class="floating-element floating-element-6">🌿</div>
     
     <div class="container">
-        <!-- 頂部導航 -->
+        <!-- 顶部导航 - 优化版 -->
         <nav class="top-nav">
             <div class="logo-container">
                 <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_logo.png" alt="小主日記">
@@ -908,7 +910,7 @@
             </div>
         </nav>
 
-        <!-- 英雄區域 -->
+        <!-- 英雄区域 -->
         <section class="hero">
             <div class="hero-content">
                 <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_icon.png" alt="小主日記" class="app-icon">
@@ -974,7 +976,7 @@
             </div>
         </section>
 
-        <!-- 中醫養生區 -->
+        <!-- 中医养生区 -->
         <section class="tcm-section" id="tcm">
             <div class="tcm-content">
                 <h2 class="tcm-title" id="tcm-title">中醫養生智慧</h2>
@@ -992,7 +994,7 @@
             </div>
         </section>
 
-        <!-- 其他應用 -->
+        <!-- 其他应用 -->
         <section class="other-apps-section" id="apps">
             <h2 class="section-title" id="other-apps-title">其他精選應用</h2>
             <div class="apps-grid">
@@ -1025,7 +1027,7 @@
             </div>
         </section>
 
-        <!-- 聯絡我們 -->
+        <!-- 联络我们 -->
         <section class="contact-section" id="contact">
             <h2 class="section-title" id="contact-title">聯絡我們</h2>
             <div class="contact-container">
@@ -1038,7 +1040,7 @@
             </div>
         </section>
 
-        <!-- 下載區域 -->
+        <!-- 下载区域 -->
         <section class="download-section" id="download">
             <div class="download-content">
                 <h2 class="download-title" id="download-title">開啟妳的養生之旅</h2>
@@ -1056,7 +1058,7 @@
             </div>
         </section>
 
-        <!-- 頁腳 -->
+        <!-- 页脚 -->
         <footer class="footer">
             <div class="footer-links">
                 <a href="https://ans1lbbb.github.io/RubyDays/privacy.html" class="footer-link" id="privacy-link">隱私權政策</a>
@@ -1065,7 +1067,7 @@
         </footer>
     </div>
 
-    <!-- 底部導航 -->
+    <!-- 底部导航 -->
     <nav class="bottom-nav">
         <div class="nav-links">
             <a href="#features" class="nav-link">
@@ -1087,12 +1089,14 @@
         </div>
     </nav>
 
-    <!-- 魔法書籤導航 -->
-    <div class="magic-nav">
-        <div class="magic-tab">
-            <i class="fas fa-feather"></i>
+    <!-- 魔法书签导航 - 重新设计版 -->
+    <div class="magic-bookmark">
+        <div class="bookmark-tab">
+            <i class="fas fa-wand-sparkles"></i>
         </div>
-        <div class="magic-buttons">
+        <div class="bookmark-content">
+            <h3><i class="fas fa-hat-wizard"></i> <span id="bookmark-title">魔法已就緒!</span></h3>
+            <p id="bookmark-subtitle">將小主日記魔法裝入口袋</p>
             <a href="https://apps.apple.com/app/id6752606069" class="magic-app" target="_blank">
                 <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_icon.png" alt="小主日記" class="magic-app-icon">
                 <div class="magic-app-info">
@@ -1182,6 +1186,10 @@
                 "download-subtitle": "下載小主日記，開始記錄妳的生理週期，探索中醫養生智慧，讓每個特別的日子都有貼心陪伴",
                 "app-store-btn": "App Store 下載",
                 
+                // 魔法書籤
+                "bookmark-title": "魔法已就緒!",
+                "bookmark-subtitle": "將小主日記魔法裝入口袋",
+                
                 // 頁腳
                 "privacy-link": "隱私權政策",
                 "footer-text": "© 2025 小主日記 - 老中醫月經養生手扎. 版權所有。"
@@ -1236,6 +1244,9 @@
                 "download-subtitle": "下载小主日记，开始记录妳的生理周期，探索中医养生智慧，让每个特别的日子都有贴心陪伴",
                 "app-store-btn": "App Store 下载",
                 
+                "bookmark-title": "魔法已就绪!",
+                "bookmark-subtitle": "将小主日记魔法装入口袋",
+                
                 "privacy-link": "隐私权政策",
                 "footer-text": "© 2025 小主日记 - 老中医月经养生手扎. 版权所有。"
             },
@@ -1288,6 +1299,9 @@
                 "download-title": "Start Your Wellness Journey",
                 "download-subtitle": "Download Ruby Days to start recording your menstrual cycle, explore TCM wellness wisdom, and have thoughtful companionship on every special day",
                 "app-store-btn": "Download on App Store",
+                
+                "bookmark-title": "Magic Ready!",
+                "bookmark-subtitle": "Carry Ruby Days in your pocket",
                 
                 "privacy-link": "Privacy Policy",
                 "footer-text": "© 2025 Ruby Days - Menstrual TCM Diary. All rights reserved."
@@ -1342,6 +1356,9 @@
                 "download-subtitle": "ルビーデイズをダウンロードして、あなたの生理周期を記録し始め、中医養生の知恵を探求し、特別な日々に思いやりのある同伴を",
                 "app-store-btn": "App Storeでダウンロード",
                 
+                "bookmark-title": "魔法の準備完了!",
+                "bookmark-subtitle": "ルビーデイズをポケットに",
+                
                 "privacy-link": "プライバシーポリシー",
                 "footer-text": "© 2025 ルビーデイズ - 月経養生手帳. 無断複写・転載を禁じます。"
             },
@@ -1383,7 +1400,7 @@
                 "app1-link": "더 알아보기",
                 "app2-title": "AIOS Realm",
                 "app2-subtitle": "신격 각성",
-                "app2-description": "바다 여신의 신격 파편이 '아이오스 영역'에 흩어져 있습니다! 혁신적인 카드 합성 게임플레이를 통해 잠든 바다의 힘을 점차 깨웁니다. 기억 카드 뒤집기 시련에 도전하여 여신이 봉인된 여름 전설을 해제하세요. 각 한정 카드에는 잃어버린 기억 파편이 숨겨져 있습니다 - 당신은 모든 신격 파편을 모은 첫 번째 바다 사자가 될 수 있을까요? 이 치유系 신화 모험을 지금 시작하세요!",
+                "app2-description": "바다 여신의 신격 파편이 '아이오스 영역'에 흩어져 있습니다! 혁신적인 카드 합성 게임플레이를 통해 잠든 바다의 힘을 점차 깨웁니다. 기억 카드 뒤집기 시련에 도전하여 여신이 봉인된 여름 전설을 해제하세요. 각 한정 카드에는 잃어버린 기억 파편이 숨겨져 있습니다 - 당신은 모든 신격 파편을 모은 첫 번째 바다 사자가 될 수 있을까요? 이 치유계 신화 모험을 지금 시작하세요!",
                 "app2-link": "더 알아보기",
                 
                 "contact-title": "문의하기",
@@ -1394,6 +1411,9 @@
                 "download-title": "건강 관리 여행을 시작하세요",
                 "download-subtitle": "루비 데이즈를 다운로드하여 생리 주기 기록을 시작하고, 중의학 건강 지혜를 탐구하며, 특별한 날마다 세심한 동반을",
                 "app-store-btn": "App Store에서 다운로드",
+                
+                "bookmark-title": "마법 준비 완료!",
+                "bookmark-subtitle": "루비 데이즈를 주머니에",
                 
                 "privacy-link": "개인정보 처리방침",
                 "footer-text": "© 2025 루비 데이즈 - 월경 건강 관리 일기. All rights reserved."
