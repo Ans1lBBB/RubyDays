@@ -125,7 +125,7 @@
             z-index: 1;
         }
 
-        /* 顶部导航 - 重新设计 */
+        /* 顶部导航 - 优化版 */
         .top-nav {
             display: flex;
             justify-content: space-between;
@@ -682,61 +682,76 @@
             color: var(--primary);
         }
 
-        /* 魔法书签导航 - 完全重新设计 */
-        .magic-bookmark {
+        /* 可爱侧边栏 - 完全重新设计 */
+        .cute-sidebar {
             position: fixed;
             top: 50%;
-            right: -165px;
+            right: 0;
             transform: translateY(-50%);
             z-index: 999;
-            transition: right 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
         }
 
-        .magic-bookmark:hover {
-            right: 0;
-        }
-
-        .bookmark-tab {
-            position: absolute;
-            left: -40px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 40px;
-            height: 80px;
+        .sidebar-tab {
+            width: 50px;
+            height: 50px;
             background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 8px 0 0 8px;
+            border-radius: 50% 0 0 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             cursor: pointer;
             box-shadow: -3px 0 10px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            margin-bottom: 10px;
         }
 
-        .bookmark-content {
-            width: 180px;
+        .sidebar-tab:hover {
+            transform: scale(1.1);
+        }
+
+        .sidebar-content {
+            width: 200px;
             background: white;
-            padding: 15px;
-            border-radius: 8px 0 0 8px;
+            padding: 20px;
+            border-radius: 15px 0 0 15px;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
             border-right: 4px solid var(--primary);
+            display: none;
             text-align: center;
         }
 
-        .bookmark-content h3 {
+        .sidebar-content.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .sidebar-content h3 {
             color: var(--primary);
-            font-size: 1rem;
-            margin: 0 0 8px 0;
+            font-size: 1.1rem;
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
-        .bookmark-content p {
+        .sidebar-content p {
             color: #666;
-            font-size: 0.8rem;
-            margin-bottom: 12px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
         }
 
-        .magic-app {
+        .sidebar-app {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -748,30 +763,31 @@
             margin-bottom: 10px;
         }
 
-        .magic-app:hover {
+        .sidebar-app:hover {
             background: #FFF0F5;
             transform: translateX(-3px);
         }
 
-        .magic-app-icon {
-            width: 35px;
-            height: 35px;
+        .sidebar-app-icon {
+            width: 40px;
+            height: 40px;
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
-        .magic-app-info {
+        .sidebar-app-info {
             flex-grow: 1;
+            text-align: left;
         }
 
-        .magic-app-name {
+        .sidebar-app-name {
             font-size: 0.9rem;
             font-weight: bold;
             color: #B76E79;
             margin-bottom: 2px;
         }
 
-        .magic-app-download {
+        .sidebar-app-download {
             font-size: 0.75rem;
             color: var(--text);
             display: flex;
@@ -854,11 +870,14 @@
                 font-size: 0.7rem;
             }
             
-            .magic-bookmark {
-                right: -150px;
+            .cute-sidebar {
                 top: auto;
-                bottom: 100px;
+                bottom: 80px;
                 transform: none;
+            }
+            
+            .sidebar-content {
+                width: 180px;
             }
         }
 
@@ -883,6 +902,87 @@
                 width: 100px;
                 height: 100px;
             }
+            
+            .footer-text {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+        
+        /* 可爱装饰元素 */
+        .decoration-heart {
+            position: absolute;
+            color: var(--primary);
+            opacity: 0.2;
+            z-index: 0;
+            font-size: 1.5rem;
+        }
+        
+        .decoration-flower {
+            position: absolute;
+            color: var(--accent);
+            opacity: 0.2;
+            z-index: 0;
+            font-size: 1.3rem;
+        }
+        
+        /* 可爱边框和背景 */
+        .cute-border {
+            border: 2px dashed var(--primary);
+            border-radius: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            position: relative;
+        }
+        
+        .cute-border::before {
+            content: '🌸';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: white;
+            padding: 0 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* 免责声明区域 */
+        .disclaimer-section {
+            background: #FFF8F8;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            border: 1px solid #FFD1DC;
+            position: relative;
+        }
+        
+        .disclaimer-section h3 {
+            color: #B76E79;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .disclaimer-section p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .disclaimer-section ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .disclaimer-section li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 10px;
+        }
+        
+        .disclaimer-section li::before {
+            content: '💕';
+            margin-right: 8px;
         }
     </style>
 </head>
@@ -894,6 +994,12 @@
     <div class="floating-element floating-element-4">✨</div>
     <div class="floating-element floating-element-5">🌙</div>
     <div class="floating-element floating-element-6">🌿</div>
+    
+    <!-- 可爱装饰元素 -->
+    <div class="decoration-heart" style="top: 15%; left: 8%;">❤️</div>
+    <div class="decoration-heart" style="top: 25%; right: 10%;">💖</div>
+    <div class="decoration-flower" style="bottom: 25%; left: 12%;">🌼</div>
+    <div class="decoration-flower" style="bottom: 30%; right: 8%;">🌺</div>
     
     <div class="container">
         <!-- 顶部导航 - 优化版 -->
@@ -916,10 +1022,15 @@
                 <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_icon.png" alt="小主日記" class="app-icon">
                 <h1 class="hero-title" id="hero-title">小主日記</h1>
                 <p class="hero-subtitle" id="hero-subtitle">老中醫月經養生手扎<br>記錄妳的專屬生理週期，探索中醫養生智慧，陪伴每個特別的日子</p>
-                <div class="hero-buttons">
-                    <a href="#download" class="btn btn-primary">
-                        <i class="fas fa-download"></i> <span id="download-btn">立即下載</span>
+                
+                <!-- 直接使用App Store徽章 -->
+                <div class="app-store-badge">
+                    <a href="https://apps.apple.com/app/id6752606069" target="_blank">
+                        <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store">
                     </a>
+                </div>
+                
+                <div class="hero-buttons">
                     <a href="#features" class="btn btn-secondary">
                         <i class="fas fa-star"></i> <span id="learn-more-btn">了解更多</span>
                     </a>
@@ -971,7 +1082,7 @@
                         <i class="fas fa-user-shield"></i>
                     </div>
                     <h3 class="feature-title" id="feature6-title">隱私保護</h3>
-                    <p class="feature-description" id="feature6-desc">您的健康數據僅存儲於設備中，我們重視並保護您的隱私安全</p>
+                    <p class="feature-description" id="feature6-desc">您的健康數據僅存儲於設備中，我們重視並保護您的隱私安全。<a href="https://ans1lbbb.github.io/RubyDays/privacy.html" style="color: var(--primary); text-decoration: underline;">了解更多</a></p>
                 </div>
             </div>
         </section>
@@ -985,13 +1096,21 @@
                 <div class="disclaimer-box">
                     <p><strong id="disclaimer-title">💖 重要說明：</strong> <span id="disclaimer-text">本應用程式僅為個人健康記錄與參考工具，不提供醫療診斷、治療或處方。應用程式中的中醫養生內容僅供文化與知識分享，是小主們探索傳統智慧的起點，但不能取代專業醫療。如有健康疑慮，請務必諮詢合格醫師。</span></p>
                 </div>
-                
-                <div class="hero-buttons">
-                    <a href="#download" class="btn btn-primary">
-                        <i class="fas fa-download"></i> <span id="tcm-download-btn">開始養生之旅</span>
-                    </a>
-                </div>
             </div>
+        </section>
+
+        <!-- 免责声明区域 -->
+        <section class="disclaimer-section">
+            <h3><i class="fas fa-exclamation-triangle"></i> 免責聲明</h3>
+            <p>親愛的小主，為了確保您能正確使用小主日記，請仔細閱讀以下免責聲明：</p>
+            <ul>
+                <li>小主日記僅為個人健康記錄與參考工具，不提供醫療診斷、治療或處方服務</li>
+                <li>應用程式中的中醫養生內容僅供文化與知識分享，不能取代專業醫療建議</li>
+                <li>如有健康疑慮或特殊身體狀況，請務必諮詢合格醫師或專業醫療人員</li>
+                <li>應用程式中的週期預測僅供參考，實際生理狀況可能因個人體質而有所不同</li>
+                <li>我們重視您的隱私，所有健康數據僅存儲於您的設備中，不會上傳至伺服器</li>
+            </ul>
+            <p>使用本應用程式即表示您已閱讀並同意以上免責聲明內容。祝您使用愉快！💕</p>
         </section>
 
         <!-- 其他应用 -->
@@ -1040,30 +1159,12 @@
             </div>
         </section>
 
-        <!-- 下载区域 -->
-        <section class="download-section" id="download">
-            <div class="download-content">
-                <h2 class="download-title" id="download-title">開啟妳的養生之旅</h2>
-                <p class="download-subtitle" id="download-subtitle">下載小主日記，開始記錄妳的生理週期，探索中醫養生智慧，讓每個特別的日子都有貼心陪伴</p>
-                
-                <div class="hero-buttons">
-                    <a href="https://apps.apple.com/app/id6752606069" class="btn btn-primary" target="_blank">
-                        <i class="fab fa-apple"></i> <span id="app-store-btn">App Store 下載</span>
-                    </a>
-                </div>
-                
-                <a href="https://apps.apple.com/app/id6752606069" class="app-store-badge" target="_blank">
-                    <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store">
-                </a>
-            </div>
-        </section>
-
         <!-- 页脚 -->
         <footer class="footer">
-            <div class="footer-links">
-                <a href="https://ans1lbbb.github.io/RubyDays/privacy.html" class="footer-link" id="privacy-link">隱私權政策</a>
+            <div class="footer-text" id="footer-text">
+                <p>© 2025 小主日記 - 老中醫月經養生手扎</p>
+                <p>版權所有</p>
             </div>
-            <p id="footer-text">© 2025 小主日記 - 老中醫月經養生手扎. 版權所有。</p>
         </footer>
     </div>
 
@@ -1089,37 +1190,37 @@
         </div>
     </nav>
 
-    <!-- 魔法书签导航 - 重新设计版 -->
-    <div class="magic-bookmark">
-        <div class="bookmark-tab">
-            <i class="fas fa-wand-sparkles"></i>
+    <!-- 可爱侧边栏 - 重新设计版 -->
+    <div class="cute-sidebar">
+        <div class="sidebar-tab" onclick="toggleSidebar()">
+            <i class="fas fa-leaf"></i>
         </div>
-        <div class="bookmark-content">
-            <h3><i class="fas fa-hat-wizard"></i> <span id="bookmark-title">魔法已就緒!</span></h3>
-            <p id="bookmark-subtitle">將小主日記魔法裝入口袋</p>
-            <a href="https://apps.apple.com/app/id6752606069" class="magic-app" target="_blank">
-                <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_icon.png" alt="小主日記" class="magic-app-icon">
-                <div class="magic-app-info">
-                    <div class="magic-app-name">小主日記</div>
-                    <div class="magic-app-download">
+        <div class="sidebar-content" id="sidebarContent">
+            <h3><i class="fas fa-seedling"></i> <span id="sidebar-title">小主專區</span></h3>
+            <p id="sidebar-subtitle">更多應用推薦</p>
+            <a href="https://apps.apple.com/app/id6752606069" class="sidebar-app" target="_blank">
+                <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_icon.png" alt="小主日記" class="sidebar-app-icon">
+                <div class="sidebar-app-info">
+                    <div class="sidebar-app-name">小主日記</div>
+                    <div class="sidebar-app-download">
                         <i class="fas fa-download"></i> 下載應用
                     </div>
                 </div>
             </a>
-            <a href="https://apps.apple.com/app/id6740332215" class="magic-app" target="_blank">
-                <img src="https://raw.githubusercontent.com/Ans1lBBB/ProfitFairy/main/ProfitFairy_icon.png" alt="ProfitFairy" class="magic-app-icon">
-                <div class="magic-app-info">
-                    <div class="magic-app-name">ProfitFairy</div>
-                    <div class="magic-app-download">
+            <a href="https://apps.apple.com/app/id6740332215" class="sidebar-app" target="_blank">
+                <img src="https://raw.githubusercontent.com/Ans1lBBB/ProfitFairy/main/ProfitFairy_icon.png" alt="ProfitFairy" class="sidebar-app-icon">
+                <div class="sidebar-app-info">
+                    <div class="sidebar-app-name">ProfitFairy</div>
+                    <div class="sidebar-app-download">
                         <i class="fas fa-download"></i> 下載應用
                     </div>
                 </div>
             </a>
-            <a href="https://apps.apple.com/app/id6745821288" class="magic-app" target="_blank">
-                <img src="https://raw.githubusercontent.com/Ans1lBBB/AIOS/main/AIOS_icon.png" alt="AIOS Realm" class="magic-app-icon">
-                <div class="magic-app-info">
-                    <div class="magic-app-name">AIOS Realm</div>
-                    <div class="magic-app-download">
+            <a href="https://apps.apple.com/app/id6745821288" class="sidebar-app" target="_blank">
+                <img src="https://raw.githubusercontent.com/Ans1lBBB/AIOS/main/AIOS_icon.png" alt="AIOS Realm" class="sidebar-app-icon">
+                <div class="sidebar-app-info">
+                    <div class="sidebar-app-name">AIOS Realm</div>
+                    <div class="sidebar-app-download">
                         <i class="fas fa-download"></i> 下載應用
                     </div>
                 </div>
@@ -1155,14 +1256,13 @@
                 "feature5-title": "中醫知識",
                 "feature5-desc": "探索中醫古籍中的養生智慧，了解傳統文化對女性健康的觀點",
                 "feature6-title": "隱私保護",
-                "feature6-desc": "您的健康數據僅存儲於設備中，我們重視並保護您的隱私安全",
+                "feature6-desc": "您的健康數據僅存儲於設備中，我們重視並保護您的隱私安全。<a href='https://ans1lbbb.github.io/RubyDays/privacy.html' style='color: #FFB6C1; text-decoration: underline;'>了解更多</a>",
                 
                 // 中醫養生區
                 "tcm-title": "中醫養生智慧",
                 "tcm-description": "小主日記融匯《黃帝內經》、《本草綱目》、《傅青主女科》、《針灸甲乙經》四大中醫典籍精要，結合現代女性生活節奏，提供符合生理週期的養生參考。",
                 "disclaimer-title": "💖 重要說明：",
                 "disclaimer-text": "本應用程式僅為個人健康記錄與參考工具，不提供醫療診斷、治療或處方。應用程式中的中醫養生內容僅供文化與知識分享，是小主們探索傳統智慧的起點，但不能取代專業醫療。如有健康疑慮，請務必諮詢合格醫師。",
-                "tcm-download-btn": "開始養生之旅",
                 
                 // 其他應用
                 "other-apps-title": "其他精選應用",
@@ -1181,18 +1281,12 @@
                 "contact-description": "無論是對小主日記的使用體驗、功能想法，還是任何想要分享的點點滴滴，我們都非常重視並期待收到妳的訊息。點擊下方按鈕即可透過郵件與我們聯絡～",
                 "contact-btn-text": "傳送郵件給我們",
                 
-                // 下載區域
-                "download-title": "開啟妳的養生之旅",
-                "download-subtitle": "下載小主日記，開始記錄妳的生理週期，探索中醫養生智慧，讓每個特別的日子都有貼心陪伴",
-                "app-store-btn": "App Store 下載",
-                
-                // 魔法書籤
-                "bookmark-title": "魔法已就緒!",
-                "bookmark-subtitle": "將小主日記魔法裝入口袋",
+                // 側邊欄
+                "sidebar-title": "小主專區",
+                "sidebar-subtitle": "更多應用推薦",
                 
                 // 頁腳
-                "privacy-link": "隱私權政策",
-                "footer-text": "© 2025 小主日記 - 老中醫月經養生手扎. 版權所有。"
+                "footer-text": "© 2025 小主日記 - 老中醫月經養生手扎<br>版權所有"
             },
             zh: {
                 "nav-features": "功能特色",
@@ -1217,13 +1311,12 @@
                 "feature5-title": "中医知识",
                 "feature5-desc": "探索中医古籍中的养生智慧，了解传统文化对女性健康的观点",
                 "feature6-title": "隐私保护",
-                "feature6-desc": "您的健康数据仅存储于设备中，我们重视并保护您的隐私安全",
+                "feature6-desc": "您的健康数据仅存储于设备中，我们重视并保护您的隐私安全。<a href='https://ans1lbbb.github.io/RubyDays/privacy.html' style='color: #FFB6C1; text-decoration: underline;'>了解更多</a>",
                 
                 "tcm-title": "中医养生智慧",
                 "tcm-description": "小主日记融汇《黄帝内经》、《本草纲目》、《傅青主女科》、《针灸甲乙经》四大中医典籍精要，结合现代女性生活节奏，提供符合生理周期的养生参考。",
                 "disclaimer-title": "💖 重要说明：",
                 "disclaimer-text": "本应用程式仅为个人健康记录与参考工具，不提供医疗诊断、治疗或处方。应用程式中的中医养生内容仅供文化与知识分享，是小主们探索传统智慧的起点，但不能取代专业医疗。如有健康疑虑，请务必咨询合格医师。",
-                "tcm-download-btn": "开始养生之旅",
                 
                 "other-apps-title": "其他精选应用",
                 "app1-title": "ProfitFairy",
@@ -1240,15 +1333,10 @@
                 "contact-description": "无论是对小主日记的使用体验、功能想法，还是任何想要分享的点点滴滴，我们都非常重视并期待收到妳的讯息。点击下方按钮即可透过邮件与我们联络～",
                 "contact-btn-text": "传送邮件给我们",
                 
-                "download-title": "开启妳的养生之旅",
-                "download-subtitle": "下载小主日记，开始记录妳的生理周期，探索中医养生智慧，让每个特别的日子都有贴心陪伴",
-                "app-store-btn": "App Store 下载",
+                "sidebar-title": "小主专区",
+                "sidebar-subtitle": "更多应用推荐",
                 
-                "bookmark-title": "魔法已就绪!",
-                "bookmark-subtitle": "将小主日记魔法装入口袋",
-                
-                "privacy-link": "隐私权政策",
-                "footer-text": "© 2025 小主日记 - 老中医月经养生手扎. 版权所有。"
+                "footer-text": "© 2025 小主日记 - 老中医月经养生手扎<br>版权所有"
             },
             en: {
                 "nav-features": "Features",
@@ -1273,13 +1361,12 @@
                 "feature5-title": "TCM Knowledge",
                 "feature5-desc": "Explore wellness wisdom from ancient TCM texts and understand traditional perspectives on women's health",
                 "feature6-title": "Privacy Protection",
-                "feature6-desc": "Your health data is stored only on your device. We value and protect your privacy and security",
+                "feature6-desc": "Your health data is stored only on your device. We value and protect your privacy and security.<a href='https://ans1lbbb.github.io/RubyDays/privacy.html' style='color: #FFB6C1; text-decoration: underline;'>Learn more</a>",
                 
                 "tcm-title": "Traditional Chinese Medicine Wisdom",
                 "tcm-description": "Ruby Days integrates the essence of four major TCM classics - Huangdi Neijing, Bencao Gangmu, Fu Qingzhu's Gynecology, and Zhenjiu Jiayi Jing - combining with modern women's lifestyle to provide wellness references aligned with the menstrual cycle.",
                 "disclaimer-title": "💝 Important Note:",
                 "disclaimer-text": "This application is only a personal health recording and reference tool, and does not provide medical diagnosis, treatment, or prescriptions. The TCM wellness content in the app is for cultural and knowledge sharing only, serving as a starting point for exploring traditional wisdom, but cannot replace professional medical care. If you have health concerns, please be sure to consult a qualified physician.",
-                "tcm-download-btn": "Start Your Wellness Journey",
                 
                 "other-apps-title": "Other Selected Apps",
                 "app1-title": "ProfitFairy",
@@ -1296,15 +1383,10 @@
                 "contact-description": "Whether it's about your experience with Ruby Days, feature ideas, or anything you'd like to share, we value and look forward to receiving your message. Click the button below to contact us via email～",
                 "contact-btn-text": "Send Email to Us",
                 
-                "download-title": "Start Your Wellness Journey",
-                "download-subtitle": "Download Ruby Days to start recording your menstrual cycle, explore TCM wellness wisdom, and have thoughtful companionship on every special day",
-                "app-store-btn": "Download on App Store",
+                "sidebar-title": "Special Zone",
+                "sidebar-subtitle": "More App Recommendations",
                 
-                "bookmark-title": "Magic Ready!",
-                "bookmark-subtitle": "Carry Ruby Days in your pocket",
-                
-                "privacy-link": "Privacy Policy",
-                "footer-text": "© 2025 Ruby Days - Menstrual TCM Diary. All rights reserved."
+                "footer-text": "© 2025 Ruby Days - Menstrual TCM Diary<br>All rights reserved"
             },
             ja: {
                 "nav-features": "機能特徴",
@@ -1329,13 +1411,12 @@
                 "feature5-title": "中医知識",
                 "feature5-desc": "古代中医文献からの養生知恵を探求し、女性の健康に関する伝統的視点を理解",
                 "feature6-title": "プライバシー保護",
-                "feature6-desc": "あなたの健康データはデバイス内のみに保存されます。私たちはあなたのプライバシーと安全を重視し保護します",
+                "feature6-desc": "あなたの健康データはデバイス内のみに保存されます。私たちはあなたのプライバシーと安全を重視し保護します。<a href='https://ans1lbbb.github.io/RubyDays/privacy.html' style='color: #FFB6C1; text-decoration: underline;'>詳細を見る</a>",
                 
                 "tcm-title": "伝統中国医学の知恵",
                 "tcm-description": "ルビーデイズは、黄帝内経、本草綱目、傅青主女科、針灸甲乙経の四大中医典籍の精髄を統合し、現代女性のライフスタイルと組み合わせて、生理周期に合わせた養生参考を提供します。",
                 "disclaimer-title": "💖 重要なお知らせ：",
                 "disclaimer-text": "このアプリケーションは個人の健康記録および参照ツールであり、医療診断、治療、処方を提供するものではありません。アプリ内の中医養生コンテンツは文化および知識共有のみを目的としており、伝統的知恵を探求する出発点となりますが、専門的な医療の代わりにはなりません。健康上の懸念がある場合は、必ず資格のある医師に相談してください。",
-                "tcm-download-btn": "養生の旅を始める",
                 
                 "other-apps-title": "他の精選アプリ",
                 "app1-title": "ProfitFairy",
@@ -1352,15 +1433,10 @@
                 "contact-description": "ルビーデイズの使用体験、機能のアイデア、または共有したいことについて、私たちはあなたのメッセージを大切にし、受け取ることを楽しみにしています。以下のボタンをクリックしてメールでお問い合わせください～",
                 "contact-btn-text": "メールを送信",
                 
-                "download-title": "養生の旅を始めましょう",
-                "download-subtitle": "ルビーデイズをダウンロードして、あなたの生理周期を記録し始め、中医養生の知恵を探求し、特別な日々に思いやりのある同伴を",
-                "app-store-btn": "App Storeでダウンロード",
+                "sidebar-title": "特別ゾーン",
+                "sidebar-subtitle": "他のアプリのおすすめ",
                 
-                "bookmark-title": "魔法の準備完了!",
-                "bookmark-subtitle": "ルビーデイズをポケットに",
-                
-                "privacy-link": "プライバシーポリシー",
-                "footer-text": "© 2025 ルビーデイズ - 月経養生手帳. 無断複写・転載を禁じます。"
+                "footer-text": "© 2025 ルビーデイズ - 月経養生手帳<br>無断複写・転載を禁じます"
             },
             ko: {
                 "nav-features": "기능 특징",
@@ -1385,13 +1461,12 @@
                 "feature5-title": "중의학 지식",
                 "feature5-desc": "고대 중의학 문헌에서 건강 관리 지혜를 탐구하고 여성 건강에 대한 전통적 관점 이해",
                 "feature6-title": "개인정보 보호",
-                "feature6-desc": "여러분의 건강 데이터는 기기 내에만 저장됩니다. 우리는 여러분의 개인정보와 안전을 소중히 여기며 보호합니다",
+                "feature6-desc": "여러분의 건강 데이터는 기기 내에만 저장됩니다. 우리는 여러분의 개인정보와 안전을 소중히 여기며 보호합니다.<a href='https://ans1lbbb.github.io/RubyDays/privacy.html' style='color: #FFB6C1; text-decoration: underline;'>더 알아보기</a>",
                 
                 "tcm-title": "전통 중의학 지혜",
                 "tcm-description": "루비 데이즈는 황제내경, 본초강목, 부청주여과, 침구갑을경의 4대 중의학 고전 정수를 통합하여 현대 여성의 생활 리듬과 결합하여 생리 주기에 맞는 건강 관리 참고 자료를 제공합니다.",
                 "disclaimer-title": "💖 중요한 안내:",
                 "disclaimer-text": "이 애플리케이션은 개인 건강 기록 및 참조 도구일 뿐, 의학적 진단, 치료 또는 처방을 제공하지 않습니다. 앱 내 중의학 건강 콘텐츠는 문화 및 지식 공유용으로만 제공되며, 전통적 지혜를 탐구하는 출발점이지만 전문 의료를 대체할 수 없습니다. 건강 관련 우려사항이 있는 경우 반드시 자격을 갖춘 의사와 상담하세요.",
-                "tcm-download-btn": "건강 관리 여행 시작하기",
                 
                 "other-apps-title": "다른 추천 앱",
                 "app1-title": "ProfitFairy",
@@ -1408,15 +1483,10 @@
                 "contact-description": "루비 데이즈 사용 경험, 기능 아이디어, 또는 공유하고 싶은 어떤 것에 대해서도 우리는 여러분의 메시지를 소중히 여기며 기다리고 있습니다. 아래 버튼을 클릭하여 이메일로 문의해 주세요～",
                 "contact-btn-text": "이메일 보내기",
                 
-                "download-title": "건강 관리 여행을 시작하세요",
-                "download-subtitle": "루비 데이즈를 다운로드하여 생리 주기 기록을 시작하고, 중의학 건강 지혜를 탐구하며, 특별한 날마다 세심한 동반을",
-                "app-store-btn": "App Store에서 다운로드",
+                "sidebar-title": "특별 구역",
+                "sidebar-subtitle": "더 많은 앱 추천",
                 
-                "bookmark-title": "마법 준비 완료!",
-                "bookmark-subtitle": "루비 데이즈를 주머니에",
-                
-                "privacy-link": "개인정보 처리방침",
-                "footer-text": "© 2025 루비 데이즈 - 월경 건강 관리 일기. All rights reserved."
+                "footer-text": "© 2025 루비 데이즈 - 월경 건강 관리 일기<br>All rights reserved"
             }
         };
 
@@ -1440,6 +1510,22 @@
             // 更新html lang屬性
             document.documentElement.lang = lang;
         }
+
+        // 側邊欄控制
+        function toggleSidebar() {
+            const sidebarContent = document.getElementById('sidebarContent');
+            sidebarContent.classList.toggle('show');
+        }
+
+        // 點擊側邊欄外部關閉側邊欄
+        document.addEventListener('click', function(event) {
+            const sidebarContent = document.getElementById('sidebarContent');
+            const sidebarTab = document.querySelector('.sidebar-tab');
+            
+            if (!sidebarContent.contains(event.target) && !sidebarTab.contains(event.target)) {
+                sidebarContent.classList.remove('show');
+            }
+        });
 
         // 初始化為繁體中文
         document.addEventListener('DOMContentLoaded', () => {
