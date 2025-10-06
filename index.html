@@ -28,13 +28,13 @@
         }
 
         body {
-            line-height: 1.6;
+            line-height: 1.7;
             background: linear-gradient(135deg, #FFF0F5 0%, #F8F8FF 100%);
             color: var(--text);
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
-            padding-bottom: 70px;
+            padding-bottom: 80px;
         }
 
         /* 字型設定 */
@@ -57,7 +57,7 @@
         .floating-element {
             position: absolute;
             z-index: 0;
-            opacity: 0.08;
+            opacity: 0.1;
         }
 
         .floating-element-1 {
@@ -115,47 +115,105 @@
             z-index: 1;
         }
 
-        /* 語言選擇器 */
-        .language-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
+        /* 頂部導航 */
+        .top-nav {
             display: flex;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 25px;
-            padding: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
         }
 
-        .language-toggle.hidden {
-            transform: translateY(-100px);
-            opacity: 0;
+        .logo-container img {
+            height: 45px;
+            transition: transform 0.3s;
+        }
+
+        .logo-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .language-toggle {
+            display: flex;
+            gap: 8px;
         }
 
         .lang-btn {
-            padding: 8px 15px;
-            border: none;
+            padding: 6px 12px;
+            border: 2px solid var(--primary);
             border-radius: 20px;
-            background: transparent;
+            background: white;
             color: var(--primary);
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
 
         .lang-btn:hover, .lang-btn.active {
             background: var(--primary);
             color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px var(--shadow);
+        }
+
+        /* 底部導航 */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            z-index: 100;
+            box-shadow: 0 -2px 20px rgba(0,0,0,0.05);
+            padding: 12px 0;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s;
+            padding: 8px 12px;
+            border-radius: 15px;
+            min-width: 70px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+            background: rgba(255, 182, 193, 0.1);
+        }
+
+        .nav-icon {
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+        }
+
+        .nav-text {
+            font-size: 0.75rem;
+            font-weight: 500;
         }
 
         /* 英雄區域 */
         .hero {
-            padding: 100px 0 60px;
+            padding: 60px 0 40px;
             text-align: center;
             position: relative;
         }
@@ -169,8 +227,8 @@
             width: 120px;
             height: 120px;
             border-radius: 25px;
-            margin: 0 auto 30px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin: 0 auto 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             transition: transform 0.5s ease;
         }
 
@@ -180,14 +238,15 @@
 
         .hero-title {
             font-family: 'Ma Shan Zheng', cursive;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: #B76E79;
             margin-bottom: 15px;
             letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #8C7B6D;
             margin-bottom: 30px;
             line-height: 1.6;
@@ -198,7 +257,7 @@
 
         .hero-buttons {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             justify-content: center;
             margin-top: 30px;
         }
@@ -207,7 +266,7 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 14px 30px;
+            padding: 14px 28px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
@@ -234,14 +293,14 @@
 
         /* 功能特色 */
         .section {
-            padding: 70px 0;
+            padding: 60px 0;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: #B76E79;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             position: relative;
             line-height: 1.3;
         }
@@ -260,15 +319,15 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
 
         .feature-card {
             background: var(--card-bg);
             border-radius: 20px;
-            padding: 30px 25px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            padding: 25px 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
@@ -281,7 +340,7 @@
 
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 30px var(--shadow);
+            box-shadow: 0 12px 25px var(--shadow);
         }
 
         .feature-card::before {
@@ -290,14 +349,14 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
+            height: 4px;
             background: linear-gradient(90deg, var(--primary), var(--accent));
         }
 
         .feature-icon {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--primary);
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             height: 60px;
             display: flex;
             align-items: center;
@@ -312,7 +371,7 @@
         }
 
         .feature-description {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--text);
             line-height: 1.6;
             flex-grow: 1;
@@ -322,11 +381,11 @@
         .tcm-section {
             background: linear-gradient(135deg, #FFF0F5 0%, #F0F8FF 100%);
             border-radius: 25px;
-            padding: 60px 40px;
+            padding: 50px 40px;
             margin: 50px 0;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
         }
 
         .tcm-section::before {
@@ -336,7 +395,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.04"><path d="M30,30 Q50,10 70,30 T90,50 T70,70 T50,90 T30,70 T10,50 T30,30 Z" fill="%23B76E79"/></svg>');
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.03"><path d="M30,30 Q50,10 70,30 T90,50 T70,70 T50,90 T30,70 T10,50 T30,30 Z" fill="%23B76E79"/></svg>');
             background-size: 80px 80px;
         }
 
@@ -349,14 +408,14 @@
         }
 
         .tcm-title {
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             color: #B76E79;
             margin-bottom: 20px;
             line-height: 1.3;
         }
 
         .tcm-description {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.7;
             margin-bottom: 30px;
         }
@@ -365,11 +424,11 @@
             background: #FFF8F8;
             border: 1px solid #FFD1DC;
             border-radius: 15px;
-            padding: 20px;
+            padding: 20px 25px;
             margin: 30px 0;
             position: relative;
             text-align: left;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
         
         .disclaimer-box::before {
@@ -384,7 +443,7 @@
 
         /* 聯絡我們 */
         .contact-section {
-            padding: 70px 0;
+            padding: 60px 0;
             text-align: center;
         }
 
@@ -393,8 +452,8 @@
             margin: 0 auto;
             background: white;
             border-radius: 25px;
-            padding: 40px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            padding: 40px 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
             position: relative;
             overflow: hidden;
         }
@@ -405,12 +464,12 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
+            height: 4px;
             background: linear-gradient(90deg, var(--primary), var(--accent));
         }
 
         .contact-title {
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             color: #B76E79;
             margin-bottom: 15px;
         }
@@ -422,11 +481,11 @@
             line-height: 1.6;
         }
 
-        .contact-button {
+        .contact-btn {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 14px 30px;
+            padding: 14px 28px;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
             border-radius: 30px;
@@ -437,14 +496,14 @@
             margin-top: 10px;
         }
 
-        .contact-button:hover {
+        .contact-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(183, 110, 121, 0.4);
         }
 
         /* 其他應用 */
         .other-apps-section {
-            padding: 70px 0;
+            padding: 60px 0;
         }
 
         .apps-grid {
@@ -457,8 +516,8 @@
         .app-card {
             background: white;
             border-radius: 20px;
-            padding: 30px 25px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            padding: 25px 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
@@ -470,7 +529,7 @@
 
         .app-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 30px var(--shadow);
+            box-shadow: 0 12px 25px var(--shadow);
         }
 
         .app-card::before {
@@ -479,7 +538,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
+            height: 4px;
             background: linear-gradient(90deg, var(--primary), var(--accent));
         }
 
@@ -494,7 +553,7 @@
             width: 60px;
             height: 60px;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .app-title {
@@ -509,7 +568,7 @@
         }
 
         .app-description {
-            font-size: 1rem;
+            font-size: 0.95rem;
             line-height: 1.6;
             margin-bottom: 20px;
             flex-grow: 1;
@@ -534,7 +593,7 @@
         /* 下載區域 */
         .download-section {
             text-align: center;
-            padding: 70px 0;
+            padding: 60px 0;
             background: linear-gradient(135deg, #FFF0F5 0%, #F8F8FF 100%);
             border-radius: 25px;
             margin: 50px 0;
@@ -561,16 +620,16 @@
         }
 
         .download-title {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: #B76E79;
             margin-bottom: 20px;
             line-height: 1.3;
         }
 
         .download-subtitle {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: #8C7B6D;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             line-height: 1.6;
         }
 
@@ -580,56 +639,14 @@
         }
 
         .app-store-badge img {
-            height: 60px;
+            height: 55px;
             border-radius: 12px;
             transition: transform 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .app-store-badge:hover img {
             transform: scale(1.05);
-        }
-
-        /* 底部導航 */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            box-shadow: 0 -2px 15px rgba(0,0,0,0.1);
-            padding: 12px 0;
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: space-around;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .nav-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: var(--text);
-            font-size: 0.8rem;
-            transition: all 0.3s;
-            padding: 5px 10px;
-            border-radius: 15px;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary);
-            background: rgba(255, 182, 193, 0.1);
-        }
-
-        .nav-link i {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
         }
 
         /* 頁腳 */
@@ -646,7 +663,7 @@
             display: flex;
             justify-content: center;
             gap: 25px;
-            margin: 15px 0;
+            margin: 20px 0;
         }
 
         .footer-link {
@@ -700,7 +717,7 @@
             bottom: 60px;
             right: 0;
             background: white;
-            border-radius: 15px;
+            border-radius: 18px;
             padding: 15px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             display: none;
@@ -727,7 +744,7 @@
             color: var(--text);
             text-decoration: none;
             padding: 10px 12px;
-            border-radius: 10px;
+            border-radius: 12px;
             transition: all 0.3s;
         }
 
@@ -739,7 +756,8 @@
         .magic-app-icon {
             width: 35px;
             height: 35px;
-            border-radius: 8px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .magic-app-info {
@@ -747,41 +765,47 @@
         }
 
         .magic-app-name {
-            font-weight: bold;
             font-size: 0.9rem;
-            color: var(--text);
+            font-weight: bold;
+            color: #B76E79;
+            margin-bottom: 2px;
         }
 
-        .magic-app-store {
-            font-size: 0.8rem;
-            color: #8C7B6D;
+        .magic-app-download {
+            font-size: 0.75rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
 
         /* 響應式設計 */
         @media (max-width: 1024px) {
             .hero-title {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             
             .section-title {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
         }
 
         @media (max-width: 768px) {
-            .language-toggle {
-                top: 15px;
-                right: 15px;
-                padding: 6px;
+            .top-nav {
+                padding: 12px 0;
+            }
+            
+            .logo-container img {
+                height: 40px;
             }
             
             .lang-btn {
-                padding: 6px 12px;
-                font-size: 0.8rem;
+                padding: 5px 10px;
+                font-size: 0.75rem;
             }
             
             .hero {
-                padding: 80px 0 50px;
+                padding: 50px 0 30px;
             }
             
             .hero-title {
@@ -805,7 +829,12 @@
             }
             
             .section {
-                padding: 60px 0;
+                padding: 50px 0;
+            }
+            
+            .features-grid, .apps-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
             
             .tcm-section {
@@ -818,15 +847,16 @@
             
             .footer-links {
                 flex-direction: column;
-                gap: 10px;
+                gap: 12px;
             }
             
-            .apps-grid {
-                grid-template-columns: 1fr;
+            .nav-text {
+                font-size: 0.7rem;
             }
             
-            .magic-buttons {
-                width: 160px;
+            .magic-nav {
+                bottom: 70px;
+                right: 15px;
             }
         }
 
@@ -836,24 +866,20 @@
             }
             
             .section-title {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
             
             .feature-card, .app-card {
-                padding: 25px 20px;
+                padding: 20px 15px;
             }
             
             .contact-container {
                 padding: 25px 20px;
             }
             
-            .nav-link {
-                font-size: 0.7rem;
-                padding: 5px 8px;
-            }
-            
-            .nav-link i {
-                font-size: 1rem;
+            .app-icon {
+                width: 100px;
+                height: 100px;
             }
         }
     </style>
@@ -867,23 +893,26 @@
     <div class="floating-element floating-element-5">🌙</div>
     <div class="floating-element floating-element-6">🌿</div>
     
-    <!-- 語言選擇器 -->
-    <div class="language-toggle" id="languageToggle">
-        <button class="lang-btn active" onclick="switchLanguage('zh_tw')">繁中</button>
-        <button class="lang-btn" onclick="switchLanguage('zh')">简中</button>
-        <button class="lang-btn" onclick="switchLanguage('en')">EN</button>
-        <button class="lang-btn" onclick="switchLanguage('ja')">JP</button>
-        <button class="lang-btn" onclick="switchLanguage('ko')">KR</button>
-    </div>
-
     <div class="container">
+        <!-- 頂部導航 -->
+        <nav class="top-nav">
+            <div class="logo-container">
+                <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_logo.png" alt="小主日記">
+            </div>
+            <div class="language-toggle">
+                <button class="lang-btn active" onclick="switchLanguage('zh_tw')">繁中</button>
+                <button class="lang-btn" onclick="switchLanguage('zh')">简中</button>
+                <button class="lang-btn" onclick="switchLanguage('en')">EN</button>
+                <button class="lang-btn" onclick="switchLanguage('ja')">JP</button>
+                <button class="lang-btn" onclick="switchLanguage('ko')">KO</button>
+            </div>
+        </nav>
+
         <!-- 英雄區域 -->
-        <section class="hero" id="home">
+        <section class="hero">
             <div class="hero-content">
                 <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_icon.png" alt="小主日記" class="app-icon">
-                <h1 class="hero-title" id="hero-title">
-    <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_logo.png" alt="小主日記" style="height: 70px; width: auto; max-width: 300px;">
-</h1>
+                <h1 class="hero-title" id="hero-title">小主日記</h1>
                 <p class="hero-subtitle" id="hero-subtitle">老中醫月經養生手扎<br>記錄妳的專屬生理週期，探索中醫養生智慧，陪伴每個特別的日子</p>
                 <div class="hero-buttons">
                     <a href="#download" class="btn btn-primary">
@@ -1001,10 +1030,10 @@
             <h2 class="section-title" id="contact-title">聯絡我們</h2>
             <div class="contact-container">
                 <h3 class="contact-title" id="contact-subtitle">親愛的小主，我們在這裡傾聽妳的聲音</h3>
-                <p class="contact-description" id="contact-description">無論是對小主日記的使用體驗、功能想法，還是任何想要分享的點點滴滴，我們都非常重視並期待收到妳的訊息。</p>
+                <p class="contact-description" id="contact-description">無論是對小主日記的使用體驗、功能想法，還是任何想要分享的點點滴滴，我們都非常重視並期待收到妳的訊息。點擊下方按鈕即可透過郵件與我們聯絡～</p>
                 
-                <a href="mailto:ans1l@icloud.com?subject=小主日記用戶反饋" class="contact-button">
-                    <i class="fas fa-envelope"></i> <span id="contact-btn">發送郵件給我們</span>
+                <a href="mailto:ans1l@icloud.com?subject=小主日記用戶回饋" class="contact-btn">
+                    <i class="fas fa-envelope"></i> <span id="contact-btn-text">傳送郵件給我們</span>
                 </a>
             </div>
         </section>
@@ -1039,21 +1068,21 @@
     <!-- 底部導航 -->
     <nav class="bottom-nav">
         <div class="nav-links">
-            <a href="#home" class="nav-link active">
-                <i class="fas fa-home"></i>
-                <span id="nav-home">首頁</span>
-            </a>
             <a href="#features" class="nav-link">
-                <i class="fas fa-star"></i>
-                <span id="nav-features">功能</span>
+                <i class="fas fa-star nav-icon"></i>
+                <span class="nav-text" id="nav-features">功能特色</span>
+            </a>
+            <a href="#tcm" class="nav-link">
+                <i class="fas fa-book-medical nav-icon"></i>
+                <span class="nav-text" id="nav-tcm">中醫養生</span>
             </a>
             <a href="#apps" class="nav-link">
-                <i class="fas fa-th-large"></i>
-                <span id="nav-apps">其他應用</span>
+                <i class="fas fa-th-large nav-icon"></i>
+                <span class="nav-text" id="nav-apps">其他應用</span>
             </a>
             <a href="#contact" class="nav-link">
-                <i class="fas fa-envelope"></i>
-                <span id="nav-contact">聯絡</span>
+                <i class="fas fa-envelope nav-icon"></i>
+                <span class="nav-text" id="nav-contact">聯絡我們</span>
             </a>
         </div>
     </nav>
@@ -1061,28 +1090,34 @@
     <!-- 魔法書籤導航 -->
     <div class="magic-nav">
         <div class="magic-tab">
-            <i class="fas fa-download"></i>
+            <i class="fas fa-feather"></i>
         </div>
         <div class="magic-buttons">
             <a href="https://apps.apple.com/app/id6752606069" class="magic-app" target="_blank">
                 <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_icon.png" alt="小主日記" class="magic-app-icon">
                 <div class="magic-app-info">
                     <div class="magic-app-name">小主日記</div>
-                    <div class="magic-app-store">App Store</div>
+                    <div class="magic-app-download">
+                        <i class="fas fa-download"></i> 下載應用
+                    </div>
                 </div>
             </a>
             <a href="https://apps.apple.com/app/id6740332215" class="magic-app" target="_blank">
                 <img src="https://raw.githubusercontent.com/Ans1lBBB/ProfitFairy/main/ProfitFairy_icon.png" alt="ProfitFairy" class="magic-app-icon">
                 <div class="magic-app-info">
                     <div class="magic-app-name">ProfitFairy</div>
-                    <div class="magic-app-store">App Store</div>
+                    <div class="magic-app-download">
+                        <i class="fas fa-download"></i> 下載應用
+                    </div>
                 </div>
             </a>
             <a href="https://apps.apple.com/app/id6745821288" class="magic-app" target="_blank">
                 <img src="https://raw.githubusercontent.com/Ans1lBBB/AIOS/main/AIOS_icon.png" alt="AIOS Realm" class="magic-app-icon">
                 <div class="magic-app-info">
                     <div class="magic-app-name">AIOS Realm</div>
-                    <div class="magic-app-store">App Store</div>
+                    <div class="magic-app-download">
+                        <i class="fas fa-download"></i> 下載應用
+                    </div>
                 </div>
             </a>
         </div>
@@ -1092,10 +1127,10 @@
         const translations = {
             zh_tw: {
                 // 導航欄
-                "nav-home": "首頁",
-                "nav-features": "功能",
+                "nav-features": "功能特色",
+                "nav-tcm": "中醫養生",
                 "nav-apps": "其他應用",
-                "nav-contact": "聯絡",
+                "nav-contact": "聯絡我們",
                 
                 // 英雄區域
                 "hero-title": "小主日記",
@@ -1125,12 +1160,6 @@
                 "disclaimer-text": "本應用程式僅為個人健康記錄與參考工具，不提供醫療診斷、治療或處方。應用程式中的中醫養生內容僅供文化與知識分享，是小主們探索傳統智慧的起點，但不能取代專業醫療。如有健康疑慮，請務必諮詢合格醫師。",
                 "tcm-download-btn": "開始養生之旅",
                 
-                // 聯絡我們
-                "contact-title": "聯絡我們",
-                "contact-subtitle": "親愛的小主，我們在這裡傾聽妳的聲音",
-                "contact-description": "無論是對小主日記的使用體驗、功能想法，還是任何想要分享的點點滴滴，我們都非常重視並期待收到妳的訊息。",
-                "contact-btn": "發送郵件給我們",
-                
                 // 其他應用
                 "other-apps-title": "其他精選應用",
                 "app1-title": "ProfitFairy",
@@ -1142,6 +1171,12 @@
                 "app2-description": "海洋女神的神格碎片散落在「艾奧斯領域」！透過創新的卡牌合成玩法，逐步喚醒沉睡的海洋之力。挑戰記憶翻牌試煉，解鎖女神被封印的夏日傳說。每張限定卡牌都藏著失落記憶碎片，你能成為首位集齊所有神格碎片的海洋使者嗎？立即展開這場療癒系神話冒險！",
                 "app2-link": "了解更多",
                 
+                // 聯絡我們
+                "contact-title": "聯絡我們",
+                "contact-subtitle": "親愛的小主，我們在這裡傾聽妳的聲音",
+                "contact-description": "無論是對小主日記的使用體驗、功能想法，還是任何想要分享的點點滴滴，我們都非常重視並期待收到妳的訊息。點擊下方按鈕即可透過郵件與我們聯絡～",
+                "contact-btn-text": "傳送郵件給我們",
+                
                 // 下載區域
                 "download-title": "開啟妳的養生之旅",
                 "download-subtitle": "下載小主日記，開始記錄妳的生理週期，探索中醫養生智慧，讓每個特別的日子都有貼心陪伴",
@@ -1152,10 +1187,10 @@
                 "footer-text": "© 2025 小主日記 - 老中醫月經養生手扎. 版權所有。"
             },
             zh: {
-                "nav-home": "首页",
-                "nav-features": "功能",
+                "nav-features": "功能特色",
+                "nav-tcm": "中医养生",
                 "nav-apps": "其他应用",
-                "nav-contact": "联络",
+                "nav-contact": "联系我们",
                 
                 "hero-title": "小主日记",
                 "hero-subtitle": "老中医月经养生手扎<br>记录妳的专属生理周期，探索中医养生智慧，陪伴每个特别的日子",
@@ -1182,11 +1217,6 @@
                 "disclaimer-text": "本应用程式仅为个人健康记录与参考工具，不提供医疗诊断、治疗或处方。应用程式中的中医养生内容仅供文化与知识分享，是小主们探索传统智慧的起点，但不能取代专业医疗。如有健康疑虑，请务必咨询合格医师。",
                 "tcm-download-btn": "开始养生之旅",
                 
-                "contact-title": "联系我们",
-                "contact-subtitle": "亲爱的小主，我们在这里倾听妳的声音",
-                "contact-description": "无论是对小主日记的使用体验、功能想法，还是任何想要分享的点点滴滴，我们都非常重视并期待收到妳的讯息。",
-                "contact-btn": "发送邮件给我们",
-                
                 "other-apps-title": "其他精选应用",
                 "app1-title": "ProfitFairy",
                 "app1-subtitle": "利润精算师",
@@ -1197,6 +1227,11 @@
                 "app2-description": "海洋女神的神格碎片散落在「艾奥斯领域」！透过创新的卡牌合成玩法，逐步唤醒沉睡的海洋之力。挑战记忆翻牌试炼，解锁女神被封印的夏日传说。每张限定卡牌都藏着失落记忆碎片，你能成为首位集齐所有神格碎片的海洋使者吗？立即展开这场疗愈系神话冒险！",
                 "app2-link": "了解更多",
                 
+                "contact-title": "联系我们",
+                "contact-subtitle": "亲爱的小主，我们在这里倾听妳的声音",
+                "contact-description": "无论是对小主日记的使用体验、功能想法，还是任何想要分享的点点滴滴，我们都非常重视并期待收到妳的讯息。点击下方按钮即可透过邮件与我们联络～",
+                "contact-btn-text": "传送邮件给我们",
+                
                 "download-title": "开启妳的养生之旅",
                 "download-subtitle": "下载小主日记，开始记录妳的生理周期，探索中医养生智慧，让每个特别的日子都有贴心陪伴",
                 "app-store-btn": "App Store 下载",
@@ -1205,10 +1240,10 @@
                 "footer-text": "© 2025 小主日记 - 老中医月经养生手扎. 版权所有。"
             },
             en: {
-                "nav-home": "Home",
                 "nav-features": "Features",
+                "nav-tcm": "TCM Wellness",
                 "nav-apps": "Other Apps",
-                "nav-contact": "Contact",
+                "nav-contact": "Contact Us",
                 
                 "hero-title": "Ruby Days",
                 "hero-subtitle": "Menstrual TCM Diary<br>Record your unique menstrual cycle, explore TCM wellness wisdom, and accompany every special day",
@@ -1235,11 +1270,6 @@
                 "disclaimer-text": "This application is only a personal health recording and reference tool, and does not provide medical diagnosis, treatment, or prescriptions. The TCM wellness content in the app is for cultural and knowledge sharing only, serving as a starting point for exploring traditional wisdom, but cannot replace professional medical care. If you have health concerns, please be sure to consult a qualified physician.",
                 "tcm-download-btn": "Start Your Wellness Journey",
                 
-                "contact-title": "Contact Us",
-                "contact-subtitle": "Dear user, we are here to listen to your voice",
-                "contact-description": "Whether it's about your experience with Ruby Days, feature ideas, or anything you'd like to share, we value and look forward to receiving your message.",
-                "contact-btn": "Send Email to Us",
-                
                 "other-apps-title": "Other Selected Apps",
                 "app1-title": "ProfitFairy",
                 "app1-subtitle": "Profit Calculator",
@@ -1250,6 +1280,11 @@
                 "app2-description": "The Ocean Goddess's divinity fragments are scattered in the 'AIOS Realm'! Through innovative card synthesis gameplay, gradually awaken the sleeping power of the ocean. Challenge memory card-flipping trials to unlock the goddess's sealed summer legend. Each limited card holds lost memory fragments - can you become the first ocean messenger to collect all divinity fragments? Start this healing mythical adventure now!",
                 "app2-link": "Learn More",
                 
+                "contact-title": "Contact Us",
+                "contact-subtitle": "Dear user, we are here to listen to your voice",
+                "contact-description": "Whether it's about your experience with Ruby Days, feature ideas, or anything you'd like to share, we value and look forward to receiving your message. Click the button below to contact us via email～",
+                "contact-btn-text": "Send Email to Us",
+                
                 "download-title": "Start Your Wellness Journey",
                 "download-subtitle": "Download Ruby Days to start recording your menstrual cycle, explore TCM wellness wisdom, and have thoughtful companionship on every special day",
                 "app-store-btn": "Download on App Store",
@@ -1258,10 +1293,10 @@
                 "footer-text": "© 2025 Ruby Days - Menstrual TCM Diary. All rights reserved."
             },
             ja: {
-                "nav-home": "ホーム",
-                "nav-features": "機能",
+                "nav-features": "機能特徴",
+                "nav-tcm": "中医養生",
                 "nav-apps": "他のアプリ",
-                "nav-contact": "連絡",
+                "nav-contact": "お問い合わせ",
                 
                 "hero-title": "ルビーデイズ",
                 "hero-subtitle": "月経養生手帳<br>あなただけの生理周期を記録し、中医養生の知恵を探求し、特別な日々に寄り添います",
@@ -1288,11 +1323,6 @@
                 "disclaimer-text": "このアプリケーションは個人の健康記録および参照ツールであり、医療診断、治療、処方を提供するものではありません。アプリ内の中医養生コンテンツは文化および知識共有のみを目的としており、伝統的知恵を探求する出発点となりますが、専門的な医療の代わりにはなりません。健康上の懸念がある場合は、必ず資格のある医師に相談してください。",
                 "tcm-download-btn": "養生の旅を始める",
                 
-                "contact-title": "お問い合わせ",
-                "contact-subtitle": "親愛なるユーザーの皆様、私たちはあなたの声を聴くためにここにいます",
-                "contact-description": "ルビーデイズの使用体験、機能のアイデア、または共有したいことについて、私たちはあなたのメッセージを大切にし、受け取ることを楽しみにしています。",
-                "contact-btn": "メールを送信",
-                
                 "other-apps-title": "他の精選アプリ",
                 "app1-title": "ProfitFairy",
                 "app1-subtitle": "利益計算士",
@@ -1303,6 +1333,11 @@
                 "app2-description": "海洋女神の神格の断片が「アイオス領域」に散らばっています！革新的なカード合成ゲームプレイを通じて、眠れる海の力を徐々に目覚めさせます。記憶カードめくり試練に挑戦し、女神が封印された夏の伝説を解き放ちましょう。各限定カードには失われた記憶の断片が隠されています - あなたはすべての神格の断片を集める最初の海洋使者になれますか？この癒し系神話冒険を今すぐ始めましょう！",
                 "app2-link": "詳細を見る",
                 
+                "contact-title": "お問い合わせ",
+                "contact-subtitle": "親愛なるユーザーの皆様、私たちはあなたの声を聴くためにここにいます",
+                "contact-description": "ルビーデイズの使用体験、機能のアイデア、または共有したいことについて、私たちはあなたのメッセージを大切にし、受け取ることを楽しみにしています。以下のボタンをクリックしてメールでお問い合わせください～",
+                "contact-btn-text": "メールを送信",
+                
                 "download-title": "養生の旅を始めましょう",
                 "download-subtitle": "ルビーデイズをダウンロードして、あなたの生理周期を記録し始め、中医養生の知恵を探求し、特別な日々に思いやりのある同伴を",
                 "app-store-btn": "App Storeでダウンロード",
@@ -1311,10 +1346,10 @@
                 "footer-text": "© 2025 ルビーデイズ - 月経養生手帳. 無断複写・転載を禁じます。"
             },
             ko: {
-                "nav-home": "홈",
-                "nav-features": "기능",
+                "nav-features": "기능 특징",
+                "nav-tcm": "중의학 건강",
                 "nav-apps": "다른 앱",
-                "nav-contact": "문의",
+                "nav-contact": "문의하기",
                 
                 "hero-title": "루비 데이즈",
                 "hero-subtitle": "월경 건강 관리 일기<br>나만의 생리 주기를 기록하고, 중의학 건강 지혜를 탐구하며, 특별한 날을 함께 합니다",
@@ -1341,11 +1376,6 @@
                 "disclaimer-text": "이 애플리케이션은 개인 건강 기록 및 참조 도구일 뿐, 의학적 진단, 치료 또는 처방을 제공하지 않습니다. 앱 내 중의학 건강 콘텐츠는 문화 및 지식 공유용으로만 제공되며, 전통적 지혜를 탐구하는 출발점이지만 전문 의료를 대체할 수 없습니다. 건강 관련 우려사항이 있는 경우 반드시 자격을 갖춘 의사와 상담하세요.",
                 "tcm-download-btn": "건강 관리 여행 시작하기",
                 
-                "contact-title": "문의하기",
-                "contact-subtitle": "사랑하는 사용자 여러분, 우리는 여러분의 목소리를 듣기 위해 여기에 있습니다",
-                "contact-description": "루비 데이즈 사용 경험, 기능 아이디어, 또는 공유하고 싶은 어떤 것에 대해서도 우리는 여러분의 메시지를 소중히 여기며 기다리고 있습니다.",
-                "contact-btn": "이메일 보내기",
-                
                 "other-apps-title": "다른 추천 앱",
                 "app1-title": "ProfitFairy",
                 "app1-subtitle": "이익 정산사",
@@ -1353,8 +1383,13 @@
                 "app1-link": "더 알아보기",
                 "app2-title": "AIOS Realm",
                 "app2-subtitle": "신격 각성",
-                "app2-description": "바다 여신의 신격 파편이 '아이오스 영역'에 흩어져 있습니다! 혁신적인 카드 합성 게임플레이를 통해 잠든 바다의 힘을 점차 깨웁니다. 기억 카드 뒤집기 시련에 도전하여 여신이 봉인된 여름 전설을 해제하세요. 각 한정 카드에는 잃어버린 기억 파편이 숨겨져 있습니다 - 당신은 모든 신격 파편을 모은 첫 번째 바다 사자가 될 수 있을까요? 이 치유계 신화 모험을 지금 시작하세요!",
+                "app2-description": "바다 여신의 신격 파편이 '아이오스 영역'에 흩어져 있습니다! 혁신적인 카드 합성 게임플레이를 통해 잠든 바다의 힘을 점차 깨웁니다. 기억 카드 뒤집기 시련에 도전하여 여신이 봉인된 여름 전설을 해제하세요. 각 한정 카드에는 잃어버린 기억 파편이 숨겨져 있습니다 - 당신은 모든 신격 파편을 모은 첫 번째 바다 사자가 될 수 있을까요? 이 치유系 신화 모험을 지금 시작하세요!",
                 "app2-link": "더 알아보기",
+                
+                "contact-title": "문의하기",
+                "contact-subtitle": "사랑하는 사용자 여러분, 우리는 여러분의 목소리를 듣기 위해 여기에 있습니다",
+                "contact-description": "루비 데이즈 사용 경험, 기능 아이디어, 또는 공유하고 싶은 어떤 것에 대해서도 우리는 여러분의 메시지를 소중히 여기며 기다리고 있습니다. 아래 버튼을 클릭하여 이메일로 문의해 주세요～",
+                "contact-btn-text": "이메일 보내기",
                 
                 "download-title": "건강 관리 여행을 시작하세요",
                 "download-subtitle": "루비 데이즈를 다운로드하여 생리 주기 기록을 시작하고, 중의학 건강 지혜를 탐구하며, 특별한 날마다 세심한 동반을",
@@ -1386,33 +1421,17 @@
             document.documentElement.lang = lang;
         }
 
-        // 滾動時隱藏語言選擇器
-        let lastScrollTop = 0;
-        window.addEventListener('scroll', function() {
-            let st = window.pageYOffset || document.documentElement.scrollTop;
-            const languageToggle = document.getElementById('languageToggle');
-            
-            if (st > lastScrollTop && st > 100) {
-                // 向下滾動
-                languageToggle.classList.add('hidden');
-            } else {
-                // 向上滾動
-                languageToggle.classList.remove('hidden');
-            }
-            lastScrollTop = st <= 0 ? 0 : st;
-        }, false);
-
-        // 底部導航激活狀態
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-
         // 初始化為繁體中文
         document.addEventListener('DOMContentLoaded', () => {
             switchLanguage('zh_tw');
+            
+            // 導航連結點擊效果
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
         });
     </script>
 </body>
