@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>小主日記 - 老中醫月經養生手扎</title>
-    <!-- 簡化字型連結，只保留真正需要的字型 -->
+    <!-- 只保留真正需要的字型 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
@@ -38,10 +38,6 @@
             position: relative;
             overflow-x: hidden;
             padding-bottom: 80px;
-        }
-
-        /* 字型設定 - 使用系統字型確保顯示正常 */
-        body:lang(zh-TW) {
             font-family: 
                 -apple-system,
                 'Microsoft JhengHei', 
@@ -49,43 +45,14 @@
                 'PMingLiU', 
                 sans-serif;
         }
-        body:lang(zh) {
-            font-family: 
-                -apple-system,
-                'Microsoft YaHei',
-                'PingFang SC', 
-                sans-serif;
-        }
-        body:lang(en) {
-            font-family: 
-                -apple-system,
-                BlinkMacSystemFont,
-                'Segoe UI', 
-                sans-serif;
-        }
-        body:lang(ja) {
-            font-family: 
-                -apple-system,
-                'Hiragino Sans',
-                'Meiryo', 
-                sans-serif;
-        }
-        body:lang(ko) {
-            font-family: 
-                -apple-system,
-                'Apple SD Gothic Neo',
-                'Malgun Gothic', 
-                sans-serif;
-        }
 
-        /* 特別優化標題字體 - 使用多重備用方案 */
+        /* 特別優化標題字體 - 使用系統字型確保顯示正常 */
         .hero-title {
             font-family: 
-                'Ma Shan Zheng',     /* 主要字型 */
-                'Microsoft JhengHei', /* Windows 備用 */
-                'Apple LiGothic',    /* macOS 備用 */
-                'PMingLiU',          /* 舊系統備用 */
-                cursive;             /* 最後的通用備用 */
+                'Microsoft JhengHei',
+                'Apple LiGothic', 
+                'PMingLiU',
+                sans-serif;
             font-size: 2.2rem;
             color: #B76E79;
             margin-bottom: 15px;
