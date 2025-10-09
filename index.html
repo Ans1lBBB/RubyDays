@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>小主日記 - 老中醫月經養生手扎</title>
-    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">    
+    <!-- 簡化字型連結，只保留真正需要的字型 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -37,31 +40,59 @@
             padding-bottom: 80px;
         }
 
-        /* 字型設定 - 优化繁体中文显示 */
+        /* 字型設定 - 使用系統字型確保顯示正常 */
         body:lang(zh-TW) {
-    font-family: 'Noto Serif TC', 'Microsoft JhengHei', 'Apple LiGothic', 'PMingLiU', sans-serif;
-}
+            font-family: 
+                -apple-system,
+                'Microsoft JhengHei', 
+                'Apple LiGothic',
+                'PMingLiU', 
+                sans-serif;
+        }
         body:lang(zh) {
-            font-family: 'Noto Serif SC', serif;
+            font-family: 
+                -apple-system,
+                'Microsoft YaHei',
+                'PingFang SC', 
+                sans-serif;
         }
         body:lang(en) {
-            font-family: 'Playfair Display', serif;
+            font-family: 
+                -apple-system,
+                BlinkMacSystemFont,
+                'Segoe UI', 
+                sans-serif;
         }
         body:lang(ja) {
-            font-family: 'Noto Serif JP', serif;
+            font-family: 
+                -apple-system,
+                'Hiragino Sans',
+                'Meiryo', 
+                sans-serif;
         }
         body:lang(ko) {
-            font-family: 'Noto Serif KR', serif;
+            font-family: 
+                -apple-system,
+                'Apple SD Gothic Neo',
+                'Malgun Gothic', 
+                sans-serif;
         }
 
-        /* 特别优化标题字体 */
+        /* 特別優化標題字體 - 使用多重備用方案 */
         .hero-title {
-            font-family: 'Ma Shan Zheng', cursive;
+            font-family: 
+                'Ma Shan Zheng',     /* 主要字型 */
+                'Microsoft JhengHei', /* Windows 備用 */
+                'Apple LiGothic',    /* macOS 備用 */
+                'PMingLiU',          /* 舊系統備用 */
+                cursive;             /* 最後的通用備用 */
             font-size: 2.2rem;
             color: #B76E79;
             margin-bottom: 15px;
             letter-spacing: 2px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+            font-weight: 700;
+            line-height: 1.3;
         }
 
         .floating-element {
@@ -125,7 +156,7 @@
             z-index: 1;
         }
 
-        /* 顶部导航 - 优化版 */
+        /* 頂部導航 - 優化版 */
         .top-nav {
             display: flex;
             justify-content: space-between;
@@ -177,7 +208,7 @@
             box-shadow: 0 3px 10px var(--shadow);
         }
 
-        /* 底部导航 */
+        /* 底部導航 */
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -225,7 +256,7 @@
             font-weight: 500;
         }
 
-        /* 英雄区域 */
+        /* 英雄區域 */
         .hero {
             padding: 60px 0 40px;
             text-align: center;
@@ -382,7 +413,7 @@
             flex-grow: 1;
         }
 
-        /* 中医养生区 */
+        /* 中醫養生區 */
         .tcm-section {
             background: linear-gradient(135deg, #FFF0F5 0%, #F0F8FF 100%);
             border-radius: 25px;
@@ -446,7 +477,7 @@
             font-size: 1.2rem;
         }
 
-        /* 联络我们 */
+        /* 聯絡我們 */
         .contact-section {
             padding: 60px 0;
             text-align: center;
@@ -506,7 +537,7 @@
             box-shadow: 0 8px 20px rgba(183, 110, 121, 0.4);
         }
 
-        /* 其他应用 */
+        /* 其他應用 */
         .other-apps-section {
             padding: 60px 0;
         }
@@ -595,7 +626,7 @@
             transform: translateX(5px);
         }
 
-        /* 下载区域 */
+        /* 下載區域 */
         .download-section {
             text-align: center;
             padding: 60px 0;
@@ -654,7 +685,7 @@
             transform: scale(1.05);
         }
 
-        /* 页脚 */
+        /* 頁腳 */
         .footer {
             text-align: center;
             margin-top: 60px;
@@ -682,7 +713,7 @@
             color: var(--primary);
         }
 
-        /* 可爱侧边栏 - 完全重新设计 */
+        /* 可愛側邊欄 - 完全重新設計 */
         .cute-sidebar {
             position: fixed;
             top: 50%;
@@ -795,7 +826,7 @@
             gap: 4px;
         }
 
-        /* 响应式设计 */
+        /* 響應式設計 */
         @media (max-width: 1024px) {
             .hero-title {
                 font-size: 2rem;
@@ -910,7 +941,7 @@
             }
         }
         
-        /* 可爱装饰元素 */
+        /* 可愛裝飾元素 */
         .decoration-heart {
             position: absolute;
             color: var(--primary);
@@ -927,7 +958,7 @@
             font-size: 1.3rem;
         }
         
-        /* 可爱边框和背景 */
+        /* 可愛邊框和背景 */
         .cute-border {
             border: 2px dashed var(--primary);
             border-radius: 20px;
@@ -946,7 +977,7 @@
             font-size: 1.2rem;
         }
         
-        /* 免责声明区域 */
+        /* 免責聲明區域 */
         .disclaimer-section {
             background: #FFF8F8;
             border-radius: 20px;
@@ -987,7 +1018,7 @@
     </style>
 </head>
 <body>
-    <!-- 漂浮装饰元素 -->
+    <!-- 漂浮裝飾元素 -->
     <div class="floating-element floating-element-1">🌸</div>
     <div class="floating-element floating-element-2">💕</div>
     <div class="floating-element floating-element-3">📜</div>
@@ -995,28 +1026,28 @@
     <div class="floating-element floating-element-5">🌙</div>
     <div class="floating-element floating-element-6">🌿</div>
     
-    <!-- 可爱装饰元素 -->
+    <!-- 可愛裝飾元素 -->
     <div class="decoration-heart" style="top: 15%; left: 8%;">❤️</div>
     <div class="decoration-heart" style="top: 25%; right: 10%;">💖</div>
     <div class="decoration-flower" style="bottom: 25%; left: 12%;">🌼</div>
     <div class="decoration-flower" style="bottom: 30%; right: 8%;">🌺</div>
     
     <div class="container">
-        <!-- 顶部导航 - 优化版 -->
+        <!-- 頂部導航 - 優化版 -->
         <nav class="top-nav">
             <div class="logo-container">
                 <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_logo.png" alt="小主日記">
             </div>
             <div class="language-toggle">
                 <button class="lang-btn active" onclick="switchLanguage('zh_tw')">繁中</button>
-                <button class="lang-btn" onclick="switchLanguage('zh')">简中</button>
+                <button class="lang-btn" onclick="switchLanguage('zh')">簡中</button>
                 <button class="lang-btn" onclick="switchLanguage('en')">EN</button>
                 <button class="lang-btn" onclick="switchLanguage('ja')">JP</button>
                 <button class="lang-btn" onclick="switchLanguage('ko')">KO</button>
             </div>
         </nav>
 
-        <!-- 英雄区域 -->
+        <!-- 英雄區域 -->
         <section class="hero">
             <div class="hero-content">
                 <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_icon.png" alt="小主日記" class="app-icon">
