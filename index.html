@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>小主日記 - 老中醫月經養生手扎</title>
+    <title>小主日記 - 生理期好閨蜜</title>
     <!-- 只保留真正需要的字型 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -567,6 +567,12 @@
             flex-grow: 1;
         }
 
+        .app-links {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
         .app-link {
             display: inline-flex;
             align-items: center;
@@ -576,11 +582,14 @@
             font-weight: bold;
             transition: all 0.3s;
             align-self: flex-start;
-            padding: 8px 0;
+            padding: 8px 16px;
+            border-radius: 8px;
+            background: rgba(255, 182, 193, 0.1);
         }
 
         .app-link:hover {
             transform: translateX(5px);
+            background: rgba(255, 182, 193, 0.2);
         }
 
         /* 下載區域 */
@@ -867,6 +876,12 @@
             .sidebar-content {
                 width: 180px;
             }
+            
+            .app-links {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1008,8 +1023,8 @@
         <section class="hero">
             <div class="hero-content">
                 <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_icon.png" alt="小主日記" class="app-icon">
-                <h1 class="hero-title" id="hero-title">小主日記</h1>
-                <p class="hero-subtitle" id="hero-subtitle">老中醫月經養生手扎<br>記錄妳的專屬生理週期，探索中醫養生智慧，陪伴每個特別的日子</p>
+                <h1 class="hero-title" id="hero-title">小主日記: 生理期好閨蜜</h1>
+                <p class="hero-subtitle" id="hero-subtitle">首款中醫食療 × 穴位按摩經期指南<br>陪伴每個特別的日子，成為妳最貼心的生理期好閨蜜</p>
                 
                 <!-- 直接使用App Store徽章 -->
                 <div class="app-store-badge">
@@ -1035,21 +1050,21 @@
                         <i class="fas fa-calendar-alt"></i>
                     </div>
                     <h3 class="feature-title" id="feature1-title">週期追蹤</h3>
-                    <p class="feature-description" id="feature1-desc">精準記錄生理週期，預測排卵日與經期，幫助妳更了解自己的身體節奏</p>
+                    <p class="feature-description" id="feature1-desc">精準記錄生理週期，預測排卵日與經期，幫助妳更了解自己的身體節奏，成為妳最可靠的生理期好閨蜜</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-book-medical"></i>
                     </div>
-                    <h3 class="feature-title" id="feature2-title">中醫養生</h3>
-                    <p class="feature-description" id="feature2-desc">融合《黃帝內經》等四大中醫典籍智慧，提供週期各階段的養生參考</p>
+                    <h3 class="feature-title" id="feature2-title">中醫食療</h3>
+                    <p class="feature-description" id="feature2-desc">首款中醫食療指南，提供週期各階段的養生食譜，讓妳吃得健康又養生</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-hands"></i>
                     </div>
-                    <h3 class="feature-title" id="feature3-title">貼心提醒</h3>
-                    <p class="feature-description" id="feature3-desc">根據妳的週期階段，提供個性化的養生提醒與健康記錄</p>
+                    <h3 class="feature-title" id="feature3-title">穴位按摩</h3>
+                    <p class="feature-description" id="feature3-desc">提供專業穴位按摩指南，緩解經期不適，讓妳輕鬆度過每個生理期</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -1062,8 +1077,8 @@
                     <div class="feature-icon">
                         <i class="fas fa-hand-holding-heart"></i>
                     </div>
-                    <h3 class="feature-title" id="feature5-title">中醫知識</h3>
-                    <p class="feature-description" id="feature5-desc">探索中醫古籍中的養生智慧，了解傳統文化對女性健康的觀點</p>
+                    <h3 class="feature-title" id="feature5-title">貼心提醒</h3>
+                    <p class="feature-description" id="feature5-desc">根據妳的週期階段，提供個性化的養生提醒與健康記錄，做妳最貼心的好閨蜜</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -1079,7 +1094,7 @@
         <section class="tcm-section" id="tcm">
             <div class="tcm-content">
                 <h2 class="tcm-title" id="tcm-title">中醫養生智慧</h2>
-                <p class="tcm-description" id="tcm-description">小主日記融匯《黃帝內經》、《本草綱目》、《傅青主女科》、《針灸甲乙經》四大中醫典籍精要，結合現代女性生活節奏，提供符合生理週期的養生參考。</p>
+                <p class="tcm-description" id="tcm-description">小主日記融匯《黃帝內經》、《本草綱目》、《傅青主女科》、《針灸甲乙經》四大中醫典籍精要，結合現代女性生活節奏，提供符合生理週期的養生參考，成為妳最可靠的生理期好閨蜜。</p>
                 
                 <div class="disclaimer-box">
                     <p><strong id="disclaimer-title">💖 重要說明：</strong> <span id="disclaimer-text">本應用程式僅為個人健康記錄與參考工具，不提供醫療診斷、治療或處方。應用程式中的中醫養生內容僅供文化與知識分享，是小主們探索傳統智慧的起點，但不能取代專業醫療。如有健康疑慮，請務必諮詢合格醫師。</span></p>
@@ -1114,9 +1129,14 @@
                         </div>
                     </div>
                     <p class="app-description" id="app1-description">人手必備！定價沒煩惱，利潤全掌握！專為電商賣家與創業者設計的終極工具，一秒精準算出成本、售價與毛利率，讓每個決策都為您賺取更多收益！</p>
-                    <a href="https://apps.apple.com/app/id6740332215" class="app-link" target="_blank" id="app1-link">
-                        <i class="fas fa-external-link-alt"></i> <span>了解更多</span>
-                    </a>
+                    <div class="app-links">
+                        <a href="https://apps.apple.com/app/id6740332215" class="app-link" target="_blank" id="app1-link">
+                            <i class="fas fa-download"></i> <span>下載應用</span>
+                        </a>
+                        <a href="https://ans1lbbb.github.io/ProfitFairy/index.html" class="app-link" target="_blank" id="app1-website">
+                            <i class="fas fa-external-link-alt"></i> <span>官網介紹</span>
+                        </a>
+                    </div>
                 </div>
                 <div class="app-card">
                     <div class="app-header">
@@ -1127,9 +1147,14 @@
                         </div>
                     </div>
                     <p class="app-description" id="app2-description">海洋女神的神格碎片散落在「艾奧斯海域」！透過創新的卡牌合成玩法，逐步喚醒沉睡的海洋之力。挑戰記憶翻牌試煉，解鎖女神被封印的夏日傳說。每張限定卡牌都藏著失落記憶碎片，你能成為首位集齊所有神格碎片的海洋使者嗎？立即展開這場療癒系神話冒險！</p>
-                    <a href="https://apps.apple.com/app/id6745821288" class="app-link" target="_blank" id="app2-link">
-                        <i class="fas fa-external-link-alt"></i> <span>了解更多</span>
-                    </a>
+                    <div class="app-links">
+                        <a href="https://apps.apple.com/app/id6745821288" class="app-link" target="_blank" id="app2-link">
+                            <i class="fas fa-download"></i> <span>下載應用</span>
+                        </a>
+                        <a href="https://ans1lbbb.github.io/AIOS/index.html" class="app-link" target="_blank" id="app2-website">
+                            <i class="fas fa-external-link-alt"></i> <span>官網介紹</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1150,8 +1175,8 @@
         <!-- 页脚 -->
         <footer class="footer">
             <div class="footer-text" id="footer-text">
-                <p>© 2025 小主日記 - 老中醫月經養生手扎</p>
-                <p>版權所有</p>
+                <p>© 2025 小主日記 - 生理期好閨蜜</p>
+                <p>首款中醫食療 × 穴位按摩經期指南</p>
             </div>
         </footer>
     </div>
@@ -1226,29 +1251,29 @@
                 "nav-contact": "聯絡我們",
                 
                 // 英雄區域
-                "hero-title": "小主日記",
-                "hero-subtitle": "老中醫月經養生手扎<br>記錄妳的專屬生理週期，探索中醫養生智慧，陪伴每個特別的日子",
+                "hero-title": "小主日記: 生理期好閨蜜",
+                "hero-subtitle": "首款中醫食療 × 穴位按摩經期指南<br>陪伴每個特別的日子，成為妳最貼心的生理期好閨蜜",
                 "download-btn": "立即下載",
                 "learn-more-btn": "了解更多",
                 
                 // 功能特色
                 "features-title": "功能特色",
                 "feature1-title": "週期追蹤",
-                "feature1-desc": "精準記錄生理週期，預測排卵日與經期，幫助妳更了解自己的身體節奏",
-                "feature2-title": "中醫養生",
-                "feature2-desc": "融合《黃帝內經》等四大中醫典籍智慧，提供週期各階段的養生參考",
-                "feature3-title": "貼心提醒",
-                "feature3-desc": "根據妳的週期階段，提供個性化的養生提醒與健康記錄",
+                "feature1-desc": "精準記錄生理週期，預測排卵日與經期，幫助妳更了解自己的身體節奏，成為妳最可靠的生理期好閨蜜",
+                "feature2-title": "中醫食療",
+                "feature2-desc": "首款中醫食療指南，提供週期各階段的養生食譜，讓妳吃得健康又養生",
+                "feature3-title": "穴位按摩",
+                "feature3-desc": "提供專業穴位按摩指南，緩解經期不適，讓妳輕鬆度過每個生理期",
                 "feature4-title": "食療參考",
                 "feature4-desc": "依據中醫理論，分享適合不同週期階段的食療與藥膳知識",
-                "feature5-title": "中醫知識",
-                "feature5-desc": "探索中醫古籍中的養生智慧，了解傳統文化對女性健康的觀點",
+                "feature5-title": "貼心提醒",
+                "feature5-desc": "根據妳的週期階段，提供個性化的養生提醒與健康記錄，做妳最貼心的好閨蜜",
                 "feature6-title": "隱私保護",
                 "feature6-desc": "您的健康數據僅存儲於設備中，我們重視並保護您的隱私安全。<a href='https://ans1lbbb.github.io/RubyDays/privacy.html' style='color: #FFB6C1; text-decoration: underline;'>了解更多</a>",
                 
                 // 中醫養生區
                 "tcm-title": "中醫養生智慧",
-                "tcm-description": "小主日記融匯《黃帝內經》、《本草綱目》、《傅青主女科》、《針灸甲乙經》四大中醫典籍精要，結合現代女性生活節奏，提供符合生理週期的養生參考。",
+                "tcm-description": "小主日記融匯《黃帝內經》、《本草綱目》、《傅青主女科》、《針灸甲乙經》四大中醫典籍精要，結合現代女性生活節奏，提供符合生理週期的養生參考，成為妳最可靠的生理期好閨蜜。",
                 "disclaimer-title": "💖 重要說明：",
                 "disclaimer-text": "本應用程式僅為個人健康記錄與參考工具，不提供醫療診斷、治療或處方。應用程式中的中醫養生內容僅供文化與知識分享，是小主們探索傳統智慧的起點，但不能取代專業醫療。如有健康疑慮，請務必諮詢合格醫師。",
                 
@@ -1267,11 +1292,13 @@
                 "app1-title": "ProfitFairy",
                 "app1-subtitle": "利潤精算師",
                 "app1-description": "人手必備！定價沒煩惱，利潤全掌握！專為電商賣家與創業者設計的終極工具，一秒精準算出成本、售價與毛利率，讓每個決策都為您賺取更多收益！",
-                "app1-link": "了解更多",
+                "app1-link": "下載應用",
+                "app1-website": "官網介紹",
                 "app2-title": "AIOS Realm",
                 "app2-subtitle": "神格覺醒",
                 "app2-description": "海洋女神的神格碎片散落在「艾奧斯海域」！透過創新的卡牌合成玩法，逐步喚醒沉睡的海洋之力。挑戰記憶翻牌試煉，解鎖女神被封印的夏日傳說。每張限定卡牌都藏著失落記憶碎片，你能成為首位集齊所有神格碎片的海洋使者嗎？立即展開這場療癒系神話冒險！",
-                "app2-link": "了解更多",
+                "app2-link": "下載應用",
+                "app2-website": "官網介紹",
                 
                 // 聯絡我們
                 "contact-title": "聯絡我們",
@@ -1284,7 +1311,7 @@
                 "sidebar-subtitle": "更多應用推薦",
                 
                 // 頁腳
-                "footer-text": "© 2025 小主日記 - 老中醫月經養生手扎<br>版權所有"
+                "footer-text": "© 2025 小主日記 - 生理期好閨蜜<br>首款中醫食療 × 穴位按摩經期指南"
             },
             zh: {
                 "nav-features": "功能特色",
@@ -1292,27 +1319,27 @@
                 "nav-apps": "其他应用",
                 "nav-contact": "联系我们",
                 
-                "hero-title": "小主日记",
-                "hero-subtitle": "老中医月经养生手扎<br>记录妳的专属生理周期，探索中医养生智慧，陪伴每个特别的日子",
+                "hero-title": "小主日记: 生理期好闺蜜",
+                "hero-subtitle": "首款中医食疗 × 穴位按摩经期指南<br>陪伴每个特别的日子，成为您最贴心的生理期好闺蜜",
                 "download-btn": "立即下载",
                 "learn-more-btn": "了解更多",
                 
                 "features-title": "功能特色",
                 "feature1-title": "周期追踪",
-                "feature1-desc": "精准记录生理周期，预测排卵日与经期，帮助妳更了解自己的身体节奏",
-                "feature2-title": "中医养生",
-                "feature2-desc": "融合《黄帝内经》等四大中医典籍智慧，提供周期各阶段的养生参考",
-                "feature3-title": "贴心提醒",
-                "feature3-desc": "根据妳的周期阶段，提供个性化的养生提醒与健康记录",
+                "feature1-desc": "精准记录生理周期，预测排卵日与经期，帮助您更了解自己的身体节奏，成为您最可靠的生理期好闺蜜",
+                "feature2-title": "中医食疗",
+                "feature2-desc": "首款中医食疗指南，提供周期各阶段的养生食谱，让您吃得健康又养生",
+                "feature3-title": "穴位按摩",
+                "feature3-desc": "提供专业穴位按摩指南，缓解经期不适，让您轻松度过每个生理期",
                 "feature4-title": "食疗参考",
                 "feature4-desc": "依据中医理论，分享适合不同周期阶段的食疗与药膳知识",
-                "feature5-title": "中医知识",
-                "feature5-desc": "探索中医古籍中的养生智慧，了解传统文化对女性健康的观点",
+                "feature5-title": "贴心提醒",
+                "feature5-desc": "根据您的周期阶段，提供个性化的养生提醒与健康记录，做您最贴心的好闺蜜",
                 "feature6-title": "隐私保护",
                 "feature6-desc": "您的健康数据仅存储于设备中，我们重视并保护您的隐私安全。<a href='https://ans1lbbb.github.io/RubyDays/privacy.html' style='color: #FFB6C1; text-decoration: underline;'>了解更多</a>",
                 
                 "tcm-title": "中医养生智慧",
-                "tcm-description": "小主日记融汇《黄帝内经》、《本草纲目》、《傅青主女科》、《针灸甲乙经》四大中医典籍精要，结合现代女性生活节奏，提供符合生理周期的养生参考。",
+                "tcm-description": "小主日记融汇《黄帝内经》、《本草纲目》、《傅青主女科》、《针灸甲乙经》四大中医典籍精要，结合现代女性生活节奏，提供符合生理周期的养生参考，成为您最可靠的生理期好闺蜜。",
                 "disclaimer-title": "💖 重要说明：",
                 "disclaimer-text": "本应用程式仅为个人健康记录与参考工具，不提供医疗诊断、治疗或处方。应用程式中的中医养生内容仅供文化与知识分享，是小主们探索传统智慧的起点，但不能取代专业医疗。如有健康疑虑，请务必咨询合格医师。",
                 
@@ -1330,21 +1357,23 @@
                 "app1-title": "ProfitFairy",
                 "app1-subtitle": "利润精算师",
                 "app1-description": "人手必备！定价没烦恼，利润全掌握！专为电商卖家与创业者设计的终极工具，一秒精准算出成本、售价与毛利率，让每个决策都为您赚取更多收益！",
-                "app1-link": "了解更多",
+                "app1-link": "下载应用",
+                "app1-website": "官网介绍",
                 "app2-title": "AIOS Realm",
                 "app2-subtitle": "神格觉醒",
                 "app2-description": "海洋女神的神格碎片散落在「艾奥斯领域」！透过创新的卡牌合成玩法，逐步唤醒沉睡的海洋之力。挑战记忆翻牌试炼，解锁女神被封印的夏日传说。每张限定卡牌都藏着失落记忆碎片，你能成为首位集齐所有神格碎片的海洋使者吗？立即展开这场疗愈系神话冒险！",
-                "app2-link": "了解更多",
+                "app2-link": "下载应用",
+                "app2-website": "官网介绍",
                 
                 "contact-title": "联系我们",
-                "contact-subtitle": "亲爱的小主，我们在这里倾听妳的声音",
-                "contact-description": "无论是对小主日记的使用体验、功能想法，还是任何想要分享的点点滴滴，我们都非常重视并期待收到妳的讯息。点击下方按钮即可透过邮件与我们联络～",
+                "contact-subtitle": "亲爱的小主，我们在这里倾听您的声音",
+                "contact-description": "无论是对小主日记的使用体验、功能想法，还是任何想要分享的点点滴滴，我们都非常重视并期待收到您的讯息。点击下方按钮即可透过邮件与我们联络～",
                 "contact-btn-text": "传送邮件给我们",
                 
                 "sidebar-title": "小主专区",
                 "sidebar-subtitle": "更多应用推荐",
                 
-                "footer-text": "© 2025 小主日记 - 老中医月经养生手扎<br>版权所有"
+                "footer-text": "© 2025 小主日记 - 生理期好闺蜜<br>首款中医食疗 × 穴位按摩经期指南"
             },
             en: {
                 "nav-features": "Features",
@@ -1352,27 +1381,27 @@
                 "nav-apps": "Other Apps",
                 "nav-contact": "Contact Us",
                 
-                "hero-title": "RubyDays",
-                "hero-subtitle": "Menstrual TCM Diary<br>Record your unique menstrual cycle, explore TCM wellness wisdom, and accompany every special day",
+                "hero-title": "RubyDays: Your Period Bestie",
+                "hero-subtitle": "The First TCM Period Care<br>Accompanying you on every special day, becoming your most caring period bestie",
                 "download-btn": "Download Now",
                 "learn-more-btn": "Learn More",
                 
                 "features-title": "Features",
                 "feature1-title": "Cycle Tracking",
-                "feature1-desc": "Accurately record your menstrual cycle, predict ovulation and periods, helping you better understand your body's rhythm",
-                "feature2-title": "TCM Wellness",
-                "feature2-desc": "Integrating wisdom from four major TCM classics including Huangdi Neijing, providing wellness references for each cycle phase",
-                "feature3-title": "Personalized Reminders",
-                "feature3-desc": "Receive personalized wellness reminders and health records based on your cycle phase",
+                "feature1-desc": "Accurately record your menstrual cycle, predict ovulation and periods, helping you better understand your body's rhythm, becoming your most reliable period bestie",
+                "feature2-title": "TCM Diet Therapy",
+                "feature2-desc": "The first TCM diet therapy guide, providing wellness recipes for each cycle phase, helping you eat healthy and nourishing",
+                "feature3-title": "Acupoint Massage",
+                "feature3-desc": "Professional acupoint massage guide to relieve menstrual discomfort, helping you easily get through each period",
                 "feature4-title": "Dietary Therapy",
                 "feature4-desc": "Based on TCM theory, share knowledge about appropriate dietary therapy and medicinal foods for different cycle phases",
-                "feature5-title": "TCM Knowledge",
-                "feature5-desc": "Explore wellness wisdom from ancient TCM texts and understand traditional perspectives on women's health",
+                "feature5-title": "Personalized Reminders",
+                "feature5-desc": "Receive personalized wellness reminders and health records based on your cycle phase, being your most caring bestie",
                 "feature6-title": "Privacy Protection",
                 "feature6-desc": "Your health data is stored only on your device. We value and protect your privacy and security.<a href='https://ans1lbbb.github.io/RubyDays/privacy.html' style='color: #FFB6C1; text-decoration: underline;'>Learn more</a>",
                 
                 "tcm-title": "Traditional Chinese Medicine Wisdom",
-                "tcm-description": "RubyDays integrates the essence of four major TCM classics - Huangdi Neijing, Bencao Gangmu, Fu Qingzhu's Gynecology, and Zhenjiu Jiayi Jing - combining with modern women's lifestyle to provide wellness references aligned with the menstrual cycle.",
+                "tcm-description": "RubyDays integrates the essence of four major TCM classics - Huangdi Neijing, Bencao Gangmu, Fu Qingzhu's Gynecology, and Zhenjiu Jiayi Jing - combining with modern women's lifestyle to provide wellness references aligned with the menstrual cycle, becoming your most reliable period bestie.",
                 "disclaimer-title": "💝 Important Note:",
                 "disclaimer-text": "This application is only a personal health recording and reference tool, and does not provide medical diagnosis, treatment, or prescriptions. The TCM wellness content in the app is for cultural and knowledge sharing only, serving as a starting point for exploring traditional wisdom, but cannot replace professional medical care. If you have health concerns, please be sure to consult a qualified physician.",
                 
@@ -1390,11 +1419,13 @@
                 "app1-title": "ProfitFairy",
                 "app1-subtitle": "Profit Calculator",
                 "app1-description": "Essential for everyone! No worries about pricing, full control of profits! The ultimate tool designed for e-commerce sellers and entrepreneurs, accurately calculating costs, prices, and profit margins in seconds, making every decision earn you more revenue!",
-                "app1-link": "Learn More",
+                "app1-link": "Download App",
+                "app1-website": "Website",
                 "app2-title": "AIOS Realm",
                 "app2-subtitle": "Divinity Reborn",
                 "app2-description": "The Ocean Goddess's divinity fragments are scattered in the 'AIOS Realm'! Through innovative card synthesis gameplay, gradually awaken the sleeping power of the ocean. Challenge memory card-flipping trials to unlock the goddess's sealed summer legend. Each limited card holds lost memory fragments - can you become the first ocean messenger to collect all divinity fragments? Start this healing mythical adventure now!",
-                "app2-link": "Learn More",
+                "app2-link": "Download App",
+                "app2-website": "Website",
                 
                 "contact-title": "Contact Us",
                 "contact-subtitle": "Dear user, we are here to listen to your voice",
@@ -1404,7 +1435,7 @@
                 "sidebar-title": "Special Zone",
                 "sidebar-subtitle": "More App Recommendations",
                 
-                "footer-text": "© 2025 RubyDays - Menstrual TCM Diary<br>All rights reserved"
+                "footer-text": "© 2025 RubyDays - Your Period Bestie<br>The First TCM Period Care"
             },
             ja: {
                 "nav-features": "機能特徴",
@@ -1412,27 +1443,27 @@
                 "nav-apps": "他のアプリ",
                 "nav-contact": "お問い合わせ",
                 
-                "hero-title": "姫様ダイアリー",
-                "hero-subtitle": "中国中医式・月経養生手帳<br>あなただけの生理周期を記録し、中医養生の知恵を探求し、特別な日々に寄り添います",
+                "hero-title": "姫様ダイアリー：生理の親友",
+                "hero-subtitle": "初の薬膳×ツボマッサージ月経ガイド<br>特別な日々に寄り添い、あなたの一番の生理の親友になります",
                 "download-btn": "今すぐダウンロード",
                 "learn-more-btn": "詳細を見る",
                 
                 "features-title": "機能特徴",
                 "feature1-title": "周期トラッキング",
-                "feature1-desc": "生理周期を正確に記録し、排卵日と月経を予測し、自分の体のリズムをより理解するのに役立ちます",
-                "feature2-title": "中医養生",
-                "feature2-desc": "黄帝内経など四大中医典籍の知恵を融合し、周期各段階に合わせた養生参考を提供",
-                "feature3-title": "パーソナライズされたリマインダー",
-                "feature3-desc": "周期段階に基づいて、個別化された養生リマインダーと健康記録を受信",
+                "feature1-desc": "生理周期を正確に記録し、排卵日と月経を予測し、自分の体のリズムをより理解するのに役立ち、あなたの最も信頼できる生理の親友になります",
+                "feature2-title": "薬膳食事療法",
+                "feature2-desc": "初の薬膳食事療法ガイド、周期各段階に合わせた養生レシピを提供し、健康的で栄養のある食事をサポートします",
+                "feature3-title": "ツボマッサージ",
+                "feature3-desc": "専門的なツボマッサージガイドで月経不快感を緩和し、各生理期間を楽に過ごせるようにサポートします",
                 "feature4-title": "食事療法",
                 "feature4-desc": "中医理論に基づき、異なる周期段階に適した食事療法と薬膳の知識を共有",
-                "feature5-title": "中医知識",
-                "feature5-desc": "古代中医文献からの養生知恵を探求し、女性の健康に関する伝統的視点を理解",
+                "feature5-title": "パーソナライズされたリマインダー",
+                "feature5-desc": "周期段階に基づいて個別化された養生リマインダーと健康記録を受信し、あなたの最も思いやりのある親友になります",
                 "feature6-title": "プライバシー保護",
                 "feature6-desc": "あなたの健康データはデバイス内のみに保存されます。私たちはあなたのプライバシーと安全を重視し保護します。<a href='https://ans1lbbb.github.io/RubyDays/privacy.html' style='color: #FFB6C1; text-decoration: underline;'>詳細を見る</a>",
                 
                 "tcm-title": "伝統中国医学の知恵",
-                "tcm-description": "姫様ダイアリーは、黄帝内経、本草綱目、傅青主女科、針灸甲乙経の四大中医典籍の精髄を統合し、現代女性のライフスタイルと組み合わせて、生理周期に合わせた養生参考を提供します。",
+                "tcm-description": "姫様ダイアリーは、黄帝内経、本草綱目、傅青主女科、針灸甲乙経の四大中医典籍の精髄を統合し、現代女性のライフスタイルと組み合わせて、生理周期に合わせた養生参考を提供し、あなたの最も信頼できる生理の親友になります。",
                 "disclaimer-title": "💖 重要なお知らせ：",
                 "disclaimer-text": "このアプリケーションは個人の健康記録および参照ツールであり、医療診断、治療、処方を提供するものではありません。アプリ内の中医養生コンテンツは文化および知識共有のみを目的としており、伝統的知恵を探求する出発点となりますが、専門的な医療の代わりにはなりません。健康上の懸念がある場合は、必ず資格のある医師に相談してください。",
                 
@@ -1450,11 +1481,13 @@
                 "app1-title": "ProfitFairy",
                 "app1-subtitle": "利益計算士",
                 "app1-description": "誰もが必携！価格設定に悩まず、利益を完全に掌握！EC売り手と起業家のために設計された究極のツールで、コスト、価格、利益率を一秒で正確に計算し、すべての決定がより多くの収益をもたらします！",
-                "app1-link": "詳細を見る",
+                "app1-link": "アプリをダウンロード",
+                "app1-website": "公式サイト",
                 "app2-title": "AIOS Realm",
                 "app2-subtitle": "神格覚醒",
-                "app2-description": "海洋女神の神格の断片が「アイオス海域」に散らばっています！革新的なカード合成ゲームプレイを通じて、眠れる海の力を徐々に目覚めさせます。記憶カードめくり試練に挑戦し、女神が封印された夏の伝説を解き放ちましょう。各限定カードには失われた記憶の断片が隠されています - あなたはすべての神格の断片を集める最初の海洋使者になれますか？この癒し系神話冒険を今すぐ始めましょう！",
-                "app2-link": "詳細を見る",
+                "app2-description": "海洋女神の神格の断片が「アイオス海域」に散らばっています！革新的なカード合成ゲームプレイを通じて、眠れる海の力を徐々に目覚めさせます。記憶カードめくり試練に挑戦し、女神が封印された夏の伝説を解き放ちましょう。各限定カードには失われた記憶の断片が隠されています - あなたはすべての神格の断片を集める最初の海洋使者になれますか？この癒し系神話モバンスを今すぐ始めましょう！",
+                "app2-link": "アプリをダウンロード",
+                "app2-website": "公式サイト",
                 
                 "contact-title": "お問い合わせ",
                 "contact-subtitle": "親愛なるユーザーの皆様、私たちはあなたの声を聴くためにここにいます",
@@ -1464,7 +1497,7 @@
                 "sidebar-title": "特別ゾーン",
                 "sidebar-subtitle": "他のアプリのおすすめ",
                 
-                "footer-text": "© 2025 姫様ダイアリー - 中国中医式・月経養生手帳<br>無断複写・転載を禁じます"
+                "footer-text": "© 2025 姫様ダイアリー - 生理の親友<br>初の薬膳×ツボマッサージ月経ガイド"
             },
             ko: {
                 "nav-features": "기능 특징",
@@ -1472,27 +1505,27 @@
                 "nav-apps": "다른 앱",
                 "nav-contact": "문의하기",
                 
-                "hero-title": "공주님 다이어리",
-                "hero-subtitle": "중국 중의학 월경 건강 가이드<br>나만의 생리 주기를 기록하고, 중의학 건강 지혜를 탐구하며, 특별한 날을 함께 합니다",
+                "hero-title": "공주님 다이어리: 너의 생리기 절친",
+                "hero-subtitle": "최초의 한약식이요법 × 경혈 마사지 생리 가이드<br>특별한 날을 함께 하며, 당신의 가장 친한 생리기 절친이 되어드립니다",
                 "download-btn": "지금 다운로드",
                 "learn-more-btn": "더 알아보기",
                 
                 "features-title": "기능 특징",
                 "feature1-title": "주기 추적",
-                "feature1-desc": "생리 주기를 정확하게 기록하고, 배란일과 월경을 예측하여 자신의 몸 리듬을 더 잘 이해하도록 도와줍니다",
-                "feature2-title": "중의학 건강",
-                "feature2-desc": "황제내경 등 4대 중의학 고전의 지혜를 융합하여 주기 각 단계에 맞는 건강 관리 참고 자료를 제공",
-                "feature3-title": "맞춤형 알림",
-                "feature3-desc": "여러분의 주기 단계에 따라 개인화된 건강 관리 알림과 건강 기록을 받아보세요",
+                "feature1-desc": "생리 주기를 정확하게 기록하고, 배란일과 월경을 예측하여 자신의 몸 리듬을 더 잘 이해하도록 도와주며, 당신의 가장 믿음직한 생리기 절친이 되어드립니다",
+                "feature2-title": "한약 식이요법",
+                "feature2-desc": "최초의 한약 식이요법 가이드, 주기 각 단계에 맞는 건강 관리 레시피를 제공하여 건강하고 영양가 있는 식사를 도와드립니다",
+                "feature3-title": "경혈 마사지",
+                "feature3-desc": "전문적인 경혈 마사지 가이드로 생리 불편감을 완화하고, 각 생리 기간을 편안하게 보낼 수 있도록 도와드립니다",
                 "feature4-title": "식이 요법",
                 "feature4-desc": "중의학 이론에 기반하여 다른 주기 단계에 적합한 식이 요법과 약膳 지식을 공유",
-                "feature5-title": "중의학 지식",
-                "feature5-desc": "고대 중의학 문헌에서 건강 관리 지혜를 탐구하고 여성 건강에 대한 전통적 관점 이해",
+                "feature5-title": "맞춤형 알림",
+                "feature5-desc": "여러분의 주기 단계에 따라 개인화된 건강 관리 알림과 건강 기록을 받아보세요, 당신의 가장 친절한 절친이 되어드립니다",
                 "feature6-title": "개인정보 보호",
                 "feature6-desc": "여러분의 건강 데이터는 기기 내에만 저장됩니다. 우리는 여러분의 개인정보와 안전을 소중히 여기며 보호합니다.<a href='https://ans1lbbb.github.io/RubyDays/privacy.html' style='color: #FFB6C1; text-decoration: underline;'>더 알아보기</a>",
                 
                 "tcm-title": "전통 중의학 지혜",
-                "tcm-description": "공주님 다이어리는 황제내경, 본초강목, 부청주여과, 침구갑을경의 4대 중의학 고전 정수를 통합하여 현대 여성의 생활 리듬과 결합하여 생리 주기에 맞는 건강 관리 참고 자료를 제공합니다.",
+                "tcm-description": "공주님 다이어리는 황제내경, 본초강목, 부청주여과, 침구갑을경의 4대 중의학 고전 정수를 통합하여 현대 여성의 생활 리듬과 결합하여 생리 주기에 맞는 건강 관리 참고 자료를 제공하며, 당신의 가장 믿음직한 생리기 절친이 되어드립니다.",
                 "disclaimer-title": "💖 중요한 안내:",
                 "disclaimer-text": "이 애플리케이션은 개인 건강 기록 및 참조 도구일 뿐, 의학적 진단, 치료 또는 처방을 제공하지 않습니다. 앱 내 중의학 건강 콘텐츠는 문화 및 지식 공유용으로만 제공되며, 전통적 지혜를 탐구하는 출발점이지만 전문 의료를 대체할 수 없습니다. 건강 관련 우려사항이 있는 경우 반드시 자격을 갖춘 의사와 상담하세요.",
                 
@@ -1510,11 +1543,13 @@
                 "app1-title": "ProfitFairy",
                 "app1-subtitle": "이익 정산사",
                 "app1-description": "누구나 필수! 가격 설정 걱정 없이, 이익 완전 장악! 이커머스 판매자와 창업자를 위해 설계된 궁극의 도구로, 비용, 가격, 이익률을 1초 만에 정확하게 계산하여 모든 결정이 더 많은 수익을 가져오게 합니다!",
-                "app1-link": "더 알아보기",
+                "app1-link": "앱 다운로드",
+                "app1-website": "공식 웹사이트",
                 "app2-title": "AIOS Realm",
                 "app2-subtitle": "신격 각성",
                 "app2-description": "바다 여신의 신격 파편이 '아이오스 영역'에 흩어져 있습니다! 혁신적인 카드 합성 게임플레이를 통해 잠든 바다의 힘을 점차 깨웁니다. 기억 카드 뒤집기 시련에 도전하여 여신이 봉인된 여름 전설을 해제하세요. 각 한정 카드에는 잃어버린 기억 파편이 숨겨져 있습니다 - 당신은 모든 신격 파편을 모은 첫 번째 바다 사자가 될 수 있을까요? 이 치유계 신화 모험을 지금 시작하세요!",
-                "app2-link": "더 알아보기",
+                "app2-link": "앱 다운로드",
+                "app2-website": "공식 웹사이트",
                 
                 "contact-title": "문의하기",
                 "contact-subtitle": "사랑하는 사용자 여러분, 우리는 여러분의 목소리를 듣기 위해 여기에 있습니다",
@@ -1524,7 +1559,7 @@
                 "sidebar-title": "특별 구역",
                 "sidebar-subtitle": "더 많은 앱 추천",
                 
-                "footer-text": "© 2025 공주님 다이어리 - 중국 중의학 월경 건강 가이드<br>All rights reserved"
+                "footer-text": "© 2025 공주님 다이어리 - 너의 생리기 절친<br>최초의 한약식이요법 × 경혈 마사지 생리 가이드"
             }
         };
 
