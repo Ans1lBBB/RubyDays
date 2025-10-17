@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>小主日記 - 生理期好閨蜜</title>
-    <!-- 只保留真正需要的字型 -->
+    <title>小主日記 - 宮廷級中醫養生 × 生理期好閨蜜</title>
+    <meta name="description" content="首款中醫養生 × 穴位按摩經期指南，融合《黃帝內經》、《本草綱目》、《傅青主女科》、《針灸甲乙經》四大中醫典籍精要，依經期、卵泡期、排卵期、黃體期精準對應，提供每日專屬養生調理與宮廷藥膳食補湯方。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #FFB6C1;
-            --secondary: #FFC8DD;
-            --accent: #CDB4DB;
-            --text: #6D6875;
-            --light-bg: #FFF0F5;
+            --primary: #E91E63;
+            --secondary: #FF4081;
+            --accent: #FF9800;
+            --gold: #FFC107;
+            --text: #5D4037;
+            --light-bg: #FFF8F1;
             --card-bg: #FFFFFF;
-            --shadow: rgba(255, 182, 193, 0.2);
+            --shadow: rgba(233, 30, 99, 0.2);
         }
 
         * {
@@ -32,34 +33,13 @@
 
         body {
             line-height: 1.7;
-            background: linear-gradient(135deg, #FFF0F5 0%, #F8F8FF 100%);
+            background: linear-gradient(135deg, #FFF8F1 0%, #FFE8E8 100%);
             color: var(--text);
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
             padding-bottom: 80px;
-            font-family: 
-                -apple-system,
-                'Microsoft JhengHei', 
-                'Apple LiGothic',
-                'PMingLiU', 
-                sans-serif;
-        }
-
-        /* 特別優化標題字體 - 使用系統字型確保顯示正常 */
-        .hero-title {
-            font-family: 
-                'Microsoft JhengHei',
-                'Apple LiGothic', 
-                'PMingLiU',
-                sans-serif;
-            font-size: 2.2rem;
-            color: #B76E79;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
-            font-weight: 700;
-            line-height: 1.3;
+            font-family: 'Noto Serif TC', serif;
         }
 
         .floating-element {
@@ -96,20 +76,6 @@
             animation: float 8s ease-in-out infinite 1.5s;
         }
 
-        .floating-element-5 {
-            top: 60%;
-            left: 10%;
-            font-size: 40px;
-            animation: float 9s ease-in-out infinite 0.7s;
-        }
-
-        .floating-element-6 {
-            top: 50%;
-            right: 12%;
-            font-size: 35px;
-            animation: float 10s ease-in-out infinite 1.2s;
-        }
-
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-15px) rotate(5deg); }
@@ -123,7 +89,36 @@
             z-index: 1;
         }
 
-        /* 頂部導航 - 優化版 */
+        /* 限時優惠橫幅 - 更醒目設計 */
+        .promo-banner {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            text-align: center;
+            padding: 15px 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><path d="M30,30 Q50,10 70,30 T90,50 T70,70 T50,90 T30,70 T10,50 T30,30 Z" fill="%23FFFFFF"/></svg>');
+            background-size: 80px 80px;
+        }
+
+        .promo-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 頂部導航 */
         .top-nav {
             display: flex;
             justify-content: space-between;
@@ -131,20 +126,32 @@
             padding: 15px 0;
             position: sticky;
             top: 0;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             z-index: 100;
             transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(255, 182, 193, 0.2);
+            border-bottom: 1px solid rgba(233, 30, 99, 0.2);
         }
 
-        .logo-container img {
-            height: 45px;
-            transition: transform 0.3s;
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        .logo-container:hover img {
-            transform: scale(1.05);
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(233, 30, 99, 0.3);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .language-toggle {
@@ -210,7 +217,7 @@
 
         .nav-link:hover, .nav-link.active {
             color: var(--primary);
-            background: rgba(255, 182, 193, 0.1);
+            background: rgba(233, 30, 99, 0.1);
         }
 
         .nav-icon {
@@ -225,7 +232,7 @@
 
         /* 英雄區域 */
         .hero {
-            padding: 60px 0 40px;
+            padding: 80px 0 40px;
             text-align: center;
             position: relative;
         }
@@ -236,26 +243,37 @@
         }
 
         .app-icon {
-            width: 120px;
-            height: 120px;
-            border-radius: 25px;
-            margin: 0 auto 25px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            width: 140px;
+            height: 140px;
+            border-radius: 30px;
+            margin: 0 auto 30px;
+            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.3);
             transition: transform 0.5s ease;
+            border: 3px solid white;
         }
 
         .app-icon:hover {
             transform: scale(1.05);
         }
 
+        .hero-title {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+        }
+
         .hero-subtitle {
-            font-size: 1.1rem;
-            color: #8C7B6D;
+            font-size: 1.3rem;
+            color: var(--text);
             margin-bottom: 30px;
             line-height: 1.6;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            font-weight: 500;
         }
 
         .hero-buttons {
@@ -269,17 +287,17 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 14px 28px;
+            padding: 16px 32px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
             transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(183, 110, 121, 0.3);
-            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
+            font-size: 1.1rem;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
         }
 
@@ -291,21 +309,83 @@
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(183, 110, 121, 0.4);
+            box-shadow: 0 8px 20px rgba(233, 30, 99, 0.4);
+        }
+
+        /* 試用橫幅 - 重新設計 */
+        .trial-section {
+            background: linear-gradient(135deg, var(--accent), #FFB74D);
+            color: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin: 40px 0;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(255, 152, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trial-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><path d="M30,30 Q50,10 70,30 T90,50 T70,70 T50,90 T30,70 T10,50 T30,30 Z" fill="%23FFFFFF"/></svg>');
+            background-size: 80px 80px;
+        }
+
+        .trial-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .trial-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .trial-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .trial-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .trial-feature {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
+        .trial-note {
+            margin-top: 15px;
+            font-size: 1rem;
+            opacity: 0.9;
         }
 
         /* 功能特色 */
         .section {
-            padding: 60px 0;
+            padding: 80px 0;
         }
 
         .section-title {
             text-align: center;
-            font-size: 1.8rem;
-            color: #B76E79;
+            font-size: 2.2rem;
+            color: var(--primary);
             margin-bottom: 40px;
             position: relative;
             line-height: 1.3;
+            font-weight: 700;
         }
 
         .section-title::after {
@@ -315,26 +395,26 @@
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
             border-radius: 2px;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
         }
 
         .feature-card {
             background: var(--card-bg);
             border-radius: 20px;
-            padding: 25px 20px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            padding: 30px 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255, 182, 193, 0.2);
+            border: 1px solid rgba(233, 30, 99, 0.2);
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -353,28 +433,29 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
 
         .feature-icon {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: var(--primary);
-            margin-bottom: 18px;
-            height: 60px;
+            margin-bottom: 20px;
+            height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .feature-title {
-            font-size: 1.3rem;
-            color: #B76E79;
+            font-size: 1.4rem;
+            color: var(--primary);
             margin-bottom: 15px;
             line-height: 1.3;
+            font-weight: 700;
         }
 
         .feature-description {
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--text);
             line-height: 1.6;
             flex-grow: 1;
@@ -382,9 +463,9 @@
 
         /* 中醫養生區 */
         .tcm-section {
-            background: linear-gradient(135deg, #FFF0F5 0%, #F0F8FF 100%);
+            background: linear-gradient(135deg, #FFF8F1 0%, #FFE8E8 100%);
             border-radius: 25px;
-            padding: 50px 40px;
+            padding: 60px 40px;
             margin: 50px 0;
             position: relative;
             overflow: hidden;
@@ -398,7 +479,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.03"><path d="M30,30 Q50,10 70,30 T90,50 T70,70 T50,90 T30,70 T10,50 T30,30 Z" fill="%23B76E79"/></svg>');
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.03"><path d="M30,30 Q50,10 70,30 T90,50 T70,70 T50,90 T30,70 T10,50 T30,30 Z" fill="%23E91E63"/></svg>');
             background-size: 80px 80px;
         }
 
@@ -411,21 +492,22 @@
         }
 
         .tcm-title {
-            font-size: 1.7rem;
-            color: #B76E79;
+            font-size: 1.8rem;
+            color: var(--primary);
             margin-bottom: 20px;
             line-height: 1.3;
+            font-weight: 700;
         }
 
         .tcm-description {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             line-height: 1.7;
             margin-bottom: 30px;
         }
 
         .disclaimer-box {
-            background: #FFF8F8;
-            border: 1px solid #FFD1DC;
+            background: #FFEBEE;
+            border: 1px solid var(--accent);
             border-radius: 15px;
             padding: 20px 25px;
             margin: 30px 0;
@@ -436,7 +518,7 @@
 
         /* 聯絡我們 */
         .contact-section {
-            padding: 60px 0;
+            padding: 80px 0;
             text-align: center;
         }
 
@@ -458,13 +540,14 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
 
         .contact-title {
-            font-size: 1.7rem;
-            color: #B76E79;
+            font-size: 1.8rem;
+            color: var(--primary);
             margin-bottom: 15px;
+            font-weight: 700;
         }
 
         .contact-description {
@@ -479,24 +562,24 @@
             align-items: center;
             gap: 10px;
             padding: 14px 28px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
             transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(183, 110, 121, 0.3);
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
             margin-top: 10px;
         }
 
         .contact-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(183, 110, 121, 0.4);
+            box-shadow: 0 8px 20px rgba(233, 30, 99, 0.4);
         }
 
         /* 其他應用 */
         .other-apps-section {
-            padding: 60px 0;
+            padding: 80px 0;
         }
 
         .apps-grid {
@@ -514,7 +597,7 @@
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255, 182, 193, 0.2);
+            border: 1px solid rgba(233, 30, 99, 0.2);
             display: flex;
             flex-direction: column;
             height: 100%;
@@ -532,7 +615,7 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
 
         .app-header {
@@ -551,13 +634,14 @@
 
         .app-title {
             font-size: 1.3rem;
-            color: #B76E79;
+            color: var(--primary);
             margin-bottom: 5px;
+            font-weight: 700;
         }
 
         .app-subtitle {
             font-size: 0.9rem;
-            color: #8C7B6D;
+            color: #666;
         }
 
         .app-description {
@@ -584,19 +668,19 @@
             align-self: flex-start;
             padding: 8px 16px;
             border-radius: 8px;
-            background: rgba(255, 182, 193, 0.1);
+            background: rgba(233, 30, 99, 0.1);
         }
 
         .app-link:hover {
             transform: translateX(5px);
-            background: rgba(255, 182, 193, 0.2);
+            background: rgba(233, 30, 99, 0.2);
         }
 
         /* 下載區域 */
         .download-section {
             text-align: center;
-            padding: 60px 0;
-            background: linear-gradient(135deg, #FFF0F5 0%, #F8F8FF 100%);
+            padding: 80px 0;
+            background: linear-gradient(135deg, #FFF8F1 0%, #FFE8E8 100%);
             border-radius: 25px;
             margin: 50px 0;
             position: relative;
@@ -610,7 +694,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.03"><path d="M30,30 Q50,10 70,30 T90,50 T70,70 T50,90 T30,70 T10,50 T30,30 Z" fill="%23B76E79"/></svg>');
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.03"><path d="M30,30 Q50,10 70,30 T90,50 T70,70 T50,90 T30,70 T10,50 T30,30 Z" fill="%23E91E63"/></svg>');
             background-size: 80px 80px;
         }
 
@@ -622,15 +706,16 @@
         }
 
         .download-title {
-            font-size: 1.8rem;
-            color: #B76E79;
+            font-size: 2rem;
+            color: var(--primary);
             margin-bottom: 20px;
             line-height: 1.3;
+            font-weight: 700;
         }
 
         .download-subtitle {
-            font-size: 1.05rem;
-            color: #8C7B6D;
+            font-size: 1.1rem;
+            color: var(--text);
             margin-bottom: 30px;
             line-height: 1.6;
         }
@@ -655,32 +740,18 @@
         .footer {
             text-align: center;
             margin-top: 60px;
-            color: #A89B9D;
+            color: #666;
             font-size: 0.9rem;
             padding: 30px 20px;
-            border-top: 1px solid #FFE4E9;
+            border-top: 1px solid #FFE5D9;
         }
 
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin: 20px 0;
+        .footer-text {
+            margin-bottom: 20px;
         }
 
-        .footer-link {
-            color: #A89B9D;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-weight: 500;
-        }
-
-        .footer-link:hover {
-            color: var(--primary);
-        }
-
-        /* 可愛側邊欄 - 完全重新設計 */
-        .cute-sidebar {
+        /* 魔法側邊欄 */
+        .magic-sidebar {
             position: fixed;
             top: 50%;
             right: 0;
@@ -694,7 +765,7 @@
         .sidebar-tab {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 50% 0 0 50%;
             display: flex;
             align-items: center;
@@ -780,7 +851,7 @@
         .sidebar-app-name {
             font-size: 0.9rem;
             font-weight: bold;
-            color: #B76E79;
+            color: var(--primary);
             margin-bottom: 2px;
         }
 
@@ -795,11 +866,11 @@
         /* 響應式設計 */
         @media (max-width: 1024px) {
             .hero-title {
-                font-size: 2rem;
+                font-size: 2.4rem;
             }
             
             .section-title {
-                font-size: 1.6rem;
+                font-size: 2rem;
             }
         }
 
@@ -808,8 +879,8 @@
                 padding: 12px 0;
             }
             
-            .logo-container img {
-                height: 40px;
+            .logo-text {
+                font-size: 1.3rem;
             }
             
             .lang-btn {
@@ -818,15 +889,15 @@
             }
             
             .hero {
-                padding: 50px 0 30px;
+                padding: 60px 0 30px;
             }
             
             .hero-title {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
             
             .hero-subtitle {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
             
             .hero-buttons {
@@ -842,7 +913,7 @@
             }
             
             .section {
-                padding: 50px 0;
+                padding: 60px 0;
             }
             
             .features-grid, .apps-grid {
@@ -858,16 +929,11 @@
                 padding: 30px 25px;
             }
             
-            .footer-links {
-                flex-direction: column;
-                gap: 12px;
-            }
-            
             .nav-text {
                 font-size: 0.7rem;
             }
             
-            .cute-sidebar {
+            .magic-sidebar {
                 top: auto;
                 bottom: 80px;
                 transform: none;
@@ -886,11 +952,11 @@
 
         @media (max-width: 480px) {
             .hero-title {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
             
             .section-title {
-                font-size: 1.4rem;
+                font-size: 1.6rem;
             }
             
             .feature-card, .app-card {
@@ -902,8 +968,8 @@
             }
             
             .app-icon {
-                width: 100px;
-                height: 100px;
+                width: 120px;
+                height: 120px;
             }
             
             .footer-text {
@@ -913,16 +979,16 @@
             }
         }
         
-        /* 可愛裝飾元素 */
-        .decoration-heart {
+        /* 裝飾元素 */
+        .decoration-coin {
             position: absolute;
-            color: var(--primary);
+            color: var(--gold);
             opacity: 0.2;
             z-index: 0;
             font-size: 1.5rem;
         }
         
-        .decoration-flower {
+        .decoration-crystal {
             position: absolute;
             color: var(--accent);
             opacity: 0.2;
@@ -930,37 +996,18 @@
             font-size: 1.3rem;
         }
         
-        /* 可愛邊框和背景 */
-        .cute-border {
-            border: 2px dashed var(--primary);
-            border-radius: 20px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.7);
-            position: relative;
-        }
-        
-        .cute-border::before {
-            content: '🌸';
-            position: absolute;
-            top: -15px;
-            left: 20px;
-            background: white;
-            padding: 0 10px;
-            font-size: 1.2rem;
-        }
-        
         /* 免責聲明區域 */
         .disclaimer-section {
-            background: #FFF8F8;
+            background: #FFEBEE;
             border-radius: 20px;
             padding: 30px;
             margin: 40px 0;
-            border: 1px solid #FFD1DC;
+            border: 1px solid var(--accent);
             position: relative;
         }
         
         .disclaimer-section h3 {
-            color: #B76E79;
+            color: var(--primary);
             margin-bottom: 15px;
             display: flex;
             align-items: center;
@@ -984,8 +1031,154 @@
         }
         
         .disclaimer-section li::before {
-            content: '💕';
+            content: '🌸';
             margin-right: 8px;
+        }
+        
+        /* 中醫典籍特色區 */
+        .classics-section {
+            background: linear-gradient(135deg, #FFF8F1 0%, #FFE8E8 100%);
+            border-radius: 25px;
+            padding: 60px 40px;
+            margin: 50px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        
+        .classics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .classic-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(233, 30, 99, 0.2);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .classic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px var(--shadow);
+        }
+        
+        .classic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .classic-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .classic-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+        
+        .classic-description {
+            font-size: 1rem;
+            color: var(--text);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        /* 週期階段區 */
+        .cycle-section {
+            background: linear-gradient(135deg, #FFF8F1 0%, #FFE8E8 100%);
+            border-radius: 25px;
+            padding: 60px 40px;
+            margin: 50px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        
+        .cycle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .cycle-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(233, 30, 99, 0.2);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .cycle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px var(--shadow);
+        }
+        
+        .cycle-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .cycle-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cycle-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+        
+        .cycle-description {
+            font-size: 1rem;
+            color: var(--text);
+            line-height: 1.6;
+            flex-grow: 1;
         }
     </style>
 </head>
@@ -995,20 +1188,26 @@
     <div class="floating-element floating-element-2">💕</div>
     <div class="floating-element floating-element-3">📜</div>
     <div class="floating-element floating-element-4">✨</div>
-    <div class="floating-element floating-element-5">🌙</div>
-    <div class="floating-element floating-element-6">🌿</div>
     
-    <!-- 可愛裝飾元素 -->
-    <div class="decoration-heart" style="top: 15%; left: 8%;">❤️</div>
-    <div class="decoration-heart" style="top: 25%; right: 10%;">💖</div>
-    <div class="decoration-flower" style="bottom: 25%; left: 12%;">🌼</div>
-    <div class="decoration-flower" style="bottom: 30%; right: 8%;">🌺</div>
+    <!-- 裝飾元素 -->
+    <div class="decoration-coin" style="top: 15%; left: 8%;">💎</div>
+    <div class="decoration-coin" style="top: 25%; right: 10%;">🌸</div>
+    <div class="decoration-crystal" style="bottom: 25%; left: 12%;">📈</div>
+    <div class="decoration-crystal" style="bottom: 30%; right: 8%;">🔮</div>
+    
+    <!-- 限時優惠橫幅 -->
+    <div class="promo-banner" id="promo-banner">
+        <div class="promo-content">
+            🌟 新小主專享：免費體驗全功能3日！探索千年中醫養生智慧 🌟
+        </div>
+    </div>
     
     <div class="container">
-        <!-- 頂部導航 - 優化版 -->
+        <!-- 頂部導航 -->
         <nav class="top-nav">
             <div class="logo-container">
-                <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_logo.png" alt="小主日記">
+                <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_icon.png" alt="小主日記" class="logo-icon">
+                <div class="logo-text">小主日記</div>
             </div>
             <div class="language-toggle">
                 <button class="lang-btn active" onclick="switchLanguage('zh_tw')">繁中</button>
@@ -1023,19 +1222,38 @@
         <section class="hero">
             <div class="hero-content">
                 <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_icon.png" alt="小主日記" class="app-icon">
-                <h1 class="hero-title" id="hero-title">小主日記: 生理期好閨蜜</h1>
-                <p class="hero-subtitle" id="hero-subtitle">首款中醫養生 × 穴位按摩經期指南<br>陪伴每個特別的日子，成為妳最貼心的生理期好閨蜜</p>
+                <h1 class="hero-title" id="hero-title">小主日記 - 宮廷級中醫養生</h1>
+                <p class="hero-subtitle" id="hero-subtitle">首款中醫養生 × 穴位按摩經期指南<br>融合四大中醫典籍精要，依生理週期精準對應，成為妳最貼心的生理期好閨蜜</p>
                 
-                <!-- 直接使用App Store徽章 -->
-                <div class="app-store-badge">
-                    <a href="https://apps.apple.com/app/id6752606069" target="_blank">
-                        <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store">
-                    </a>
+                <!-- 試用橫幅 -->
+                <div class="trial-section">
+                    <div class="trial-content">
+                        <h2 class="trial-title" id="trial-title">立即下載小主日記，解鎖所有高級功能！</h2>
+                        <p class="trial-subtitle" id="trial-subtitle">新小主專享：免費體驗全功能3日！</p>
+                        
+                        <div class="trial-features">
+                            <div class="trial-feature" id="trial-feature1">中醫日常養生指南</div>
+                            <div class="trial-feature" id="trial-feature2">情緒調適與穴位按摩</div>
+                            <div class="trial-feature" id="trial-feature3">藥膳茶飲與養生食材</div>
+                            <div class="trial-feature" id="trial-feature4">滋補湯方與週期追蹤</div>
+                            <div class="trial-feature" id="trial-feature5">四大中醫典籍精要</div>
+                            <div class="trial-feature" id="trial-feature6">宮廷級養生智慧</div>
+                        </div>
+                        
+                        <p class="trial-note" id="trial-note">立即體驗完整版！免費試用期結束後仍可繼續使用基礎功能。</p>
+                        
+                        <!-- App Store徽章 -->
+                        <div class="app-store-badge">
+                            <a href="https://apps.apple.com/app/id6752606069" target="_blank">
+                                <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store">
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="hero-buttons">
                     <a href="#features" class="btn btn-secondary">
-                        <i class="fas fa-star"></i> <span id="learn-more-btn">了解更多</span>
+                        <i class="fas fa-star"></i> <span id="learn-more-btn">了解更多功能</span>
                     </a>
                 </div>
             </div>
@@ -1043,80 +1261,150 @@
 
         <!-- 功能特色 -->
         <section class="section" id="features">
-            <h2 class="section-title" id="features-title">功能特色</h2>
+            <h2 class="section-title" id="features-title">宮廷級養生智慧，專為現代小主量身訂制</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-calendar-alt"></i>
                     </div>
-                    <h3 class="feature-title" id="feature1-title">週期追蹤</h3>
-                    <p class="feature-description" id="feature1-desc">精準記錄生理週期，預測排卵日與經期，幫助妳更了解自己的身體節奏，成為妳最可靠的生理期好閨蜜</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-book-medical"></i>
-                    </div>
-                    <h3 class="feature-title" id="feature2-title">中醫食療</h3>
-                    <p class="feature-description" id="feature2-desc">首款中醫食療指南，提供週期各階段的養生食譜，讓妳吃得健康又養生</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-hands"></i>
-                    </div>
-                    <h3 class="feature-title" id="feature3-title">穴位按摩</h3>
-                    <p class="feature-description" id="feature3-desc">提供專業穴位按摩指南，緩解經期不適，讓妳輕鬆度過每個生理期</p>
+                    <h3 class="feature-title" id="feature1-title">週期智慧導覽</h3>
+                    <p class="feature-description" id="feature1-desc">依「經期 → 卵泡期 → 排卵期 → 黃體期」精準對應，將四本古籍的思想化為可理解的語言與版面，以柔和的方式陪伴妳了解自己的變化</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-seedling"></i>
                     </div>
-                    <h3 class="feature-title" id="feature4-title">食療參考</h3>
-                    <p class="feature-description" id="feature4-desc">依據中醫理論，分享適合不同週期階段的食療與藥膳知識</p>
+                    <h3 class="feature-title" id="feature2-title">日常養生指南</h3>
+                    <p class="feature-description" id="feature2-desc">以《黃帝內經》四時養生之理為主軸，結合古籍對陰陽與氣血運行的理解，提供生活起居、情緒調適、運動養生三大面向的日常指引</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-hand-holding-heart"></i>
+                        <i class="fas fa-hands"></i>
                     </div>
-                    <h3 class="feature-title" id="feature5-title">貼心提醒</h3>
-                    <p class="feature-description" id="feature5-desc">根據妳的週期階段，提供個性化的養生提醒與健康記錄，做妳最貼心的好閨蜜</p>
+                    <h3 class="feature-title" id="feature3-title">穴位按摩參考</h3>
+                    <p class="feature-description" id="feature3-desc">取材自《針灸甲乙經》經絡理論，依女性週期特性整理主要穴位、輔助穴位、調整穴位，用於放鬆與舒緩的區域參考</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="feature-title" id="feature4-title">藥膳食補靈感</h3>
+                    <p class="feature-description" id="feature4-desc">源自《本草綱目》食材分類與《傅青主女科》滋養觀，提供養生食材、藥膳茶飲、滋補湯方三大方向的文化分享與飲食靈感</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-medical"></i>
+                    </div>
+                    <h3 class="feature-title" id="feature5-title">四大典籍精要</h3>
+                    <p class="feature-description" id="feature5-desc">融匯《黃帝內經》、《本草綱目》、《傅青主女科》、《針灸甲乙經》四大中醫典籍精華，讓古籍智慧以現代方式延續</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-user-shield"></i>
                     </div>
-                    <h3 class="feature-title" id="feature6-title">隱私保護</h3>
+                    <h3 class="feature-title" id="feature6-title">隱私保護承諾</h3>
                     <p class="feature-description" id="feature6-desc">您的健康數據僅存儲於設備中，我們重視並保護您的隱私安全。<a href="https://ans1lbbb.github.io/RubyDays/privacy.html" style="color: var(--primary); text-decoration: underline;">了解更多</a></p>
                 </div>
             </div>
         </section>
 
-        <!-- 中医养生区 -->
-        <section class="tcm-section" id="tcm">
-            <div class="tcm-content">
-                <h2 class="tcm-title" id="tcm-title">中醫養生智慧</h2>
-                <p class="tcm-description" id="tcm-description">小主日記融匯《黃帝內經》、《本草綱目》、《傅青主女科》、《針灸甲乙經》四大中醫典籍精要，結合現代女性生活節奏，提供符合生理週期的養生參考，成為妳最可靠的生理期好閨蜜。</p>
-                
-                <div class="disclaimer-box">
-                    <p><strong id="disclaimer-title">💖 重要說明：</strong> <span id="disclaimer-text">本應用程式僅為個人健康記錄與參考工具，不提供醫療診斷、治療或處方。應用程式中的中醫養生內容僅供文化與知識分享，是小主們探索傳統智慧的起點，但不能取代專業醫療。如有健康疑慮，請務必諮詢合格醫師。</span></p>
+        <!-- 中醫典籍特色區 -->
+        <section class="classics-section" id="classics">
+            <h2 class="section-title" id="classics-title">融匯四大中醫典籍精要</h2>
+            <div class="classics-grid">
+                <div class="classic-card">
+                    <div class="classic-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="classic-title" id="classic1-title">《黃帝內經》</h3>
+                    <p class="classic-description" id="classic1-desc">融《黃帝內經》四時養生之理，取陰陽五行、臟腑經絡之論，為中醫理論體系奠基之作，提供四季養生與身體節律的智慧</p>
+                </div>
+                <div class="classic-card">
+                    <div class="classic-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="classic-title" id="classic2-title">《本草綱目》</h3>
+                    <p class="classic-description" id="classic2-desc">會《本草綱目》食療之法，集千種藥材性味歸經，詳述食材藥性與配伍禁忌，為藥膳食補提供豐富參考依據</p>
+                </div>
+                <div class="classic-card">
+                    <div class="classic-icon">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <h3 class="classic-title" id="classic3-title">《傅青主女科》</h3>
+                    <p class="classic-description" id="classic3-desc">貫《傅青主女科》調理之道，專論婦科經帶胎產諸疾，提供女性生理週期各階段的養護觀點與調理思路</p>
+                </div>
+                <div class="classic-card">
+                    <div class="classic-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="classic-title" id="classic4-title">《針灸甲乙經》</h3>
+                    <p class="classic-description" id="classic4-desc">通《針灸甲乙經》經絡穴位之法，系統整理人體經脈循行與腧穴定位，為穴位按摩提供理論基礎與操作參考</p>
                 </div>
             </div>
         </section>
 
-        <!-- 免责声明区域 -->
+        <!-- 週期階段區 -->
+        <section class="cycle-section" id="cycle">
+            <h2 class="section-title" id="cycle-title">依生理週期精準對應</h2>
+            <div class="cycle-grid">
+                <div class="cycle-card">
+                    <div class="cycle-icon">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <h3 class="cycle-title" id="cycle1-title">經期階段</h3>
+                    <p class="cycle-description" id="cycle1-desc">月經來潮期，注重養血調經，提供溫經散寒、養血活血之食療與穴位按摩參考，幫助緩解不適，順利度過經期</p>
+                </div>
+                <div class="cycle-card">
+                    <div class="cycle-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="cycle-title" id="cycle2-title">卵泡期</h3>
+                    <p class="cycle-description" id="cycle2-desc">月經結束後至排卵前，陰血漸復，注重滋陰養血，提供補血養陰之食療與調理建議，為排卵做好準備</p>
+                </div>
+                <div class="cycle-card">
+                    <div class="cycle-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3 class="cycle-title" id="cycle3-title">排卵期</h3>
+                    <p class="cycle-description" id="cycle3-desc">排卵前後時期，重陰轉陽，注重溫陽通絡，提供促排卵、調氣血之食療與養生指引，助力順利排卵</p>
+                </div>
+                <div class="cycle-card">
+                    <div class="cycle-icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <h3 class="cycle-title" id="cycle4-title">黃體期</h3>
+                    <p class="cycle-description" id="cycle4-desc">排卵後至月經前，陽氣充盛，注重疏肝理氣，提供緩解經前不適之食療與情緒調適建議，平穩度過經前期</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 中醫養生區 -->
+        <section class="tcm-section" id="tcm">
+            <div class="tcm-content">
+                <h2 class="tcm-title" id="tcm-title">中醫養生智慧，溫柔描摹女性身體節律</h2>
+                <p class="tcm-description" id="tcm-description">小主日記以中國中醫古籍為靈魂設計，不同於一般的月經追蹤工具，更注重「生活方式」與「身心節律」的結合。從經期到生孕期，App會根據週期不同階段呈現合適的日常養生、穴位按摩與藥膳食補內容，讓妳能在生活節奏中輕柔地照顧自己，認識自己的節律與變化。</p>
+                
+                <div class="disclaimer-box">
+                    <p><strong id="disclaimer-title">🌸 重要說明：</strong> <span id="disclaimer-text">本應用程式所有內容皆屬中醫文化知識分享與生活參考，不具醫療診斷、治療、預防或建議用途。應用程式中的中醫養生內容僅供文化與知識分享，是小主們探索傳統智慧的起點，但不能取代專業醫療。如有身體不適或健康問題，請向合格的醫療院所和專業醫護人員諮詢。</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 免責聲明區域 -->
         <section class="disclaimer-section" id="disclaimer-section">
             <h3><i class="fas fa-exclamation-triangle"></i> <span id="disclaimer-section-title">免責聲明</span></h3>
             <p id="disclaimer-section-p1">親愛的小主，為了確保您能正確使用小主日記，請仔細閱讀以下免責聲明：</p>
             <ul>
-                <li id="disclaimer-section-li1">小主日記僅為個人健康記錄與參考工具，不提供醫療診斷、治療或處方服務</li>
+                <li id="disclaimer-section-li1">小主日記僅為個人健康記錄與中醫文化參考工具，不提供醫療診斷、治療或處方服務</li>
                 <li id="disclaimer-section-li2">應用程式中的中醫養生內容僅供文化與知識分享，不能取代專業醫療建議</li>
                 <li id="disclaimer-section-li3">如有健康疑慮或特殊身體狀況，請務必諮詢合格醫師或專業醫療人員</li>
-                <li id="disclaimer-section-li4">應用程式中的週期預測僅供參考，實際生理狀況可能因個人體質而有所不同</li>
+                <li id="disclaimer-section-li4">應用程式中的週期預測與養生建議僅供參考，實際生理狀況可能因個人體質而有所不同</li>
                 <li id="disclaimer-section-li5">我們重視您的隱私，所有健康數據僅存儲於您的設備中，不會上傳至伺服器</li>
             </ul>
-            <p id="disclaimer-section-p2">使用本應用程式即表示您已閱讀並同意以上免責聲明內容。祝您使用愉快！💕</p>
+            <p id="disclaimer-section-p2">使用本應用程式即表示您已閱讀並同意以上免責聲明內容。願天下女子皆得自在，祝您使用愉快！🌸</p>
         </section>
 
-        <!-- 其他应用 -->
+        <!-- 其他應用 -->
         <section class="other-apps-section" id="apps">
             <h2 class="section-title" id="other-apps-title">其他精選應用</h2>
             <div class="apps-grid">
@@ -1128,7 +1416,7 @@
                             <p class="app-subtitle" id="app1-subtitle">利潤精算師</p>
                         </div>
                     </div>
-                    <p class="app-description" id="app1-description">人手必備！定價沒煩惱，利潤全掌握！專為電商賣家與創業者設計的終極工具，一秒精準算出成本、售價與毛利率，讓每個決策都為您賺取更多收益！</p>
+                    <p class="app-description" id="app1-description">專為電商賣家與創業者設計的終極工具，一秒精準算出成本、售價與毛利率，讓每個決策都為您賺取更多收益！人手必備！定價沒煩惱，利潤全掌握！</p>
                     <div class="app-links">
                         <a href="https://apps.apple.com/app/id6740332215" class="app-link" target="_blank" id="app1-link">
                             <i class="fas fa-download"></i> <span>下載應用</span>
@@ -1146,7 +1434,7 @@
                             <p class="app-subtitle" id="app2-subtitle">神格覺醒</p>
                         </div>
                     </div>
-                    <p class="app-description" id="app2-description">海洋女神的神格碎片散落在「艾奧斯海域」！透過創新的卡牌合成玩法，逐步喚醒沉睡的海洋之力。挑戰記憶翻牌試煉，解鎖女神被封印的夏日傳說。每張限定卡牌都藏著失落記憶碎片，你能成為首位集齊所有神格碎片的海洋使者嗎？立即展開這場療癒系神話冒險！</p>
+                    <p class="app-description" id="app2-description">海洋女神的神格碎片散落在「艾奧斯海域」！透過創新的卡牌合成玩法，逐步喚醒沉睡的海洋之力。挑戰記憶翻牌試煉，解鎖女神被封印的夏日傳說。</p>
                     <div class="app-links">
                         <a href="https://apps.apple.com/app/id6745821288" class="app-link" target="_blank" id="app2-link">
                             <i class="fas fa-download"></i> <span>下載應用</span>
@@ -1159,12 +1447,12 @@
             </div>
         </section>
 
-        <!-- 联络我们 -->
+        <!-- 聯絡我們 -->
         <section class="contact-section" id="contact">
             <h2 class="section-title" id="contact-title">聯絡我們</h2>
             <div class="contact-container">
-                <h3 class="contact-title" id="contact-subtitle">親愛的小主，我們在這裡傾聽妳的聲音</h3>
-                <p class="contact-description" id="contact-description">無論是對小主日記的使用體驗、功能想法，還是任何想要分享的點點滴滴，我們都非常重視並期待收到妳的訊息。點擊下方按鈕即可透過郵件與我們聯絡～</p>
+                <h3 class="contact-title" id="contact-subtitle">親愛的小主，我們在這裡傾聽您的聲音</h3>
+                <p class="contact-description" id="contact-description">無論是對小主日記的使用體驗、功能想法，還是任何想要分享的點點滴滴，我們都非常重視並期待收到您的訊息。點擊下方按鈕即可透過郵件與我們聯絡～</p>
                 
                 <a href="mailto:ans1l@icloud.com?subject=小主日記用戶回饋" class="contact-btn">
                     <i class="fas fa-envelope"></i> <span id="contact-btn-text">傳送郵件給我們</span>
@@ -1172,11 +1460,11 @@
             </div>
         </section>
 
-        <!-- 页脚 -->
+        <!-- 頁腳 -->
         <footer class="footer">
             <div class="footer-text" id="footer-text">
-                <p>© 2025 小主日記 - 生理期好閨蜜</p>
-                <p>首款中醫養生 × 穴位按摩經期指南</p>
+                <p>© 2025 小主日記 - 宮廷級中醫養生 × 生理期好閨蜜</p>
+                <p>融匯四大中醫典籍精要，依生理週期精準對應</p>
             </div>
         </footer>
     </div>
@@ -1188,9 +1476,9 @@
                 <i class="fas fa-star nav-icon"></i>
                 <span class="nav-text" id="nav-features">功能特色</span>
             </a>
-            <a href="#tcm" class="nav-link">
+            <a href="#classics" class="nav-link">
                 <i class="fas fa-book-medical nav-icon"></i>
-                <span class="nav-text" id="nav-tcm">中醫養生</span>
+                <span class="nav-text" id="nav-classics">中醫典籍</span>
             </a>
             <a href="#apps" class="nav-link">
                 <i class="fas fa-th-large nav-icon"></i>
@@ -1203,20 +1491,20 @@
         </div>
     </nav>
 
-    <!-- 可爱侧边栏 - 重新设计版 -->
-    <div class="cute-sidebar">
+    <!-- 魔法側邊欄 -->
+    <div class="magic-sidebar">
         <div class="sidebar-tab" onclick="toggleSidebar()">
-            <i class="fas fa-leaf"></i>
+            <i class="fas fa-magic"></i>
         </div>
         <div class="sidebar-content" id="sidebarContent">
-            <h3><i class="fas fa-seedling"></i> <span id="sidebar-title">小主專區</span></h3>
+            <h3><i class="fas fa-heart"></i> <span id="sidebar-title">小主專區</span></h3>
             <p id="sidebar-subtitle">更多應用推薦</p>
             <a href="https://apps.apple.com/app/id6752606069" class="sidebar-app" target="_blank">
                 <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_icon.png" alt="小主日記" class="sidebar-app-icon">
                 <div class="sidebar-app-info">
                     <div class="sidebar-app-name">小主日記</div>
                     <div class="sidebar-app-download">
-                        <i class="fas fa-download"></i> 下載應用
+                        <i class="fas fa-download"></i> <span id="sidebar-download1">下載應用</span>
                     </div>
                 </div>
             </a>
@@ -1225,7 +1513,7 @@
                 <div class="sidebar-app-info">
                     <div class="sidebar-app-name">ProfitFairy</div>
                     <div class="sidebar-app-download">
-                        <i class="fas fa-download"></i> 下載應用
+                        <i class="fas fa-download"></i> <span id="sidebar-download2">下載應用</span>
                     </div>
                 </div>
             </a>
@@ -1234,7 +1522,7 @@
                 <div class="sidebar-app-info">
                     <div class="sidebar-app-name">AIOS Realm</div>
                     <div class="sidebar-app-download">
-                        <i class="fas fa-download"></i> 下載應用
+                        <i class="fas fa-download"></i> <span id="sidebar-download3">下載應用</span>
                     </div>
                 </div>
             </a>
@@ -1242,324 +1530,454 @@
     </div>
 
     <script>
+        // 完整的五國語言翻譯對象
         const translations = {
             zh_tw: {
+                // 限時優惠橫幅
+                "promo-banner": "🌟 新小主專享：免費體驗全功能3日！探索千年中醫養生智慧 🌟",
+                
+                // 試用橫幅
+                "trial-title": "立即下載小主日記，解鎖所有高級功能！",
+                "trial-subtitle": "新小主專享：免費體驗全功能3日！",
+                "trial-note": "立即體驗完整版！免費試用期結束後仍可繼續使用基礎功能。",
+                
+                // 試用功能點
+                "trial-feature1": "中醫日常養生指南",
+                "trial-feature2": "情緒調適與穴位按摩",
+                "trial-feature3": "藥膳茶飲與養生食材",
+                "trial-feature4": "滋補湯方與週期追蹤",
+                "trial-feature5": "四大中醫典籍精要",
+                "trial-feature6": "宮廷級養生智慧",
+                
                 // 導航欄
                 "nav-features": "功能特色",
-                "nav-tcm": "中醫養生",
+                "nav-classics": "中醫典籍",
                 "nav-apps": "其他應用",
                 "nav-contact": "聯絡我們",
                 
                 // 英雄區域
-                "hero-title": "小主日記: 生理期好閨蜜",
-                "hero-subtitle": "首款中醫養生 × 穴位按摩經期指南<br>陪伴每個特別的日子，成為妳最貼心的生理期好閨蜜",
+                "hero-title": "小主日記 - 宮廷級中醫養生",
+                "hero-subtitle": "首款中醫養生 × 穴位按摩經期指南<br>融合四大中醫典籍精要，依生理週期精準對應，成為妳最貼心的生理期好閨蜜",
                 "download-btn": "立即下載",
-                "learn-more-btn": "了解更多",
+                "learn-more-btn": "了解更多功能",
                 
                 // 功能特色
-                "features-title": "功能特色",
-                "feature1-title": "週期追蹤",
-                "feature1-desc": "精準記錄生理週期，預測排卵日與經期，幫助妳更了解自己的身體節奏，成為妳最可靠的生理期好閨蜜",
-                "feature2-title": "中醫食療",
-                "feature2-desc": "首款中醫食療指南，提供週期各階段的養生食譜，讓妳吃得健康又養生",
-                "feature3-title": "穴位按摩",
-                "feature3-desc": "提供專業穴位按摩指南，緩解經期不適，讓妳輕鬆度過每個生理期",
-                "feature4-title": "食療參考",
-                "feature4-desc": "依據中醫理論，分享適合不同週期階段的食療與藥膳知識",
-                "feature5-title": "貼心提醒",
-                "feature5-desc": "根據妳的週期階段，提供個性化的養生提醒與健康記錄，做妳最貼心的好閨蜜",
-                "feature6-title": "隱私保護",
-                "feature6-desc": "您的健康數據僅存儲於設備中，我們重視並保護您的隱私安全。<a href='https://ans1lbbb.github.io/RubyDays/privacy.html' style='color: #FFB6C1; text-decoration: underline;'>了解更多</a>",
+                "features-title": "宮廷級養生智慧，專為現代小主量身訂制",
+                "feature1-title": "週期智慧導覽",
+                "feature1-desc": "依「經期 → 卵泡期 → 排卵期 → 黃體期」精準對應，將四本古籍的思想化為可理解的語言與版面，以柔和的方式陪伴妳了解自己的變化",
+                "feature2-title": "日常養生指南",
+                "feature2-desc": "以《黃帝內經》四時養生之理為主軸，結合古籍對陰陽與氣血運行的理解，提供生活起居、情緒調適、運動養生三大面向的日常指引",
+                "feature3-title": "穴位按摩參考",
+                "feature3-desc": "取材自《針灸甲乙經》經絡理論，依女性週期特性整理主要穴位、輔助穴位、調整穴位，用於放鬆與舒緩的區域參考",
+                "feature4-title": "藥膳食補靈感",
+                "feature4-desc": "源自《本草綱目》食材分類與《傅青主女科》滋養觀，提供養生食材、藥膳茶飲、滋補湯方三大方向的文化分享與飲食靈感",
+                "feature5-title": "四大典籍精要",
+                "feature5-desc": "融匯《黃帝內經》、《本草綱目》、《傅青主女科》、《針灸甲乙經》四大中醫典籍精華，讓古籍智慧以現代方式延續",
+                "feature6-title": "隱私保護承諾",
+                "feature6-desc": "您的健康數據僅存儲於設備中，我們重視並保護您的隱私安全。<a href='https://ans1lbbb.github.io/RubyDays/privacy.html' style='color: #E91E63; text-decoration: underline;'>了解更多</a>",
+                
+                // 中醫典籍特色區
+                "classics-title": "融匯四大中醫典籍精要",
+                "classic1-title": "《黃帝內經》",
+                "classic1-desc": "融《黃帝內經》四時養生之理，取陰陽五行、臟腑經絡之論，為中醫理論體系奠基之作，提供四季養生與身體節律的智慧",
+                "classic2-title": "《本草綱目》",
+                "classic2-desc": "會《本草綱目》食療之法，集千種藥材性味歸經，詳述食材藥性與配伍禁忌，為藥膳食補提供豐富參考依據",
+                "classic3-title": "《傅青主女科》",
+                "classic3-desc": "貫《傅青主女科》調理之道，專論婦科經帶胎產諸疾，提供女性生理週期各階段的養護觀點與調理思路",
+                "classic4-title": "《針灸甲乙經》",
+                "classic4-desc": "通《針灸甲乙經》經絡穴位之法，系統整理人體經脈循行與腧穴定位，為穴位按摩提供理論基礎與操作參考",
+                
+                // 週期階段區
+                "cycle-title": "依生理週期精準對應",
+                "cycle1-title": "經期階段",
+                "cycle1-desc": "月經來潮期，注重養血調經，提供溫經散寒、養血活血之食療與穴位按摩參考，幫助緩解不適，順利度過經期",
+                "cycle2-title": "卵泡期",
+                "cycle2-desc": "月經結束後至排卵前，陰血漸復，注重滋陰養血，提供補血養陰之食療與調理建議，為排卵做好準備",
+                "cycle3-title": "排卵期",
+                "cycle3-desc": "排卵前後時期，重陰轉陽，注重溫陽通絡，提供促排卵、調氣血之食療與養生指引，助力順利排卵",
+                "cycle4-title": "黃體期",
+                "cycle4-desc": "排卵後至月經前，陽氣充盛，注重疏肝理氣，提供緩解經前不適之食療與情緒調適建議，平穩度過經前期",
                 
                 // 中醫養生區
-                "tcm-title": "中醫養生智慧",
-                "tcm-description": "小主日記融匯《黃帝內經》、《本草綱目》、《傅青主女科》、《針灸甲乙經》四大中醫典籍精要，結合現代女性生活節奏，提供符合生理週期的養生參考，成為妳最可靠的生理期好閨蜜。",
-                "disclaimer-title": "💖 重要說明：",
-                "disclaimer-text": "本應用程式僅為個人健康記錄與參考工具，不提供醫療診斷、治療或處方。應用程式中的中醫養生內容僅供文化與知識分享，是小主們探索傳統智慧的起點，但不能取代專業醫療。如有健康疑慮，請務必諮詢合格醫師。",
+                "tcm-title": "中醫養生智慧，溫柔描摹女性身體節律",
+                "tcm-description": "小主日記以中國中醫古籍為靈魂設計，不同於一般的月經追蹤工具，更注重「生活方式」與「身心節律」的結合。從經期到生孕期，App會根據週期不同階段呈現合適的日常養生、穴位按摩與藥膳食補內容，讓妳能在生活節奏中輕柔地照顧自己，認識自己的節律與變化。",
+                "disclaimer-title": "🌸 重要說明：",
+                "disclaimer-text": "本應用程式所有內容皆屬中醫文化知識分享與生活參考，不具醫療診斷、治療、預防或建議用途。應用程式中的中醫養生內容僅供文化與知識分享，是小主們探索傳統智慧的起點，但不能取代專業醫療。如有身體不適或健康問題，請向合格的醫療院所和專業醫護人員諮詢。",
                 
                 // 免責聲明區域
                 "disclaimer-section-title": "免責聲明",
                 "disclaimer-section-p1": "親愛的小主，為了確保您能正確使用小主日記，請仔細閱讀以下免責聲明：",
-                "disclaimer-section-li1": "小主日記僅為個人健康記錄與參考工具，不提供醫療診斷、治療或處方服務",
+                "disclaimer-section-li1": "小主日記僅為個人健康記錄與中醫文化參考工具，不提供醫療診斷、治療或處方服務",
                 "disclaimer-section-li2": "應用程式中的中醫養生內容僅供文化與知識分享，不能取代專業醫療建議",
                 "disclaimer-section-li3": "如有健康疑慮或特殊身體狀況，請務必諮詢合格醫師或專業醫療人員",
-                "disclaimer-section-li4": "應用程式中的週期預測僅供參考，實際生理狀況可能因個人體質而有所不同",
+                "disclaimer-section-li4": "應用程式中的週期預測與養生建議僅供參考，實際生理狀況可能因個人體質而有所不同",
                 "disclaimer-section-li5": "我們重視您的隱私，所有健康數據僅存儲於您的設備中，不會上傳至伺服器",
-                "disclaimer-section-p2": "使用本應用程式即表示您已閱讀並同意以上免責聲明內容。祝您使用愉快！💕",
+                "disclaimer-section-p2": "使用本應用程式即表示您已閱讀並同意以上免責聲明內容。願天下女子皆得自在，祝您使用愉快！🌸",
                 
                 // 其他應用
                 "other-apps-title": "其他精選應用",
                 "app1-title": "ProfitFairy",
                 "app1-subtitle": "利潤精算師",
-                "app1-description": "人手必備！定價沒煩惱，利潤全掌握！專為電商賣家與創業者設計的終極工具，一秒精準算出成本、售價與毛利率，讓每個決策都為您賺取更多收益！",
+                "app1-description": "專為電商賣家與創業者設計的終極工具，一秒精準算出成本、售價與毛利率，讓每個決策都為您賺取更多收益！人手必備！定價沒煩惱，利潤全掌握！",
                 "app1-link": "下載應用",
                 "app1-website": "官網介紹",
                 "app2-title": "AIOS Realm",
                 "app2-subtitle": "神格覺醒",
-                "app2-description": "海洋女神的神格碎片散落在「艾奧斯海域」！透過創新的卡牌合成玩法，逐步喚醒沉睡的海洋之力。挑戰記憶翻牌試煉，解鎖女神被封印的夏日傳說。每張限定卡牌都藏著失落記憶碎片，你能成為首位集齊所有神格碎片的海洋使者嗎？立即展開這場療癒系神話冒險！",
+                "app2-description": "海洋女神的神格碎片散落在「艾奧斯海域」！透過創新的卡牌合成玩法，逐步喚醒沉睡的海洋之力。挑戰記憶翻牌試煉，解鎖女神被封印的夏日傳說。",
                 "app2-link": "下載應用",
                 "app2-website": "官網介紹",
                 
                 // 聯絡我們
                 "contact-title": "聯絡我們",
-                "contact-subtitle": "親愛的小主，我們在這裡傾聽妳的聲音",
-                "contact-description": "無論是對小主日記的使用體驗、功能想法，還是任何想要分享的點點滴滴，我們都非常重視並期待收到妳的訊息。點擊下方按鈕即可透過郵件與我們聯絡～",
+                "contact-subtitle": "親愛的小主，我們在這裡傾聽您的聲音",
+                "contact-description": "無論是對小主日記的使用體驗、功能想法，還是任何想要分享的點點滴滴，我們都非常重視並期待收到您的訊息。點擊下方按鈕即可透過郵件與我們聯絡～",
                 "contact-btn-text": "傳送郵件給我們",
                 
                 // 側邊欄
                 "sidebar-title": "小主專區",
                 "sidebar-subtitle": "更多應用推薦",
+                "sidebar-download1": "下載應用",
+                "sidebar-download2": "下載應用",
+                "sidebar-download3": "下載應用",
                 
                 // 頁腳
-                "footer-text": "© 2025 小主日記 - 生理期好閨蜜<br>首款中醫養生 × 穴位按摩經期指南"
+                "footer-text": "© 2025 小主日記 - 宮廷級中醫養生 × 生理期好閨蜜<br>融匯四大中醫典籍精要，依生理週期精準對應"
             },
             zh: {
+                "promo-banner": "🌟 新小主专享：免费体验全功能3日！探索千年中医养生智慧 🌟",
+                "trial-title": "立即下载小主日记，解锁所有高级功能！",
+                "trial-subtitle": "新小主专享：免费体验全功能3日！",
+                "trial-note": "立即体验完整版！免费试用期结束后仍可继续使用基础功能。",
+                "trial-feature1": "中医日常养生指南",
+                "trial-feature2": "情绪调适与穴位按摩",
+                "trial-feature3": "药膳茶饮与养生食材",
+                "trial-feature4": "滋补汤方与周期追踪",
+                "trial-feature5": "四大中医典籍精要",
+                "trial-feature6": "宫廷级养生智慧",
                 "nav-features": "功能特色",
-                "nav-tcm": "中医养生",
+                "nav-classics": "中医典籍",
                 "nav-apps": "其他应用",
                 "nav-contact": "联系我们",
-                
-                "hero-title": "小主日记: 生理期好闺蜜",
-                "hero-subtitle": "首款中医养生 × 穴位按摩经期指南<br>陪伴每个特别的日子，成为您最贴心的生理期好闺蜜",
+                "hero-title": "小主日记 - 宫廷级中医养生",
+                "hero-subtitle": "首款中医养生 × 穴位按摩经期指南<br>融合四大中医典籍精要，依生理周期精准对应，成为您最贴心的生理期好闺蜜",
                 "download-btn": "立即下载",
-                "learn-more-btn": "了解更多",
-                
-                "features-title": "功能特色",
-                "feature1-title": "周期追踪",
-                "feature1-desc": "精准记录生理周期，预测排卵日与经期，帮助您更了解自己的身体节奏，成为您最可靠的生理期好闺蜜",
-                "feature2-title": "中医食疗",
-                "feature2-desc": "首款中医食疗指南，提供周期各阶段的养生食谱，让您吃得健康又养生",
-                "feature3-title": "穴位按摩",
-                "feature3-desc": "提供专业穴位按摩指南，缓解经期不适，让您轻松度过每个生理期",
-                "feature4-title": "食疗参考",
-                "feature4-desc": "依据中医理论，分享适合不同周期阶段的食疗与药膳知识",
-                "feature5-title": "贴心提醒",
-                "feature5-desc": "根据您的周期阶段，提供个性化的养生提醒与健康记录，做您最贴心的好闺蜜",
-                "feature6-title": "隐私保护",
-                "feature6-desc": "您的健康数据仅存储于设备中，我们重视并保护您的隐私安全。<a href='https://ans1lbbb.github.io/RubyDays/privacy.html' style='color: #FFB6C1; text-decoration: underline;'>了解更多</a>",
-                
-                "tcm-title": "中医养生智慧",
-                "tcm-description": "小主日记融汇《黄帝内经》、《本草纲目》、《傅青主女科》、《针灸甲乙经》四大中医典籍精要，结合现代女性生活节奏，提供符合生理周期的养生参考，成为您最可靠的生理期好闺蜜。",
-                "disclaimer-title": "💖 重要说明：",
-                "disclaimer-text": "本应用程式仅为个人健康记录与参考工具，不提供医疗诊断、治疗或处方。应用程式中的中医养生内容仅供文化与知识分享，是小主们探索传统智慧的起点，但不能取代专业医疗。如有健康疑虑，请务必咨询合格医师。",
-                
-                // 免責聲明區域
+                "learn-more-btn": "了解更多功能",
+                "features-title": "宫廷级养生智慧，专为现代小主量身定制",
+                "feature1-title": "周期智慧导览",
+                "feature1-desc": "依「经期 → 卵泡期 → 排卵期 → 黄体期」精准对应，将四本古籍的思想化为可理解的语言与版面，以柔和的方式陪伴您了解自己的变化",
+                "feature2-title": "日常养生指南",
+                "feature2-desc": "以《黄帝内经》四时养生之理为主轴，结合古籍对阴阳与气血运行的理解，提供生活起居、情绪调适、运动养生三大面向的日常指引",
+                "feature3-title": "穴位按摩参考",
+                "feature3-desc": "取材自《针灸甲乙经》经络理论，依女性周期特性整理主要穴位、辅助穴位、调整穴位，用于放松与舒缓的区域参考",
+                "feature4-title": "药膳食补灵感",
+                "feature4-desc": "源自《本草纲目》食材分类与《傅青主女科》滋养观，提供养生食材、药膳茶饮、滋补汤方三大方向的文化分享与饮食灵感",
+                "feature5-title": "四大典籍精要",
+                "feature5-desc": "融汇《黄帝内经》、《本草纲目》、《傅青主女科》、《针灸甲乙经》四大中医典籍精华，让古籍智慧以现代方式延续",
+                "feature6-title": "隐私保护承诺",
+                "feature6-desc": "您的健康数据仅存储于设备中，我们重视并保护您的隐私安全。<a href='https://ans1lbbb.github.io/RubyDays/privacy.html' style='color: #E91E63; text-decoration: underline;'>了解更多</a>",
+                "classics-title": "融汇四大中医典籍精要",
+                "classic1-title": "《黄帝内经》",
+                "classic1-desc": "融《黄帝内经》四时养生之理，取阴阳五行、脏腑经络之论，为中医理论体系奠基之作，提供四季养生与身体节律的智慧",
+                "classic2-title": "《本草纲目》",
+                "classic2-desc": "会《本草纲目》食疗之法，集千种药材性味归经，详述食材药性与配伍禁忌，为药膳食补提供丰富参考依据",
+                "classic3-title": "《傅青主女科》",
+                "classic3-desc": "贯《傅青主女科》调理之道，专论妇科经带胎产诸疾，提供女性生理周期各阶段的养护观点与调理思路",
+                "classic4-title": "《针灸甲乙经》",
+                "classic4-desc": "通《针灸甲乙经》经络穴位之法，系统整理人体经脉循行与腧穴定位，为穴位按摩提供理论基础与操作参考",
+                "cycle-title": "依生理周期精准对应",
+                "cycle1-title": "经期阶段",
+                "cycle1-desc": "月经来潮期，注重养血调经，提供温经散寒、养血活血之食疗与穴位按摩参考，帮助缓解不适，顺利度过经期",
+                "cycle2-title": "卵泡期",
+                "cycle2-desc": "月经结束后至排卵前，阴血渐复，注重滋阴养血，提供补血养阴之食疗与调理建议，为排卵做好准备",
+                "cycle3-title": "排卵期",
+                "cycle3-desc": "排卵前后时期，重阴转阳，注重温阳通络，提供促排卵、调气血之食疗与养生指引，助力顺利排卵",
+                "cycle4-title": "黄体期",
+                "cycle4-desc": "排卵后至月经前，阳气充盛，注重疏肝理气，提供缓解经前不适之食疗与情绪调适建议，平稳度过经前期",
+                "tcm-title": "中医养生智慧，温柔描摹女性身体节律",
+                "tcm-description": "小主日记以中国中医古籍为灵魂设计，不同于一般的月经追踪工具，更注重「生活方式」与「身心节律」的结合。从经期到生孕期，App会根据周期不同阶段呈现合适的日常养生、穴位按摩与药膳食补内容，让您能在生活节奏中轻柔地照顾自己，认识自己的节律与变化。",
+                "disclaimer-title": "🌸 重要说明：",
+                "disclaimer-text": "本应用程式所有内容皆属中医文化知识分享与生活参考，不具医疗诊断、治疗、预防或建议用途。应用程式中的中医养生内容仅供文化与知识分享，是小主们探索传统智慧的起点，但不能取代专业医疗。如有身体不适或健康问题，请向合格的医疗院所和专业医护人员咨询。",
                 "disclaimer-section-title": "免责声明",
                 "disclaimer-section-p1": "亲爱的小主，为了确保您能正确使用小主日记，请仔细阅读以下免责声明：",
-                "disclaimer-section-li1": "小主日记仅为个人健康记录与参考工具，不提供医疗诊断、治疗或处方服务",
+                "disclaimer-section-li1": "小主日记仅为个人健康记录与中医文化参考工具，不提供医疗诊断、治疗或处方服务",
                 "disclaimer-section-li2": "应用程式中的中医养生内容仅供文化与知识分享，不能取代专业医疗建议",
                 "disclaimer-section-li3": "如有健康疑虑或特殊身体状况，请务必咨询合格医师或专业医疗人员",
-                "disclaimer-section-li4": "应用程式中的周期预测仅供参考，实际生理状况可能因个人体质而有所不同",
+                "disclaimer-section-li4": "应用程式中的周期预测与养生建议仅供参考，实际生理状况可能因个人体质而有所不同",
                 "disclaimer-section-li5": "我们重视您的隐私，所有健康数据仅存储于您的设备中，不会上传至服务器",
-                "disclaimer-section-p2": "使用本应用程式即表示您已阅读并同意以上免责声明内容。祝您使用愉快！💕",
-                
+                "disclaimer-section-p2": "使用本应用程式即表示您已阅读并同意以上免责声明内容。愿天下女子皆得自在，祝您使用愉快！🌸",
                 "other-apps-title": "其他精选应用",
                 "app1-title": "ProfitFairy",
                 "app1-subtitle": "利润精算师",
-                "app1-description": "人手必备！定价没烦恼，利润全掌握！专为电商卖家与创业者设计的终极工具，一秒精准算出成本、售价与毛利率，让每个决策都为您赚取更多收益！",
+                "app1-description": "专为电商卖家与创业者设计的终极工具，一秒精准算出成本、售价与毛利率，让每个决策都为您赚取更多收益！人手必备！定价没烦恼，利润全掌握！",
                 "app1-link": "下载应用",
                 "app1-website": "官网介绍",
                 "app2-title": "AIOS Realm",
                 "app2-subtitle": "神格觉醒",
-                "app2-description": "海洋女神的神格碎片散落在「艾奥斯领域」！透过创新的卡牌合成玩法，逐步唤醒沉睡的海洋之力。挑战记忆翻牌试炼，解锁女神被封印的夏日传说。每张限定卡牌都藏着失落记忆碎片，你能成为首位集齐所有神格碎片的海洋使者吗？立即展开这场疗愈系神话冒险！",
+                "app2-description": "海洋女神的神格碎片散落在「艾奥斯领域」！透过创新的卡牌合成玩法，逐步唤醒沉睡的海洋之力。挑战记忆翻牌试炼，解锁女神被封印的夏日传说。",
                 "app2-link": "下载应用",
                 "app2-website": "官网介绍",
-                
                 "contact-title": "联系我们",
                 "contact-subtitle": "亲爱的小主，我们在这里倾听您的声音",
                 "contact-description": "无论是对小主日记的使用体验、功能想法，还是任何想要分享的点点滴滴，我们都非常重视并期待收到您的讯息。点击下方按钮即可透过邮件与我们联络～",
                 "contact-btn-text": "传送邮件给我们",
-                
                 "sidebar-title": "小主专区",
                 "sidebar-subtitle": "更多应用推荐",
-                
-                "footer-text": "© 2025 小主日记 - 生理期好闺蜜<br>首款中医养生 × 穴位按摩经期指南"
+                "sidebar-download1": "下载应用",
+                "sidebar-download2": "下载应用",
+                "sidebar-download3": "下载应用",
+                "footer-text": "© 2025 小主日记 - 宫廷级中医养生 × 生理期好闺蜜<br>融汇四大中医典籍精要，依生理周期精准对应"
             },
             en: {
+                "promo-banner": "🌟 New User Exclusive: Free 3-Day Full Feature Trial! Explore Millennia of TCM Wellness Wisdom 🌟",
+                "trial-title": "Download RubyDays Now, Unlock All Premium Features!",
+                "trial-subtitle": "New User Exclusive: Free 3-Day Full Feature Trial!",
+                "trial-note": "Experience the full version now! You can continue using basic features after the free trial period ends.",
+                "trial-feature1": "TCM Daily Wellness Guide",
+                "trial-feature2": "Emotional Regulation & Acupressure",
+                "trial-feature3": "Medicinal Teas & Wellness Ingredients",
+                "trial-feature4": "Nourishing Soups & Cycle Tracking",
+                "trial-feature5": "Four Major TCM Classics Essence",
+                "trial-feature6": "Royal-Grade Wellness Wisdom",
                 "nav-features": "Features",
-                "nav-tcm": "TCM Wellness",
+                "nav-classics": "TCM Classics",
                 "nav-apps": "Other Apps",
                 "nav-contact": "Contact Us",
-                
-                "hero-title": "RubyDays: Your Period Bestie",
-                "hero-subtitle": "The First TCM Period Care<br>Accompanying you on every special day, becoming your most caring period bestie",
+                "hero-title": "RubyDays - Royal-Grade TCM Wellness",
+                "hero-subtitle": "The First TCM Wellness × Acupressure Period Guide<br>Integrating Four Major TCM Classics Essence, Precisely Corresponding to Menstrual Cycle, Becoming Your Most Caring Period Bestie",
                 "download-btn": "Download Now",
-                "learn-more-btn": "Learn More",
-                
-                "features-title": "Features",
-                "feature1-title": "Cycle Tracking",
-                "feature1-desc": "Accurately record your menstrual cycle, predict ovulation and periods, helping you better understand your body's rhythm, becoming your most reliable period bestie",
-                "feature2-title": "TCM Diet Therapy",
-                "feature2-desc": "The first TCM diet therapy guide, providing wellness recipes for each cycle phase, helping you eat healthy and nourishing",
-                "feature3-title": "Acupoint Massage",
-                "feature3-desc": "Professional acupoint massage guide to relieve menstrual discomfort, helping you easily get through each period",
-                "feature4-title": "Dietary Therapy",
-                "feature4-desc": "Based on TCM theory, share knowledge about appropriate dietary therapy and medicinal foods for different cycle phases",
-                "feature5-title": "Personalized Reminders",
-                "feature5-desc": "Receive personalized wellness reminders and health records based on your cycle phase, being your most caring bestie",
-                "feature6-title": "Privacy Protection",
-                "feature6-desc": "Your health data is stored only on your device. We value and protect your privacy and security.<a href='https://ans1lbbb.github.io/RubyDays/privacy.html' style='color: #FFB6C1; text-decoration: underline;'>Learn more</a>",
-                
-                "tcm-title": "Traditional Chinese Medicine Wisdom",
-                "tcm-description": "RubyDays integrates the essence of four major TCM classics - Huangdi Neijing, Bencao Gangmu, Fu Qingzhu's Gynecology, and Zhenjiu Jiayi Jing - combining with modern women's lifestyle to provide wellness references aligned with the menstrual cycle, becoming your most reliable period bestie.",
-                "disclaimer-title": "💝 Important Note:",
-                "disclaimer-text": "This application is only a personal health recording and reference tool, and does not provide medical diagnosis, treatment, or prescriptions. The TCM wellness content in the app is for cultural and knowledge sharing only, serving as a starting point for exploring traditional wisdom, but cannot replace professional medical care. If you have health concerns, please be sure to consult a qualified physician.",
-                
-                // 免責聲明區域
+                "learn-more-btn": "Learn More Features",
+                "features-title": "Royal-Grade Wellness Wisdom, Tailored for Modern Ladies",
+                "feature1-title": "Cycle Wisdom Navigation",
+                "feature1-desc": "Precisely corresponding to 'Menstrual → Follicular → Ovulatory → Luteal' phases, transforming ancient wisdom into understandable language and layouts, gently accompanying you to understand your changes",
+                "feature2-title": "Daily Wellness Guide",
+                "feature2-desc": "Based on Huangdi Neijing's seasonal wellness principles, combined with ancient understanding of yin-yang and qi-blood circulation, providing daily guidance in three aspects: lifestyle, emotional regulation, and exercise wellness",
+                "feature3-title": "Acupressure Reference",
+                "feature3-desc": "Drawing from Zhenjiu Jiayi Jing's meridian theory, organizing main acupoints, auxiliary acupoints, and adjustment acupoints according to female cycle characteristics, providing reference for relaxation and soothing areas",
+                "feature4-title": "Medicinal Diet Inspiration",
+                "feature4-desc": "Originating from Bencao Gangmu's ingredient classification and Fu Qingzhu's Gynecology nourishment perspective, providing cultural sharing and dietary inspiration in three directions: wellness ingredients, medicinal teas, and nourishing soups",
+                "feature5-title": "Four Classics Essence",
+                "feature5-desc": "Integrating the essence of four major TCM classics - Huangdi Neijing, Bencao Gangmu, Fu Qingzhu's Gynecology, and Zhenjiu Jiayi Jing - allowing ancient wisdom to continue in modern ways",
+                "feature6-title": "Privacy Protection Commitment",
+                "feature6-desc": "Your health data is stored only on your device. We value and protect your privacy and security.<a href='https://ans1lbbb.github.io/RubyDays/privacy.html' style='color: #E91E63; text-decoration: underline;'>Learn more</a>",
+                "classics-title": "Integrating Four Major TCM Classics Essence",
+                "classic1-title": "Huangdi Neijing",
+                "classic1-desc": "Integrating Huangdi Neijing's seasonal wellness principles, drawing from yin-yang five elements and zang-fu meridian theories, the foundational work of TCM theoretical system, providing wisdom for seasonal wellness and body rhythms",
+                "classic2-title": "Bencao Gangmu",
+                "classic2-desc": "Mastering Bencao Gangmu's dietary therapy methods, collecting thousands of medicinal properties and flavor classifications, detailing ingredient properties and compatibility taboos, providing rich reference basis for medicinal diets",
+                "classic3-title": "Fu Qingzhu's Gynecology",
+                "classic3-desc": "Implementing Fu Qingzhu's Gynecology regulation principles, specializing in gynecological menstrual, leukorrhea, pregnancy, and childbirth diseases, providing maintenance perspectives and regulation ideas for various stages of female physiological cycle",
+                "classic4-title": "Zhenjiu Jiayi Jing",
+                "classic4-desc": "Understanding Zhenjiu Jiayi Jing's meridian and acupoint methods, systematically organizing human meridian circulation and acupoint positioning, providing theoretical foundation and operational reference for acupressure",
+                "cycle-title": "Precisely Corresponding to Menstrual Cycle",
+                "cycle1-title": "Menstrual Phase",
+                "feature1-desc": "During menstruation, focusing on nourishing blood and regulating menses, providing warming meridians, dispelling cold, nourishing blood and activating blood dietary therapy and acupressure references to help relieve discomfort and smoothly pass through menstruation",
+                "cycle2-title": "Follicular Phase",
+                "cycle2-desc": "From menstrual end to ovulation, yin blood gradually recovers, focusing on nourishing yin and blood, providing blood-tonifying and yin-nourishing dietary therapy and regulation suggestions to prepare for ovulation",
+                "cycle3-title": "Ovulatory Phase",
+                "cycle3-desc": "Around ovulation period, heavy yin turns to yang, focusing on warming yang and unblocking collaterals, providing ovulation-promoting, qi-blood regulating dietary therapy and wellness guidance to assist smooth ovulation",
+                "cycle4-title": "Luteal Phase",
+                "cycle4-desc": "From post-ovulation to pre-menstruation, yang qi is abundant, focusing on soothing liver and regulating qi, providing dietary therapy and emotional regulation suggestions to relieve premenstrual discomfort and smoothly pass through premenstrual period",
+                "tcm-title": "TCM Wellness Wisdom, Gently Portraying Female Body Rhythms",
+                "tcm-description": "RubyDays is designed with Chinese TCM ancient books as its soul, different from ordinary menstrual tracking tools, it pays more attention to the combination of 'lifestyle' and 'mind-body rhythm'. From menstruation to reproductive period, the App presents appropriate daily wellness, acupressure and medicinal diet content according to different cycle stages, allowing you to gently take care of yourself in the rhythm of life and understand your own rhythms and changes.",
+                "disclaimer-title": "🌸 Important Note:",
+                "disclaimer-text": "All content in this application belongs to TCM cultural knowledge sharing and life reference, and does not have medical diagnosis, treatment, prevention or advisory purposes. The TCM wellness content in the application is for cultural and knowledge sharing only, serving as a starting point for exploring traditional wisdom, but cannot replace professional medical care. If you have physical discomfort or health problems, please consult qualified medical institutions and professional medical personnel.",
                 "disclaimer-section-title": "Disclaimer",
                 "disclaimer-section-p1": "Dear user, to ensure you use RubyDays correctly, please read the following disclaimer carefully:",
-                "disclaimer-section-li1": "RubyDays is only a personal health recording and reference tool, and does not provide medical diagnosis, treatment, or prescription services",
+                "disclaimer-section-li1": "RubyDays is only a personal health recording and TCM cultural reference tool, and does not provide medical diagnosis, treatment or prescription services",
                 "disclaimer-section-li2": "The TCM wellness content in the application is for cultural and knowledge sharing only, and cannot replace professional medical advice",
                 "disclaimer-section-li3": "If you have health concerns or special physical conditions, please be sure to consult a qualified physician or professional medical personnel",
-                "disclaimer-section-li4": "Cycle predictions in the application are for reference only, actual physiological conditions may vary depending on individual constitution",
+                "disclaimer-section-li4": "Cycle predictions and wellness suggestions in the application are for reference only, actual physiological conditions may vary depending on individual constitution",
                 "disclaimer-section-li5": "We value your privacy, all health data is stored only on your device and will not be uploaded to servers",
-                "disclaimer-section-p2": "Using this application means you have read and agreed to the above disclaimer content. Wishing you a pleasant experience! 💕",
-                
+                "disclaimer-section-p2": "Using this application means you have read and agreed to the above disclaimer content. Wishing all women find ease and freedom, wishing you a pleasant experience! 🌸",
                 "other-apps-title": "Other Selected Apps",
                 "app1-title": "ProfitFairy",
                 "app1-subtitle": "Profit Calculator",
-                "app1-description": "Essential for everyone! No worries about pricing, full control of profits! The ultimate tool designed for e-commerce sellers and entrepreneurs, accurately calculating costs, prices, and profit margins in seconds, making every decision earn you more revenue!",
+                "app1-description": "The ultimate tool designed for e-commerce sellers and entrepreneurs, accurately calculating costs, prices and profit margins in seconds, making every decision earn you more revenue! Essential for everyone! No pricing worries, full profit control!",
                 "app1-link": "Download App",
                 "app1-website": "Website",
                 "app2-title": "AIOS Realm",
                 "app2-subtitle": "Divinity Reborn",
-                "app2-description": "The Ocean Goddess's divinity fragments are scattered in the 'AIOS Realm'! Through innovative card synthesis gameplay, gradually awaken the sleeping power of the ocean. Challenge memory card-flipping trials to unlock the goddess's sealed summer legend. Each limited card holds lost memory fragments - can you become the first ocean messenger to collect all divinity fragments? Start this healing mythical adventure now!",
+                "app2-description": "The Ocean Goddess's divinity fragments are scattered in the 'AIOS Realm'! Through innovative card synthesis gameplay, gradually awaken the sleeping power of the ocean. Challenge memory card-flipping trials to unlock the goddess's sealed summer legend.",
                 "app2-link": "Download App",
                 "app2-website": "Website",
-                
                 "contact-title": "Contact Us",
                 "contact-subtitle": "Dear user, we are here to listen to your voice",
                 "contact-description": "Whether it's about your experience with RubyDays, feature ideas, or anything you'd like to share, we value and look forward to receiving your message. Click the button below to contact us via email～",
                 "contact-btn-text": "Send Email to Us",
-                
                 "sidebar-title": "Special Zone",
                 "sidebar-subtitle": "More App Recommendations",
-                
-                "footer-text": "© 2025 RubyDays - Your Period Bestie<br>The First TCM Period Care"
+                "sidebar-download1": "Download App",
+                "sidebar-download2": "Download App",
+                "sidebar-download3": "Download App",
+                "footer-text": "© 2025 RubyDays - Royal-Grade TCM Wellness × Your Period Bestie<br>Integrating Four Major TCM Classics Essence, Precisely Corresponding to Menstrual Cycle"
             },
             ja: {
+                "promo-banner": "🌟 新規ユーザー限定：全機能3日間無料体験！千年の中医養生知恵を探索 🌟",
+                "trial-title": "今すぐ姫様ダイアリーをダウンロード、全機能をアンロック！",
+                "trial-subtitle": "新規ユーザー限定：全機能3日間無料体験！",
+                "trial-note": "今すぐ完全版を体験！無料体験期間終了後も基本機能は引き続きご利用いただけます。",
+                "trial-feature1": "中医日常養生ガイド",
+                "trial-feature2": "情緒調節とツボ押し",
+                "trial-feature3": "薬膳茶飲と養生食材",
+                "trial-feature4": "滋養スープと周期追跡",
+                "trial-feature5": "四大中医典籍の精髄",
+                "trial-feature6": "宮廷級養生知恵",
                 "nav-features": "機能特徴",
-                "nav-tcm": "中医養生",
+                "nav-classics": "中医典籍",
                 "nav-apps": "他のアプリ",
                 "nav-contact": "お問い合わせ",
-                
-                "hero-title": "姫様ダイアリー：生理の親友",
-                "hero-subtitle": "初の中医養生 × ツボ押し生理ガイド<br>特別な日々に寄り添い、あなたの一番の生理の親友になります",
+                "hero-title": "姫様ダイアリー - 宮廷級中医養生",
+                "hero-subtitle": "初の中医養生 × ツボ押し生理ガイド<br>四大中医典籍の精髄を融合し、生理周期に精密に対応し、あなたの一番の生理の親友になります",
                 "download-btn": "今すぐダウンロード",
-                "learn-more-btn": "詳細を見る",
-                
-                "features-title": "機能特徴",
-                "feature1-title": "周期トラッキング",
-                "feature1-desc": "生理周期を正確に記録し、排卵日と月経を予測し、自分の体のリズムをより理解するのに役立ち、あなたの最も信頼できる生理の親友になります",
-                "feature2-title": "薬膳食事療法",
-                "feature2-desc": "初の薬膳食事療法ガイド、周期各段階に合わせた養生レシピを提供し、健康的で栄養のある食事をサポートします",
-                "feature3-title": "ツボマッサージ",
-                "feature3-desc": "専門的なツボマッサージガイドで月経不快感を緩和し、各生理期間を楽に過ごせるようにサポートします",
-                "feature4-title": "食事療法",
-                "feature4-desc": "中医理論に基づき、異なる周期段階に適した食事療法と薬膳の知識を共有",
-                "feature5-title": "パーソナライズされたリマインダー",
-                "feature5-desc": "周期段階に基づいて個別化された養生リマインダーと健康記録を受信し、あなたの最も思いやりのある親友になります",
-                "feature6-title": "プライバシー保護",
-                "feature6-desc": "あなたの健康データはデバイス内のみに保存されます。私たちはあなたのプライバシーと安全を重視し保護します。<a href='https://ans1lbbb.github.io/RubyDays/privacy.html' style='color: #FFB6C1; text-decoration: underline;'>詳細を見る</a>",
-                
-                "tcm-title": "伝統中国医学の知恵",
-                "tcm-description": "姫様ダイアリーは、黄帝内経、本草綱目、傅青主女科、針灸甲乙経の四大中医典籍の精髄を統合し、現代女性のライフスタイルと組み合わせて、生理周期に合わせた養生参考を提供し、あなたの最も信頼できる生理の親友になります。",
-                "disclaimer-title": "💖 重要なお知らせ：",
-                "disclaimer-text": "このアプリケーションは個人の健康記録および参照ツールであり、医療診断、治療、処方を提供するものではありません。アプリ内の中医養生コンテンツは文化および知識共有のみを目的としており、伝統的知恵を探求する出発点となりますが、専門的な医療の代わりにはなりません。健康上の懸念がある場合は、必ず資格のある医師に相談してください。",
-                
-                // 免責聲明區域
+                "learn-more-btn": "機能詳細を見る",
+                "features-title": "宮廷級養生知恵、現代の姫様のために量身定制",
+                "feature1-title": "周期知恵ナビゲーション",
+                "feature1-desc": "「月経期 → 卵胞期 → 排卵期 → 黄体期」に精密に対応し、四つの古籍の思想を理解しやすい言葉とレイアウトに変換し、優しい方法で自分の変化を理解するのを伴います",
+                "feature2-title": "日常養生ガイド",
+                "feature2-desc": "黄帝内経の四時養生の理を基軸とし、古籍の陰陽と気血運行の理解を組み合わせ、生活起居、情緒調節、運動養生の三大面の日常指針を提供",
+                "feature3-title": "ツボ押し参考",
+                "feature3-desc": "鍼灸甲乙経の経絡理論から取材し、女性周期特性に応じて主要ツボ、補助ツボ、調整ツボを整理し、リラックスと緩和の領域参考を提供",
+                "feature4-title": "薬膳食事療法インスピレーション",
+                "feature4-desc": "本草綱目の食材分類と傅青主女科の滋養観から由来し、養生食材、薬膳茶飲、滋養スープの三大方向の文化共有と食事インスピレーションを提供",
+                "feature5-title": "四大典籍の精髄",
+                "feature5-desc": "黄帝内経、本草綱目、傅青主女科、鍼灸甲乙経の四大中医典籍の精華を融合し、古籍の知恵を現代的な方法で継続させます",
+                "feature6-title": "プライバシー保護約束",
+                "feature6-desc": "あなたの健康データはデバイス内のみに保存されます。私たちはあなたのプライバシーと安全を重視し保護します。<a href='https://ans1lbbb.github.io/RubyDays/privacy.html' style='color: #E91E63; text-decoration: underline;'>詳細を見る</a>",
+                "classics-title": "四大中医典籍の精髄を融合",
+                "classic1-title": "黄帝内経",
+                "classic1-desc": "黄帝内経の四時養生の理を融合し、陰陽五行、臓腑経絡の論を取り、中医理論体系の基礎となる作品であり、四季養生と身体リズムの知恵を提供",
+                "classic2-title": "本草綱目",
+                "classic2-desc": "本草綱目の食事療法の法を会得し、千種の薬材性味帰経を集め、食材薬性と配合禁忌を詳述し、薬膳食事療法に豊富な参考根拠を提供",
+                "classic3-title": "傅青主女科",
+                "classic3-desc": "傅青主女科の調理の道を貫き、婦人科経帯胎産諸疾を専論し、女性生理周期各段階の養護観点と調理思路を提供",
+                "classic4-title": "鍼灸甲乙経",
+                "classic4-desc": "鍼灸甲乙経の経絡穴位の法を通じ、人体経脈循行と腧穴定位を系統的に整理し、ツボ押しに理論基礎と操作参考を提供",
+                "cycle-title": "生理周期に精密に対応",
+                "cycle1-title": "月経期段階",
+                "cycle1-desc": "月経来潮期、養血調経に注力し、温経散寒、養血活血の食事療法とツボ押し参考を提供し、不快感緩解を助け、順調に月経期を過ごす",
+                "cycle2-title": "卵胞期",
+                "classic2-desc": "月経終了後から排卵前まで、陰血が徐々に回復し、滋陰養血に注力し、補血養陰の食事療法と調理提案を提供し、排卵の準備をする",
+                "cycle3-title": "排卵期",
+                "cycle3-desc": "排卵前後時期、重陰が陽に転じ、温陽通絡に注力し、促排卵、調気血の食事療法と養生指針を提供し、順調な排卵を助力",
+                "cycle4-title": "黄体期",
+                "cycle4-desc": "排卵後から月経前まで、陽気が充盛し、疏肝理気に注力し、月経前不快感緩解の食事療法と情緒調節提案を提供し、平穏に月経前期を過ごす",
+                "tcm-title": "中医養生知恵、女性の身体リズムを優しく描く",
+                "tcm-description": "姫様ダイアリーは中国中医古籍を魂として設計され、一般的な月経追跡ツールとは異なり、「ライフスタイル」と「心身リズム」の結合により重点を置いています。月経期から生殖期まで、Appは周期の異なる段階に応じて適切な日常養生、ツボ押しと薬膳食事内容を提示し、あなたが生活リズムの中で優しく自分自身をケアし、自分のリズムと変化を理解できるようにします。",
+                "disclaimer-title": "🌸 重要な説明：",
+                "disclaimer-text": "本アプリケーションのすべての内容は中医文化知識共有と生活参考に属し、医療診断、治療、予防またはアドバイス目的を持ちません。アプリケーション内の中医養生コンテンツは文化および知識共有のみを目的としており、古籍の知恵を探求する出発点となりますが、専門的な医療の代わりにはなりません。身体の不快感や健康問題がある場合は、資格のある医療機関と専門医療従事者に相談してください。",
                 "disclaimer-section-title": "免責事項",
                 "disclaimer-section-p1": "親愛なるユーザーの皆様、姫様ダイアリーを正しくご利用いただくために、以下の免責事項をよくお読みください：",
-                "disclaimer-section-li1": "姫様ダイアリーは個人の健康記録および参照ツールであり、医療診断、治療、処方サービスを提供するものではありません",
+                "disclaimer-section-li1": "姫様ダイアリーは個人の健康記録および中医文化参照ツールであり、医療診断、治療、処方サービスを提供するものではありません",
                 "disclaimer-section-li2": "アプリケーション内の中医養生コンテンツは文化および知識共有のみを目的としており、専門的な医療アドバイスの代わりにはなりません",
                 "disclaimer-section-li3": "健康上の懸念や特別な身体状況がある場合は、必ず資格のある医師または専門医療従事者に相談してください",
-                "disclaimer-section-li4": "アプリケーション内の周期予測は参考までであり、実際の生理状況は個人の体質によって異なる場合があります",
+                "disclaimer-section-li4": "アプリケーション内の周期予測と養生提案は参考までであり、実際の生理状況は個人の体質によって異なる場合があります",
                 "disclaimer-section-li5": "私たちはあなたのプライバシーを重視し、すべての健康データはあなたのデバイス内にのみ保存され、サーバーにアップロードされることはありません",
-                "disclaimer-section-p2": "本アプリケーションを使用することは、上記の免責事項内容を読み同意したことを意味します。ご利用をお楽しみください！💕",
-                
+                "disclaimer-section-p2": "本アプリケーションを使用することは、上記の免責事項内容を読み同意したことを意味します。天下の女子が皆自在を得られますように、ご利用をお楽しみください！🌸",
                 "other-apps-title": "他の精選アプリ",
                 "app1-title": "ProfitFairy",
                 "app1-subtitle": "利益計算士",
-                "app1-description": "誰もが必携！価格設定に悩まず、利益を完全に掌握！EC売り手と起業家のために設計された究極のツールで、コスト、価格、利益率を一秒で正確に計算し、すべての決定がより多くの収益をもたらします！",
+                "app1-description": "EC売り手と起業家のために設計された究極のツールで、コスト、価格、利益率を1秒で正確に計算し、すべての決定がより多くの収益をもたらします！誰もが必携！価格設定の悩みなし、利益完全掌握！",
                 "app1-link": "アプリをダウンロード",
                 "app1-website": "公式サイト",
                 "app2-title": "AIOS Realm",
                 "app2-subtitle": "神格覚醒",
-                "app2-description": "海洋女神の神格の断片が「アイオス海域」に散らばっています！革新的なカード合成ゲームプレイを通じて、眠れる海の力を徐々に目覚めさせます。記憶カードめくり試練に挑戦し、女神が封印された夏の伝説を解き放ちましょう。各限定カードには失われた記憶の断片が隠されています - あなたはすべての神格の断片を集める最初の海洋使者になれますか？この癒し系神話モバンスを今すぐ始めましょう！",
+                "app2-description": "海洋女神の神格の断片が「アイオス海域」に散らばっています！革新的なカード合成ゲームプレイを通じて、眠れる海の力を徐々に目覚めさせます。記憶カードめくり試練に挑戦し、女神が封印された夏の伝説を解き放ちましょう。",
                 "app2-link": "アプリをダウンロード",
                 "app2-website": "公式サイト",
-                
                 "contact-title": "お問い合わせ",
                 "contact-subtitle": "親愛なるユーザーの皆様、私たちはあなたの声を聴くためにここにいます",
                 "contact-description": "姫様ダイアリーの使用体験、機能のアイデア、または共有したいことについて、私たちはあなたのメッセージを大切にし、受け取ることを楽しみにしています。以下のボタンをクリックしてメールでお問い合わせください～",
                 "contact-btn-text": "メールを送信",
-                
                 "sidebar-title": "特別ゾーン",
                 "sidebar-subtitle": "他のアプリのおすすめ",
-                
-                "footer-text": "© 2025 姫様ダイアリー - 生理の親友<br>初の中医養生 × ツボ押し生理ガイド"
+                "sidebar-download1": "アプリをダウンロード",
+                "sidebar-download2": "アプリをダウンロード",
+                "sidebar-download3": "アプリをダウンロード",
+                "footer-text": "© 2025 姫様ダイアリー - 宮廷級中医養生 × 生理の親友<br>四大中医典籍の精髄を融合し、生理周期に精密に対応"
             },
             ko: {
+                "promo-banner": "🌟 신규 사용자 전용: 전체 기능 3일 무료 체험! 천년 중의학 건강 지혜 탐험 🌟",
+                "trial-title": "지금 바로 공주님 다이어리 다운로드, 모든 고급 기능 해제!",
+                "trial-subtitle": "신규 사용자 전용: 전체 기능 3일 무료 체험!",
+                "trial-note": "지금 바로 전체 버전을 체험하세요! 무료 체험 기간 종료 후에도 기본 기능은 계속 사용 가능합니다.",
+                "trial-feature1": "중의학 일상 건강 가이드",
+                "trial-feature2": "정서 조절과 경혈 마사지",
+                "trial-feature3": "약선 차와 건강 식재료",
+                "trial-feature4": "보양 스프와 주기 추적",
+                "trial-feature5": "4대 중의학 고전 정수",
+                "trial-feature6": "궁중급 건강 지혜",
                 "nav-features": "기능 특징",
-                "nav-tcm": "중의학 건강",
+                "nav-classics": "중의학 고전",
                 "nav-apps": "다른 앱",
                 "nav-contact": "문의하기",
-                
-                "hero-title": "공주님 다이어리: 너의 생리기 절친",
-                "hero-subtitle": "최초의 한의학 산양 × 경혈 마사지 생리 가이드<br>특별한 날을 함께 하며, 당신의 가장 친한 생리기 절친이 되어드립니다",
+                "hero-title": "공주님 다이어리 - 궁중급 중의학 건강",
+                "hero-subtitle": "최초의 중의학 건강 × 경혈 마사지 생리 가이드<br>4대 중의학 고전 정수를 융합하여 생리 주기에 정밀하게 대응하며, 당신의 가장 친한 생리기 절친이 되어드립니다",
                 "download-btn": "지금 다운로드",
-                "learn-more-btn": "더 알아보기",
-                
-                "features-title": "기능 특징",
-                "feature1-title": "주기 추적",
-                "feature1-desc": "생리 주기를 정확하게 기록하고, 배란일과 월경을 예측하여 자신의 몸 리듬을 더 잘 이해하도록 도와주며, 당신의 가장 믿음직한 생리기 절친이 되어드립니다",
-                "feature2-title": "한약 식이요법",
-                "feature2-desc": "최초의 한약 식이요법 가이드, 주기 각 단계에 맞는 건강 관리 레시피를 제공하여 건강하고 영양가 있는 식사를 도와드립니다",
-                "feature3-title": "경혈 마사지",
-                "feature3-desc": "전문적인 경혈 마사지 가이드로 생리 불편감을 완화하고, 각 생리 기간을 편안하게 보낼 수 있도록 도와드립니다",
-                "feature4-title": "식이 요법",
-                "feature4-desc": "중의학 이론에 기반하여 다른 주기 단계에 적합한 식이 요법과 약膳 지식을 공유",
-                "feature5-title": "맞춤형 알림",
-                "feature5-desc": "여러분의 주기 단계에 따라 개인화된 건강 관리 알림과 건강 기록을 받아보세요, 당신의 가장 친절한 절친이 되어드립니다",
-                "feature6-title": "개인정보 보호",
-                "feature6-desc": "여러분의 건강 데이터는 기기 내에만 저장됩니다. 우리는 여러분의 개인정보와 안전을 소중히 여기며 보호합니다.<a href='https://ans1lbbb.github.io/RubyDays/privacy.html' style='color: #FFB6C1; text-decoration: underline;'>더 알아보기</a>",
-                
-                "tcm-title": "전통 중의학 지혜",
-                "tcm-description": "공주님 다이어리는 황제내경, 본초강목, 부청주여과, 침구갑을경의 4대 중의학 고전 정수를 통합하여 현대 여성의 생활 리듬과 결합하여 생리 주기에 맞는 건강 관리 참고 자료를 제공하며, 당신의 가장 믿음직한 생리기 절친이 되어드립니다.",
-                "disclaimer-title": "💖 중요한 안내:",
-                "disclaimer-text": "이 애플리케이션은 개인 건강 기록 및 참조 도구일 뿐, 의학적 진단, 치료 또는 처방을 제공하지 않습니다. 앱 내 중의학 건강 콘텐츠는 문화 및 지식 공유용으로만 제공되며, 전통적 지혜를 탐구하는 출발점이지만 전문 의료를 대체할 수 없습니다. 건강 관련 우려사항이 있는 경우 반드시 자격을 갖춘 의사와 상담하세요.",
-                
-                // 免責聲明區域
+                "learn-more-btn": "기능 더 알아보기",
+                "features-title": "궁중급 건강 지혜, 현대 공주님을 위해量身定制",
+                "feature1-title": "주기 지혜 내비게이션",
+                "feature1-desc": "「월경기 → 난포기 → 배란기 → 황체기」에 정밀하게 대응하며, 네 고전의 사상을 이해하기 쉬운 언어와 레이아웃으로 변환하여 부드러운 방법으로 자신의 변화를 이해하도록 동반합니다",
+                "feature2-title": "일상 건강 가이드",
+                "feature2-desc": "황제내경의 사시 건강의 이치를 주축으로 하여 고전의 음양과 기혈 운행에 대한 이해를 결합하여 생활 기거, 정서 조절, 운동 건강의 세 가지 측면의 일상 지침을 제공",
+                "feature3-title": "경혈 마사지 참고",
+                "feature3-desc": "침구갑을경의 경락 이론에서 취재하여 여성 주기 특성에 따라 주요 경혈, 보조 경혈, 조정 경혈을 정리하여 이완과 완화를 위한 영역 참고를 제공",
+                "feature4-title": "약선 식보 영감",
+                "feature4-desc": "본초강목의 식재료 분류와 부청주여과의 자양관에서 유래하여 건강 식재료, 약선 차, 보양 스프의 세 가지 방향의 문화 공유와 식사 영감을 제공",
+                "feature5-title": "4대 고전 정수",
+                "feature5-desc": "황제내경, 본초강목, 부청주여과, 침구갑을경의 4대 중의학 고전 정화를 융합하여 고전 지혜를 현대적인 방법으로 계속하게 합니다",
+                "feature6-title": "개인정보 보호 약속",
+                "feature6-desc": "여러분의 건강 데이터는 기기 내에만 저장됩니다. 우리는 여러분의 개인정보와 안전을 소중히 여기며 보호합니다.<a href='https://ans1lbbb.github.io/RubyDays/privacy.html' style='color: #E91E63; text-decoration: underline;'>더 알아보기</a>",
+                "classics-title": "4대 중의학 고전 정수 융합",
+                "classic1-title": "황제내경",
+                "classic1-desc": "황제내경의 사시 건강의 이치를 융합하여 음양 오행, 장부 경락의 논을 취하며 중의학 이론 체계의 기초가 되는 작품으로 사계절 건강과 몸 리듬의 지혜를 제공",
+                "classic2-title": "본초강목",
+                "classic2-desc": "본초강목의 식이요법의 법을 회득하여 천 종의 약재 성미 귀경을 모으며 식재료 약성과 배합 금기를 상술하여 약선 식보에 풍부한 참고 근거를 제공",
+                "classic3-title": "부청주여과",
+                "classic3-desc": "부청주여과의 조리 도를 관통하여 부인과 경대태산 제질을 전론하며 여성 생리 주기 각 단계의 양호 관점과 조리 사로를 제공",
+                "classic4-title": "침구갑을경",
+                "classic4-desc": "침구갑을경의 경락 혈위의 법을 통하여 인체 경맥 순행과 수혈 정위를 체계적으로 정리하여 경혈 마사지에 이론 기초와 조작 참고를 제공",
+                "cycle-title": "생리 주기에 정밀하게 대응",
+                "cycle1-title": "월경기 단계",
+                "cycle1-desc": "월경 내조기, 양혈 조경에 주력하며 온경 산한, 양혈 활혈의 식이요법과 경혈 마사지 참고를 제공하여 불편감 완화를 도와 순조롭게 월경기를 보내도록",
+                "cycle2-title": "난포기",
+                "cycle2-desc": "월경 종료 후부터 배란 전까지, 음혈이 점차 회복되며 자음 양혈에 주력하며 보혈 양음의 식이요법과 조리 제안을 제공하여 배란 준비를 하도록",
+                "cycle3-title": "배란기",
+                "cycle3-desc": "배란 전후 시기, 중음이 양으로 전환되며 온양 통락에 주력하며 촉배란, 조기혈의 식이요법과 건강 지침을 제공하여 순조로운 배란을助力",
+                "cycle4-title": "황체기",
+                "cycle4-desc": "배란 후부터 월경 전까지, 양기가 충성되며 소간 리기에 주력하며 월경 전 불편감 완화의 식이요법과 정서 조절 제안을 제공하여 평온하게 월경 전기를 보내도록",
+                "tcm-title": "중의학 건강 지혜, 여성의 몸 리듬을 부드럽게 그리다",
+                "tcm-description": "공주님 다이어리는 중국 중의학 고전을 영혼으로 설계되어 일반적인 월경 추적 도구와는 다르게 '라이프스타일'과 '심신 리듬'의 결합에 더 중점을 둡니다. 월경기부터 생식기까지, 앱은 주기의 다른 단계에 따라 적절한 일상 건강, 경혈 마사지와 약선 식보 내용을 제시하여 여러분이 생활 리듬 속에서 부드럽게 자신을 돌보고 자신의 리듬과 변화를 이해할 수 있도록 합니다.",
+                "disclaimer-title": "🌸 중요한 설명:",
+                "disclaimer-text": "본 애플리케이션의 모든 내용은 중의학 문화 지식 공유와 생활 참고에 속하며 의료 진단, 치료, 예방 또는 조언 목적을 가지지 않습니다. 애플리케이션 내 중의학 건강 콘텐츠는 문화 및 지식 공유용으로만 제공되며 고전 지혜를 탐구하는 출발점이지만 전문 의료를 대체할 수 없습니다. 몸의 불편감이나 건강 문제가 있는 경우 자격을 갖춘 의료 기관과 전문 의료 인원과 상담하세요.",
                 "disclaimer-section-title": "면책 조항",
                 "disclaimer-section-p1": "사랑하는 사용자 여러분, 공주님 다이어리를 올바르게 사용할 수 있도록 다음 면책 조항을 주의 깊게 읽어주세요:",
-                "disclaimer-section-li1": "공주님 다이어리는 개인 건강 기록 및 참조 도구일 뿐, 의학적 진단, 치료 또는 처방 서비스를 제공하지 않습니다",
-                "disclaimer-section-li2": "애플리케이션 내 중의학 건강 콘텐츠는 문화 및 지식 공유용으로만 제공되며, 전문 의료 조언을 대체할 수 없습니다",
-                "disclaimer-section-li3": "건강 관련 우려사항이나 특별한 신체 상태가 있는 경우, 반드시 자격을 갖춘 의사나 전문 의료 인원과 상담하세요",
-                "disclaimer-section-li4": "애플리케이션 내 주기 예측은 참고용이며, 실제 생리 상태는 개인 체질에 따라 다를 수 있습니다",
-                "disclaimer-section-li5": "우리는 여러분의 개인정보를 소중히 여기며, 모든 건강 데이터는 여러분의 기기 내에만 저장되고 서버로 업로드되지 않습니다",
-                "disclaimer-section-p2": "본 애플리케이션을 사용함은 위의 면책 조항 내용을 읽고 동의한 것으로 간주됩니다. 즐거운 사용 되세요! 💕",
-                
+                "disclaimer-section-li1": "공주님 다이어리는 개인 건강 기록 및 중의학 문화 참조 도구일 뿐 의료 진단, 치료, 처방 서비스를 제공하지 않습니다",
+                "disclaimer-section-li2": "애플리케이션 내 중의학 건강 콘텐츠는 문화 및 지식 공유용으로만 제공되며 전문 의료 조언을 대체할 수 없습니다",
+                "disclaimer-section-li3": "건강 관련 우려사항이나 특별한 신체 상태가 있는 경우 반드시 자격을 갖춘 의사나 전문 의료 인원과 상담하세요",
+                "disclaimer-section-li4": "애플리케이션 내 주기 예측과 건강 제안은 참고용이며 실제 생리 상태는 개인 체질에 따라 다를 수 있습니다",
+                "disclaimer-section-li5": "우리는 여러분의 개인정보를 소중히 여기며 모든 건강 데이터는 여러분의 기기 내에만 저장되고 서버로 업로드되지 않습니다",
+                "disclaimer-section-p2": "본 애플리케이션을 사용함은 위의 면책 조항 내용을 읽고 동의한 것으로 간주됩니다. 천하의 여자가 모두 자재를 얻길 바라며 즐거운 사용 되세요! 🌸",
                 "other-apps-title": "다른 추천 앱",
                 "app1-title": "ProfitFairy",
                 "app1-subtitle": "이익 정산사",
-                "app1-description": "누구나 필수! 가격 설정 걱정 없이, 이익 완전 장악! 이커머스 판매자와 창업자를 위해 설계된 궁극의 도구로, 비용, 가격, 이익률을 1초 만에 정확하게 계산하여 모든 결정이 더 많은 수익을 가져오게 합니다!",
+                "app1-description": "이커머스 판매자와 창업자를 위해 설계된 궁극의 도구로 비용, 가격, 이익률을 1초 만에 정확하게 계산하여 모든 결정이 더 많은 수익을 가져오게 합니다! 누구나 필수! 가격 설정 걱정 없이 이익 완전 장악!",
                 "app1-link": "앱 다운로드",
                 "app1-website": "공식 웹사이트",
                 "app2-title": "AIOS Realm",
                 "app2-subtitle": "신격 각성",
-                "app2-description": "바다 여신의 신격 파편이 '아이오스 영역'에 흩어져 있습니다! 혁신적인 카드 합성 게임플레이를 통해 잠든 바다의 힘을 점차 깨웁니다. 기억 카드 뒤집기 시련에 도전하여 여신이 봉인된 여름 전설을 해제하세요. 각 한정 카드에는 잃어버린 기억 파편이 숨겨져 있습니다 - 당신은 모든 신격 파편을 모은 첫 번째 바다 사자가 될 수 있을까요? 이 치유계 신화 모험을 지금 시작하세요!",
+                "app2-description": "바다 여신의 신격 파편이 '아이오스 영역'에 흩어져 있습니다! 혁신적인 카드 합성 게임플레이를 통해 잠든 바다의 힘을 점차 깨웁니다. 기억 카드 뒤집기 시련에 도전하여 여신이 봉인된 여름 전설을 해제하세요.",
                 "app2-link": "앱 다운로드",
                 "app2-website": "공식 웹사이트",
-                
                 "contact-title": "문의하기",
                 "contact-subtitle": "사랑하는 사용자 여러분, 우리는 여러분의 목소리를 듣기 위해 여기에 있습니다",
                 "contact-description": "공주님 다이어리 사용 경험, 기능 아이디어, 또는 공유하고 싶은 어떤 것에 대해서도 우리는 여러분의 메시지를 소중히 여기며 기다리고 있습니다. 아래 버튼을 클릭하여 이메일로 문의해 주세요～",
                 "contact-btn-text": "이메일 보내기",
-                
                 "sidebar-title": "특별 구역",
                 "sidebar-subtitle": "더 많은 앱 추천",
-                
-                "footer-text": "© 2025 공주님 다이어리 - 너의 생리기 절친<br>최초의 한의학 산양 × 경혈 마사지 생리 가이드"
+                "sidebar-download1": "앱 다운로드",
+                "sidebar-download2": "앱 다운로드",
+                "sidebar-download3": "앱 다운로드",
+                "footer-text": "© 2025 공주님 다이어리 - 궁중급 중의학 건강 × 너의 생리기 절친<br>4대 중의학 고전 정수를 융합하여 생리 주기에 정밀하게 대응"
             }
         };
 
