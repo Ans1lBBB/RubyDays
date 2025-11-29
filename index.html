@@ -89,35 +89,6 @@
             z-index: 1;
         }
 
-        /* 限時優惠橫幅 - 更醒目設計 */
-        .promo-banner {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            text-align: center;
-            padding: 15px 20px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .promo-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><path d="M30,30 Q50,10 70,30 T90,50 T70,70 T50,90 T30,70 T10,50 T30,30 Z" fill="%23FFFFFF"/></svg>');
-            background-size: 80px 80px;
-        }
-
-        .promo-content {
-            position: relative;
-            z-index: 1;
-        }
-
         /* 頂部導航 */
         .top-nav {
             display: flex;
@@ -310,67 +281,6 @@
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(233, 30, 99, 0.4);
-        }
-
-        /* 試用橫幅 - 重新設計 */
-        .trial-section {
-            background: linear-gradient(135deg, var(--accent), #FFB74D);
-            color: white;
-            border-radius: 20px;
-            padding: 40px 30px;
-            margin: 40px 0;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(255, 152, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .trial-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><path d="M30,30 Q50,10 70,30 T90,50 T70,70 T50,90 T30,70 T10,50 T30,30 Z" fill="%23FFFFFF"/></svg>');
-            background-size: 80px 80px;
-        }
-
-        .trial-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .trial-title {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .trial-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-
-        .trial-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .trial-feature {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 12px;
-            border-radius: 10px;
-            font-weight: 500;
-        }
-
-        .trial-note {
-            margin-top: 15px;
-            font-size: 1rem;
-            opacity: 0.9;
         }
 
         /* 功能特色 */
@@ -750,7 +660,7 @@
             margin-bottom: 20px;
         }
 
-        /* 魔法側邊欄 */
+        /* 魔法側邊欄 - 優化版本 */
         .magic-sidebar {
             position: fixed;
             top: 50%;
@@ -783,7 +693,7 @@
         }
 
         .sidebar-content {
-            width: 200px;
+            width: 220px;
             background: white;
             padding: 20px;
             border-radius: 15px 0 0 15px;
@@ -829,6 +739,7 @@
             border-radius: 12px;
             transition: all 0.3s;
             margin-bottom: 10px;
+            min-height: 60px;
         }
 
         .sidebar-app:hover {
@@ -841,11 +752,13 @@
             height: 40px;
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            flex-shrink: 0;
         }
 
         .sidebar-app-info {
             flex-grow: 1;
             text-align: left;
+            overflow: hidden;
         }
 
         .sidebar-app-name {
@@ -853,6 +766,9 @@
             font-weight: bold;
             color: var(--primary);
             margin-bottom: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .sidebar-app-download {
@@ -861,6 +777,9 @@
             display: flex;
             align-items: center;
             gap: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         /* 響應式設計 */
@@ -940,7 +859,7 @@
             }
             
             .sidebar-content {
-                width: 180px;
+                width: 200px;
             }
             
             .app-links {
@@ -1180,6 +1099,98 @@
             line-height: 1.6;
             flex-grow: 1;
         }
+
+        /* 貼圖系列區 - 優化版本 */
+        .stickers-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #FFF8F1 0%, #FFE8E8 100%);
+            border-radius: 25px;
+            margin: 50px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+
+        .stickers-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.03"><path d="M30,30 Q50,10 70,30 T90,50 T70,70 T50,90 T30,70 T10,50 T30,30 Z" fill="%23E91E63"/></svg>');
+            background-size: 80px 80px;
+        }
+
+        .stickers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .sticker-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(233, 30, 99, 0.2);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .sticker-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px var(--shadow);
+        }
+
+        .sticker-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .sticker-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .sticker-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .sticker-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .sticker-subtitle {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .sticker-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
     </style>
 </head>
 <body>
@@ -1194,13 +1205,6 @@
     <div class="decoration-coin" style="top: 25%; right: 10%;">🌸</div>
     <div class="decoration-crystal" style="bottom: 25%; left: 12%;">📈</div>
     <div class="decoration-crystal" style="bottom: 30%; right: 8%;">🔮</div>
-    
-    <!-- 限時優惠橫幅 -->
-    <div class="promo-banner" id="promo-banner">
-        <div class="promo-content">
-            🌟 新小主專享：免費體驗全功能3日！探索千年中醫養生智慧 🌟
-        </div>
-    </div>
     
     <div class="container">
         <!-- 頂部導航 -->
@@ -1225,30 +1229,11 @@
                 <h1 class="hero-title" id="hero-title">小主日記 - 宮廷級中醫養生</h1>
                 <p class="hero-subtitle" id="hero-subtitle">首款中醫養生 × 穴位按摩經期指南<br>融合四大中醫典籍精要，依生理週期精準對應，成為妳最貼心的生理期好閨蜜</p>
                 
-                <!-- 試用橫幅 -->
-                <div class="trial-section">
-                    <div class="trial-content">
-                        <h2 class="trial-title" id="trial-title">立即下載小主日記，解鎖所有高級功能！</h2>
-                        <p class="trial-subtitle" id="trial-subtitle">新小主專享：免費體驗全功能3日！</p>
-                        
-                        <div class="trial-features">
-                            <div class="trial-feature" id="trial-feature1">中醫日常養生指南</div>
-                            <div class="trial-feature" id="trial-feature2">情緒調適與穴位按摩</div>
-                            <div class="trial-feature" id="trial-feature3">藥膳茶飲與養生食材</div>
-                            <div class="trial-feature" id="trial-feature4">滋補湯方與週期追蹤</div>
-                            <div class="trial-feature" id="trial-feature5">四大中醫典籍精要</div>
-                            <div class="trial-feature" id="trial-feature6">宮廷級養生智慧</div>
-                        </div>
-                        
-                        <p class="trial-note" id="trial-note">立即體驗完整版！免費試用期結束後仍可繼續使用基礎功能。</p>
-                        
-                        <!-- App Store徽章 -->
-                        <div class="app-store-badge">
-                            <a href="https://apps.apple.com/app/id6752606069" target="_blank">
-                                <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store">
-                            </a>
-                        </div>
-                    </div>
+                <!-- App Store徽章 -->
+                <div class="app-store-badge">
+                    <a href="https://apps.apple.com/app/id6752606069" target="_blank">
+                        <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store">
+                    </a>
                 </div>
                 
                 <div class="hero-buttons">
@@ -1447,6 +1432,68 @@
             </div>
         </section>
 
+        <!-- 貼圖系列 -->
+        <section class="stickers-section" id="stickers">
+            <h2 class="section-title" id="stickers-title">MeowCAT 貼圖系列 - 用可愛貓咪豐富你的對話</h2>
+            <p class="section-subtitle" id="stickers-subtitle">精選三款辦公室主題貼圖，用可愛虎斑貓表情包點亮你的每一天</p>
+            <div class="stickers-grid">
+                <div class="sticker-card">
+                    <div class="sticker-header">
+                        <img src="https://raw.githubusercontent.com/Ans1lBBB/stickers/main/MeowCAT-1%20app%20icon.png" alt="MeowCAT-1: Office Paws" class="sticker-icon">
+                        <div>
+                            <h3 class="sticker-title" id="sticker1-title">MeowCAT-1: 辦公室貓爪</h3>
+                            <p class="sticker-subtitle" id="sticker1-subtitle">你的每日可愛劑量</p>
+                        </div>
+                    </div>
+                    <p class="sticker-description" id="sticker1-description">跟著MeowCAT – 辦公室系列，踏入日常混亂的辦公室生活！這款貼圖包捕捉了每位現代上班族的真實掙扎：冒雨趕早班通勤、擠進擁擠的電梯、為KPI奮戰、慶祝小小的勝利。有了這些表情豐富的MeowCAT貼圖，辦公室生活的每個瞬間都變得有趣、可愛且令人感同身受。</p>
+                    <div class="app-links">
+                        <a href="https://apps.apple.com/app/id6755613138" class="app-link" target="_blank">
+                            <i class="fas fa-download"></i> <span id="sticker1-link">下載貼圖</span>
+                        </a>
+                        <a href="https://ans1lbbb.github.io/stickers/index.html" class="app-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> <span id="sticker1-website">貼圖官網</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="sticker-card">
+                    <div class="sticker-header">
+                        <img src="https://raw.githubusercontent.com/Ans1lBBB/stickers/main/MeowCAT-2%20app%20icon.png" alt="MeowCAT-2: Corporate Meltdown" class="sticker-icon">
+                        <div>
+                            <h3 class="sticker-title" id="sticker2-title">MeowCAT-2: 職場崩潰日記</h3>
+                            <p class="sticker-subtitle" id="sticker2-subtitle">囂張不改，崩潰常來</p>
+                        </div>
+                    </div>
+                    <p class="sticker-description" id="sticker2-description">又一個令人心力交瘁的截止日期迫在眉睫。你的收件箱就像數位版的九頭蛇——每處理完一封郵件，就會冒出兩封新的。老闆的「緊急」要求已經是今天的第五個了。歡迎來到企業叢林，在這裡，唯一比股市更難以預測的，就是你活下去的意志。但是請等等！從你即將燃盡的靈魂深處，一位英雄即將登場。不，不是IT部門的同事。而是你內心深處的辦公室貓魂——牠脾氣暴躁、壓力山大，並且自帶一種十步之外就能讓牛奶變酸的強大氣場。</p>
+                    <div class="app-links">
+                        <a href="https://apps.apple.com/app/id6755665538" class="app-link" target="_blank">
+                            <i class="fas fa-download"></i> <span id="sticker2-link">下載貼圖</span>
+                        </a>
+                        <a href="https://ans1lbbb.github.io/stickers/index.html" class="app-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> <span id="sticker2-website">貼圖官網</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="sticker-card">
+                    <div class="sticker-header">
+                        <img src="https://raw.githubusercontent.com/Ans1lBBB/stickers/main/MeowCAT-3%20app%20icon.png" alt="MeowCAT-3: Cubicle Tails" class="sticker-icon">
+                        <div>
+                            <h3 class="sticker-title" id="sticker3-title">MeowCAT-3: 隔間喵趣</h3>
+                            <p class="sticker-subtitle" id="sticker3-subtitle">用一聲喵，說一切</p>
+                        </div>
+                    </div>
+                    <p class="sticker-description" id="sticker3-description">每個辦公隔間裡，都有說不完的故事。無盡的會議、迫在眉睫的截止日、專案完成的喜悅，以及對更多咖啡的無聲渴望...但，如果你的辦公桌旁，有一群毛茸茸的夥伴呢？想像一下：一隻聰明的貓咪在漫長的會議中偷偷翻個白眼；一個慵懶的下午，睏倦的小貓在你的鍵盤邊蜷縮成一團；或是用一個熱情的「擊掌」來慶祝團隊的成功。</p>
+                    <div class="app-links">
+                        <a href="https://apps.apple.com/app/id6755676294" class="app-link" target="_blank">
+                            <i class="fas fa-download"></i> <span id="sticker3-link">下載貼圖</span>
+                        </a>
+                        <a href="https://ans1lbbb.github.io/stickers/index.html" class="app-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> <span id="sticker3-website">貼圖官網</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 聯絡我們 -->
         <section class="contact-section" id="contact">
             <h2 class="section-title" id="contact-title">聯絡我們</h2>
@@ -1479,6 +1526,10 @@
             <a href="#classics" class="nav-link">
                 <i class="fas fa-book-medical nav-icon"></i>
                 <span class="nav-text" id="nav-classics">中醫典籍</span>
+            </a>
+            <a href="#stickers" class="nav-link">
+                <i class="fas fa-cat nav-icon"></i>
+                <span class="nav-text" id="nav-stickers">貼圖系列</span>
             </a>
             <a href="#apps" class="nav-link">
                 <i class="fas fa-th-large nav-icon"></i>
@@ -1526,6 +1577,33 @@
                     </div>
                 </div>
             </a>
+            <a href="https://apps.apple.com/app/id6755613138" class="sidebar-app" target="_blank">
+                <img src="https://raw.githubusercontent.com/Ans1lBBB/stickers/main/MeowCAT-1%20app%20icon.png" alt="MeowCAT-1" class="sidebar-app-icon">
+                <div class="sidebar-app-info">
+                    <div class="sidebar-app-name">MeowCAT-1</div>
+                    <div class="sidebar-app-download">
+                        <i class="fas fa-download"></i> <span id="sidebar-download4">下載貼圖</span>
+                    </div>
+                </div>
+            </a>
+            <a href="https://apps.apple.com/app/id6755665538" class="sidebar-app" target="_blank">
+                <img src="https://raw.githubusercontent.com/Ans1lBBB/stickers/main/MeowCAT-2%20app%20icon.png" alt="MeowCAT-2" class="sidebar-app-icon">
+                <div class="sidebar-app-info">
+                    <div class="sidebar-app-name">MeowCAT-2</div>
+                    <div class="sidebar-app-download">
+                        <i class="fas fa-download"></i> <span id="sidebar-download5">下載貼圖</span>
+                    </div>
+                </div>
+            </a>
+            <a href="https://apps.apple.com/app/id6755676294" class="sidebar-app" target="_blank">
+                <img src="https://raw.githubusercontent.com/Ans1lBBB/stickers/main/MeowCAT-3%20app%20icon.png" alt="MeowCAT-3" class="sidebar-app-icon">
+                <div class="sidebar-app-info">
+                    <div class="sidebar-app-name">MeowCAT-3</div>
+                    <div class="sidebar-app-download">
+                        <i class="fas fa-download"></i> <span id="sidebar-download6">下載貼圖</span>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
 
@@ -1533,32 +1611,16 @@
         // 完整的五國語言翻譯對象
         const translations = {
             zh_tw: {
-                // 限時優惠橫幅
-                "promo-banner": "🌟 新小主專享：免費體驗全功能3日！探索千年中醫養生智慧 🌟",
-                
-                // 試用橫幅
-                "trial-title": "立即下載小主日記，解鎖所有高級功能！",
-                "trial-subtitle": "新小主專享：免費體驗全功能3日！",
-                "trial-note": "立即體驗完整版！免費試用期結束後仍可繼續使用基礎功能。",
-                
-                // 試用功能點
-                "trial-feature1": "中醫日常養生指南",
-                "trial-feature2": "情緒調適與穴位按摩",
-                "trial-feature3": "藥膳茶飲與養生食材",
-                "trial-feature4": "滋補湯方與週期追蹤",
-                "trial-feature5": "四大中醫典籍精要",
-                "trial-feature6": "宮廷級養生智慧",
-                
                 // 導航欄
                 "nav-features": "功能特色",
                 "nav-classics": "中醫典籍",
+                "nav-stickers": "貼圖系列",
                 "nav-apps": "其他應用",
                 "nav-contact": "聯絡我們",
                 
                 // 英雄區域
                 "hero-title": "小主日記 - 宮廷級中醫養生",
                 "hero-subtitle": "首款中醫養生 × 穴位按摩經期指南<br>融合四大中醫典籍精要，依生理週期精準對應，成為妳最貼心的生理期好閨蜜",
-                "download-btn": "立即下載",
                 "learn-more-btn": "了解更多功能",
                 
                 // 功能特色
@@ -1614,6 +1676,25 @@
                 "disclaimer-section-li5": "我們重視您的隱私，所有健康數據僅存儲於您的設備中，不會上傳至伺服器",
                 "disclaimer-section-p2": "使用本應用程式即表示您已閱讀並同意以上免責聲明內容。願天下女子皆得自在，祝您使用愉快！🌸",
                 
+                // 貼圖系列
+                "stickers-title": "MeowCAT 貼圖系列 - 用可愛貓咪豐富你的對話",
+                "stickers-subtitle": "精選三款辦公室主題貼圖，用可愛虎斑貓表情包點亮你的每一天",
+                "sticker1-title": "MeowCAT-1: 辦公室貓爪",
+                "sticker1-subtitle": "你的每日可愛劑量",
+                "sticker1-description": "跟著MeowCAT – 辦公室系列，踏入日常混亂的辦公室生活！這款貼圖包捕捉了每位現代上班族的真實掙扎：冒雨趕早班通勤、擠進擁擠的電梯、為KPI奮戰、慶祝小小的勝利。有了這些表情豐富的MeowCAT貼圖，辦公室生活的每個瞬間都變得有趣、可愛且令人感同身受。",
+                "sticker1-link": "下載貼圖",
+                "sticker1-website": "貼圖官網",
+                "sticker2-title": "MeowCAT-2: 職場崩潰日記",
+                "sticker2-subtitle": "囂張不改，崩潰常來",
+                "sticker2-description": "又一個令人心力交瘁的截止日期迫在眉睫。你的收件箱就像數位版的九頭蛇——每處理完一封郵件，就會冒出兩封新的。老闆的「緊急」要求已經是今天的第五個了。歡迎來到企業叢林，在這裡，唯一比股市更難以預測的，就是你活下去的意志。但是請等等！從你即將燃盡的靈魂深處，一位英雄即將登場。不，不是IT部門的同事。而是你內心深處的辦公室貓魂——牠脾氣暴躁、壓力山大，並且自帶一種十步之外就能讓牛奶變酸的強大氣場。",
+                "sticker2-link": "下載貼圖",
+                "sticker2-website": "貼圖官網",
+                "sticker3-title": "MeowCAT-3: 隔間喵趣",
+                "sticker3-subtitle": "用一聲喵，說一切",
+                "sticker3-description": "每個辦公隔間裡，都有說不完的故事。無盡的會議、迫在眉睫的截止日、專案完成的喜悅，以及對更多咖啡的無聲渴望...但，如果你的辦公桌旁，有一群毛茸茸的夥伴呢？想像一下：一隻聰明的貓咪在漫長的會議中偷偷翻個白眼；一個慵懶的下午，睏倦的小貓在你的鍵盤邊蜷縮成一團；或是用一個熱情的「擊掌」來慶祝團隊的成功。",
+                "sticker3-link": "下載貼圖",
+                "sticker3-website": "貼圖官網",
+                
                 // 其他應用
                 "other-apps-title": "其他精選應用",
                 "app1-title": "ProfitFairy",
@@ -1639,28 +1720,21 @@
                 "sidebar-download1": "下載應用",
                 "sidebar-download2": "下載應用",
                 "sidebar-download3": "下載應用",
+                "sidebar-download4": "下載貼圖",
+                "sidebar-download5": "下載貼圖",
+                "sidebar-download6": "下載貼圖",
                 
                 // 頁腳
                 "footer-text": "© 2025 小主日記 - 宮廷級中醫養生 × 生理期好閨蜜<br>融匯四大中醫典籍精要，依生理週期精準對應"
             },
             zh: {
-                "promo-banner": "🌟 新小主专享：免费体验全功能3日！探索千年中医养生智慧 🌟",
-                "trial-title": "立即下载小主日记，解锁所有高级功能！",
-                "trial-subtitle": "新小主专享：免费体验全功能3日！",
-                "trial-note": "立即体验完整版！免费试用期结束后仍可继续使用基础功能。",
-                "trial-feature1": "中医日常养生指南",
-                "trial-feature2": "情绪调适与穴位按摩",
-                "trial-feature3": "药膳茶饮与养生食材",
-                "trial-feature4": "滋补汤方与周期追踪",
-                "trial-feature5": "四大中医典籍精要",
-                "trial-feature6": "宫廷级养生智慧",
                 "nav-features": "功能特色",
                 "nav-classics": "中医典籍",
+                "nav-stickers": "贴图系列",
                 "nav-apps": "其他应用",
                 "nav-contact": "联系我们",
                 "hero-title": "小主日记 - 宫廷级中医养生",
                 "hero-subtitle": "首款中医养生 × 穴位按摩经期指南<br>融合四大中医典籍精要，依生理周期精准对应，成为您最贴心的生理期好闺蜜",
-                "download-btn": "立即下载",
                 "learn-more-btn": "了解更多功能",
                 "features-title": "宫廷级养生智慧，专为现代小主量身定制",
                 "feature1-title": "周期智慧导览",
@@ -1705,6 +1779,23 @@
                 "disclaimer-section-li4": "应用程式中的周期预测与养生建议仅供参考，实际生理状况可能因个人体质而有所不同",
                 "disclaimer-section-li5": "我们重视您的隐私，所有健康数据仅存储于您的设备中，不会上传至服务器",
                 "disclaimer-section-p2": "使用本应用程式即表示您已阅读并同意以上免责声明内容。愿天下女子皆得自在，祝您使用愉快！🌸",
+                "stickers-title": "MeowCAT 贴图系列 - 用可爱猫咪丰富你的对话",
+                "stickers-subtitle": "精选三款办公室主题贴图，用可爱虎斑猫表情包点亮你的每一天",
+                "sticker1-title": "MeowCAT-1: 办公室猫爪",
+                "sticker1-subtitle": "你的每日可爱剂量",
+                "sticker1-description": "跟着MeowCAT – 办公室系列，踏入日常混乱的办公室生活！这款贴图包捕捉了每位现代上班族的真实挣扎：冒雨赶早班通勤、挤进拥挤的电梯、为KPI奋战、庆祝小小的胜利。有了这些表情丰富的MeowCAT贴图，办公室生活的每个瞬间都变得有趣、可爱且令人感同身受。",
+                "sticker1-link": "下载贴图",
+                "sticker1-website": "贴图官网",
+                "sticker2-title": "MeowCAT-2: 职场崩溃日记",
+                "sticker2-subtitle": "嚣张不改，崩溃常来",
+                "sticker2-description": "又一个令人心力交瘁的截止日期迫在眉睫。你的收件箱就像数位版的九头蛇——每处理完一封邮件，就会冒出两封新的。老板的「紧急」要求已经是今天的第五个了。欢迎来到企业丛林，在这里，唯一比股市更难以预测的，就是你活下去的意志。但是请等等！从你即将燃尽的灵魂深处，一位英雄即将登场。不，不是IT部门的同事。而是你内心深处的办公室猫魂——牠脾气暴躁、压力山大，并且自带一种十步之外就能让牛奶变酸的强大气场。",
+                "sticker2-link": "下载贴图",
+                "sticker2-website": "贴图官网",
+                "sticker3-title": "MeowCAT-3: 隔间喵趣",
+                "sticker3-subtitle": "用一声喵，说一切",
+                "sticker3-description": "每个办公隔间里，都有说不完的故事。无尽的会议、迫在眉睫的截止日、专案完成的喜悦，以及对更多咖啡的无声渴望...但，如果你的办公桌旁，有一群毛茸茸的伙伴呢？想像一下：一只聪明的猫咪在漫长的会议中偷偷翻个白眼；一个慵懒的下午，困倦的小猫在你的键盘边蜷缩成一团；或是用一个热情的「击掌」来庆祝团队的成功。",
+                "sticker3-link": "下载贴图",
+                "sticker3-website": "贴图官网",
                 "other-apps-title": "其他精选应用",
                 "app1-title": "ProfitFairy",
                 "app1-subtitle": "利润精算师",
@@ -1725,26 +1816,19 @@
                 "sidebar-download1": "下载应用",
                 "sidebar-download2": "下载应用",
                 "sidebar-download3": "下载应用",
+                "sidebar-download4": "下载贴图",
+                "sidebar-download5": "下载贴图",
+                "sidebar-download6": "下载贴图",
                 "footer-text": "© 2025 小主日记 - 宫廷级中医养生 × 生理期好闺蜜<br>融汇四大中医典籍精要，依生理周期精准对应"
             },
             en: {
-                "promo-banner": "🌟 New User Exclusive: Free 3-Day Full Feature Trial! Explore Millennia of TCM Wellness Wisdom 🌟",
-                "trial-title": "Download RubyDays Now, Unlock All Premium Features!",
-                "trial-subtitle": "New User Exclusive: Free 3-Day Full Feature Trial!",
-                "trial-note": "Experience the full version now! You can continue using basic features after the free trial period ends.",
-                "trial-feature1": "TCM Daily Wellness Guide",
-                "trial-feature2": "Emotional Regulation & Acupressure",
-                "trial-feature3": "Medicinal Teas & Wellness Ingredients",
-                "trial-feature4": "Nourishing Soups & Cycle Tracking",
-                "trial-feature5": "Four Major TCM Classics Essence",
-                "trial-feature6": "Royal-Grade Wellness Wisdom",
                 "nav-features": "Features",
                 "nav-classics": "TCM Classics",
+                "nav-stickers": "Stickers",
                 "nav-apps": "Other Apps",
                 "nav-contact": "Contact Us",
                 "hero-title": "RubyDays - Royal-Grade TCM Wellness",
                 "hero-subtitle": "The First TCM Wellness × Acupressure Period Guide<br>Integrating Four Major TCM Classics Essence, Precisely Corresponding to Menstrual Cycle, Becoming Your Most Caring Period Bestie",
-                "download-btn": "Download Now",
                 "learn-more-btn": "Learn More Features",
                 "features-title": "Royal-Grade Wellness Wisdom, Tailored for Modern Ladies",
                 "feature1-title": "Cycle Wisdom Navigation",
@@ -1789,6 +1873,23 @@
                 "disclaimer-section-li4": "Cycle predictions and wellness suggestions in the application are for reference only, actual physiological conditions may vary depending on individual constitution",
                 "disclaimer-section-li5": "We value your privacy, all health data is stored only on your device and will not be uploaded to servers",
                 "disclaimer-section-p2": "Using this application means you have read and agreed to the above disclaimer content. Wishing all women find ease and freedom, wishing you a pleasant experience! 🌸",
+                "stickers-title": "MeowCAT Sticker Series - Enrich Your Conversations with Cute Cats",
+                "stickers-subtitle": "Three office-themed sticker packs featuring adorable tabby cats to brighten your day",
+                "sticker1-title": "MeowCAT-1: Office Paws",
+                "sticker1-subtitle": "Your Daily Dose of Cuteness",
+                "sticker1-description": "Step into the everyday chaos of office life with MeowCAT – Office Series! This sticker pack captures the real struggles of every modern worker: rushing through rainy morning commutes, squeezing into crowded elevators, fighting KPI battles, and celebrating small victories. Every moment of office life becomes fun, cute, and painfully relatable with these expressive MeowCAT stickers.",
+                "sticker1-link": "Download Stickers",
+                "sticker1-website": "Sticker Website",
+                "sticker2-title": "MeowCAT-2: Corporate Meltdown",
+                "sticker2-subtitle": "Sassy & Stressed-out",
+                "sticker2-description": "Another soul-crushing deadline looms. Your inbox is a digital hydra—for every email you slay, two more appear. Your boss's 'urgent' request is the fifth today. Welcome to the corporate jungle, where the only thing more unpredictable than the stock market is your will to live. But wait! From the depths of your burning-out soul, a hero emerges. No, it's not the IT guy. It's your inner office cat—sassy, stressed-out, and armed with an attitude that could curdle milk from ten paces.",
+                "sticker2-link": "Download Stickers",
+                "sticker2-website": "Sticker Website",
+                "sticker3-title": "MeowCAT-3: Cubicle Tails",
+                "sticker3-subtitle": "Say It with a Meow",
+                "sticker3-description": "Every cubicle has its untold story. The endless meetings, the looming deadlines, the joy of a project finally done, and the silent plea for more coffee... But what if your workspace was shared with a few furry friends? Imagine a clever cat subtly rolling its eyes during a long presentation. A sleepy kitten curled up next your keyboard on a slow afternoon. An enthusiastic 'paw-bump' to celebrate a team success.",
+                "sticker3-link": "Download Stickers",
+                "sticker3-website": "Sticker Website",
                 "other-apps-title": "Other Selected Apps",
                 "app1-title": "ProfitFairy",
                 "app1-subtitle": "Profit Calculator",
@@ -1809,26 +1910,19 @@
                 "sidebar-download1": "Download App",
                 "sidebar-download2": "Download App",
                 "sidebar-download3": "Download App",
+                "sidebar-download4": "Download Stickers",
+                "sidebar-download5": "Download Stickers",
+                "sidebar-download6": "Download Stickers",
                 "footer-text": "© 2025 RubyDays - Royal-Grade TCM Wellness × Your Period Bestie<br>Integrating Four Major TCM Classics Essence, Precisely Corresponding to Menstrual Cycle"
             },
             ja: {
-                "promo-banner": "🌟 新規ユーザー限定：全機能3日間無料体験！千年の中医養生知恵を探索 🌟",
-                "trial-title": "今すぐ姫様ダイアリーをダウンロード、全機能をアンロック！",
-                "trial-subtitle": "新規ユーザー限定：全機能3日間無料体験！",
-                "trial-note": "今すぐ完全版を体験！無料体験期間終了後も基本機能は引き続きご利用いただけます。",
-                "trial-feature1": "中医日常養生ガイド",
-                "trial-feature2": "情緒調節とツボ押し",
-                "trial-feature3": "薬膳茶飲と養生食材",
-                "trial-feature4": "滋養スープと周期追跡",
-                "trial-feature5": "四大中医典籍の精髄",
-                "trial-feature6": "宮廷級養生知恵",
                 "nav-features": "機能特徴",
                 "nav-classics": "中医典籍",
+                "nav-stickers": "ステッカー",
                 "nav-apps": "他のアプリ",
                 "nav-contact": "お問い合わせ",
                 "hero-title": "姫様ダイアリー - 宮廷級中医養生",
                 "hero-subtitle": "初の中医養生 × ツボ押し生理ガイド<br>四大中医典籍の精髄を融合し、生理周期に精密に対応し、あなたの一番の生理の親友になります",
-                "download-btn": "今すぐダウンロード",
                 "learn-more-btn": "機能詳細を見る",
                 "features-title": "宮廷級養生知恵、現代の姫様のために量身定制",
                 "feature1-title": "周期知恵ナビゲーション",
@@ -1873,6 +1967,23 @@
                 "disclaimer-section-li4": "アプリケーション内の周期予測と養生提案は参考までであり、実際の生理状況は個人の体質によって異なる場合があります",
                 "disclaimer-section-li5": "私たちはあなたのプライバシーを重視し、すべての健康データはあなたのデバイス内にのみ保存され、サーバーにアップロードされることはありません",
                 "disclaimer-section-p2": "本アプリケーションを使用することは、上記の免責事項内容を読み同意したことを意味します。天下の女子が皆自在を得られますように、ご利用をお楽しみください！🌸",
+                "stickers-title": "MeowCAT ステッカーシリーズ - 可愛い猫で会話を豊かに",
+                "stickers-subtitle": "オフィスをテーマにした3種類のステッカーで、愛らしいトラ猫があなたの毎日を明るくします",
+                "sticker1-title": "MeowCAT-1: オフィスネコ",
+                "sticker1-subtitle": "あなたの毎日の可愛さの摂取量",
+                "sticker1-description": "MeowCAT – オフィスシリーズで、日常の混沌としたオフィスライフに足を踏み入れましょう！このステッカーパックは、現代の働く人々の本当の苦闘を捉えています：雨の朝の通勤を急ぐ、混雑したエレベーターに詰め込まれる、KPIとの戦い、小さな勝利を祝う。これらの表現豊かなMeowCATステッカーで、オフィスライフのすべての瞬間が楽しく、可愛く、痛いほど共感できるものになります。",
+                "sticker1-link": "ステッカーをダウンロード",
+                "sticker1-website": "ステッカー公式サイト",
+                "sticker2-title": "MeowCAT-2: 社畜のメンタル爆破",
+                "sticker2-subtitle": "ツンデレ&脳筋破裂",
+                "sticker2-description": "また一つ、魂を押しつぶすような締め切りが迫っている。受信箱はデジタルハイドラのようだ——1通のメールを処理しても、さらに2通が現れる。上司の「至急」の依頼は今日5回目だし、コーヒーマシンもついに寿命だ。企業というジャングルへようこそ。ここでは、株式市場よりも予測不能なのは、あなたの生きる意志だけだ。しかし待て！燃え尽きそうな魂の奥底から、ヒーローが現れる。いいえ、IT担当のあの人ではない。あなたの内なるオフィス猫——生意気で、ストレスが溜まりまくり、十歩先からミルクを凝固させられるような強気な態度を備えている。",
+                "sticker2-link": "ステッカーをダウンロード",
+                "sticker2-website": "ステッカー公式サイト",
+                "sticker3-title": "MeowCAT-3: 業務にゃん",
+                "sticker3-subtitle": "鳴き声で、伝えよう",
+                "sticker3-description": "ひとつひとつのオフィスブースには、語られない物語があります。終わりのない会議、迫りくる締め切り、プロジェクト完了の喜び、そしてもっとコーヒーが欲しいという無言の願い...でも、もしあなたの職場に、数匹の毛茸な友達がいたらどうでしょう？長いプレゼンテーション中に、賢い猫がこっそり白目をむいている様子を想像してみてください。のんびりした午後、キーボードの横で眠たそうに丸くなる子猫。チームの成功を祝う、熱心な「肉球ハイタッチ」。",
+                "sticker3-link": "ステッカーをダウンロード",
+                "sticker3-website": "ステッカー公式サイト",
                 "other-apps-title": "他の精選アプリ",
                 "app1-title": "ProfitFairy",
                 "app1-subtitle": "利益計算士",
@@ -1893,26 +2004,19 @@
                 "sidebar-download1": "アプリをダウンロード",
                 "sidebar-download2": "アプリをダウンロード",
                 "sidebar-download3": "アプリをダウンロード",
+                "sidebar-download4": "ステッカーをダウンロード",
+                "sidebar-download5": "ステッカーをダウンロード",
+                "sidebar-download6": "ステッカーをダウンロード",
                 "footer-text": "© 2025 姫様ダイアリー - 宮廷級中医養生 × 生理の親友<br>四大中医典籍の精髄を融合し、生理周期に精密に対応"
             },
             ko: {
-                "promo-banner": "🌟 신규 사용자 전용: 전체 기능 3일 무료 체험! 천년 중의학 건강 지혜 탐험 🌟",
-                "trial-title": "지금 바로 공주님 다이어리 다운로드, 모든 고급 기능 해제!",
-                "trial-subtitle": "신규 사용자 전용: 전체 기능 3일 무료 체험!",
-                "trial-note": "지금 바로 전체 버전을 체험하세요! 무료 체험 기간 종료 후에도 기본 기능은 계속 사용 가능합니다.",
-                "trial-feature1": "중의학 일상 건강 가이드",
-                "trial-feature2": "정서 조절과 경혈 마사지",
-                "trial-feature3": "약선 차와 건강 식재료",
-                "trial-feature4": "보양 스프와 주기 추적",
-                "trial-feature5": "4대 중의학 고전 정수",
-                "trial-feature6": "궁중급 건강 지혜",
                 "nav-features": "기능 특징",
                 "nav-classics": "중의학 고전",
+                "nav-stickers": "스티커",
                 "nav-apps": "다른 앱",
                 "nav-contact": "문의하기",
                 "hero-title": "공주님 다이어리 - 궁중급 중의학 건강",
                 "hero-subtitle": "최초의 중의학 건강 × 경혈 마사지 생리 가이드<br>4대 중의학 고전 정수를 융합하여 생리 주기에 정밀하게 대응하며, 당신의 가장 친한 생리기 절친이 되어드립니다",
-                "download-btn": "지금 다운로드",
                 "learn-more-btn": "기능 더 알아보기",
                 "features-title": "궁중급 건강 지혜, 현대 공주님을 위해量身定制",
                 "feature1-title": "주기 지혜 내비게이션",
@@ -1957,6 +2061,23 @@
                 "disclaimer-section-li4": "애플리케이션 내 주기 예측과 건강 제안은 참고용이며 실제 생리 상태는 개인 체질에 따라 다를 수 있습니다",
                 "disclaimer-section-li5": "우리는 여러분의 개인정보를 소중히 여기며 모든 건강 데이터는 여러분의 기기 내에만 저장되고 서버로 업로드되지 않습니다",
                 "disclaimer-section-p2": "본 애플리케이션을 사용함은 위의 면책 조항 내용을 읽고 동의한 것으로 간주됩니다. 천하의 여자가 모두 자재를 얻길 바라며 즐거운 사용 되세요! 🌸",
+                "stickers-title": "MeowCAT 스티커 시리즈 - 귀여운 고양이로 대화를 풍부하게",
+                "stickers-subtitle": "사무실 테마의 세 가지 스티커 팩으로 사랑스러운 얼룩고양이가 여러분의 하루를 밝혀드립니다",
+                "sticker1-title": "MeowCAT-1: 사무실 고양이",
+                "sticker1-subtitle": "당신의 매일 매력 복용량",
+                "sticker1-description": "MeowCAT – 오피스 시리즈와 함께 일상적인 혼란스러운 사무실 생활로 들어가세요! 이 스티커 팩은 모든 현대 직장인의 실제 고군분투를 포착합니다: 비오는 아침 출퇴근길 서두르기, 혼잡한 엘리베이터에 쑤셔넣기, KPI 전투, 작은 승리 축하하기. 이러한 표현력이 풍부한 MeowCAT 스티커로 사무실 생활의 모든 순간이 재미있고, 귀엽고, 고통스러울 정도로 공감 가는 것이 됩니다.",
+                "sticker1-link": "스티커 다운로드",
+                "sticker1-website": "스티커 공식 웹사이트",
+                "sticker2-title": "MeowCAT-2: 회사 괴롭힘 실태",
+                "sticker2-subtitle": "삐졌음 스트레스 폭발함",
+                "sticker2-description": "또 다른 영혼을 으스러뜨리는 마감 시간이 다가옵니다. 여러분의 수신함은 디지털 히드라와 같습니다——이메일 하나를 처리할 때마다 두 개의 새로운 이메일이 나타납니다. 상사의 '긴급' 요청은 오늘만 다섯 번째고, 커피 머신은 결국 수명을 다했습니다. 기업 정글에 오신 것을 환영합니다. 여기서 주식 시장보다 예측할 수 없는 유일한 것은 여러분의 생존 의지뿐입니다. 하지만 기다려 보세요! 여러분의 번아웃 직전의 영혼 깊은 곳에서 영웅이 등장합니다. 아닙니다, IT 담당자가 아닙니다. 그것은 여러분 내면의 오피스 고양이——건방지고, 스트레스 가득하며, 열 걸음 밖에서도 우를 응고시킬 수 있는 태도를 가진 영웅입니다.",
+                "sticker2-link": "스티커 다운로드",
+                "sticker2-website": "스티커 공식 웹사이트",
+                "sticker3-title": "MeowCAT-3: 사무실 야옹이",
+                "sticker3-subtitle": "야옹으로 전해요",
+                "sticker3-description": "모든 사무실 칸막이에는 전하지 못한 이야기가 있습니다. 끝없는 회의, 코앞으로 다가온 마감일, 프로젝트가 마침내 끝난 기쁨, 그리고 더 많은 커피에 대한 침묵의 간청... 하지만 여러분의 작업 공간에 털복숭이 친구들이 함께 한다면 어떨까요? 긴 프레젠테이션 도중 영리한 고양이가 슬쩍 눈을 굴리는 모습을 상상해 보세요. 느릿한 오후, 키보드 옆에 졸린 고양이가 웅크리고 있는 모습. 팀의 성공을 축하하는 열정적인 '포옹 하이파이브'.",
+                "sticker3-link": "스티커 다운로드",
+                "sticker3-website": "스티커 공식 웹사이트",
                 "other-apps-title": "다른 추천 앱",
                 "app1-title": "ProfitFairy",
                 "app1-subtitle": "이익 정산사",
@@ -1977,6 +2098,9 @@
                 "sidebar-download1": "앱 다운로드",
                 "sidebar-download2": "앱 다운로드",
                 "sidebar-download3": "앱 다운로드",
+                "sidebar-download4": "스티커 다운로드",
+                "sidebar-download5": "스티커 다운로드",
+                "sidebar-download6": "스티커 다운로드",
                 "footer-text": "© 2025 공주님 다이어리 - 궁중급 중의학 건강 × 너의 생리기 절친<br>4대 중의학 고전 정수를 융합하여 생리 주기에 정밀하게 대응"
             }
         };
