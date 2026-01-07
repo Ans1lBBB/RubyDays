@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>小主日記 - 隱私權聲明</title>
-    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+TC:wght@400;500;700&family=Noto+Serif+SC:wght@400;500;700&family=Playfair+Display:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&family=Noto+Serif+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>RubyDays 隱私政策</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #FFB6C1;
-            --secondary: #FFC8DD;
-            --accent: #CDB4DB;
-            --text: #6D6875;
-            --light-bg: #FFF0F5;
-            --card-bg: #FFFFFF;
-            --shadow: rgba(255, 182, 193, 0.2);
+            --primary: #FF6B93;
+            --primary-light: #FFB8C9;
+            --primary-lighter: #FFE6ED;
+            --secondary: #FF9E7D;
+            --accent: #FFB3C6;
+            --accent-light: #FFD7E2;
+            --text: #6D4A6E;
+            --text-light: #A885A9;
+            --bg: #FFF9FB;
+            --card: #FFFFFF;
+            --gradient: linear-gradient(135deg, #FF6B93 0%, #FF9E7D 50%, #FFB3C6 100%);
+            --gradient-light: linear-gradient(135deg, #FFE6ED 0%, #FFE0D6 50%, #FFEBF0 100%);
+            --shadow: 0 10px 40px rgba(255, 107, 147, 0.15);
+            --radius: 20px;
         }
 
         * {
@@ -24,175 +31,260 @@
         }
 
         body {
-            line-height: 1.7;
-            background: linear-gradient(135deg, #FFF0F5 0%, #F8F8FF 100%);
+            font-family: 'Inter', 'Noto Sans TC', 'Noto Sans SC', sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg);
             color: var(--text);
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
         }
 
-        /* 字型設定 */
-        body:lang(zh-TW) {
-            font-family: 'Noto Serif TC', serif;
-        }
-        body:lang(zh) {
-            font-family: 'Noto Serif SC', serif;
-        }
-        body:lang(en) {
-            font-family: 'Playfair Display', serif;
-        }
-        body:lang(ja) {
-            font-family: 'Noto Serif JP', serif;
-        }
-        body:lang(ko) {
-            font-family: 'Noto Serif KR', serif;
+        body:lang(zh-TW) { font-family: 'Noto Sans TC', 'Inter', sans-serif; }
+        body:lang(zh) { font-family: 'Noto Sans SC', 'Inter', sans-serif; }
+        body:lang(en) { font-family: 'Inter', sans-serif; }
+        body:lang(ja) { font-family: 'Inter', sans-serif; }
+        body:lang(ko) { font-family: 'Inter', sans-serif; }
+
+        /* 背景裝飾元素 */
+        .bg-decoration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
         }
 
-        .floating-element {
+        .floating-heart {
             position: absolute;
-            z-index: 0;
-            opacity: 0.1;
+            color: var(--primary-light);
+            font-size: 24px;
+            opacity: 0.2;
+            animation: float 20s infinite linear;
         }
 
-        .floating-element-1 {
-            top: 10%;
-            left: 5%;
-            font-size: 60px;
-            animation: float 6s ease-in-out infinite;
+        .floating-heart:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+        .floating-heart:nth-child(2) { top: 20%; right: 8%; animation-delay: 3s; }
+        .floating-heart:nth-child(3) { bottom: 30%; left: 10%; animation-delay: 6s; }
+        .floating-heart:nth-child(4) { bottom: 20%; right: 5%; animation-delay: 9s; }
+        .floating-heart:nth-child(5) { top: 50%; left: 15%; animation-delay: 12s; }
+
+        .floating-petal {
+            position: absolute;
+            color: var(--accent-light);
+            font-size: 18px;
+            opacity: 0.15;
+            animation: float 25s infinite linear reverse;
         }
 
-        .floating-element-2 {
-            top: 15%;
-            right: 8%;
-            font-size: 45px;
-            animation: float 7s ease-in-out infinite 1s;
-        }
-
-        .floating-element-3 {
-            bottom: 20%;
-            left: 7%;
-            font-size: 50px;
-            animation: float 5s ease-in-out infinite 0.5s;
-        }
-
-        .floating-element-4 {
-            bottom: 15%;
-            right: 5%;
-            font-size: 55px;
-            animation: float 8s ease-in-out infinite 1.5s;
-        }
+        .floating-petal:nth-child(6) { top: 15%; left: 15%; animation-delay: 2s; }
+        .floating-petal:nth-child(7) { top: 40%; right: 15%; animation-delay: 8s; }
+        .floating-petal:nth-child(8) { bottom: 40%; left: 20%; animation-delay: 14s; }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(5deg); }
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
         }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
+        /* 浪漫氛圍背景 */
+        .romantic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(255, 182, 193, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(255, 158, 125, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 179, 198, 0.05) 0%, transparent 50%);
+            z-index: -2;
         }
 
+        /* 現代化頁首 */
         .header {
-            text-align: center;
-            padding: 40px 0 30px;
-            position: relative;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1.2rem 2rem;
+            border-bottom: 1px solid rgba(255, 107, 147, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 30px rgba(255, 107, 147, 0.08);
         }
 
-        .logo-container {
-            margin-bottom: 20px;
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
         .logo {
-            max-width: 300px;
-            height: auto;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+            height: 44px;
+            width: auto;
+            filter: drop-shadow(0 4px 12px rgba(255, 107, 147, 0.2));
         }
 
-        .header-subtitle {
-            font-family: 'Ma Shan Zheng', cursive;
-            font-size: 1.8rem;
-            color: #B76E79;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
+        .app-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.5px;
         }
 
-        .header-description {
-            font-size: 1rem;
-            color: #8C7B6D;
-            max-width: 600px;
-            margin: 0 auto 15px;
-            line-height: 1.6;
-            text-align: center;
-        }
-
-        .effective-date {
-            color: #A89B9D;
-            font-size: 0.9rem;
-            margin-top: 10px;
-            text-align: center;
-        }
-
-        .language-toggle {
+        /* 現代化語言切換 */
+        .language-switcher {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 25px 0;
+            gap: 0.5rem;
+            background: rgba(255, 107, 147, 0.05);
+            padding: 0.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 107, 147, 0.1);
         }
 
         .lang-btn {
-            padding: 8px 18px;
-            border: 2px solid var(--primary);
-            border-radius: 25px;
-            background: white;
-            color: var(--primary);
-            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 12px;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 0.4rem;
         }
 
-        .lang-btn:hover, .lang-btn.active {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px var(--shadow);
+        .lang-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--gradient);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease;
+            opacity: 0.15;
         }
 
-        .policy-container {
+        .lang-btn:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .lang-btn:hover::before {
+            width: 120%;
+            height: 120%;
+        }
+
+        .lang-btn.active {
+            background: var(--card);
+            color: var(--primary);
+            box-shadow: 0 4px 15px rgba(255, 107, 147, 0.2);
+        }
+
+        .lang-btn i {
+            font-size: 0.9rem;
+        }
+
+        /* 主內容區域 */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem 4rem;
+        }
+
+        /* 標題區域 */
+        .title-section {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            padding: 0 1rem;
+            position: relative;
+        }
+
+        .title-section h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        .title-section .subtitle {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .title-decoration {
+            position: absolute;
+            top: -20px;
+            right: 10%;
+            font-size: 2rem;
+            color: var(--primary-light);
+            opacity: 0.5;
+        }
+
+        .update-info {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(255, 107, 147, 0.08);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            margin-top: 2rem;
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 107, 147, 0.15);
+        }
+
+        .update-info i {
+            font-size: 0.9rem;
+        }
+
+        /* 政策卡片 */
+        .policy-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .policy-container {
-                grid-template-columns: 1fr;
-            }
+            gap: 1.8rem;
         }
 
         .policy-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-            transition: all 0.3s;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 246, 248, 0.9) 100%);
+            border-radius: var(--radius);
+            padding: 2.2rem;
+            box-shadow: var(--shadow);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 182, 193, 0.2);
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255, 182, 193, 0.2);
-            text-align: left;
-        }
-
-        .policy-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px var(--shadow);
+            backdrop-filter: blur(10px);
         }
 
         .policy-card::before {
@@ -200,358 +292,510 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            width: 6px;
+            height: 100%;
+            background: var(--gradient);
         }
 
-        h2 {
-            color: #B76E79;
-            font-size: 1.4rem;
-            margin: 0 0 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-align: center;
-            justify-content: center;
-        }
-
-        h2 i {
-            font-size: 1.6rem;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 182, 193, 0.15);
-            border-radius: 50%;
-        }
-
-        p {
-            font-size: 1rem;
-            margin: 15px 0;
-            text-align: justify;
-        }
-
-        .highlight {
-            color: #B76E79;
-            font-weight: bold;
-            margin: 20px auto;
-            padding: 15px 20px;
-            background: #FFF0F5;
-            border-radius: 15px;
-            display: block;
-            text-align: center;
-            border: 1px solid #FFD1DC;
-            position: relative;
-            max-width: 80%;
-        }
-
-        .highlight::before {
-            content: '✨';
-            margin-right: 8px;
-        }
-
-        ul {
-            padding-left: 20px;
-            margin: 15px 0;
-        }
-        
-        li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 10px;
-        }
-        
-        li::before {
-            content: '🌸';
-            margin-right: 8px;
-        }
-        
-        .disclaimer-box {
-            background: #FFF8F8;
-            border: 1px solid #FFD1DC;
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
-            position: relative;
-            text-align: center;
-        }
-        
-        .disclaimer-box::before {
-            content: '💖';
-            position: absolute;
-            top: -12px;
-            left: 20px;
-            background: white;
-            padding: 0 10px;
-            font-size: 1.2rem;
-        }
-
-        .contact-section {
-            grid-column: 1 / -1;
-            text-align: center;
-            background: linear-gradient(135deg, #FFF0F5 0%, #F0F8FF 100%);
-            padding: 40px;
-            border-radius: 20px;
-            margin-top: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .contact-section::before {
+        .policy-card::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.05"><path d="M30,30 Q50,10 70,30 T90,50 T70,70 T50,90 T30,70 T10,50 T30,30 Z" fill="%23B76E79"/></svg>');
-            background-size: 80px 80px;
+            background: var(--gradient-light);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .policy-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(255, 107, 147, 0.25);
+        }
+
+        .policy-card:hover::after {
+            opacity: 0.3;
+        }
+
+        .policy-card h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+        }
+
+        .policy-card h2 i {
+            font-size: 1.3rem;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 107, 147, 0.1);
+            border-radius: 12px;
+            color: var(--primary);
+        }
+
+        .policy-card p {
+            color: var(--text);
+            margin-bottom: 1.2rem;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .policy-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 1.5rem 0;
+        }
+
+        .policy-card li {
+            padding: 0.6rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text);
+            font-size: 0.98rem;
+        }
+
+        .policy-card li::before {
+            content: '🌸';
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+
+        .highlight-box {
+            background: rgba(255, 107, 147, 0.07);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1.8rem 0;
+            border-radius: 0 12px 12px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-light);
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .highlight-box strong {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .disclaimer-box {
+            background: rgba(255, 158, 125, 0.08);
+            border: 1px solid rgba(255, 158, 125, 0.25);
+            padding: 1.7rem;
+            margin: 1.8rem 0;
+            border-radius: 16px;
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+
+        .disclaimer-box::before {
+            content: '💖';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: var(--card);
+            padding: 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .disclaimer-box strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* 聯絡區塊 */
+        .contact-section {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, rgba(255, 107, 147, 0.08) 0%, rgba(255, 158, 125, 0.08) 100%);
+            border-radius: var(--radius);
+            padding: 3.5rem;
+            text-align: center;
+            margin-top: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 182, 193, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: var(--gradient);
+            border-radius: 50%;
+            opacity: 0.1;
+            filter: blur(40px);
+        }
+
+        .contact-section h2 {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-section p {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .contact-button {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 15px 30px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            gap: 0.9rem;
+            padding: 1.1rem 2.2rem;
+            background: var(--gradient);
             color: white;
-            border-radius: 30px;
             text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(183, 110, 121, 0.3);
-            margin-top: 15px;
+            border-radius: 16px;
+            font-weight: 600;
+            margin-top: 1.8rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 30px rgba(255, 107, 147, 0.35);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .contact-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #FF9E7D 0%, #FF6B93 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .contact-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(183, 110, 121, 0.4);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 107, 147, 0.5);
         }
 
+        .contact-button:hover::before {
+            opacity: 1;
+        }
+
+        .contact-button span, .contact-button i {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 頁尾 */
         .footer {
             text-align: center;
-            margin-top: 50px;
-            color: #A89B9D;
+            padding: 3rem 2rem;
+            color: var(--text-light);
             font-size: 0.9rem;
-            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-top: 1px solid rgba(255, 182, 193, 0.2);
+            backdrop-filter: blur(10px);
         }
 
-        /* 可爱侧边栏 - 重新设计 */
-        .cute-sidebar {
-            position: fixed;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-            z-index: 999;
+        .footer-links {
             display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-        }
-
-        .sidebar-tab {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 50% 0 0 50%;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.3rem;
-            cursor: pointer;
-            box-shadow: -3px 0 10px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-            margin-bottom: 10px;
+            gap: 2.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
         }
 
-        .sidebar-tab:hover {
-            transform: scale(1.1);
-        }
-
-        .sidebar-content {
-            width: 200px;
-            background: white;
-            padding: 20px;
-            border-radius: 15px 0 0 15px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            border-right: 4px solid var(--primary);
-            display: none;
-            text-align: center;
-        }
-
-        .sidebar-content.show {
-            display: block;
-            animation: slideIn 0.3s ease-out;
-        }
-
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        .sidebar-content h3 {
-            color: var(--primary);
-            font-size: 1.1rem;
-            margin: 0 0 10px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .sidebar-content p {
-            color: #666;
-            font-size: 0.85rem;
-            margin-bottom: 15px;
-        }
-
-        .sidebar-link {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--text);
+        .footer-links a {
+            color: var(--text-light);
             text-decoration: none;
-            padding: 10px 12px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 12px;
-            transition: all 0.3s;
-            margin-bottom: 10px;
+            background: rgba(255, 107, 147, 0.05);
+            border: 1px solid rgba(255, 107, 147, 0.1);
         }
 
-        .sidebar-link:hover {
-            background: #FFF0F5;
-            transform: translateX(-3px);
-        }
-
-        .sidebar-link i {
+        .footer-links a:hover {
             color: var(--primary);
-            font-size: 1.2rem;
-            width: 24px;
-            text-align: center;
+            background: rgba(255, 107, 147, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 107, 147, 0.15);
         }
 
-        /* 响应式调整 */
+        .footer-links a i {
+            font-size: 1rem;
+        }
+
+        /* 返回按鈕 */
+        .back-to-home {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--card) 0%, var(--primary-lighter) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(255, 107, 147, 0.25);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 100;
+            border: 1px solid rgba(255, 182, 193, 0.3);
+        }
+
+        .back-to-home:hover {
+            transform: translateY(-6px) scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 107, 147, 0.4);
+            color: var(--primary);
+        }
+
+        .back-to-home::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--gradient);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-to-home:hover::before {
+            opacity: 0.3;
+        }
+
+        /* 動畫 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .policy-card {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .policy-card:nth-child(1) { animation-delay: 0.1s; }
+        .policy-card:nth-child(2) { animation-delay: 0.2s; }
+        .policy-card:nth-child(3) { animation-delay: 0.3s; }
+        .policy-card:nth-child(4) { animation-delay: 0.4s; }
+        .policy-card:nth-child(5) { animation-delay: 0.5s; }
+        .policy-card:nth-child(6) { animation-delay: 0.6s; }
+        .policy-card:nth-child(7) { animation-delay: 0.7s; }
+        .contact-section { animation-delay: 0.8s; }
+
+        /* 響應式設計 */
         @media (max-width: 768px) {
-            .cute-sidebar {
-                top: auto;
-                bottom: 80px;
-                transform: none;
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
             }
-            
-            .sidebar-content {
-                width: 180px;
+
+            .language-switcher {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .container {
+                padding: 2rem 1rem 3rem;
+            }
+
+            .title-section h1 {
+                font-size: 2.2rem;
+            }
+
+            .policy-card {
+                padding: 1.8rem;
+            }
+
+            .contact-section {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .back-to-home {
+                bottom: 1.5rem;
+                left: 1.5rem;
+                width: 50px;
+                height: 50px;
+            }
+
+            .footer-links {
+                gap: 1rem;
+            }
+
+            .footer-links a {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
             }
         }
 
-        /* 可爱装饰元素 */
-        .decoration-heart {
-            position: absolute;
-            color: var(--primary);
-            opacity: 0.2;
-            z-index: 0;
-            font-size: 1.5rem;
+        /* 滾動條美化 */
+        ::-webkit-scrollbar {
+            width: 10px;
         }
-        
-        .decoration-flower {
-            position: absolute;
-            color: var(--accent);
-            opacity: 0.2;
-            z-index: 0;
-            font-size: 1.3rem;
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 182, 193, 0.1);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-light);
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
         }
     </style>
 </head>
 <body>
-    <!-- 漂浮裝飾元素 -->
-    <div class="floating-element floating-element-1">🌸</div>
-    <div class="floating-element floating-element-2">💕</div>
-    <div class="floating-element floating-element-3">📜</div>
-    <div class="floating-element floating-element-4">✨</div>
+    <!-- 浪漫氛圍背景 -->
+    <div class="romantic-bg"></div>
     
-    <!-- 可爱装饰元素 -->
-    <div class="decoration-heart" style="top: 15%; left: 8%;">❤️</div>
-    <div class="decoration-heart" style="top: 25%; right: 10%;">💖</div>
-    <div class="decoration-flower" style="bottom: 25%; left: 12%;">🌼</div>
-    <div class="decoration-flower" style="bottom: 30%; right: 8%;">🌺</div>
-    
-    <div class="container">
-        <div class="header">
-            <div class="logo-container">
-                <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_logo.png" alt="小主日記" class="logo">
+    <!-- 背景裝飾元素 -->
+    <div class="bg-decoration">
+        <div class="floating-heart">❤️</div>
+        <div class="floating-heart">💕</div>
+        <div class="floating-heart">💖</div>
+        <div class="floating-heart">💗</div>
+        <div class="floating-heart">💓</div>
+        <div class="floating-petal">🌸</div>
+        <div class="floating-petal">🌺</div>
+        <div class="floating-petal">🌷</div>
+    </div>
+
+    <!-- 頁首 -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_logo.png" alt="RubyDays" class="logo">
+                <div class="app-name">RubyDays</div>
             </div>
-            <div class="header-subtitle" id="header-subtitle">老中醫月經養生手扎</div>
-            <p class="header-description" id="header-description">記錄妳的專屬生理週期，探索中醫養生智慧，陪伴每個特別的日子</p>
-            <p class="effective-date" id="effective-date">生效日期：2025年10月10日</p>
+            <div class="language-switcher">
+                <button class="lang-btn active" onclick="switchLanguage('zh_tw')"><i class="fas fa-language"></i> 繁體</button>
+                <button class="lang-btn" onclick="switchLanguage('zh')"><i class="fas fa-language"></i> 简体</button>
+                <button class="lang-btn" onclick="switchLanguage('en')"><i class="fas fa-language"></i> EN</button>
+                <button class="lang-btn" onclick="switchLanguage('ja')"><i class="fas fa-language"></i> JP</button>
+                <button class="lang-btn" onclick="switchLanguage('ko')"><i class="fas fa-language"></i> KR</button>
+            </div>
         </div>
-        
-        <div class="language-toggle">
-            <button class="lang-btn active" onclick="switchLanguage('zh_tw')"><i class="fas fa-language"></i> 繁體中文</button>
-            <button class="lang-btn" onclick="switchLanguage('zh')"><i class="fas fa-language"></i> 简体中文</button>
-            <button class="lang-btn" onclick="switchLanguage('en')"><i class="fas fa-language"></i> English</button>
-            <button class="lang-btn" onclick="switchLanguage('ja')"><i class="fas fa-language"></i> 日本語</button>
-            <button class="lang-btn" onclick="switchLanguage('ko')"><i class="fas fa-language"></i> 한국어</button>
+    </header>
+
+    <!-- 主內容 -->
+    <main class="container">
+        <div class="title-section">
+            <div class="title-decoration">🌸</div>
+            <h1 id="page-title">隱私政策</h1>
+            <p class="subtitle" id="page-subtitle">保護您的隱私是我們最重要的承諾，讓您安心記錄每個重要時刻</p>
+            <div class="update-info">
+                <i class="fas fa-sync-alt"></i>
+                <span id="update-date">最後更新：2026年1月</span>
+            </div>
         </div>
 
-        <div class="policy-container">
+        <div class="policy-grid">
             <!-- 資料保護 -->
             <div class="policy-card">
                 <h2><i class="fas fa-user-shield"></i> <span id="dataProtection-title">資料保護承諾</span></h2>
-                <p id="dataProtection-text">小主日記致力於保護妳的隱私，讓妳安心記錄生理週期與養生筆記，就像一位貼心的閨蜜，默默守護著妳的小秘密～</p>
+                <p id="dataProtection-text">RubyDays 致力於保護您的隱私，讓您安心記錄生理週期與養生筆記，如同一位貼心的閨蜜，默默守護您的秘密。</p>
                 
                 <div class="disclaimer-box">
-                    <p><strong id="disclaimer-title">💝 小主請注意：</strong> <span id="disclaimer-text">本應用程式僅為個人健康記錄工具，不提供醫療診斷或治療建議。所有健康相關決策應諮詢合格醫療專業人員唷！</span></p>
+                    <p><strong id="disclaimer-title">💝 重要提醒：</strong> <span id="disclaimer-text">本應用程式僅為個人健康記錄工具，不提供醫療診斷或治療建議。健康相關決策應諮詢合格醫療專業人員。</span></p>
                 </div>
                 
-                <span class="highlight" id="dataProtection-highlight">我們對小主的承諾：</span>
+                <div class="highlight-box">
+                    <strong id="dataProtection-highlight">我們對您的承諾：</strong>
+                </div>
                 <ul id="dataProtection-list">
-                    <li>不收集個人身份識別資訊，保護妳的小秘密</li>
-                    <li>所有健康數據僅儲存於妳的設備中，就像日記本一樣私密</li>
-                    <li>不會與第三方分享妳的個人數據，只有妳知道</li>
+                    <li>不收集個人身份識別資訊，保護您的隱私</li>
+                    <li>所有健康數據僅儲存於您的設備中，如同私密日記</li>
+                    <li>不會與第三方分享您的個人數據</li>
                 </ul>
             </div>
 
             <!-- 數據收集與使用 -->
             <div class="policy-card">
                 <h2><i class="fas fa-database"></i> <span id="dataCollection-title">數據收集與使用</span></h2>
-                <p id="dataCollection-text">我們僅收集必要的匿名數據，讓小主日記變得更貼心：</p>
+                <p id="dataCollection-text">我們僅收集必要的匿名數據，讓 RubyDays 變得更貼心：</p>
                 <ul id="dataCollection-list">
-                    <li>應用程式使用統計（了解小主們最喜歡的功能）</li>
+                    <li>應用程式使用統計（了解用戶最喜歡的功能）</li>
                     <li>技術診斷資訊（確保應用程式穩定運行）</li>
-                    <li>用戶反饋與建議（聽取小主們的寶貴意見）</li>
+                    <li>用戶反饋與建議（聽取寶貴意見）</li>
                 </ul>
-                <p id="dataCollection-note">✨ 小主請放心，妳的生理週期記錄、養生筆記等敏感數據僅儲存於妳的設備中，就像私密日記一樣，不會上傳至我們的伺服器。</p>
+                <p id="dataCollection-note">✨ 請放心，您的生理週期記錄、養生筆記等敏感數據僅儲存於您的設備中，不會上傳至我們的伺服器。</p>
             </div>
 
             <!-- 數據安全 -->
             <div class="policy-card">
                 <h2><i class="fas fa-lock"></i> <span id="security-title">數據安全</span></h2>
-                <p id="security-text">我們採用多層安全措施，像守護珍寶一樣保護妳的資訊：</p>
+                <p id="security-text">我們採用多層安全措施，像守護珍寶一樣保護您的資訊：</p>
                 <ul id="security-list">
-                    <li>設備本地加密儲存，就像上了鎖的日記本</li>
+                    <li>設備本地加密儲存，如同上鎖的日記本</li>
                     <li>安全的數據傳輸（僅限匿名統計數據）</li>
                     <li>定期安全審查與更新，持續強化保護</li>
                 </ul>
-                <span class="highlight" id="security-highlight">小主的健康數據始終在妳的掌控中</span>
+                <div class="highlight-box">
+                    <strong id="security-highlight">您的健康數據始終在您的掌控中</strong>
+                </div>
             </div>
 
             <!-- 第三方服務 -->
             <div class="policy-card">
                 <h2><i class="fas fa-external-link-alt"></i> <span id="thirdParty-title">第三方服務</span></h2>
-                <p id="thirdParty-text">為了提供更好的服務，我們可能使用以下第三方小幫手：</p>
+                <p id="thirdParty-text">為了提供更好的服務，我們可能使用以下第三方服務：</p>
                 <ul id="thirdParty-list">
                     <li>應用程式分析服務（匿名使用數據）</li>
-                    <li>廣告服務（僅限免費版本，支持小主日記持續運營）</li>
-                    <li>雲端備份服務（僅當妳啟用iCloud同步時）</li>
+                    <li>雲端備份服務（僅當您啟用 iCloud 同步時）</li>
                 </ul>
-                <p id="thirdParty-note">🌸 這些服務僅接收匿名數據，無法識別小主的個人身份，請放心使用～</p>
+                <p id="thirdParty-note">🌸 這些服務僅接收匿名數據，無法識別您的個人身份，請放心使用。</p>
             </div>
 
             <!-- 兒童隱私 -->
             <div class="policy-card">
                 <h2><i class="fas fa-child"></i> <span id="childrenPrivacy-title">兒童隱私</span></h2>
-                <p id="childrenPrivacy-text">小主日記不針對13歲以下兒童設計，我們不會故意收集13歲以下兒童的個人資訊，保護每個小公主的隱私是我們的責任。</p>
-                <span class="highlight" id="childrenPrivacy-highlight">我們重視所有小主的隱私保護</span>
+                <p id="childrenPrivacy-text">RubyDays 不針對13歲以下兒童設計，我們不會故意收集13歲以下兒童的個人資訊，保護每個小公主的隱私是我們的責任。</p>
+                <div class="highlight-box">
+                    <strong id="childrenPrivacy-highlight">我們重視所有用戶的隱私保護</strong>
+                </div>
             </div>
 
             <!-- 政策更新 -->
@@ -559,195 +803,183 @@
                 <h2><i class="fas fa-sync-alt"></i> <span id="policyUpdates-title">政策更新</span></h2>
                 <p id="policyUpdates-text">為了提供更好的服務，我們可能會不定期更新本隱私權政策。更新時，我們會：</p>
                 <ul id="policyUpdates-list">
-                    <li>更新頁面頂部的生效日期</li>
-                    <li>在應用程式內溫柔提醒小主</li>
-                    <li>詳細說明重要變更內容，讓小主一目了然</li>
+                    <li>更新頁面頂部的日期</li>
+                    <li>在應用程式內通知用戶</li>
+                    <li>詳細說明重要變更內容</li>
                 </ul>
-                <span class="highlight" id="policyUpdates-highlight">請小主定期查閱本政策，保持最新資訊唷～</span>
+                <div class="highlight-box">
+                    <strong id="policyUpdates-highlight">請定期查閱本政策，保持最新資訊</strong>
+                </div>
             </div>
 
             <!-- 免責聲明 -->
             <div class="policy-card">
                 <h2><i class="fas fa-exclamation-triangle"></i> <span id="disclaimerSection-title">免責聲明</span></h2>
-                <p id="disclaimer-content">💕 小主日記僅為個人健康記錄與參考工具，不提供醫療診斷、治療建議或處方。應用程式中的中醫養生內容僅供文化與知識參考，是小主們探索傳統智慧的起點，但不能取代專業醫療建議。如有健康疑慮，請務必諮詢合格醫師，讓專業人士為妳的健康保駕護航～</p>
+                <p id="disclaimer-content">💕 RubyDays 僅為個人健康記錄與參考工具，不提供醫療診斷、治療建議或處方。應用程式中的中醫養生內容僅供文化與知識參考，是探索傳統智慧的起點，但不能取代專業醫療建議。如有健康疑慮，請務必諮詢合格醫師。</p>
             </div>
 
             <!-- 聯絡資訊 -->
             <div class="contact-section">
                 <h2><i class="fas fa-envelope"></i> <span id="contact-title">聯絡我們</span></h2>
-                <p id="contact-text">親愛的小主，如有任何關於隱私權政策的疑問，或是對小主日記有任何建議，請隨時與我們聯絡，我們很樂意為妳解答～</p>
+                <p id="contact-text">如有任何關於隱私權政策的疑問，或是對 RubyDays 有任何建議，請隨時與我們聯絡。</p>
                 <a href="mailto:ans1l@icloud.com" class="contact-button" id="contact-button">
-                    <i class="fas fa-paper-plane"></i> 聯絡開發團隊
+                    <i class="fas fa-paper-plane"></i> <span id="contact-button-text">聯絡開發團隊</span>
                 </a>
             </div>
         </div>
+    </main>
 
-        <div class="footer" id="footer">
-            © 2025 小主日記 - 老中醫月經養生手扎. 版權所有。
-        </div>
-    </div>
-
-    <!-- 可爱侧边栏 - 重新设计版 -->
-    <div class="cute-sidebar">
-        <div class="sidebar-tab" onclick="toggleSidebar()">
-            <i class="fas fa-leaf"></i>
-        </div>
-        <div class="sidebar-content" id="sidebarContent">
-            <h3><i class="fas fa-seedling"></i> <span id="sidebar-title">小主專區</span></h3>
-            <p id="sidebar-subtitle">快速導航</p>
-            <a href="https://ans1lbbb.github.io/RubyDays/index.html" class="sidebar-link" target="_blank">
-                <i class="fas fa-home"></i> <span id="sidebar-home-text">返回官網</span>
+    <!-- 頁尾 -->
+    <footer class="footer">
+        <p id="copyright">© 2025-2026 RubyDays 小主日記. 保留所有權利.</p>
+        <div class="footer-links">
+            <a href="https://apps.apple.com/app/id6752606069" target="_blank" id="download-link">
+                <i class="fas fa-download"></i> <span id="download-text">下載 App</span>
             </a>
-            <a href="https://apps.apple.com/app/id6752606069" class="sidebar-link" target="_blank">
-                <i class="fas fa-download"></i> <span id="sidebar-download-text">下載App</span>
+            <a href="https://ans1lbbb.github.io/RubyDays/index.html" target="_blank" id="home-link">
+                <i class="fas fa-home"></i> <span id="home-text">返回官網</span>
             </a>
         </div>
-    </div>
+    </footer>
+
+    <!-- 返回按鈕 -->
+    <a href="https://ans1lbbb.github.io/RubyDays/index.html" class="back-to-home" target="_blank">
+        <i class="fas fa-arrow-left"></i>
+    </a>
 
     <script>
         const translations = {
             zh_tw: {
-                pageTitle: "小主日記 - 隱私權聲明",
-                headerSubtitle: "老中醫月經養生手扎",
-                headerDescription: "記錄妳的專屬生理週期，探索中醫養生智慧，陪伴每個特別的日子",
-                effectiveDate: "生效日期：2025年10月10日",
+                pageTitle: "隱私政策",
+                pageSubtitle: "保護您的隱私是我們最重要的承諾，讓您安心記錄每個重要時刻",
+                updateDate: "最後更新：2026年1月",
                 dataProtection: {
                     title: "資料保護承諾",
-                    text: "小主日記致力於保護妳的隱私，讓妳安心記錄生理週期與養生筆記，就像一位貼心的閨蜜，默默守護著妳的小秘密～",
-                    highlight: "我們對小主的承諾：",
-                    list: ["不收集個人身份識別資訊，保護妳的小秘密", "所有健康數據僅儲存於妳的設備中，就像日記本一樣私密", "不會與第三方分享妳的個人數據，只有妳知道"]
+                    text: "RubyDays 致力於保護您的隱私，讓您安心記錄生理週期與養生筆記，如同一位貼心的閨蜜，默默守護您的秘密。",
+                    highlight: "我們對您的承諾：",
+                    list: ["不收集個人身份識別資訊，保護您的隱私", "所有健康數據僅儲存於您的設備中，如同私密日記", "不會與第三方分享您的個人數據"]
                 },
                 disclaimer: {
-                    title: "💝 小主請注意：",
-                    text: "本應用程式僅為個人健康記錄工具，不提供醫療診斷或治療建議。所有健康相關決策應諮詢合格醫療專業人員唷！"
+                    title: "💝 重要提醒：",
+                    text: "本應用程式僅為個人健康記錄工具，不提供醫療診斷或治療建議。健康相關決策應諮詢合格醫療專業人員。"
                 },
                 dataCollection: {
                     title: "數據收集與使用",
-                    text: "我們僅收集必要的匿名數據，讓小主日記變得更貼心：",
-                    list: ["應用程式使用統計（了解小主們最喜歡的功能）", "技術診斷資訊（確保應用程式穩定運行）", "用戶反饋與建議（聽取小主們的寶貴意見）"],
-                    note: "✨ 小主請放心，妳的生理週期記錄、養生筆記等敏感數據僅儲存於妳的設備中，就像私密日記一樣，不會上傳至我們的伺服器。"
+                    text: "我們僅收集必要的匿名數據，讓 RubyDays 變得更貼心：",
+                    list: ["應用程式使用統計（了解用戶最喜歡的功能）", "技術診斷資訊（確保應用程式穩定運行）", "用戶反饋與建議（聽取寶貴意見）"],
+                    note: "✨ 請放心，您的生理週期記錄、養生筆記等敏感數據僅儲存於您的設備中，不會上傳至我們的伺服器。"
                 },
                 security: {
                     title: "數據安全",
-                    text: "我們採用多層安全措施，像守護珍寶一樣保護妳的資訊：",
-                    list: ["設備本地加密儲存，就像上了鎖的日記本", "安全的數據傳輸（僅限匿名統計數據）", "定期安全審查與更新，持續強化保護"],
-                    highlight: "小主的健康數據始終在妳的掌控中"
+                    text: "我們採用多層安全措施，像守護珍寶一樣保護您的資訊：",
+                    list: ["設備本地加密儲存，如同上鎖的日記本", "安全的數據傳輸（僅限匿名統計數據）", "定期安全審查與更新，持續強化保護"],
+                    highlight: "您的健康數據始終在您的掌控中"
                 },
                 thirdParty: {
                     title: "第三方服務",
-                    text: "為了提供更好的服務，我們可能使用以下第三方小幫手：",
-                    list: ["應用程式分析服務（匿名使用數據）", "廣告服務（僅限免費版本，支持小主日記持續運營）", "雲端備份服務（僅當妳啟用iCloud同步時）"],
-                    note: "🌸 這些服務僅接收匿名數據，無法識別小主的個人身份，請放心使用～"
+                    text: "為了提供更好的服務，我們可能使用以下第三方服務：",
+                    list: ["應用程式分析服務（匿名使用數據）", "雲端備份服務（僅當您啟用 iCloud 同步時）"],
+                    note: "🌸 這些服務僅接收匿名數據，無法識別您的個人身份，請放心使用。"
                 },
                 childrenPrivacy: {
                     title: "兒童隱私",
-                    text: "小主日記不針對13歲以下兒童設計，我們不會故意收集13歲以下兒童的個人資訊，保護每個小公主的隱私是我們的責任。",
-                    highlight: "我們重視所有小主的隱私保護"
+                    text: "RubyDays 不針對13歲以下兒童設計，我們不會故意收集13歲以下兒童的個人資訊，保護每個小公主的隱私是我們的責任。",
+                    highlight: "我們重視所有用戶的隱私保護"
                 },
                 policyUpdates: {
                     title: "政策更新",
                     text: "為了提供更好的服務，我們可能會不定期更新本隱私權政策。更新時，我們會：",
-                    list: ["更新頁面頂部的生效日期", "在應用程式內溫柔提醒小主", "詳細說明重要變更內容，讓小主一目了然"],
-                    highlight: "請小主定期查閱本政策，保持最新資訊唷～"
+                    list: ["更新頁面頂部的日期", "在應用程式內通知用戶", "詳細說明重要變更內容"],
+                    highlight: "請定期查閱本政策，保持最新資訊"
                 },
                 disclaimerSection: {
                     title: "免責聲明",
-                    content: "💕 小主日記僅為個人健康記錄與參考工具，不提供醫療診斷、治療建議或處方。應用程式中的中醫養生內容僅供文化與知識參考，是小主們探索傳統智慧的起點，但不能取代專業醫療建議。如有健康疑慮，請務必諮詢合格醫師，讓專業人士為妳的健康保駕護航～"
+                    content: "💕 RubyDays 僅為個人健康記錄與參考工具，不提供醫療診斷、治療建議或處方。應用程式中的中醫養生內容僅供文化與知識參考，是探索傳統智慧的起點，但不能取代專業醫療建議。如有健康疑慮，請務必諮詢合格醫師。"
                 },
                 contact: {
                     title: "聯絡我們",
-                    text: "親愛的小主，如有任何關於隱私權政策的疑問，或是對小主日記有任何建議，請隨時與我們聯絡，我們很樂意為妳解答～",
+                    text: "如有任何關於隱私權政策的疑問，或是對 RubyDays 有任何建議，請隨時與我們聯絡。",
                     button: "聯絡開發團隊"
                 },
-                sidebar: {
-                    title: "小主專區",
-                    subtitle: "快速導航",
-                    homeText: "返回官網",
-                    downloadText: "下載App"
-                },
-                footer: "© 2025 小主日記 - 老中醫月經養生手扎. 版權所有。"
+                downloadText: "下載 App",
+                homeText: "返回官網",
+                copyright: "© 2025-2026 RubyDays 小主日記. 保留所有權利."
             },
             zh: {
-                pageTitle: "小主日记 - 隐私权声明",
-                headerSubtitle: "老中医月经养生手扎",
-                headerDescription: "记录妳的专属生理周期，探索中医养生智慧，陪伴每个特别的日子",
-                effectiveDate: "生效日期：2025年10月10日",
+                pageTitle: "隐私政策",
+                pageSubtitle: "保护您的隐私是我们最重要的承诺，让您安心记录每个重要时刻",
+                updateDate: "最后更新：2026年1月",
                 dataProtection: {
                     title: "资料保护承诺",
-                    text: "小主日记致力于保护妳的隐私，让妳安心记录生理周期与养生笔记，就像一位贴心的闺蜜，默默守护着妳的小秘密～",
-                    highlight: "我们对小主的承诺：",
-                    list: ["不收集个人身份识别信息，保护妳的小秘密", "所有健康数据仅储存于妳的设备中，就像日记本一样私密", "不会与第三方分享妳的个人数据，只有妳知道"]
+                    text: "RubyDays 致力于保护您的隐私，让您安心记录生理周期与养生笔记，如同一位贴心的闺蜜，默默守护您的秘密。",
+                    highlight: "我们对您的承诺：",
+                    list: ["不收集个人身份识别信息，保护您的隐私", "所有健康数据仅储存于您的设备中，如同私密日记", "不会与第三方分享您的个人数据"]
                 },
                 disclaimer: {
-                    title: "💝 小主请注意：",
-                    text: "本应用程式仅为个人健康记录工具，不提供医疗诊断或治疗建议。所有健康相关决策应咨询合格医疗专业人员唷！"
+                    title: "💝 重要提醒：",
+                    text: "本应用程式仅为个人健康记录工具，不提供医疗诊断或治疗建议。健康相关决策应咨询合格医疗专业人员。"
                 },
                 dataCollection: {
                     title: "数据收集与使用",
-                    text: "我们仅收集必要的匿名数据，让小主日记变得更贴心：",
-                    list: ["应用程式使用统计（了解小主们最喜欢的功能）", "技术诊断信息（确保应用程式稳定运行）", "用户反馈与建议（听取小主们的宝贵意见）"],
-                    note: "✨ 小主请放心，妳的生理周期记录、养生笔记等敏感数据仅储存于妳的设备中，就像私密日记一样，不会上传至我们的服务器。"
+                    text: "我们仅收集必要的匿名数据，让 RubyDays 变得更贴心：",
+                    list: ["应用程式使用统计（了解用户最喜欢的功能）", "技术诊断信息（确保应用程式稳定运行）", "用户反馈与建议（听取宝贵意见）"],
+                    note: "✨ 请放心，您的生理周期记录、养生笔记等敏感数据仅储存于您的设备中，不会上传至我们的服务器。"
                 },
                 security: {
                     title: "数据安全",
-                    text: "我们采用多层安全措施，像守护珍宝一样保护妳的信息：",
-                    list: ["设备本地加密储存，就像上了锁的日记本", "安全的数据传输（仅限匿名统计数据）", "定期安全审查与更新，持续强化保护"],
-                    highlight: "小主的健康数据始终在妳的掌控中"
+                    text: "我们采用多层安全措施，像守护珍宝一样保护您的信息：",
+                    list: ["设备本地加密储存，如同上锁的日记本", "安全的数据传输（仅限匿名统计数据）", "定期安全审查与更新，持续强化保护"],
+                    highlight: "您的健康数据始终在您的掌控中"
                 },
                 thirdParty: {
                     title: "第三方服务",
-                    text: "为了提供更好的服务，我们可能使用以下第三方小帮手：",
-                    list: ["应用程式分析服务（匿名使用数据）", "广告服务（仅限免费版本，支持小主日记持续运营）", "云端备份服务（仅当妳启用iCloud同步时）"],
-                    note: "🌸 这些服务仅接收匿名数据，无法识别小主的个人身份，请放心使用～"
+                    text: "为了提供更好的服务，我们可能使用以下第三方服务：",
+                    list: ["应用程式分析服务（匿名使用数据）", "云端备份服务（仅当您启用 iCloud 同步时）"],
+                    note: "🌸 这些服务仅接收匿名数据，无法识别您的个人身份，请放心使用。"
                 },
                 childrenPrivacy: {
                     title: "儿童隐私",
-                    text: "小主日记不针对13岁以下儿童设计，我们不会故意收集13岁以下儿童的个人信息，保护每个小公主的隐私是我们的责任。",
-                    highlight: "我们重视所有小主的隐私保护"
+                    text: "RubyDays 不针对13岁以下儿童设计，我们不会故意收集13岁以下儿童的个人信息，保护每个小公主的隐私是我们的责任。",
+                    highlight: "我们重视所有用户的隐私保护"
                 },
                 policyUpdates: {
                     title: "政策更新",
                     text: "为了提供更好的服务，我们可能会不定期更新本隐私权政策。更新时，我们会：",
-                    list: ["更新页面顶部的生效日期", "在应用程式内温柔提醒小主", "详细说明重要变更内容，让小主一目了然"],
-                    highlight: "请小主定期查阅本政策，保持最新资讯唷～"
+                    list: ["更新页面顶部的日期", "在应用程式内通知用户", "详细说明重要变更内容"],
+                    highlight: "请定期查阅本政策，保持最新资讯"
                 },
                 disclaimerSection: {
                     title: "免责声明",
-                    content: "💕 小主日记仅为个人健康记录与参考工具，不提供医疗诊断、治疗建议或处方。应用程式中的中医养生内容仅供文化与知识参考，是小主们探索传统智慧的起点，但不能取代专业医疗建议。如有健康疑虑，请务必咨询合格医师，让专业人士为妳的健康保驾护航～"
+                    content: "💕 RubyDays 仅为个人健康记录与参考工具，不提供医疗诊断、治疗建议或处方。应用程式中的中医养生内容仅供文化与知识参考，是探索传统智慧的起点，但不能取代专业医疗建议。如有健康疑虑，请务必咨询合格医师。"
                 },
                 contact: {
                     title: "联系我们",
-                    text: "亲爱的小主，如有任何关于隐私权政策的疑问，或是对小主日记有任何建议，请随时与我们联系，我们很乐意为妳解答～",
+                    text: "如有任何关于隐私权政策的疑问，或是对 RubyDays 有任何建议，请随时与我们联系。",
                     button: "联系开发团队"
                 },
-                sidebar: {
-                    title: "小主专区",
-                    subtitle: "快速导航",
-                    homeText: "返回官网",
-                    downloadText: "下载App"
-                },
-                footer: "© 2025 小主日记 - 老中医月经养生手扎. 版权所有。"
+                downloadText: "下载 App",
+                homeText: "返回官网",
+                copyright: "© 2025-2026 RubyDays 小主日记. 保留所有权利."
             },
             en: {
-                pageTitle: "RubyDays - Privacy Policy",
-                headerSubtitle: "Menstrual TCM Diary",
-                headerDescription: "Record your unique menstrual cycle, explore TCM wellness wisdom, and accompany every special day",
-                effectiveDate: "Effective Date: October 10, 2025",
+                pageTitle: "Privacy Policy",
+                pageSubtitle: "Protecting your privacy is our most important commitment, allowing you to securely record every important moment",
+                updateDate: "Last Updated: January 2026",
                 dataProtection: {
                     title: "Data Protection Commitment",
-                    text: "RubyDays is committed to protecting your privacy, allowing you to securely record your menstrual cycle and wellness notes, just like a thoughtful best friend quietly guarding your little secrets～",
+                    text: "RubyDays is committed to protecting your privacy, allowing you to securely record your menstrual cycle and wellness notes, just like a thoughtful best friend quietly guarding your secrets.",
                     highlight: "Our promise to you:",
-                    list: ["No collection of personally identifiable information, protecting your little secrets", "All health data stored only on your device, just like a private diary", "No sharing of your personal data with third parties, only you know"]
+                    list: ["No collection of personally identifiable information, protecting your privacy", "All health data stored only on your device, just like a private diary", "No sharing of your personal data with third parties"]
                 },
                 disclaimer: {
-                    title: "💝 Please Note:",
-                    text: "This application is only a personal health recording tool and does not provide medical diagnosis or treatment advice. All health-related decisions should be consulted with qualified medical professionals!"
+                    title: "💝 Important Note:",
+                    text: "This application is only a personal health recording tool and does not provide medical diagnosis or treatment advice. All health-related decisions should be consulted with qualified medical professionals."
                 },
                 dataCollection: {
                     title: "Data Collection and Use",
                     text: "We only collect necessary anonymous data to make RubyDays more thoughtful:",
-                    list: ["App usage statistics (understanding which features users love most)", "Technical diagnostic information (ensuring stable app operation)", "User feedback and suggestions (listening to valuable user opinions)"],
-                    note: "✨ Rest assured, your sensitive data such as menstrual cycle records and wellness notes are stored only on your device, just like a private diary, and are not uploaded to our servers."
+                    list: ["App usage statistics (understanding which features users love most)", "Technical diagnostic information (ensuring stable app operation)", "User feedback and suggestions (listening to valuable opinions)"],
+                    note: "✨ Rest assured, your sensitive data such as menstrual cycle records and wellness notes are stored only on your device and are not uploaded to our servers."
                 },
                 security: {
                     title: "Data Security",
@@ -757,9 +989,9 @@
                 },
                 thirdParty: {
                     title: "Third-Party Services",
-                    text: "To provide better service, we may use the following third-party helpers:",
-                    list: ["App analytics services (anonymous usage data)", "Advertising services (free version only, supporting RubyDays' continued operation)", "Cloud backup services (only when you enable iCloud sync)"],
-                    note: "🌸 These services only receive anonymous data and cannot identify you personally, so please use with confidence～"
+                    text: "To provide better service, we may use the following third-party services:",
+                    list: ["App analytics services (anonymous usage data)", "Cloud backup services (only when you enable iCloud sync)"],
+                    note: "🌸 These services only receive anonymous data and cannot identify you personally, so please use with confidence."
                 },
                 childrenPrivacy: {
                     title: "Children's Privacy",
@@ -769,46 +1001,41 @@
                 policyUpdates: {
                     title: "Policy Updates",
                     text: "To provide better service, we may update this privacy policy from time to time. When updating, we will:",
-                    list: ["Update the effective date at the top of the page", "Gently remind you within the app", "Explain important changes in detail, making everything clear to you"],
-                    highlight: "Please check this policy regularly to stay updated～"
+                    list: ["Update the date at the top of the page", "Notify users within the app", "Explain important changes in detail"],
+                    highlight: "Please check this policy regularly to stay updated"
                 },
                 disclaimerSection: {
                     title: "Disclaimer",
-                    content: "💕 RubyDays is only a personal health recording and reference tool, and does not provide medical diagnosis, treatment advice, or prescriptions. The TCM wellness content in the app is for cultural and knowledge reference only, serving as a starting point for exploring traditional wisdom, but cannot replace professional medical advice. If you have health concerns, please be sure to consult a qualified physician, letting professionals safeguard your health～"
+                    content: "💕 RubyDays is only a personal health recording and reference tool, and does not provide medical diagnosis, treatment advice, or prescriptions. The TCM wellness content in the app is for cultural and knowledge reference only, serving as a starting point for exploring traditional wisdom, but cannot replace professional medical advice. If you have health concerns, please consult a qualified physician."
                 },
                 contact: {
                     title: "Contact Us",
-                    text: "Dear user, if you have any questions about the privacy policy, or any suggestions for RubyDays, please feel free to contact us, we'd be happy to answer your questions～",
+                    text: "If you have any questions about the privacy policy, or any suggestions for RubyDays, please feel free to contact us.",
                     button: "Contact Development Team"
                 },
-                sidebar: {
-                    title: "Special Zone",
-                    subtitle: "Quick Navigation",
-                    homeText: "Back to Homepage",
-                    downloadText: "Download App"
-                },
-                footer: "© 2025 RubyDays - Menstrual TCM Diary. All rights reserved."
+                downloadText: "Download App",
+                homeText: "Back to Home",
+                copyright: "© 2025-2026 RubyDays. All rights reserved."
             },
             ja: {
-                pageTitle: "ルビーデイズ - プライバシーポリシー",
-                headerSubtitle: "姫様の日記｜中国中医学による月経養生手帳",
-                headerDescription: "あなただけの生理周期を記録し、中医養生の知恵を探求し、特別な日々に寄り添います",
-                effectiveDate: "発効日：2025年10月10日",
+                pageTitle: "プライバシーポリシー",
+                pageSubtitle: "あなたのプライバシーを守ることが私たちの最も重要な約束です。大切な瞬間を安心して記録できます",
+                updateDate: "最終更新：2026年1月",
                 dataProtection: {
                     title: "データ保護の約束",
-                    text: "ルビーデイズは、あなたの生理周期と健康メモを安全に記録できるよう、親友のようにあなたの小さな秘密を静かに守りながら、プライバシー保護に努めています～",
-                    highlight: "あなたへの私たちの約束：",
-                    list: ["個人を特定できる情報は収集せず、あなたの小さな秘密を保護", "すべての健康データはあなたのデバイスにのみ保存、日記のようにプライベート", "個人データを第三者と共有せず、あなただけが知っている"]
+                    text: "RubyDaysは、親友のようにあなたの秘密を静かに守りながら、生理周期と健康メモを安全に記録できるよう、プライバシー保護に努めています。",
+                    highlight: "あなたへの約束：",
+                    list: ["個人を特定できる情報は収集せず、プライバシーを保護", "すべての健康データはあなたのデバイスにのみ保存", "個人データを第三者と共有しない"]
                 },
                 disclaimer: {
-                    title: "💝 ご注意ください：",
-                    text: "このアプリケーションは個人の健康記録ツールであり、医療診断や治療アドバイスを提供するものではありません。健康に関する決定はすべて、資格のある医療専門家に相談してください！"
+                    title: "💝 重要なお知らせ：",
+                    text: "このアプリケーションは個人の健康記録ツールであり、医療診断や治療アドバイスを提供するものではありません。健康に関する決定はすべて、資格のある医療専門家に相談してください。"
                 },
                 dataCollection: {
                     title: "データの収集と使用",
-                    text: "ルビーデイズをより思いやりあるものにするために、必要な匿名データのみを収集します：",
-                    list: ["アプリの使用統計（ユーザーが最も好きな機能を理解）", "技術的診断情報（安定したアプリ運用を確保）", "ユーザーフィードバックと提案（貴重なユーザーの意見に耳を傾ける）"],
-                    note: "✨ ご安心ください、生理周期の記録や健康メモなどの機密データは、プライベートな日記のようにあなたのデバイスにのみ保存され、当社のサーバーにはアップロードされません。"
+                    text: "RubyDaysをより思いやりあるものにするために、必要な匿名データのみを収集します：",
+                    list: ["アプリの使用統計（ユーザーが最も好きな機能を理解）", "技術的診断情報（安定したアプリ運用を確保）", "ユーザーフィードバックと提案（貴重な意見に耳を傾ける）"],
+                    note: "✨ ご安心ください、生理周期の記録や健康メモなどの機密データは、あなたのデバイスにのみ保存され、当社のサーバーにはアップロードされません。"
                 },
                 security: {
                     title: "データセキュリティ",
@@ -818,58 +1045,53 @@
                 },
                 thirdParty: {
                     title: "第三者サービス",
-                    text: "より良いサービスを提供するために、以下の第三者ヘルパーを使用する場合があります：",
-                    list: ["アプリ分析サービス（匿名使用データ）", "広告サービス（無料版のみ、ルビーデイズの継続的な運営を支援）", "クラウドバックアップサービス（iCloud同期を有効にした場合のみ）"],
-                    note: "🌸 これらのサービスは匿名データのみを受信し、個人を特定することはできませんので、安心してご利用ください～"
+                    text: "より良いサービスを提供するために、以下の第三者サービスを使用する場合があります：",
+                    list: ["アプリ分析サービス（匿名使用データ）", "クラウドバックアップサービス（iCloud同期を有効にした場合のみ）"],
+                    note: "🌸 これらのサービスは匿名データのみを受信し、個人を特定することはできませんので、安心してご利用ください。"
                 },
                 childrenPrivacy: {
                     title: "子供のプライバシー",
-                    text: "ルビーデイズは13歳未満の子供向けに設計されておらず、13歳未満の子供から個人情報を故意に収集することはありません。すべての小さな王女様のプライバシーを保護することが私たちの責任です。",
+                    text: "RubyDaysは13歳未満の子供向けに設計されておらず、13歳未満の子供から個人情報を故意に収集することはありません。すべての小さな王女様のプライバシーを保護することが私たちの責任です。",
                     highlight: "すべてのユーザーのプライバシー保護を重視します"
                 },
                 policyUpdates: {
                     title: "ポリシーの更新",
                     text: "より良いサービスを提供するために、本プライバシーポリシーは随時更新される場合があります。更新時には以下を行います：",
-                    list: ["ページ上部の発効日を更新", "アプリ内で優しくお知らせ", "重要な変更点を詳細に説明し、すべてを明確に"],
-                    highlight: "最新情報を保つために、定期的に本ポリシーをご確認ください～"
+                    list: ["ページ上部の日付を更新", "アプリ内でユーザーに通知", "重要な変更点を詳細に説明"],
+                    highlight: "最新情報を保つために、定期的に本ポリシーをご確認ください"
                 },
                 disclaimerSection: {
                     title: "免責事項",
-                    content: "💕 ルビーデイズは個人の健康記録および参照ツールであり、医療診断、治療アドバイス、処方を提供するものではありません。アプリ内の中医養生コンテンツは文化および知識の参考のみを目的としており、伝統的知恵を探求する出発点となりますが、専門的な医療アドバイスの代わりにはなりません。健康上の懸念がある場合は、必ず資格のある医師に相談し、専門家にあなたの健康を見守ってもらいましょう～"
+                    content: "💕 RubyDaysは個人の健康記録および参照ツールであり、医療診断、治療アドバイス、処方を提供するものではありません。アプリ内の中医養生コンテンツは文化および知識の参考のみを目的としており、伝統的知恵を探求する出発点となりますが、専門的な医療アドバイスの代わりにはなりません。健康上の懸念がある場合は、資格のある医師に相談してください。"
                 },
                 contact: {
                     title: "お問い合わせ",
-                    text: "親愛なるユーザーの皆様、プライバシーポリシーについてご質問がある場合、またはルビーデイズに関するご提案がございましたら、お気軽にお問い合わせください。喜んでご質問にお答えします～",
+                    text: "プライバシーポリシーについてご質問がある場合、またはRubyDaysに関するご提案がございましたら、お気軽にお問い合わせください。",
                     button: "開発チームに連絡"
                 },
-                sidebar: {
-                    title: "特別ゾーン",
-                    subtitle: "クイックナビゲーション",
-                    homeText: "ホームページに戻る",
-                    downloadText: "アプリをダウンロード"
-                },
-                footer: "© 2025 ルビーデイズ - 姫様の日記｜中国中医学による月経養生手帳. 無断複写・転載を禁じます。"
+                downloadText: "アプリをダウンロード",
+                homeText: "公式サイトへ戻る",
+                copyright: "© 2025-2026 RubyDays. All rights reserved."
             },
             ko: {
-                pageTitle: "루비 데이즈 - 개인정보 처리방침",
-                headerSubtitle: "공주님 다이어리 | 중국 중의학 월경 건강 가이드",
-                headerDescription: "나만의 생리 주기를 기록하고, 중의학 건강 지혜를 탐구하며, 특별한 날을 함께 합니다",
-                effectiveDate: "시행일: 2025년 10월 10일",
+                pageTitle: "개인정보 처리방침",
+                pageSubtitle: "여러분의 개인정보를 보호하는 것이 우리의 가장 중요한 약속입니다. 중요한 순간을 안심하고 기록하세요",
+                updateDate: "마지막 업데이트: 2026년 1월",
                 dataProtection: {
                     title: "데이터 보호 약속",
-                    text: "루비 데이즈는 여러분의 생리 주기와 건강 메모를 안전하게 기록할 수 있도록, 친한 친구처럼 여러분의 작은 비밀을 조용히 지키며 개인정보 보호에 힘쓰고 있습니다～",
+                    text: "RubyDays는 친한 친구처럼 여러분의 비밀을 조용히 지키며, 생리 주기와 건강 메모를 안전하게 기록할 수 있도록 개인정보 보호에 힘쓰고 있습니다.",
                     highlight: "여러분에 대한 우리의 약속:",
-                    list: ["개인 식별 정보 수집 안 함, 여러분의 작은 비밀 보호", "모든 건강 데이터는 기기에만 저장, 일기장처럼 사적", "개인 데이터를 제3자와 공유하지 않음, 오직 여러분만이 알고 있음"]
+                    list: ["개인 식별 정보 수집 안 함, 개인정보 보호", "모든 건강 데이터는 기기에만 저장", "개인 데이터를 제3자와 공유하지 않음"]
                 },
                 disclaimer: {
-                    title: "💝 주의 사항:",
-                    text: "이 애플리케이션은 개인 건강 기록 도구일 뿐, 의학적 진단이나 치료 조언을 제공하지 않습니다. 모든 건강 관련 결정은 자격을 갖춘 의료 전문가와 상담해야 합니다!"
+                    title: "💝 중요한 참고사항:",
+                    text: "이 애플리케이션은 개인 건강 기록 도구일 뿐, 의학적 진단이나 치료 조언을 제공하지 않습니다. 모든 건강 관련 결정은 자격을 갖춘 의료 전문가와 상담해야 합니다."
                 },
                 dataCollection: {
                     title: "데이터 수집 및 사용",
-                    text: "루비 데이즈를 더 사려 깊게 만들기 위해 필요한 익명 데이터만 수집합니다:",
-                    list: ["앱 사용 통계 (사용자가 가장 좋아하는 기능 이해)", "기술 진단 정보 (안정적인 앱 운영 보장)", "사용자 피드백 및 제안 (소중한 사용자 의견 경청)"],
-                    note: "✨ 안심하세요, 생리 주기 기록, 건강 메모 등 민감한 데이터는 사적 일기장처럼 여러분의 기기에만 저장되며 당사 서버로 업로드되지 않습니다."
+                    text: "RubyDays를 더 사려 깊게 만들기 위해 필요한 익명 데이터만 수집합니다:",
+                    list: ["앱 사용 통계 (사용자가 가장 좋아하는 기능 이해)", "기술 진단 정보 (안정적인 앱 운영 보장)", "사용자 피드백 및 제안 (소중한 의견 경청)"],
+                    note: "✨ 안심하세요, 생리 주기 기록, 건강 메모 등 민감한 데이터는 여러분의 기기에만 저장되며 당사 서버로 업로드되지 않습니다."
                 },
                 security: {
                     title: "데이터 보안",
@@ -879,67 +1101,61 @@
                 },
                 thirdParty: {
                     title: "제3자 서비스",
-                    text: "더 나은 서비스를 제공하기 위해 다음 제3자 도우미를 사용할 수 있습니다:",
-                    list: ["앱 분석 서비스 (익명 사용 데이터)", "광고 서비스 (무료 버전만 해당, 루비 데이즈의 지속적 운영 지원)", "클라우드 백업 서비스 (iCloud 동기화 활성화 시만)"],
-                    note: "🌸 이러한 서비스는 익명 데이터만 수신하며 개인을 식별할 수 없으니, 안심하고 사용해 주세요～"
+                    text: "더 나은 서비스를 제공하기 위해 다음 제3자 서비스를 사용할 수 있습니다:",
+                    list: ["앱 분석 서비스 (익명 사용 데이터)", "클라우드 백업 서비스 (iCloud 동기화 활성화 시만)"],
+                    note: "🌸 이러한 서비스는 익명 데이터만 수신하며 개인을 식별할 수 없으니, 안심하고 사용해 주세요."
                 },
                 childrenPrivacy: {
                     title: "아동 개인정보 보호",
-                    text: "루비 데이즈는 13세 미만 아동을 대상으로 설계되지 않았으며, 13세 미만 아동으로부터 고의로 개인정보를 수집하지 않습니다. 모든 작은 공주님의 개인정보를 보호하는 것이 우리의 책임입니다.",
+                    text: "RubyDays는 13세 미만 아동을 대상으로 설계되지 않았으며, 13세 미만 아동으로부터 고의로 개인정보를 수집하지 않습니다. 모든 작은 공주님의 개인정보를 보호하는 것이 우리의 책임입니다.",
                     highlight: "모든 사용자의 개인정보 보호를 중시합니다"
                 },
                 policyUpdates: {
                     title: "정책 업데이트",
                     text: "더 나은 서비스를 제공하기 위해 본 개인정보 처리방침은 수시로 업데이트될 수 있습니다. 업데이트 시 다음을 수행합니다:",
-                    list: ["페이지 상단의 시행일 업데이트", "앱 내에서 부드럽게 알림", "중요 변경 사항을 자세히 설명하여 모든 것을 명확하게"],
-                    highlight: "최신 정보를 유지하려면 정기적으로 본 정책을 확인해 주세요～"
+                    list: ["페이지 상단의 날짜 업데이트", "앱 내에서 사용자에게 알림", "중요 변경 사항을 자세히 설명"],
+                    highlight: "최신 정보를 유지하려면 정기적으로 본 정책을 확인해 주세요"
                 },
                 disclaimerSection: {
                     title: "면책 조항",
-                    content: "💕 루비 데이즈는 개인 건강 기록 및 참조 도구일 뿐, 의학적 진단, 치료 조언 또는 처방을 제공하지 않습니다. 앱 내 중의학 건강 콘텐츠는 문화 및 지식 참조용으로만 제공되며, 전통적 지혜를 탐구하는 출발점이지만 전문 의학적 조언을 대체할 수 없습니다. 건강 관련 우려사항이 있는 경우 반드시 자격을 갖춘 의사와 상담하고, 전문가들이 여러분의 건강을 보호하도록 하세요～"
+                    content: "💕 RubyDays는 개인 건강 기록 및 참조 도구일 뿐, 의학적 진단, 치료 조언 또는 처방을 제공하지 않습니다. 앱 내 중의학 건강 콘텐츠는 문화 및 지식 참조용으로만 제공되며, 전통적 지혜를 탐구하는 출발점이지만 전문 의학적 조언을 대체할 수 없습니다. 건강 관련 우려사항이 있는 경우 자격을 갖춘 의사와 상담하세요."
                 },
                 contact: {
                     title: "문의하기",
-                    text: "사랑하는 사용자 여러분, 개인정보 처리방침에 대한 질문이 있거나 루비 데이즈에 대한 제안이 있으시면 언제든지 문의해 주세요. 기꺼이 질문에 답변드리겠습니다～",
+                    text: "개인정보 처리방침에 대한 질문이 있거나 RubyDays에 대한 제안이 있으시면 언제든지 문의해 주세요.",
                     button: "개발팀에 문의"
                 },
-                sidebar: {
-                    title: "특별 구역",
-                    subtitle: "빠른 탐색",
-                    homeText: "홈페이지로 돌아가기",
-                    downloadText: "앱 다운로드"
-                },
-                footer: "© 2025 루비 데이즈 - 공주님 다이어리 | 중국 중의학 월경 건강 가이드. All rights reserved."
+                downloadText: "앱 다운로드",
+                homeText: "공식 사이트로 돌아가기",
+                copyright: "© 2025-2026 RubyDays. All rights reserved."
             }
         };
 
         function switchLanguage(lang) {
             const data = translations[lang];
 
-            // 更新按鈕活躍狀態
-            document.querySelectorAll('.lang-btn').forEach(button => {
-                button.classList.remove('active');
+            // 更新語言按鈕狀態
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
             });
             event.target.classList.add('active');
 
-            // 更新通用元素
-            document.title = data.pageTitle;
-            document.getElementById("header-subtitle").textContent = data.headerSubtitle;
-            document.getElementById("header-description").textContent = data.headerDescription;
-            document.getElementById("effective-date").textContent = data.effectiveDate;
-            document.getElementById("footer").textContent = data.footer;
+            // 更新頁面元素
+            document.title = `${data.pageTitle} | RubyDays`;
+            document.getElementById('page-title').textContent = data.pageTitle;
+            document.getElementById('page-subtitle').textContent = data.pageSubtitle;
+            document.getElementById('update-date').textContent = data.updateDate;
+            document.getElementById('copyright').textContent = data.copyright;
 
             // 更新免責聲明
-            document.getElementById("disclaimer-title").textContent = data.disclaimer.title;
-            document.getElementById("disclaimer-text").textContent = data.disclaimer.text;
+            document.getElementById('disclaimer-title').textContent = data.disclaimer.title;
+            document.getElementById('disclaimer-text').textContent = data.disclaimer.text;
 
-            // 更新側邊欄
-            document.getElementById("sidebar-title").textContent = data.sidebar.title;
-            document.getElementById("sidebar-subtitle").textContent = data.sidebar.subtitle;
-            document.getElementById("sidebar-home-text").textContent = data.sidebar.homeText;
-            document.getElementById("sidebar-download-text").textContent = data.sidebar.downloadText;
+            // 更新頁尾連結文字
+            document.getElementById('download-text').textContent = data.downloadText;
+            document.getElementById('home-text').textContent = data.homeText;
 
-            // 定義所有需要更新的區塊
+            // 更新所有區塊
             const sections = [
                 'dataProtection',
                 'dataCollection',
@@ -955,13 +1171,11 @@
                 const titleElement = document.getElementById(`${section}-title`);
                 if (titleElement) titleElement.textContent = data[section].title;
 
-                // 更新主要文字
+                // 更新文字
                 const textElement = document.getElementById(`${section}-text`);
-                if (textElement) {
-                    textElement.textContent = data[section].text;
-                }
+                if (textElement) textElement.textContent = data[section].text;
 
-                // 更新列表內容
+                // 更新列表
                 const listElement = document.getElementById(`${section}-list`);
                 if (listElement && data[section].list) {
                     listElement.innerHTML = '';
@@ -972,7 +1186,7 @@
                     });
                 }
 
-                // 更新額外說明
+                // 更新附註
                 const noteElement = document.getElementById(`${section}-note`);
                 if (noteElement && data[section].note) {
                     noteElement.textContent = data[section].note;
@@ -985,33 +1199,16 @@
                 }
             });
 
-            // 更新免責聲明區塊
-            document.getElementById("disclaimerSection-title").textContent = data.disclaimerSection.title;
-            document.getElementById("disclaimer-content").textContent = data.disclaimerSection.content;
+            // 更新免責聲明區塊標題和內容
+            document.getElementById('disclaimerSection-title').textContent = data.disclaimerSection.title;
+            document.getElementById('disclaimer-content').textContent = data.disclaimerSection.content;
 
-            // 特別處理聯絡按鈕
-            document.getElementById("contact-button").textContent = data.contact.button;
-            document.getElementById("contact-text").textContent = data.contact.text;
+            // 更新聯絡按鈕
+            document.getElementById('contact-button-text').textContent = data.contact.button;
 
-            // 更新html lang屬性
+            // 更新語言屬性
             document.documentElement.lang = lang;
         }
-
-        // 側邊欄控制
-        function toggleSidebar() {
-            const sidebarContent = document.getElementById('sidebarContent');
-            sidebarContent.classList.toggle('show');
-        }
-
-        // 點擊側邊欄外部關閉側邊欄
-        document.addEventListener('click', function(event) {
-            const sidebarContent = document.getElementById('sidebarContent');
-            const sidebarTab = document.querySelector('.sidebar-tab');
-            
-            if (!sidebarContent.contains(event.target) && !sidebarTab.contains(event.target)) {
-                sidebarContent.classList.remove('show');
-            }
-        });
 
         // 初始化為繁體中文
         document.addEventListener('DOMContentLoaded', () => {
