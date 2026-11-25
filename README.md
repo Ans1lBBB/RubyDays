@@ -1,5 +1,9 @@
-# RubyDays (legacy GitHub Pages)
+# RubyDays — legacy redirect only
 
-Kept only so old App Store privacy URLs still resolve.
+Not the product website.
 
-All traffic redirects to https://www.anselbi.com/privacy
+- Official site: https://www.anselbi.com
+- Privacy: https://www.anselbi.com/privacy
+
+This repo only keeps old App Store privacy URLs working by redirecting
+`https://ans1lbbb.github.io/RubyDays/privacy.html` to anselbi.com.
